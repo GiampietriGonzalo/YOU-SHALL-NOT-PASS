@@ -1,0 +1,9 @@
+Cargar archivo 'Mapa'
+Por cada caracter C de Mapa
+ Si C = 0
+  cargar Hierba
+ Si C = 1
+  cargar TorreEnemiga
+ Si C = 2
+  cargar TorreAliada
+Fin ciclo
