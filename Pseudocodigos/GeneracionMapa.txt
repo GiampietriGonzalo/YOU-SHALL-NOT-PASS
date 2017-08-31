@@ -1,0 +1,15 @@
+Cargar archivo 'Mapa'
+Matriz M
+
+Por cada elemento de fila de M hacer
+  Por cada elemento de columna de M hacer 
+	Por cada caracter C de Mapa
+ 	   Si C = 0
+  	     cargar Hierba
+ 	   Si C = 1
+  	     cargar TorreEnemiga
+ 	   Si C = 2
+  	     cargar TorreAliada
+	Fin ciclo
+  Fin ciclo
+Fin ciclo	

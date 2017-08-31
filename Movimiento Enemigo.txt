@@ -1,0 +1,18 @@
+Mirar casillas siguiente
+ 	
+	Mientras casilla siguiente no es la base
+	
+		si hay objeto dentro del rango
+		   si el objeto tiene vida
+	     	      atacar
+	  	   sino
+		      si casilla siguiente esta libre entonces
+			avanzar
+		      sino
+	     		esperar
+		sino
+		   avanzar
+		
+		mirar casilla siguiente
+	fin ciclo
+atacar 
