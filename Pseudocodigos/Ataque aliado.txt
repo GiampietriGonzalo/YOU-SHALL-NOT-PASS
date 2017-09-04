@@ -1,0 +1,11 @@
+Pseudocódigo de ataque aliado.
+
+
+mientras no haya enemigos dentro del rango
+ Mirar casillas
+
+si hay enemigo dentro del rango
+  mientras hay enemigo dentro del rango
+     atacar
+  fin ciclo.
+fin si.	
