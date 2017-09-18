@@ -1,0 +1,11 @@
+Diseñamos una clase disparo la cual va a ser creada por un personaje y va a ir recorriendo la grilla desde donde esta el mismo mientras mira que en la celda que esta no haya algun otro objeto al cual aplicarle el efecto
+
+Mirar casilla siguiente
+
+   Mientras no encontro un objeto
+	si la casilla no tiene nada 
+		mirar casilla siguiente
+	sino
+		encontre objeto
+		aplicar efecto
+   fin mientras
