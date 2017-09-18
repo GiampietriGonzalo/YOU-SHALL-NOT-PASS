@@ -8,6 +8,10 @@ public abstract class Personaje extends GameObject {
 	protected int rango;
 	protected int daño;
 	
+	public Personaje(int x, int y){
+		super(x,y);
+	}
+	
 	public int getVida(){
 		return vida;
 	}
@@ -26,5 +30,7 @@ public abstract class Personaje extends GameObject {
 	
 	public void recibirDaño(int d){
 		vida-=d;
+		if(vida==0) morir();
 	}
+	
 }

@@ -1,35 +1,21 @@
 package GUI;
 
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-
 import java.awt.GridLayout;
-import java.awt.Point;
-import java.awt.BorderLayout;
 import java.awt.Color;
 
-import javax.swing.JPanel;
 import javax.swing.*;
-import javax.swing.JButton;
-import javax.swing.SwingConstants;
-import javax.swing.border.LineBorder;
 
 import Logica.Juego;
-import Mapa.Mapa;
 import Personajes.*;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.GridBagLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.LayoutStyle.ComponentPlacement;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class GUI {
 
@@ -37,8 +23,9 @@ public class GUI {
 	private Juego juego;
 	private JPanel panel_mapa;
 	private Aliado temporal;
-	private JLabel[][] grillaPersonajes;
+	private Enemigo temporalE;
 	private final Icon spriteHumano=new ImageIcon("humano.png");
+	private Contador contador;
 	
 	
 
@@ -62,7 +49,11 @@ public class GUI {
 	 * Create the application.
 	 */
 	public GUI() {
-		juego=new Juego();
+		
+		panel_mapa = new JPanel();
+		juego=new Juego(panel_mapa);
+		contador=new Contador(juego);
+		contador.start();
 		initialize();
 	}
 
@@ -71,7 +62,11 @@ public class GUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 800, 500);
+		temporalE=new Orco(0,0);
+		juego.colocarEnemigo(temporalE, 0, 0);
+					
+					
+		frame.setBounds(100, 100, 868, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		JPanel panel_personajes = new JPanel();
 		panel_personajes.setBounds(10, 406, 640, 44);
@@ -80,7 +75,7 @@ public class GUI {
 		JButton btnHumano = new JButton("Humano");
 		btnHumano.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				temporal=new Humano();
+				temporal=new Humano(0,0);
 			}
 		});
 		panel_personajes.add(btnHumano);
@@ -88,7 +83,7 @@ public class GUI {
 		JButton btnElfo = new JButton("Elfo");
 		btnElfo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				temporal=new Elfo();
+				temporal=new Elfo(0,0);
 			}
 		});
 		panel_personajes.add(btnElfo);
@@ -111,7 +106,7 @@ public class GUI {
 		btnTienda.setHorizontalAlignment(SwingConstants.RIGHT);
 		panel_1.add(btnTienda);
 		
-		panel_mapa = new JPanel();
+		
 		panel_mapa.setLocation(10, 11);
 		panel_mapa.setSize(juego.getMapa().getAnch()*64,juego.getMapa().getAlt()*64);
 		panel_mapa.setBackground(Color.WHITE);
@@ -121,14 +116,9 @@ public class GUI {
 					if(temporal!=null) {
 					int x=e.getX()-e.getX() % 64;
 					int y=e.getY()-e.getY() % 64;
-					juego.colocarPersonaje(temporal, e.getX()/64,e.getY()/64 );
-					
-					JLabel bicho=new JLabel();
-					panel_mapa.add(bicho);
-					bicho.setBackground(temporal.getColor());
-					bicho.setBounds(x, y, 64, 64);
-					bicho.setVisible(true);
-					bicho.setOpaque(true);
+					temporal.setX(x);
+					temporal.setY(y);
+					juego.colocarAliado(temporal, e.getX()/64,e.getY()/64 );
 					temporal=null;
 				}
 			}
@@ -141,6 +131,10 @@ public class GUI {
 		frame.getContentPane().add(panel_personajes);
 		frame.getContentPane().add(panel_1);
 		frame.getContentPane().add(panel_mapa);
+		
+		JLabel lblGandalf = new JLabel("");
+		lblGandalf.setIcon(new ImageIcon(this.getClass().getResource("/GUI/you-shall-not-pass.jpg")));
+		lblGandalf.setBounds(660, 87, 226, 348);
+		frame.getContentPane().add(lblGandalf);
 	}
-	
 }

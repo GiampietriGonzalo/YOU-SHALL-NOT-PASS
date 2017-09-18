@@ -1,6 +1,8 @@
 package Logica;
 
-import java.awt.Point;
+import java.util.LinkedList;
+
+import javax.swing.JPanel;
 
 import GUI.GUI;
 import Mapa.Mapa;
@@ -13,14 +15,19 @@ public class Juego {
 	private int vidaJugador;
 	private int puntosJuego;
 	private int monedasJuego;
-	private Enemigo enemigos[];
-	private Aliado aliados[];
+	private LinkedList<Enemigo> enemigos;
+	private LinkedList<Aliado> aliados;
+	private LinkedList<GameObject> todos;
 	private Mapa mapa;
 	private int nivel;
-	private GUI gui;
+	private JPanel panelMapa;
 	
-	public Juego() {
+	public Juego(JPanel panel_Mapa) {
+		this.panelMapa=panel_Mapa;
 		mapa=new Mapa(10,6);
+		aliados=new LinkedList<Aliado>();
+		enemigos=new LinkedList<Enemigo>();
+		todos=new LinkedList<GameObject>();
 		nivel=1;
 		puntosJuego=0;
 		monedasJuego=50;
@@ -56,8 +63,36 @@ public class Juego {
 		return mapa;
 	}
 	
-	public void colocarPersonaje(Personaje j,int x, int y){
-		mapa.agregarPersonaje(j,x,y);
-		
+	public void colocarAliado(Aliado j,int x, int y){
+		if(mapa.getObject(x, y)==null){
+			mapa.agregarPersonaje(j,x,y);
+			todos.add(j);
+			aliados.add(j);
+			panelMapa.add(j.getGrafico());
+			restarMonedas(j.getPrecioAliado());
+			j.getGrafico().setOpaque(true);
+			panelMapa.repaint();
+		}
+	}
+	public void colocarEnemigo(Enemigo j,int x, int y){
+			mapa.agregarPersonaje(j,x,y);
+			todos.add(j);
+			enemigos.add(j);
+			panelMapa.add(j.getGrafico());
+			j.getGrafico().setOpaque(true);
+	}
+	public void venderPersonaje(Aliado j,int x, int y){
+		j.morir();
+		aliados.remove(j);
+	}
+	
+	public void actualizar(){
+		for(Enemigo e:enemigos){
+			if(e.estaVivo())
+				e.mover();
+			else
+				panelMapa.remove(e.getGrafico());
+		}
+		panelMapa.repaint();
 	}
 }

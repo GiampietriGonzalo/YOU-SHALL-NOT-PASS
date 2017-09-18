@@ -1,7 +1,6 @@
 package Mapa;
 
-import java.awt.Point;
-
+import Logica.GameObject;
 import Personajes.Personaje;
 
 public class Mapa {
@@ -25,6 +24,14 @@ public class Mapa {
 	}
 	
 	public void agregarPersonaje(Personaje j,int x, int y){
-		grilla[x][y].setElement(j,x,y);
+		grilla[x][y].setElement(j);
+	}
+	
+	public void eliminarPersonaje(Personaje j,int x, int y){
+		grilla[x][y].setElement(null);
+	}
+	
+	public GameObject getObject(int x, int y){
+		return grilla[x][y].getElement();
 	}
 }
