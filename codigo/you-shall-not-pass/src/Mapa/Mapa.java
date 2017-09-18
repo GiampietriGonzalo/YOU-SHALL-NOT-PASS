@@ -9,6 +9,11 @@ public class Mapa {
 	
 	public Mapa(int x, int y){
 		grilla=new Celda[x][y];
+		for(int i=0;i<grilla.length;i++){
+			for(int j=0;j<grilla[0].length;j++){
+				grilla[i][j]=new Celda();
+			}
+		}
 	}
 	
 	public int getAlt(){
@@ -20,6 +25,6 @@ public class Mapa {
 	}
 	
 	public void agregarPersonaje(Personaje j,int x, int y){
-		grilla[x][y].setElement(j);
+		grilla[x][y].setElement(j,x,y);
 	}
 }

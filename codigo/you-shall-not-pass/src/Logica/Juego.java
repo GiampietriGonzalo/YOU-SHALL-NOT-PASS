@@ -19,8 +19,7 @@ public class Juego {
 	private int nivel;
 	private GUI gui;
 	
-	public Juego(GUI g) {
-		gui=g;
+	public Juego() {
 		mapa=new Mapa(10,6);
 		nivel=1;
 		puntosJuego=0;

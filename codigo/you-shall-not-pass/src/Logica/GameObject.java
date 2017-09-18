@@ -5,11 +5,10 @@ import javax.swing.ImageIcon;
 public abstract class GameObject extends Thread {
 	protected int x;
 	protected int y;
-	protected ImageIcon img;
-	
+	protected ImageIcon sprite;
 	
 	public ImageIcon getImg(){
-		return img;
+		return sprite;
 	}
 	
 	public int getX(){

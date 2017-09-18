@@ -27,5 +27,4 @@ public abstract class Personaje extends GameObject {
 	public void recibirDaño(int d){
 		vida-=d;
 	}
-	
 }
