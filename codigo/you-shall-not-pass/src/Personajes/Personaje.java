@@ -1,8 +1,8 @@
 package Personajes;
 
-import Logica.gameObject;
+import Logica.GameObject;
 
-public abstract class Personaje extends gameObject {
+public abstract class Personaje extends GameObject {
 
 	protected int vida;
 	protected int rango;

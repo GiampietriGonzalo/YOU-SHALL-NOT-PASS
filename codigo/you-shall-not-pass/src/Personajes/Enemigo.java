@@ -17,4 +17,6 @@ public abstract class Enemigo extends Personaje {
 	public int puntos(){
 		return puntos;
 	}
+	
+	
 }

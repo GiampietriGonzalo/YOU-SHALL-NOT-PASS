@@ -1,7 +1,12 @@
 package Logica;
 
+import java.awt.Point;
+
+import GUI.GUI;
+import Mapa.Mapa;
 import Personajes.Aliado;
 import Personajes.Enemigo;
+import Personajes.Personaje;
 
 public class Juego {
 	
@@ -10,9 +15,16 @@ public class Juego {
 	private int monedasJuego;
 	private Enemigo enemigos[];
 	private Aliado aliados[];
+	private Mapa mapa;
+	private int nivel;
+	private GUI gui;
 	
-	public Juego() {
-		// TODO Auto-generated constructor stub
+	public Juego(GUI g) {
+		gui=g;
+		mapa=new Mapa(10,6);
+		nivel=1;
+		puntosJuego=0;
+		monedasJuego=50;
 	}
 	
 	public int getVida(){
@@ -25,10 +37,6 @@ public class Juego {
 		return monedasJuego;
 	}
 	
-	/*  puse sumar y restar en vez de sets
-	*	de poner sets habria que llamarlos de la forma setVida(jugador.getVida-V);
-	*	puntos y monedas al constructor de toke
-	*/
 	public void sumarPuntos(int p){
 		puntosJuego+=p;
 	}
@@ -43,5 +51,14 @@ public class Juego {
 	
 	public void restarVida(int v){
 		vidaJugador-=v;
+	}
+	
+	public Mapa getMapa(){
+		return mapa;
+	}
+	
+	public void colocarPersonaje(Personaje j,int x, int y){
+		mapa.agregarPersonaje(j,x,y);
+		
 	}
 }

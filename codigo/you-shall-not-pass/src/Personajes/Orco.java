@@ -1,5 +1,5 @@
 package Personajes;
 
-public class Orco extends Enemigo{
+public class Orco extends Enemigo {
 
 }

@@ -1,11 +1,14 @@
 package Logica;
 
-public abstract class gameObject {
+import javax.swing.ImageIcon;
+
+public abstract class GameObject extends Thread {
 	protected int x;
 	protected int y;
-	protected String img;
+	protected ImageIcon img;
 	
-	public String getImg(){
+	
+	public ImageIcon getImg(){
 		return img;
 	}
 	
