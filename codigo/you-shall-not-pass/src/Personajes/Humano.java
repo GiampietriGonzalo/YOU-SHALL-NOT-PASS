@@ -9,8 +9,8 @@ public class Humano extends Aliado {
 		precioAliado=10;
 		rango=1;
 		vida=50;
-		daño=12;
-		//sprite=new ImageIcon("C:/Users/Tomás/Pictures/ProyectoTDP/humano.png");
+		daÃ±o=12;
+		//sprite=new ImageIcon("C:/Users/Tomï¿½s/Pictures/ProyectoTDP/humano.png");
 		vive=true;
 		color=Color.cyan;
 		grafico=new JLabel();
