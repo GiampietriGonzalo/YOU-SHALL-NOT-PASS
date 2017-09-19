@@ -14,8 +14,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 
 
 public class GUI {
@@ -25,7 +23,6 @@ public class GUI {
 	private JPanel panel_mapa;
 	private Aliado temporal;
 	private Enemigo temporalE;
-	private final Icon spriteHumano=new ImageIcon("humano.png");
 	private Contador contador;
 	
 	
