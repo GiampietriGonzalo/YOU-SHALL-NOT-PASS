@@ -6,7 +6,7 @@ public abstract class Personaje extends GameObject {
 
 	protected int vida;
 	protected int rango;
-	protected int daño;
+	protected int damage;
 	
 	public Personaje(int x, int y){
 		super(x,y);
@@ -20,15 +20,15 @@ public abstract class Personaje extends GameObject {
 		return rango;
 	}
 	
-	public int getDaño(){
-		return daño;
+	public int getDamage(){
+		return damage;
 	}
 	
 	public void atacar(){
 		//rellenar cuando se me ocurra algo
 	}
 	
-	public void recibirDaño(int d){
+	public void recibirDamage(int d){
 		vida-=d;
 		if(vida==0) morir();
 	}

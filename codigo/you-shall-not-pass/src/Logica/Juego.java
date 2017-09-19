@@ -4,11 +4,9 @@ import java.util.LinkedList;
 
 import javax.swing.JPanel;
 
-import GUI.GUI;
 import Mapa.Mapa;
 import Personajes.Aliado;
 import Personajes.Enemigo;
-import Personajes.Personaje;
 
 public class Juego {
 	

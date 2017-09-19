@@ -12,7 +12,7 @@ public class Elfo extends Aliado {
 		precioAliado=10;
 		rango=3;
 		vida=70;
-		daño=18;
+		damage=18;
 		sprite=new ImageIcon("C:/Users/Tom�s/Pictures/ProyectoTDP/humano.png");
 		color=Color.GREEN;
 		grafico=new JLabel();
