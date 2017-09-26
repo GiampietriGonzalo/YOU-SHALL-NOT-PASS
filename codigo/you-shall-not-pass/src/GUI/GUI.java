@@ -1,44 +1,39 @@
 package GUI;
 
-import java.awt.EventQueue;
-import java.awt.GridLayout;
-import java.awt.Color;
-
+//Importaciones
+import java.awt.*;
 import javax.swing.*;
-
 import Logica.Juego;
 import Personajes.*;
-
-import java.awt.FlowLayout;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 
 
-public class GUI {
+//MI RAMA
+public class GUI extends JFrame{
 
 	private JFrame frame;
 	private Juego juego;
 	private JPanel panel_mapa;
 	private Aliado temporal;
 	private Enemigo temporalE;
+	private final Icon spriteHumano=new ImageIcon("humano.png");
 	private Contador contador;
 	
 	
 
 	/**
-	 * Launch the application.
+	 * Inicializa la GUI y ejecuta la aplicación.
 	 */
 	public static void main(String[] args) {
+		
 		try {
 			GUI window = new GUI();
 			window.frame.setVisible(true);
-		} catch (Exception e) {e.printStackTrace();}
+				} catch (Exception e) {e.printStackTrace();}
 	}
 
 	/**
-	 * Create the application.
+	 * Constructor de la GUI.
 	 */
 	public GUI() {
 		
@@ -50,7 +45,7 @@ public class GUI {
 	}
 
 	/**
-	 * Initialize the contents of the frame.
+	 * Crea el contenido de la GUI.
 	 */
 	private void initialize() {
 		frame = new JFrame();
@@ -64,20 +59,14 @@ public class GUI {
 		panel_personajes.setBounds(10, 406, 640, 44);
 		panel_personajes.setLayout(new GridLayout(0, 5, 0, 0));
 		
+		ActionListener oyenteBtnHumano= new oyenteBotonesCrear();
 		JButton btnHumano = new JButton("Humano");
-		btnHumano.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				temporal=new Humano(0,0);
-			}
-		});
+		btnHumano.addActionListener(oyenteBtnHumano);
 		panel_personajes.add(btnHumano);
 		
+		ActionListener oyenteBtnElfo= new oyenteBotonesCrear(); 
 		JButton btnElfo = new JButton("Elfo");
-		btnElfo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				temporal=new Elfo(0,0);
-			}
-		});
+		btnElfo.addActionListener(oyenteBtnElfo);
 		panel_personajes.add(btnElfo);
 		
 		JButton btnHobbit = new JButton("Hobbit");
@@ -89,39 +78,29 @@ public class GUI {
 		JButton btnMago = new JButton("Mago");
 		panel_personajes.add(btnMago);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(687, 26, 75, 33);
-		FlowLayout flowLayout = (FlowLayout) panel_1.getLayout();
+		JPanel panel_tienda = new JPanel();
+		panel_tienda.setBounds(687, 26, 75, 33);
+		FlowLayout flowLayout = (FlowLayout) panel_tienda.getLayout();
 		flowLayout.setAlignment(FlowLayout.RIGHT);
 		
 		JButton btnTienda = new JButton("Tienda");
 		btnTienda.setHorizontalAlignment(SwingConstants.RIGHT);
-		panel_1.add(btnTienda);
+		panel_tienda.add(btnTienda);
 		
 		
+		oyenteMouse oyenteM= new oyenteMouse();
 		panel_mapa.setLocation(10, 11);
 		panel_mapa.setSize(juego.getMapa().getAnch()*64,juego.getMapa().getAlt()*64);
 		panel_mapa.setBackground(Color.WHITE);
-		panel_mapa.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-					if(temporal!=null) {
-					int x=e.getX()-e.getX() % 64;
-					int y=e.getY()-e.getY() % 64;
-					temporal.setX(x);
-					temporal.setY(y);
-					juego.colocarAliado(temporal, e.getX()/64,e.getY()/64 );
-					temporal=null;
-				}
-			}
-		});
+		panel_mapa.addMouseListener(oyenteM);
+		
 		
 		panel_mapa.setLayout(null);
 		panel_mapa.setBorder(null);
 		panel_mapa.setVisible(true);
 		frame.getContentPane().setLayout(null);
 		frame.getContentPane().add(panel_personajes);
-		frame.getContentPane().add(panel_1);
+		frame.getContentPane().add(panel_tienda);
 		frame.getContentPane().add(panel_mapa);
 		
 		JLabel lblGandalf = new JLabel("");
@@ -129,4 +108,42 @@ public class GUI {
 		lblGandalf.setBounds(660, 87, 226, 348);
 		frame.getContentPane().add(lblGandalf);
 	}
+	
+	
+	
+	//OYENTES
+	public class oyenteBotonesCrear implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+		
+			JButton aux=(JButton) e.getSource();
+			
+			switch (aux.getText()) {
+			
+			case "Elfo":{
+				temporal=new Elfo(0,0); break;
+				}
+			case "Humano":{
+				temporal=new Humano(0,0); break;
+				}
+			//COMPLETAR CON EL RESTO DE LAS RAZAS
+			
+			}
+			
+		}
+	}
+	
+	public class oyenteMouse extends MouseAdapter{
+		
+		public void mouseClicked(MouseEvent e) {
+			if(temporal!=null) {
+				int x=e.getX()-e.getX() % 64;
+				int y=e.getY()-e.getY() % 64;
+				temporal.setX(x);
+				temporal.setY(y);
+				juego.colocarAliado(temporal, e.getX()/64,e.getY()/64 );
+				temporal=null;
+			}		
+		}
+	}
+	
 }
