@@ -12,7 +12,6 @@ public class Orco extends Enemigo {
 		super(j);
 		// TODO Auto-generated constructor stub
 		vive=true;
-		velocidad=64;
 		color=Color.BLACK;
 		grafico=new JLabel();
 		grafico.setBackground(color);

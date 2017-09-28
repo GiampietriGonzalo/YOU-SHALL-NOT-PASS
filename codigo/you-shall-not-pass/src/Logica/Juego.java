@@ -82,22 +82,14 @@ public class Juego {
 	public void venderPersonaje(Aliado j,int x, int y){
 		j.morir();
 		aliados.remove(j);
-		monedasJuego+=j.getPrecioAliado()/2;
 	}
 	
 	public void actualizar(){
-		LinkedList<Enemigo> toDelete=new LinkedList<Enemigo>();
 		for(Enemigo e:enemigos){
 			if(e.estaVivo())
 				e.mover();
 			else
-				toDelete.add(e);
-		}
-		for(Enemigo e:toDelete){
-			enemigos.remove(e);
-			mapa.eliminarPersonaje(e,e.getX(),e.getY());
-			panelMapa.remove(e.getGrafico());
-			monedasJuego+=e.getMonedas();
+				panelMapa.remove(e.getGrafico());
 		}
 		panelMapa.repaint();
 	}
