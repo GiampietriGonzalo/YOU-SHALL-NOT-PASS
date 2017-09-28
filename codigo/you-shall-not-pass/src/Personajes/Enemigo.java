@@ -6,7 +6,6 @@ public abstract class Enemigo extends Personaje {
 	
 	public Enemigo(Juego j) {
 		super(j);
-		// TODO Auto-generated constructor stub
 	}
 	
 	protected int velocidad;
@@ -25,10 +24,9 @@ public abstract class Enemigo extends Personaje {
 		return puntos;
 	}
 	public void mover(){
-		x+=32;
-		if(x<500){
-			this.grafico.setBounds(x,y, 64, 64);
-		}
-		else morir();
+		posX+=velocidad;
+		x=posX/64;
+		this.grafico.setBounds(posX,posY, 64, 64);
+		if(x==7) morir();
 	}
 }

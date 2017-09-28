@@ -25,6 +25,8 @@ public class Mapa {
 	
 	public void agregarPersonaje(Personaje j,int x, int y){
 		grilla[x][y].setElement(j);
+		j.setX(x);
+		j.setY(y);
 	}
 	
 	public void eliminarPersonaje(Personaje j,int x, int y){

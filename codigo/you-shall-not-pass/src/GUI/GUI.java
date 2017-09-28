@@ -85,13 +85,11 @@ public class GUI extends JFrame{
 		btnTienda.setHorizontalAlignment(SwingConstants.RIGHT);
 		panel_tienda.add(btnTienda);
 		
-		
 		oyenteMouse oyenteM= new oyenteMouse();
 		panel_mapa.setLocation(10, 11);
 		panel_mapa.setSize(juego.getMapa().getAnch()*64,juego.getMapa().getAlt()*64);
 		panel_mapa.setBackground(Color.WHITE);
 		panel_mapa.addMouseListener(oyenteM);
-		
 		
 		panel_mapa.setLayout(null);
 		panel_mapa.setBorder(null);
@@ -101,10 +99,6 @@ public class GUI extends JFrame{
 		frame.getContentPane().add(panel_tienda);
 		frame.getContentPane().add(panel_mapa);
 		
-		JLabel lblGandalf = new JLabel("");
-		lblGandalf.setIcon(new ImageIcon(this.getClass().getResource("/GUI/you-shall-not-pass.jpg")));
-		lblGandalf.setBounds(660, 87, 226, 348);
-		frame.getContentPane().add(lblGandalf);
 	}
 	
 	
