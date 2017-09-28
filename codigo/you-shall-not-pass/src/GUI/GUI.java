@@ -112,10 +112,10 @@ public class GUI extends JFrame{
 			switch (aux.getText()) {
 			
 			case "Elfo":{
-				temporal=new Elfo(juego); break;
+				temporal=new Elfo(0,0,juego); break;
 				}
 			case "Humano":{
-				temporal=new Humano(juego); break;
+				temporal=new Humano(0,0,juego); break;
 				}
 			//COMPLETAR CON EL RESTO DE LAS RAZAS
 			}
@@ -128,9 +128,10 @@ public class GUI extends JFrame{
 			if(temporal!=null) {
 				int x=e.getX()-e.getX() % 64;
 				int y=e.getY()-e.getY() % 64;
-				temporal.setX(x);
-				temporal.setY(y);
-				juego.colocarAliado(temporal, e.getX()/64,e.getY()/64 );
+				temporal.setX(x/64);
+				temporal.setY(y/64);
+				temporal.setPosGrafic(x, y);
+				juego.colocarAliado(temporal,e.getX()/64,e.getY()/64 );
 				temporal=null;
 			}		
 		}

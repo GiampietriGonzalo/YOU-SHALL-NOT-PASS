@@ -39,6 +39,11 @@ public abstract class GameObject extends Thread {
 		y=Y;
 	}
 	
+	public void setPosGrafic(int x, int y){
+		posX=x;
+		posY=y;
+	}
+	
 	public boolean estaVivo(){
 		return vive;
 	}
@@ -47,7 +52,7 @@ public abstract class GameObject extends Thread {
 		vive=false;
 	}
 	public JLabel getGrafico() {
-		grafico.setBounds(x,y,64,64);
+		grafico.setBounds(posX,posY,64,64);
 		return grafico;
 	}
 }

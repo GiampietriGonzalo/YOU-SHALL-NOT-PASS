@@ -6,8 +6,10 @@ import Logica.Juego;
 
 public abstract class Aliado extends Personaje {
 	
-	public Aliado(Juego j) {
+	public Aliado(int x,int y,Juego j) {
 		super(j);
+		this.x=x;
+		this.y=y;
 		// TODO Auto-generated constructor stub
 	}
 	protected int precioAliado;
