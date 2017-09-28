@@ -4,10 +4,12 @@ import java.awt.Color;
 
 import javax.swing.JLabel;
 
+import Logica.Juego;
+
 public class Orco extends Enemigo {
 
-	public Orco(int x, int y) {
-		super(x, y);
+	public Orco(Juego j) {
+		super(j);
 		// TODO Auto-generated constructor stub
 		vive=true;
 		color=Color.BLACK;

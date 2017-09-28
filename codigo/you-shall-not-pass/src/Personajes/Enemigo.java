@@ -1,12 +1,14 @@
 package Personajes;
 
+import Logica.Juego;
+
 public abstract class Enemigo extends Personaje {
 	
-	public Enemigo(int x, int y) {
-		super(x, y);
+	public Enemigo(Juego j) {
+		super(j);
 		// TODO Auto-generated constructor stub
 	}
-
+	
 	protected int velocidad;
 	protected int monedas;
 	protected int puntos;

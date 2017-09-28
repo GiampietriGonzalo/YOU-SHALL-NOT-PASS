@@ -1,12 +1,11 @@
 package Logica;
 
 import java.awt.Color;
-import java.awt.Component;
-
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public abstract class GameObject extends Thread {
+	protected Juego juego;
 	protected int x;
 	protected int y;
 	protected ImageIcon sprite;
@@ -14,9 +13,8 @@ public abstract class GameObject extends Thread {
 	protected Color color;
 	protected JLabel grafico;
 	
-	public GameObject(int x, int y){
-		this.x=x;
-		this.y=y;
+	public GameObject(Juego j){
+		juego=j;
 		vive=true;
 	}
 	public ImageIcon getImg(){

@@ -5,10 +5,12 @@ import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import Logica.Juego;
+
 public class Elfo extends Aliado {
 	
-	public Elfo(int x, int y){
-		super(x,y);
+	public Elfo(Juego j) {
+		super(j);
 		precioAliado=10;
 		rango=3;
 		vida=70;

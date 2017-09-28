@@ -2,10 +2,12 @@ package Personajes;
 import java.awt.Color;
 
 import javax.swing.JLabel;
+
+import Logica.Juego;
 public class Humano extends Aliado {
 	
-	public Humano(int x, int y){
-		super(x,y);
+	public Humano(Juego j) {
+		super(j);
 		precioAliado=10;
 		rango=1;
 		vida=50;

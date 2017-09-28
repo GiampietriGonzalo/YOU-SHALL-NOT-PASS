@@ -2,10 +2,12 @@ package Personajes;
 
 import java.awt.Color;
 
+import Logica.Juego;
+
 public abstract class Aliado extends Personaje {
 	
-	public Aliado(int x, int y) {
-		super(x, y);
+	public Aliado(Juego j) {
+		super(j);
 		// TODO Auto-generated constructor stub
 	}
 	protected int precioAliado;

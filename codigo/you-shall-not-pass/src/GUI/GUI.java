@@ -7,8 +7,6 @@ import Logica.Juego;
 import Personajes.*;
 import java.awt.event.*;
 
-
-//MI RAMA
 public class GUI extends JFrame{
 
 	private JFrame frame;
@@ -49,7 +47,7 @@ public class GUI extends JFrame{
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		temporalE=new Orco(0,0);
+		temporalE=new Orco(juego);
 		juego.colocarEnemigo(temporalE, 0, 0);
 					
 					
@@ -120,15 +118,13 @@ public class GUI extends JFrame{
 			switch (aux.getText()) {
 			
 			case "Elfo":{
-				temporal=new Elfo(0,0); break;
+				temporal=new Elfo(juego); break;
 				}
 			case "Humano":{
-				temporal=new Humano(0,0); break;
+				temporal=new Humano(juego); break;
 				}
 			//COMPLETAR CON EL RESTO DE LAS RAZAS
-			
 			}
-			
 		}
 	}
 	
@@ -145,5 +141,4 @@ public class GUI extends JFrame{
 			}		
 		}
 	}
-	
 }
