@@ -12,6 +12,8 @@ public abstract class GameObject extends Thread {
 	protected boolean vive;
 	protected Color color;
 	protected JLabel grafico;
+	protected int posX;
+	protected int posY;
 	
 	public GameObject(Juego j){
 		juego=j;

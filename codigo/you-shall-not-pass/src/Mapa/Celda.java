@@ -4,8 +4,6 @@ import Logica.GameObject;
 
 public class Celda {
 	private GameObject element;
-	private int x;
-	private int y;
 	
 	public Celda(){
 		element=null;
