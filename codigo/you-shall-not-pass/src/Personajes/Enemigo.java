@@ -30,6 +30,6 @@ public abstract class Enemigo extends Personaje {
 		x=posX/64;
 		juego.getMapa().agregarPersonaje(this, x, y);
 		this.grafico.setBounds(posX,posY, 64, 64);
-		if(x==7) morir();
+		if(x==8) morir();
 	}
 }

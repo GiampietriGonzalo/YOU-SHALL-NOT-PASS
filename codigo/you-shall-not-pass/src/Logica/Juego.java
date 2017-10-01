@@ -74,6 +74,7 @@ public class Juego {
 		}
 	}
 	public void colocarEnemigo(Enemigo j,int x, int y){
+		if(mapa.getObject(x, y)==null){	
 			mapa.agregarPersonaje(j,x,y);
 			j.setX(x);
 			j.setY(y);
@@ -81,6 +82,7 @@ public class Juego {
 			enemigos.add(j);
 			panelMapa.add(j.getGrafico());
 			j.getGrafico().setOpaque(true);
+		}
 	}
 	public void venderPersonaje(Aliado j,int x, int y){
 		j.morir();
@@ -103,7 +105,6 @@ public class Juego {
 			monedasJuego+=e.getMonedas();
 			puntosJuego+=e.getPuntos();
 		}
-		
 		panelMapa.repaint();
 	}
 }

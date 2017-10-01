@@ -106,7 +106,6 @@ public class GUI extends JFrame{
 				
 				Random rdm=new Random(System.currentTimeMillis());
 				int i=rdm.nextInt(6);
-				System.out.println("Random "+i);
 				Orco orquito=new Orco(juego);
 				orquito.setPosGrafic(0, i*64);
 				juego.colocarEnemigo(orquito,0, i);
@@ -123,7 +122,6 @@ public class GUI extends JFrame{
 		
 		lblMonedas = new JLabel("Monedas: "+juego.getMonedas());
 		panel_puntos.add(lblMonedas);
-		
 		
 		frame.getContentPane().add(panel_mapa);
 		

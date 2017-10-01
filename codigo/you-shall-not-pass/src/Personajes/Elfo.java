@@ -1,7 +1,5 @@
 package Personajes;
 
-import java.awt.Color;
-
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -15,9 +13,7 @@ public class Elfo extends Aliado {
 		rango=3;
 		vida=70;
 		damage=18;
-		sprite=new ImageIcon("C:/Users/Tom�s/Pictures/ProyectoTDP/humano.png");
-		color=Color.GREEN;
-		grafico=new JLabel();
-		grafico.setBackground(color);
+		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Elfo.png"));
+		grafico=new JLabel(sprite);
 	}
 }
