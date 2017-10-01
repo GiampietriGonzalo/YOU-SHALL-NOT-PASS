@@ -28,7 +28,7 @@ public class Juego {
 		todos=new LinkedList<GameObject>();
 		nivel=1;
 		puntosJuego=0;
-		monedasJuego=50;
+		monedasJuego=0;
 	}
 	
 	public int getVida(){

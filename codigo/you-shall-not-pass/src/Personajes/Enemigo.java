@@ -24,12 +24,6 @@ public abstract class Enemigo extends Personaje {
 		return puntos;
 	}
 	
-	public void morir(){
-		super.morir();
-		juego.sumarMonedas(monedas);
-		juego.sumarPuntos(puntos);
-	}
-	
 	public void mover(){
 		juego.getMapa().eliminarPersonaje(this,x, y);
 		posX+=velocidad;

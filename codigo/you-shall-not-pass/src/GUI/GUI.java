@@ -16,6 +16,7 @@ public class GUI extends JFrame{
 	private Enemigo temporalE;
 	private Contador contador;
 	private JLabel lblMonedas;
+	private JLabel lblPuntos;
 	
 
 	/**
@@ -49,12 +50,11 @@ public class GUI extends JFrame{
 		temporalE=new Orco(juego);
 		juego.colocarEnemigo(temporalE, 0, 0);
 					
-					
 		frame.setBounds(100, 100, 868, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(false);
 		
-		
+		//Creacion panel de seleccion de personajes
 		JPanel panel_personajes = new JPanel();
 		panel_personajes.setLayout(new GridLayout(0, 5, 0, 0));
 		
@@ -77,6 +77,7 @@ public class GUI extends JFrame{
 		JButton btnMago = new JButton("Mago");
 		panel_personajes.add(btnMago);
 		
+		//Creacion panel tienda
 		JPanel panel_tienda = new JPanel();
 		FlowLayout flowLayout = (FlowLayout) panel_tienda.getLayout();
 		flowLayout.setAlignment(FlowLayout.RIGHT);
@@ -104,19 +105,22 @@ public class GUI extends JFrame{
 			}
 		});
 		
+		//Creacion panel puntos
 		JPanel panel_puntos = new JPanel();
 		frame.getContentPane().add(panel_puntos, BorderLayout.NORTH);
 		
-		JLabel lblPuntos = new JLabel("Puntos: "+juego.getPuntos());
+		lblPuntos = new JLabel("Puntos: "+juego.getPuntos());
 		panel_puntos.add(lblPuntos);
 		
 		lblMonedas = new JLabel("Monedas: "+juego.getMonedas());
 		panel_puntos.add(lblMonedas);
 		
+		
 		frame.getContentPane().add(panel_mapa);
 		
+		ContadorPuntos contP=new ContadorPuntos();
+		contP.start();
 	}
-	
 	
 	
 	//OYENTES
@@ -152,5 +156,21 @@ public class GUI extends JFrame{
 				temporal=null;
 			}		
 		}
+	}
+	
+	public class ContadorPuntos extends Thread{
+		
+		public void run(){
+			while(true){
+				try {
+					Thread.sleep(100);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				lblMonedas.setText("Monedas: "+juego.getMonedas());
+				lblPuntos.setText("Puntos: "+juego.getPuntos());
+			}
+		}
+		
 	}
 }

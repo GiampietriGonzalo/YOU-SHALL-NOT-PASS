@@ -5,9 +5,9 @@ import Logica.Juego;
 public class Contador extends Thread {
 
 	private Juego elJuego;
-
+	
 	Contador(Juego j) {
-		this.elJuego = j;
+		elJuego = j;
 	}
 
 	public void run() {
@@ -17,8 +17,7 @@ public class Contador extends Thread {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			elJuego.actualizar();
-			
+			elJuego.actualizar();	
 		}
 	}
 }
