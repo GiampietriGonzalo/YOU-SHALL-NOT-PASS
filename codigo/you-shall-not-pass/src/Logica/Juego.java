@@ -75,6 +75,8 @@ public class Juego {
 	}
 	public void colocarEnemigo(Enemigo j,int x, int y){
 			mapa.agregarPersonaje(j,x,y);
+			j.setX(x);
+			j.setY(y);
 			todos.add(j);
 			enemigos.add(j);
 			panelMapa.add(j.getGrafico());
