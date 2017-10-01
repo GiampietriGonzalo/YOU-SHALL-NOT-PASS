@@ -20,11 +20,17 @@ public abstract class Enemigo extends Personaje {
 		return monedas;
 	}
 	
-	public int puntos(){
+	public int getPuntos(){
 		return puntos;
 	}
+	
+	public void morir(){
+		super.morir();
+		juego.sumarMonedas(monedas);
+		juego.sumarPuntos(puntos);
+	}
+	
 	public void mover(){
-		
 		juego.getMapa().eliminarPersonaje(this,x, y);
 		posX+=velocidad;
 		x=posX/64;

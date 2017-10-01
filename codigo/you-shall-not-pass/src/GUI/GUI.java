@@ -14,9 +14,8 @@ public class GUI extends JFrame{
 	private JPanel panel_mapa;
 	private Aliado temporal;
 	private Enemigo temporalE;
-	private final Icon spriteHumano=new ImageIcon("humano.png");
 	private Contador contador;
-	
+	private JLabel lblMonedas;
 	
 
 	/**
@@ -53,8 +52,10 @@ public class GUI extends JFrame{
 					
 		frame.setBounds(100, 100, 868, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setResizable(false);
+		
+		
 		JPanel panel_personajes = new JPanel();
-		panel_personajes.setBounds(10, 406, 640, 44);
 		panel_personajes.setLayout(new GridLayout(0, 5, 0, 0));
 		
 		ActionListener oyenteBtnHumano= new oyenteBotonesCrear();
@@ -77,7 +78,6 @@ public class GUI extends JFrame{
 		panel_personajes.add(btnMago);
 		
 		JPanel panel_tienda = new JPanel();
-		panel_tienda.setBounds(687, 26, 75, 33);
 		FlowLayout flowLayout = (FlowLayout) panel_tienda.getLayout();
 		flowLayout.setAlignment(FlowLayout.RIGHT);
 		
@@ -86,17 +86,33 @@ public class GUI extends JFrame{
 		panel_tienda.add(btnTienda);
 		
 		oyenteMouse oyenteM= new oyenteMouse();
-		panel_mapa.setLocation(10, 11);
-		panel_mapa.setSize(juego.getMapa().getAnch()*64,juego.getMapa().getAlt()*64);
 		panel_mapa.setBackground(Color.WHITE);
 		panel_mapa.addMouseListener(oyenteM);
 		
 		panel_mapa.setLayout(null);
 		panel_mapa.setBorder(null);
 		panel_mapa.setVisible(true);
-		frame.getContentPane().setLayout(null);
-		frame.getContentPane().add(panel_personajes);
-		frame.getContentPane().add(panel_tienda);
+		frame.getContentPane().setLayout(new BorderLayout(0, 0));
+		frame.getContentPane().add(panel_personajes, BorderLayout.SOUTH);
+		frame.getContentPane().add(panel_tienda, BorderLayout.EAST);
+		
+		JButton btnAgregarEnemigo = new JButton("Agregar enemigo");
+		panel_tienda.add(btnAgregarEnemigo);
+		btnAgregarEnemigo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+			}
+		});
+		
+		JPanel panel_puntos = new JPanel();
+		frame.getContentPane().add(panel_puntos, BorderLayout.NORTH);
+		
+		JLabel lblPuntos = new JLabel("Puntos: "+juego.getPuntos());
+		panel_puntos.add(lblPuntos);
+		
+		lblMonedas = new JLabel("Monedas: "+juego.getMonedas());
+		panel_puntos.add(lblMonedas);
+		
 		frame.getContentPane().add(panel_mapa);
 		
 	}
@@ -112,10 +128,10 @@ public class GUI extends JFrame{
 			switch (aux.getText()) {
 			
 			case "Elfo":{
-				temporal=new Elfo(0,0,juego); break;
+				temporal=new Elfo(juego); break;
 				}
 			case "Humano":{
-				temporal=new Humano(0,0,juego); break;
+				temporal=new Humano(juego); break;
 				}
 			//COMPLETAR CON EL RESTO DE LAS RAZAS
 			}
@@ -132,6 +148,7 @@ public class GUI extends JFrame{
 				temporal.setY(y/64);
 				temporal.setPosGrafic(x, y);
 				juego.colocarAliado(temporal,e.getX()/64,e.getY()/64 );
+				lblMonedas.setText("Monedas: "+juego.getMonedas());
 				temporal=null;
 			}		
 		}

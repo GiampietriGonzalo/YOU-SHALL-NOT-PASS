@@ -18,6 +18,7 @@ public class Contador extends Thread {
 				e.printStackTrace();
 			}
 			elJuego.actualizar();
+			
 		}
 	}
 }

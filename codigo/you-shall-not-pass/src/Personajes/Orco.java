@@ -10,9 +10,10 @@ public class Orco extends Enemigo {
 
 	public Orco(Juego j) {
 		super(j);
-		// TODO Auto-generated constructor stub
 		vive=true;
 		velocidad=64;
+		puntos=20;
+		monedas=7;
 		color=Color.BLACK;
 		grafico=new JLabel();
 		grafico.setBackground(color);

@@ -64,6 +64,7 @@ public class Juego {
 	public void colocarAliado(Aliado j,int x, int y){
 		if(mapa.getObject(x, y)==null){
 			mapa.agregarPersonaje(j,x,y);
+			monedasJuego-=j.getPrecioAliado();
 			todos.add(j);
 			aliados.add(j);
 			panelMapa.add(j.getGrafico());
@@ -98,7 +99,9 @@ public class Juego {
 			mapa.eliminarPersonaje(e,e.getX(),e.getY());
 			panelMapa.remove(e.getGrafico());
 			monedasJuego+=e.getMonedas();
+			puntosJuego+=e.getPuntos();
 		}
+		
 		panelMapa.repaint();
 	}
 }

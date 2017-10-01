@@ -9,9 +9,9 @@ import Logica.Juego;
 
 public class Elfo extends Aliado {
 	
-	public Elfo(int x, int y,Juego j) {
-		super(x,y,j);
-		precioAliado=10;
+	public Elfo(Juego j) {
+		super(j);
+		precioAliado=12;
 		rango=3;
 		vida=70;
 		damage=18;
