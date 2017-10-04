@@ -10,7 +10,6 @@ public abstract class GameObject extends Thread {
 	protected int y;
 	protected ImageIcon sprite;
 	protected boolean vive;
-	protected Color color;
 	protected JLabel grafico;
 	protected int posX;
 	protected int posY;

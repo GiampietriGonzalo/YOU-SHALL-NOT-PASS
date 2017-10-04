@@ -13,7 +13,7 @@ public class Elfo extends Aliado {
 		rango=3;
 		vida=70;
 		damage=18;
-		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Elfo.png"));
+		//sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Elfo.png"));
 		grafico=new JLabel(sprite);
 	}
 }

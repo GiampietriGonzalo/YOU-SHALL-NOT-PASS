@@ -1,6 +1,6 @@
 package Personajes;
-import java.awt.Color;
 
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import Logica.Juego;
@@ -12,10 +12,8 @@ public class Humano extends Aliado {
 		rango=1;
 		vida=50;
 		damage=12;
-		//sprite=new ImageIcon("C:/Users/Tom�s/Pictures/ProyectoTDP/humano.png");
+		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Aragorn1.png"));
 		vive=true;
-		color=Color.cyan;
-		grafico=new JLabel();
-		grafico.setBackground(color);
+		grafico=new JLabel(sprite);
 	}
 }
