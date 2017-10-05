@@ -25,7 +25,6 @@ public abstract class Enemigo extends Personaje {
 	}
 	
 	public void mover(){
-		
 		juego.getMapa().eliminarPersonaje(this,x, y);
 		posX+=velocidad;
 		x=posX/64;
