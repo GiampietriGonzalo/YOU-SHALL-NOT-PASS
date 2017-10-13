@@ -53,8 +53,6 @@ public class GUI extends JFrame{
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		temporalE=new Orco(juego);
-		juego.colocarEnemigo(temporalE, 0, 0);
 					
 		frame.setBounds(100, 100, 868, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -110,9 +108,9 @@ public class GUI extends JFrame{
 				
 				Random rdm=new Random(System.currentTimeMillis());
 				int i=rdm.nextInt(6);
-				Orco orquito=new Orco(juego);
-				orquito.setPosGrafic(0, i*64);
-				juego.colocarEnemigo(orquito,0, i);
+				Nazgul nazgulito=new Nazgul(juego);
+				nazgulito.setPosGrafic(0, i*64);
+				juego.colocarEnemigo(nazgulito,0, i);
 				
 			}
 		});
