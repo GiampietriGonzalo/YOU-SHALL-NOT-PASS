@@ -4,7 +4,6 @@ import java.util.LinkedList;
 
 import javax.swing.JPanel;
 
-import Mapa.Mapa;
 import Personajes.Aliado;
 import Personajes.Enemigo;
 
@@ -17,7 +16,7 @@ public class Juego {
 	private LinkedList<Aliado> aliados;
 	private LinkedList<GameObject> todos;
 	private Mapa mapa;
-	private int nivel;
+	//private int nivel;
 	private JPanel panelMapa;
 	
 	public Juego(JPanel panel_Mapa) {
@@ -26,7 +25,7 @@ public class Juego {
 		aliados=new LinkedList<Aliado>();
 		enemigos=new LinkedList<Enemigo>();
 		todos=new LinkedList<GameObject>();
-		nivel=1;
+		//nivel=1;
 		puntosJuego=0;
 		monedasJuego=0;
 	}

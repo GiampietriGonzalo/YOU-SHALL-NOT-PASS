@@ -1,6 +1,4 @@
-package Mapa;
-
-import Logica.GameObject;
+package Logica;
 
 public class Celda {
 	private GameObject element;

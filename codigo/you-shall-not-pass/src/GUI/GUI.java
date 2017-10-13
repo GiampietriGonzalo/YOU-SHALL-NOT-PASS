@@ -19,7 +19,6 @@ public class GUI extends JFrame{
 	private Juego juego;
 	private JPanel panel_mapa;
 	private Aliado temporal;
-	private Enemigo temporalE;
 	private Contador contador;
 	private JLabel lblMonedas;
 	private JLabel lblPuntos;
@@ -42,6 +41,7 @@ public class GUI extends JFrame{
 	public GUI() {
 		
 		panel_mapa = new JPanel();
+		panel_mapa.setBounds(17, 53,10*64, 6*64);
 		juego=new Juego(panel_mapa);
 		contador=new Contador(juego);
 		contador.start();
@@ -53,6 +53,7 @@ public class GUI extends JFrame{
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.getContentPane().setBackground(new Color(144, 238, 144));
 					
 		frame.setBounds(100, 100, 868, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -60,6 +61,7 @@ public class GUI extends JFrame{
 		
 		//Creacion panel de seleccion de personajes
 		JPanel panel_personajes = new JPanel();
+		panel_personajes.setBounds(0, 448, 862, 23);
 		panel_personajes.setLayout(new GridLayout(0, 5, 0, 0));
 		
 		ActionListener oyenteBtnHumano= new oyenteBotonesCrear();
@@ -83,6 +85,7 @@ public class GUI extends JFrame{
 		
 		//Creacion panel tienda
 		JPanel panel_tienda = new JPanel();
+		panel_tienda.setBounds(667, 40, 195, 308);
 		FlowLayout flowLayout = (FlowLayout) panel_tienda.getLayout();
 		flowLayout.setAlignment(FlowLayout.RIGHT);
 		
@@ -97,9 +100,9 @@ public class GUI extends JFrame{
 		panel_mapa.setLayout(null);
 		panel_mapa.setBorder(null);
 		panel_mapa.setVisible(true);
-		frame.getContentPane().setLayout(new BorderLayout(0, 0));
-		frame.getContentPane().add(panel_personajes, BorderLayout.SOUTH);
-		frame.getContentPane().add(panel_tienda, BorderLayout.EAST);
+		frame.getContentPane().setLayout(null);
+		frame.getContentPane().add(panel_personajes);
+		frame.getContentPane().add(panel_tienda);
 		
 		JButton btnAgregarEnemigo = new JButton("Agregar enemigo");
 		panel_tienda.add(btnAgregarEnemigo);
@@ -117,7 +120,8 @@ public class GUI extends JFrame{
 		
 		//Creacion panel puntos
 		JPanel panel_puntos = new JPanel();
-		frame.getContentPane().add(panel_puntos, BorderLayout.NORTH);
+		panel_puntos.setBounds(28, 0, 767, 24);
+		frame.getContentPane().add(panel_puntos);
 		
 		lblPuntos = new JLabel("Puntos: "+juego.getPuntos());
 		panel_puntos.add(lblPuntos);

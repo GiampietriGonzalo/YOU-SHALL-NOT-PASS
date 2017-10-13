@@ -1,6 +1,5 @@
-package Mapa;
+package Logica;
 
-import Logica.GameObject;
 import Personajes.Personaje;
 
 public class Mapa {
