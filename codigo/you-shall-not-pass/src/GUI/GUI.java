@@ -133,6 +133,10 @@ public class GUI extends JFrame{
 		
 		frame.getContentPane().add(panel_mapa);
 		
+		JLabel lblTorre = new JLabel("");
+		lblTorre.setBounds(0, 0, 64, 384);
+		panel_mapa.add(lblTorre);
+		
 		ContadorPuntos contP=new ContadorPuntos();
 		contP.start();
 	}

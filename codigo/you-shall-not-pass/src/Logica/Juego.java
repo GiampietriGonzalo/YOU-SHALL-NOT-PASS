@@ -2,6 +2,7 @@ package Logica;
 
 import java.util.LinkedList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import Interacciones.Disparo;
@@ -32,6 +33,18 @@ public class Juego {
 		//nivel=1;
 		puntosJuego=0;
 		monedasJuego=0;
+		colocarTorres();
+	}
+	
+	private void colocarTorres(){
+		for(int i=0;i<6;i++){
+			Torre t=new Torre(this,new ImageIcon(this.getClass().getResource("/Imagenes/Torre"+i+".png")));
+			mapa.agregarObjeto(t, 9, i);
+			todos.add(t);
+			t.setPosGrafic(9*64, i*64);
+			panelMapa.add(t.getGrafico());
+			t.getGrafico().setOpaque(true);
+		}
 	}
 	
 	public int getVida(){

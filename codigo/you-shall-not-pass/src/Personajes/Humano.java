@@ -13,7 +13,6 @@ public class Humano extends Aliado {
 		vida=50;
 		damage=12;
 		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Aragorn1.png"));
-		vive=true;
 		grafico=new JLabel(sprite);
 	}
 }

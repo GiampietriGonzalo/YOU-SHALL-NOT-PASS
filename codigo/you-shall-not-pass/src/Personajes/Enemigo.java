@@ -32,7 +32,7 @@ public abstract class Enemigo extends Personaje {
 	
 	public void mover(){
 		if(x<4){
-			if(juego.getMapa().getObject(x+1, y)==null){
+			if(juego.getMapa().getObject(x+1, y)==null) {
 				juego.getMapa().eliminarObjeto(this,x, y);
 				posX+=velocidad;
 				x=posX/64;
@@ -41,13 +41,13 @@ public abstract class Enemigo extends Personaje {
 				if(x==8) morir();
 			}
 		}
-		else if(juego.getMapa().getObject(x+1, y)==null) disparar();
+		else disparar();
 	}
 	
 	protected void disparar(){
-		Disparo d=new DisparoEnemigo(juego,this,x,y);
+		Disparo d=new DisparoEnemigo(juego,this,x+1,y);
 		d.setPosGrafic((x)*64,y*64);
-		juego.agregarObjeto(d, this.getX(), this.getY());
-		d.run();
+		juego.agregarObjeto(d, this.getX()+1, this.getY());
+		d.start();
 	}
 }
