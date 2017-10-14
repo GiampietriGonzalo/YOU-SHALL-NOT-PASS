@@ -1,6 +1,7 @@
 package Interacciones;
 
 import Entidad.Premio;
+import Logica.GameObject;
 import Personajes.Aliado;
 import Personajes.Enemigo;
 
@@ -8,8 +9,7 @@ public class VisitorDisparoEnemigo extends Visitor {
 
 	@Override
 	public void visit(Aliado a) {
-		// TODO Auto-generated method stub
-		
+		a.recibirDamage(150);
 	}
 
 	@Override
@@ -32,6 +32,12 @@ public class VisitorDisparoEnemigo extends Visitor {
 
 	@Override
 	public void visit(DisparoEnemigo de) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void visit(GameObject gameObject) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -4,8 +4,12 @@ import java.util.LinkedList;
 
 import javax.swing.JPanel;
 
+import Interacciones.Disparo;
+import Interacciones.DisparoEnemigo;
 import Personajes.Aliado;
 import Personajes.Enemigo;
+import Personajes.Personaje;
+
 
 public class Juego {
 	
@@ -62,7 +66,7 @@ public class Juego {
 	
 	public void colocarAliado(Aliado j,int x, int y){
 		if(mapa.getObject(x, y)==null){
-			mapa.agregarPersonaje(j,x,y);
+			mapa.agregarObjeto(j,x,y);
 			monedasJuego-=j.getPrecioAliado();
 			todos.add(j);
 			aliados.add(j);
@@ -74,11 +78,20 @@ public class Juego {
 	}
 	public void colocarEnemigo(Enemigo j,int x, int y){
 		if(mapa.getObject(x, y)==null){	
-			mapa.agregarPersonaje(j,x,y);
+			mapa.agregarObjeto(j,x,y);
 			j.setX(x);
 			j.setY(y);
 			todos.add(j);
 			enemigos.add(j);
+			panelMapa.add(j.getGrafico());
+			j.getGrafico().setOpaque(true);
+		}
+	}
+	public void agregarObjeto(GameObject j,int x, int y){
+		if(mapa.getObject(x, y)==null){	
+			mapa.agregarObjeto(j,x,y);
+			j.setX(x);
+			j.setY(y);
 			panelMapa.add(j.getGrafico());
 			j.getGrafico().setOpaque(true);
 		}
@@ -89,17 +102,25 @@ public class Juego {
 		monedasJuego+=j.getPrecioAliado()/2;
 	}
 	
+	public void eliminarObjeto(GameObject j,int x,int y){
+		todos.remove(j);
+		mapa.eliminarObjeto(j, x, y);
+		j.getGrafico().setVisible(false);
+	}
+	
 	public void actualizar(){
-		LinkedList<Enemigo> toDelete=new LinkedList<Enemigo>();
-		for(Enemigo e:enemigos){
-			if(e.estaVivo())
+		LinkedList<GameObject> toDelete=new LinkedList<GameObject>();
+		for(GameObject e:todos){
+			if(e.estaVivo()){
 				e.mover();
+			}
 			else
 				toDelete.add(e);
 		}
-		for(Enemigo e:toDelete){
-			enemigos.remove(e);
-			mapa.eliminarPersonaje(e,e.getX(),e.getY());
+		for(GameObject e:toDelete){
+			//enemigos.remove(e);
+			todos.remove(e);
+			mapa.eliminarObjeto(e,e.getX(),e.getY());
 			panelMapa.remove(e.getGrafico());
 			monedasJuego+=e.getMonedas();
 			puntosJuego+=e.getPuntos();

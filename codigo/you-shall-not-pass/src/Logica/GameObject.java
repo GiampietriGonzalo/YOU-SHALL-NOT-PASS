@@ -3,6 +3,8 @@ package Logica;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import Interacciones.Visitor;
+
 public abstract class GameObject extends Thread {
 	protected Juego juego;
 	protected int x;
@@ -12,6 +14,8 @@ public abstract class GameObject extends Thread {
 	protected JLabel grafico;
 	protected int posX;
 	protected int posY;
+	protected int monedas;
+	protected int puntos;
 	
 	public GameObject(Juego j){
 		juego=j;
@@ -53,4 +57,20 @@ public abstract class GameObject extends Thread {
 		grafico.setBounds(posX,posY,64,64);
 		return grafico;
 	}
+	//Borrar mas tarde
+	public void mover(){
+		//Que tal señores, nada de nada
+	}
+	
+	public int getMonedas(){
+		return monedas;
+	}
+	
+	public int getPuntos(){
+		return puntos;
+	}
+	
+	public void accept(Visitor v) {
+		v.visit(this);
+	} 
 }

@@ -1,7 +1,5 @@
 package Logica;
 
-import Personajes.Personaje;
-
 public class Mapa {
 	private Celda[][] grilla;
 	
@@ -22,13 +20,13 @@ public class Mapa {
 		return grilla.length;
 	}
 	
-	public void agregarPersonaje(Personaje j,int x, int y){
+	public void agregarObjeto(GameObject j,int x, int y){
 		grilla[x][y].setElement(j);
 		j.setX(x);
 		j.setY(y);
 	}
 	
-	public void eliminarPersonaje(Personaje j,int x, int y){
+	public void eliminarObjeto(GameObject j,int x, int y){
 		grilla[x][y].setElement(null);
 	}
 	

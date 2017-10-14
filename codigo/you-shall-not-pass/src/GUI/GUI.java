@@ -3,6 +3,8 @@ package GUI;
 //Importaciones
 import java.awt.*;
 import javax.swing.*;
+
+import Interacciones.*;
 import Logica.Juego;
 import Personajes.*;
 import java.awt.event.*;
@@ -53,7 +55,7 @@ public class GUI extends JFrame{
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.getContentPane().setBackground(new Color(144, 238, 144));
+		frame.getContentPane().setBackground(new Color(0, 0, 0));
 					
 		frame.setBounds(100, 100, 868, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -85,7 +87,7 @@ public class GUI extends JFrame{
 		
 		//Creacion panel tienda
 		JPanel panel_tienda = new JPanel();
-		panel_tienda.setBounds(667, 40, 195, 308);
+		panel_tienda.setBounds(667, 53, 195, 153);
 		FlowLayout flowLayout = (FlowLayout) panel_tienda.getLayout();
 		flowLayout.setAlignment(FlowLayout.RIGHT);
 		
@@ -94,7 +96,7 @@ public class GUI extends JFrame{
 		panel_tienda.add(btnTienda);
 		
 		oyenteMouse oyenteM= new oyenteMouse();
-		panel_mapa.setBackground(Color.WHITE);
+		panel_mapa.setBackground(new Color(255, 255, 255));
 		panel_mapa.addMouseListener(oyenteM);
 		
 		panel_mapa.setLayout(null);
