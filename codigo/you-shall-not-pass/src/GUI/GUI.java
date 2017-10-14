@@ -113,9 +113,9 @@ public class GUI extends JFrame{
 				
 				Random rdm=new Random(System.currentTimeMillis());
 				int i=rdm.nextInt(6);
-				Nazgul nazgulito=new Nazgul(juego);
-				nazgulito.setPosGrafic(0, i*64);
-				juego.colocarEnemigo(nazgulito,0, i);
+				MagoOscuro mago=new MagoOscuro(juego);
+				mago.setPosGrafic(0, i*64);
+				juego.colocarEnemigo(mago,0, i);
 				
 			}
 		});
