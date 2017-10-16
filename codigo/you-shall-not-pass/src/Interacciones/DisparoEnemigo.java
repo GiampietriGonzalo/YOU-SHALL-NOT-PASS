@@ -19,13 +19,14 @@ public class DisparoEnemigo extends Disparo {
 		miVisitor=new VisitorDisparoEnemigo();
 		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/disparo.png"));
 		grafico=new JLabel(sprite);
+		grafico.setBackground(null);
 	}
 	
 	public void run(){
 		while(execute){
 			this.avanzar();
 			try {
-				Thread.sleep(500);
+				Thread.sleep(300);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}	

@@ -5,11 +5,8 @@ import java.util.LinkedList;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-import Interacciones.Disparo;
-import Interacciones.DisparoEnemigo;
 import Personajes.Aliado;
 import Personajes.Enemigo;
-import Personajes.Personaje;
 
 
 public class Juego {
@@ -21,7 +18,6 @@ public class Juego {
 	private LinkedList<Aliado> aliados;
 	private LinkedList<GameObject> todos;
 	private Mapa mapa;
-	//private int nivel;
 	private JPanel panelMapa;
 	
 	public Juego(JPanel panel_Mapa) {
@@ -30,7 +26,6 @@ public class Juego {
 		aliados=new LinkedList<Aliado>();
 		enemigos=new LinkedList<Enemigo>();
 		todos=new LinkedList<GameObject>();
-		//nivel=1;
 		puntosJuego=0;
 		monedasJuego=0;
 		colocarTorres();
@@ -42,6 +37,7 @@ public class Juego {
 			mapa.agregarObjeto(t, 9, i);
 			todos.add(t);
 			t.setPosGrafic(9*64, i*64);
+			t.grafico.setBackground(null);
 			panelMapa.add(t.getGrafico());
 			t.getGrafico().setOpaque(true);
 		}
@@ -85,6 +81,7 @@ public class Juego {
 			aliados.add(j);
 			panelMapa.add(j.getGrafico());
 			restarMonedas(j.getPrecioAliado());
+			j.grafico.setBackground(null);
 			j.getGrafico().setOpaque(true);
 			panelMapa.repaint();
 		}
@@ -97,6 +94,7 @@ public class Juego {
 			todos.add(j);
 			enemigos.add(j);
 			panelMapa.add(j.getGrafico());
+			j.grafico.setBackground(null);
 			j.getGrafico().setOpaque(true);
 		}
 	}
@@ -106,6 +104,7 @@ public class Juego {
 			j.setX(x);
 			j.setY(y);
 			panelMapa.add(j.getGrafico());
+			j.grafico.setBackground(null);
 			j.getGrafico().setOpaque(true);
 		}
 	}

@@ -4,7 +4,6 @@ package GUI;
 import java.awt.*;
 import javax.swing.*;
 
-import Interacciones.*;
 import Logica.Juego;
 import Personajes.*;
 import java.awt.event.*;
@@ -55,7 +54,7 @@ public class GUI extends JFrame{
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.getContentPane().setBackground(new Color(0, 0, 0));
+		frame.getContentPane().setBackground(Color.WHITE);
 					
 		frame.setBounds(100, 100, 868, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -66,14 +65,13 @@ public class GUI extends JFrame{
 		panel_personajes.setBounds(0, 448, 862, 23);
 		panel_personajes.setLayout(new GridLayout(0, 5, 0, 0));
 		
-		ActionListener oyenteBtnHumano= new oyenteBotonesCrear();
+		ActionListener oyenteBtnAliado= new oyenteBotonesCrear();
 		JButton btnHumano = new JButton("Humano");
-		btnHumano.addActionListener(oyenteBtnHumano);
+		btnHumano.addActionListener(oyenteBtnAliado);
 		panel_personajes.add(btnHumano);
 		
-		ActionListener oyenteBtnElfo= new oyenteBotonesCrear(); 
 		JButton btnElfo = new JButton("Elfo");
-		btnElfo.addActionListener(oyenteBtnElfo);
+		btnElfo.addActionListener(oyenteBtnAliado);
 		panel_personajes.add(btnElfo);
 		
 		JButton btnHobbit = new JButton("Hobbit");
@@ -83,10 +81,12 @@ public class GUI extends JFrame{
 		panel_personajes.add(btnEnano);
 		
 		JButton btnMago = new JButton("Mago");
+		btnMago.addActionListener(oyenteBtnAliado);
 		panel_personajes.add(btnMago);
 		
 		//Creacion panel tienda
 		JPanel panel_tienda = new JPanel();
+		panel_tienda.setBackground(Color.WHITE);
 		panel_tienda.setBounds(667, 53, 195, 153);
 		FlowLayout flowLayout = (FlowLayout) panel_tienda.getLayout();
 		flowLayout.setAlignment(FlowLayout.RIGHT);
@@ -96,7 +96,7 @@ public class GUI extends JFrame{
 		panel_tienda.add(btnTienda);
 		
 		oyenteMouse oyenteM= new oyenteMouse();
-		panel_mapa.setBackground(new Color(255, 255, 255));
+		panel_mapa.setBackground(new Color(0, 0, 51));
 		panel_mapa.addMouseListener(oyenteM);
 		
 		panel_mapa.setLayout(null);
@@ -122,6 +122,7 @@ public class GUI extends JFrame{
 		
 		//Creacion panel puntos
 		JPanel panel_puntos = new JPanel();
+		panel_puntos.setBackground(Color.WHITE);
 		panel_puntos.setBounds(28, 0, 767, 24);
 		frame.getContentPane().add(panel_puntos);
 		
@@ -156,6 +157,9 @@ public class GUI extends JFrame{
 			case "Humano":{
 				temporal=new Humano(juego); break;
 				}
+			case "Mago":{
+				temporal=new Mago(juego);break;
+			}
 			//COMPLETAR CON EL RESTO DE LAS RAZAS
 			}
 		}
