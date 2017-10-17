@@ -1,5 +1,6 @@
 package Logica;
 
+import java.applet.*;
 import java.util.LinkedList;
 
 import javax.swing.ImageIcon;
@@ -19,6 +20,8 @@ public class Juego {
 	private LinkedList<GameObject> todos;
 	private Mapa mapa;
 	private JPanel panelMapa;
+	AudioClip clip = Applet.newAudioClip(this.getClass().getResource("/Musica/Anillo_NO_8.WAV"));
+	
 	
 	public Juego(JPanel panel_Mapa) {
 		this.panelMapa=panel_Mapa;
@@ -29,6 +32,7 @@ public class Juego {
 		puntosJuego=0;
 		monedasJuego=0;
 		colocarTorres();
+	    clip.loop();
 	}
 	
 	private void colocarTorres(){
