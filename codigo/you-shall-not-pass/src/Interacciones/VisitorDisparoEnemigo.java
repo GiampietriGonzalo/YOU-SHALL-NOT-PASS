@@ -9,8 +9,7 @@ public class VisitorDisparoEnemigo extends Visitor {
 
 	@Override
 	public void visit(Aliado a) {
-		a.recibirDamage(150);
-		System.out.println("Colisiona");
+		a.recibirDamage(15);
 	}
 
 	@Override

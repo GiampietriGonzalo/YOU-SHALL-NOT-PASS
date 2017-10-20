@@ -20,7 +20,7 @@ public class Juego {
 	private LinkedList<GameObject> todos;
 	private Mapa mapa;
 	private JPanel panelMapa;
-	AudioClip clip = Applet.newAudioClip(this.getClass().getResource("/Musica/Anillo_NO_8.WAV"));
+	AudioClip clip = Applet.newAudioClip(this.getClass().getResource("/Musica/Anillo.WAV"));
 	
 	
 	public Juego(JPanel panel_Mapa) {
@@ -30,7 +30,7 @@ public class Juego {
 		enemigos=new LinkedList<Enemigo>();
 		todos=new LinkedList<GameObject>();
 		puntosJuego=0;
-		monedasJuego=0;
+		monedasJuego=100;
 		colocarTorres();
 	    clip.loop();
 	}

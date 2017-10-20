@@ -56,7 +56,7 @@ public class GUI_ extends JFrame{
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.WHITE);
 					
-		frame.setBounds(100, 100, 868, 683);
+		frame.setBounds(220, 20, 868, 683);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(false);
 		
@@ -103,7 +103,41 @@ public class GUI_ extends JFrame{
 		flowLayout.setAlignment(FlowLayout.RIGHT);
 		panel_tienda.setOpaque(false);
 		
+		//Panel de la tienda
+		
 		JButton btnTienda = new JButton("Tienda");
+		btnTienda.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				JFrame frame_tienda = new JFrame();
+				frame_tienda.setBounds(0, 0, 500, 500);
+				frame_tienda.getContentPane().setBackground(Color.WHITE);
+				frame_tienda.setResizable(false);
+				
+				JPanel panel_tienda = new JPanel();
+				
+				JButton btnGimli = new JButton("Hacha de Gimli");
+				btnGimli.setIcon(new ImageIcon (this.getClass().getResource("/Imagenes/hachaGimli.png")));
+				btnGimli.setToolTipText("Aumenta el daño y la resistencia de todos los Enanos aliados durante 8s");
+				panel_tienda.add(btnGimli);
+				JButton btnAragorn = new JButton("Corona del Rey Aragorn");
+				btnAragorn.setIcon(new ImageIcon (this.getClass().getResource("/Imagenes/coronaAragorn.png")));
+				btnAragorn.setToolTipText("Aumenta el daño de todos los Humanos aliados durante 10s");
+				panel_tienda.add(btnAragorn);
+				JButton btnGandalf = new JButton("Baculo de Gandalf");
+				btnGandalf.setIcon(new ImageIcon (this.getClass().getResource("/Imagenes/baculoGandalf.png")));
+				btnGandalf.setToolTipText("Aumenta la resistencia y el alcance de todos los Magos aliados durante 5s");
+				panel_tienda.add(btnGandalf);
+				JButton btnLegolas = new JButton("Arco de Legolas");
+				btnLegolas.setIcon(new ImageIcon (this.getClass().getResource("/Imagenes/arcoLegolas.png")));
+				btnLegolas.setToolTipText("Aumenta el alcance y el daño de todos los Elfos aliados durante 8s");
+				panel_tienda.add(btnLegolas);
+				
+				panel_tienda.setLayout(new GridLayout(0, 1, 0, 0));
+				frame_tienda.add(panel_tienda);
+				frame_tienda.setVisible(true);
+			}
+		});
 		btnTienda.setHorizontalAlignment(SwingConstants.RIGHT);
 		panel_tienda.add(btnTienda);
 		
@@ -166,11 +200,11 @@ public class GUI_ extends JFrame{
 		lblNewLabel.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/fondomonta\u00F1a.png")));
 		panel_bg.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("New label");
+		JLabel labelFondo = new JLabel("");
 
-		lblNewLabel_1.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/FondoPanel.jpg")));
-		lblNewLabel_1.setBounds(0, 0, 862, 654);
-		frame.getContentPane().add(lblNewLabel_1);
+		labelFondo.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/FondoPanel.jpg")));
+		labelFondo.setBounds(0, 0, 862, 654);
+		frame.getContentPane().add(labelFondo);
 		
 		ContadorPuntos contP=new ContadorPuntos();
 		contP.start();

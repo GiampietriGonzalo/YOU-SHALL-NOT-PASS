@@ -45,7 +45,7 @@ public abstract class Enemigo extends Personaje {
 	}
 	
 	protected void disparar(){
-		Disparo d=new DisparoEnemigo(juego,this,x+1,y);
+		Disparo d=new DisparoEnemigo(juego,this,x,y);
 		d.setPosGrafic((x+1)*64,y*64);
 		juego.agregarObjeto(d, this.getX()+1, this.getY());
 		d.start();

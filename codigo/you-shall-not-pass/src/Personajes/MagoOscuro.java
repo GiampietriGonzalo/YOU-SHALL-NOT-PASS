@@ -15,6 +15,7 @@ public class MagoOscuro extends Enemigo {
 		monedas=7;
 		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Saruman.png"));
 		grafico=new JLabel(sprite);
+		grafico.setBackground(null);
 	}
 	
 }
