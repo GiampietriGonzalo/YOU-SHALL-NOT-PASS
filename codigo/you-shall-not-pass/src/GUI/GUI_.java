@@ -85,6 +85,7 @@ public class GUI_ extends JFrame{
 		panel_personajes.add(btnElfo);
 		
 		JButton btnEnano = new JButton("");
+		btnEnano.addActionListener(oyenteBtnAliado);
 		btnEnano.setToolTipText("ENANO");
 		btnEnano.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/BotonEnano.png")));
 		panel_personajes.add(btnEnano);
@@ -228,7 +229,7 @@ public class GUI_ extends JFrame{
 				temporal=new Mago(juego);break;
 			}
 			case "ENANO":{
-				temporal=new Enano(Juego);break;
+				temporal=new Enano(juego);break;
 			}
 			//COMPLETAR CON EL RESTO DE LAS RAZAS
 			}
