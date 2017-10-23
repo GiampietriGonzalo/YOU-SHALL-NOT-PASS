@@ -20,7 +20,8 @@ public class Juego {
 	private LinkedList<GameObject> todos;
 	private Mapa mapa;
 	private JPanel panelMapa;
-	AudioClip clip = Applet.newAudioClip(this.getClass().getResource("/Musica/Anillo.WAV"));
+	private int sumador=0;
+	//AudioClip clip = Applet.newAudioClip(this.getClass().getResource("/Musica/Anillo.WAV"));
 	
 	
 	public Juego(JPanel panel_Mapa) {
@@ -32,7 +33,7 @@ public class Juego {
 		puntosJuego=0;
 		monedasJuego=100;
 		colocarTorres();
-	    clip.loop();
+	    //clip.loop();
 	}
 	
 	private void colocarTorres(){
@@ -78,7 +79,7 @@ public class Juego {
 	}
 	
 	public void colocarAliado(Aliado j,int x, int y){
-		if(mapa.getObject(x, y)==null){
+		if(monedasJuego>=j.getPrecioAliado() && mapa.getObject(x, y)==null){
 			mapa.agregarObjeto(j,x,y);
 			monedasJuego-=j.getPrecioAliado();
 			todos.add(j);
@@ -126,6 +127,7 @@ public class Juego {
 	
 	public void actualizar(){
 		LinkedList<GameObject> toDelete=new LinkedList<GameObject>();
+		if(sumador++%3==0) monedasJuego++;
 		for(GameObject e:todos){
 			if(e.estaVivo()){
 				e.mover();

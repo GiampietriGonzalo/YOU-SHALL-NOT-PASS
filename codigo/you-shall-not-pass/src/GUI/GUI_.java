@@ -71,6 +71,11 @@ public class GUI_ extends JFrame{
 		btnHumano.setToolTipText("HUMANO");
 		btnHumano.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/BotonHumano.png")));
 		btnHumano.addActionListener(oyenteBtnAliado);
+		
+		JButton btnHobbit = new JButton("");
+		btnHobbit.setToolTipText("HOBBIT");
+		btnHobbit.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/BotonHobbit.png")));
+		panel_personajes.add(btnHobbit);
 		panel_personajes.add(btnHumano);
 		
 		JButton btnElfo = new JButton("");
@@ -78,11 +83,6 @@ public class GUI_ extends JFrame{
 		btnElfo.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/BotonElfo.png")));
 		btnElfo.addActionListener(oyenteBtnAliado);
 		panel_personajes.add(btnElfo);
-		
-		JButton btnHobbit = new JButton("");
-		btnHobbit.setToolTipText("HOBBIT");
-		btnHobbit.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/BotonHobbit.png")));
-		panel_personajes.add(btnHobbit);
 		
 		JButton btnEnano = new JButton("");
 		btnEnano.setToolTipText("ENANO");
@@ -134,7 +134,7 @@ public class GUI_ extends JFrame{
 				panel_tienda.add(btnLegolas);
 				
 				panel_tienda.setLayout(new GridLayout(0, 1, 0, 0));
-				frame_tienda.add(panel_tienda);
+				frame_tienda.getContentPane().add(panel_tienda);
 				frame_tienda.setVisible(true);
 			}
 		});
@@ -168,19 +168,18 @@ public class GUI_ extends JFrame{
 		
 		//Creacion panel puntos
 		JPanel panel_puntos = new JPanel();
-		panel_puntos.setBackground(null);
-		panel_puntos.setBounds(667, 377, 185, 85);
+		panel_puntos.setBackground(Color.WHITE);
+		panel_puntos.setBounds(667, 340, 185, 112);
 		frame.getContentPane().add(panel_puntos);
-		panel_puntos.setOpaque(false);
 		
 		lblPuntos = new JLabel("Puntos: "+juego.getPuntos());
-		lblPuntos.setForeground(Color.YELLOW);
-		lblPuntos.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lblPuntos.setForeground(Color.DARK_GRAY);
+		lblPuntos.setFont(new Font("Aniron", Font.PLAIN, 20));
 		panel_puntos.add(lblPuntos);
 		
 		lblMonedas = new JLabel("Monedas: "+juego.getMonedas());
-		lblMonedas.setForeground(Color.YELLOW);
-		lblMonedas.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lblMonedas.setForeground(Color.DARK_GRAY);
+		lblMonedas.setFont(new Font("Aniron", Font.PLAIN, 20));
 		panel_puntos.add(lblMonedas);
 		
 		frame.getContentPane().add(panel_mapa);
@@ -227,6 +226,9 @@ public class GUI_ extends JFrame{
 				}
 			case "MAGO":{
 				temporal=new Mago(juego);break;
+			}
+			case "ENANO":{
+				temporal=new Enano(Juego);break;
 			}
 			//COMPLETAR CON EL RESTO DE LAS RAZAS
 			}

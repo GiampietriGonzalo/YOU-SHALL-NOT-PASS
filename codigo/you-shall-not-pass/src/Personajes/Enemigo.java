@@ -4,7 +4,7 @@ import Interacciones.*;
 import Logica.Juego;
 
 public abstract class Enemigo extends Personaje {
-	
+	private int i=0;
 	public Enemigo(Juego j) {
 		super(j);
 	}
@@ -41,7 +41,13 @@ public abstract class Enemigo extends Personaje {
 				if(x==8) morir();
 			}
 		}
-		else disparar();
+		else {
+			if(i%2==0) 
+				disparar();
+			i++;
+		}
+			
+		
 	}
 	
 	protected void disparar(){
