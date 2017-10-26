@@ -99,49 +99,41 @@ public class GUI_ extends JFrame{
 		
 		//Creacion panel tienda
 		JPanel panel_tienda = new JPanel();
+		
+		
 		panel_tienda.setBackground(null);
-		panel_tienda.setBounds(657, 64, 195, 82);
-		FlowLayout flowLayout = (FlowLayout) panel_tienda.getLayout();
-		flowLayout.setAlignment(FlowLayout.RIGHT);
+		panel_tienda.setBounds(667, 128, 195, 487);
 		panel_tienda.setOpaque(false);
+				panel_tienda.setLayout(null);
 		
-		//Panel de la tienda
-		
-		JButton btnTienda = new JButton("Tienda");
-		btnTienda.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-				JFrame frame_tienda = new JFrame();
-				frame_tienda.setBounds(0, 0, 500, 500);
-				frame_tienda.getContentPane().setBackground(Color.WHITE);
-				frame_tienda.setResizable(false);
-				
-				JPanel panel_tienda = new JPanel();
-				
-				JButton btnGimli = new JButton("Hacha de Gimli");
+				JButton btnGimli = new JButton("");
+				btnGimli.setBackground(new Color(139, 69, 19));
+				btnGimli.setBounds(5, 11, 167, 103);
 				btnGimli.setIcon(new ImageIcon (this.getClass().getResource("/Imagenes/hachaGimli.png")));
 				btnGimli.setToolTipText("Aumenta el daño y la resistencia de todos los Enanos aliados durante 8s");
 				panel_tienda.add(btnGimli);
-				JButton btnAragorn = new JButton("Corona del Rey Aragorn");
+				JButton btnAragorn = new JButton("");
+				btnAragorn.setBackground(new Color(47, 79, 79));
+				btnAragorn.setBounds(5, 125, 167, 103);
 				btnAragorn.setIcon(new ImageIcon (this.getClass().getResource("/Imagenes/coronaAragorn.png")));
 				btnAragorn.setToolTipText("Aumenta el daño de todos los Humanos aliados durante 10s");
 				panel_tienda.add(btnAragorn);
-				JButton btnGandalf = new JButton("Baculo de Gandalf");
+				JButton btnGandalf = new JButton("");
+				btnGandalf.setBackground(Color.LIGHT_GRAY);
+				btnGandalf.setBounds(5, 239, 167, 101);
 				btnGandalf.setIcon(new ImageIcon (this.getClass().getResource("/Imagenes/baculoGandalf.png")));
 				btnGandalf.setToolTipText("Aumenta la resistencia y el alcance de todos los Magos aliados durante 5s");
 				panel_tienda.add(btnGandalf);
-				JButton btnLegolas = new JButton("Arco de Legolas");
+				JButton btnLegolas = new JButton("");
+				btnLegolas.setBackground(new Color(0, 128, 0));
+				btnLegolas.setBounds(5, 351, 167, 103);
 				btnLegolas.setIcon(new ImageIcon (this.getClass().getResource("/Imagenes/arcoLegolas.png")));
 				btnLegolas.setToolTipText("Aumenta el alcance y el daño de todos los Elfos aliados durante 8s");
 				panel_tienda.add(btnLegolas);
-				
-				panel_tienda.setLayout(new GridLayout(0, 1, 0, 0));
-				frame_tienda.getContentPane().add(panel_tienda);
-				frame_tienda.setVisible(true);
-			}
-		});
-		btnTienda.setHorizontalAlignment(SwingConstants.RIGHT);
-		panel_tienda.add(btnTienda);
+		//aca
+		
+		
+		
 		
 		oyenteMouse oyenteM= new oyenteMouse();
 		panel_mapa.setBackground(new Color(0, 0, 0));
@@ -155,6 +147,7 @@ public class GUI_ extends JFrame{
 		frame.getContentPane().add(panel_tienda);
 		
 		JButton btnAgregarEnemigo = new JButton("Agregar enemigo");
+		btnAgregarEnemigo.setBounds(0, 464, 115, 23);
 		panel_tienda.add(btnAgregarEnemigo);
 		btnAgregarEnemigo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -171,7 +164,7 @@ public class GUI_ extends JFrame{
 		//Creacion panel puntos
 		JPanel panel_puntos = new JPanel();
 		panel_puntos.setBackground(Color.WHITE);
-		panel_puntos.setBounds(667, 340, 185, 112);
+		panel_puntos.setBounds(667, 26, 185, 97);
 		frame.getContentPane().add(panel_puntos);
 		
 		lblPuntos = new JLabel("Puntos: "+juego.getPuntos());

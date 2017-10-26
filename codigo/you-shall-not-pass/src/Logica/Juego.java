@@ -78,13 +78,12 @@ public class Juego {
 	}
 	
 	public void colocarAliado(Aliado j,int x, int y){
-		if(monedasJuego>=j.getPrecioAliado() && mapa.getObject(x, y)==null){
+		if(j.getPrecioAliado()<=monedasJuego && mapa.getObject(x, y)==null){
 			mapa.agregarObjeto(j,x,y);
 			monedasJuego-=j.getPrecioAliado();
 			todos.add(j);
 			aliados.add(j);
 			panelMapa.add(j.getGrafico());
-			restarMonedas(j.getPrecioAliado());
 			j.grafico.setBackground(null);
 			j.getGrafico().setOpaque(true);
 			panelMapa.repaint();
@@ -135,7 +134,6 @@ public class Juego {
 				toDelete.add(e);
 		}
 		for(GameObject e:toDelete){
-			//enemigos.remove(e);
 			todos.remove(e);
 			mapa.eliminarObjeto(e,e.getX(),e.getY());
 			panelMapa.remove(e.getGrafico());

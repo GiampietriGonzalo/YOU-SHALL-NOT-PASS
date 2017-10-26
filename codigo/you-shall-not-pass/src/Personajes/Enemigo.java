@@ -4,11 +4,11 @@ import Interacciones.*;
 import Logica.Juego;
 
 public abstract class Enemigo extends Personaje {
-	private int i=0;
+	
 	public Enemigo(Juego j) {
 		super(j);
 	}
-	
+	private int disparador=0;
 	protected int velocidad;
 	protected int monedas;
 	protected int puntos;
@@ -42,9 +42,9 @@ public abstract class Enemigo extends Personaje {
 			}
 		}
 		else {
-			if(i%3==0) 
+			if(disparador%4==0) 
 				disparar();
-			i++;
+			disparador++;
 		}
 			
 		
