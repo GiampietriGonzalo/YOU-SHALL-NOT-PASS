@@ -1,6 +1,5 @@
 package Logica;
 
-import java.applet.*;
 import java.util.LinkedList;
 
 import javax.swing.ImageIcon;

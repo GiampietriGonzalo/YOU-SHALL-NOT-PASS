@@ -73,6 +73,7 @@ public class GUI_ extends JFrame{
 		btnHumano.addActionListener(oyenteBtnAliado);
 		
 		JButton btnHobbit = new JButton("");
+		btnHobbit.addActionListener(oyenteBtnAliado);
 		btnHobbit.setToolTipText("HOBBIT");
 		btnHobbit.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/BotonHobbit.png")));
 		panel_personajes.add(btnHobbit);
@@ -231,7 +232,9 @@ public class GUI_ extends JFrame{
 			case "ENANO":{
 				temporal=new Enano(juego);break;
 			}
-			//COMPLETAR CON EL RESTO DE LAS RAZAS
+			case "HOBBIT":{
+				temporal=new Hobbit(juego);break;
+			}
 			}
 		}
 	}
