@@ -14,6 +14,6 @@ public abstract class ConVida extends ObjetoMapa{
 		return vidaObjeto;
 	
 	}
-	abstract public void recibirDaño();
+	abstract public void recibirDamage();
 	
 }

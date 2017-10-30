@@ -9,7 +9,7 @@ public class Gollum extends ConVida{
 	}
 
 	
-	public void recibirDaño() {
+	public void recibirDamage() {
 	
 	}
 	
