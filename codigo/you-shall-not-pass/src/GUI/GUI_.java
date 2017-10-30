@@ -146,21 +146,6 @@ public class GUI_ extends JFrame{
 		frame.getContentPane().add(panel_personajes);
 		frame.getContentPane().add(panel_tienda);
 		
-		JButton btnAgregarEnemigo = new JButton("Agregar enemigo");
-		btnAgregarEnemigo.setBounds(0, 464, 115, 23);
-		panel_tienda.add(btnAgregarEnemigo);
-		btnAgregarEnemigo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-				Random rdm=new Random(System.currentTimeMillis());
-				int i=rdm.nextInt(6);
-				MagoOscuro mago=new MagoOscuro(juego);
-				mago.setPosGrafic(0, i*64);
-				juego.colocarEnemigo(mago,0, i);
-				
-			}
-		});
-		
 		//Creacion panel puntos
 		JPanel panel_puntos = new JPanel();
 		panel_puntos.setBackground(Color.WHITE);
@@ -199,6 +184,21 @@ public class GUI_ extends JFrame{
 		labelFondo.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/FondoPanel.jpg")));
 		labelFondo.setBounds(0, 0, 862, 654);
 		frame.getContentPane().add(labelFondo);
+		//Para testear
+		JButton btnAgregarEnemigo = new JButton("Agregar enemigo");
+		btnAgregarEnemigo.setBounds(0, 464, 115, 23);
+		panel_tienda.add(btnAgregarEnemigo);
+		btnAgregarEnemigo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				Random rdm=new Random(System.currentTimeMillis());
+				int i=rdm.nextInt(6);
+				MagoOscuro mago=new MagoOscuro();
+				mago.setPosGrafic(0, i*64);
+				juego.colocarEnemigo(mago,0, i);
+				
+			}
+		});
 		
 		ContadorPuntos contP=new ContadorPuntos();
 		contP.start();
@@ -214,19 +214,19 @@ public class GUI_ extends JFrame{
 			switch (aux.getToolTipText()) {
 			
 			case "ELFO":{
-				temporal=new Elfo(juego); break;
+				temporal=new Elfo(); break;
 				}
 			case "HUMANO":{
-				temporal=new Humano(juego); break;
+				temporal=new Humano(); break;
 				}
 			case "MAGO":{
-				temporal=new Mago(juego);break;
+				temporal=new Mago();break;
 			}
 			case "ENANO":{
-				temporal=new Enano(juego);break;
+				temporal=new Enano();break;
 			}
 			case "HOBBIT":{
-				temporal=new Hobbit(juego);break;
+				temporal=new Hobbit();break;
 			}
 			}
 		}
@@ -249,7 +249,6 @@ public class GUI_ extends JFrame{
 	}
 	//Hilo que actualiza los puntos y monedas
 	public class ContadorPuntos extends Thread{
-		
 		public void run(){
 			while(true){
 				try {

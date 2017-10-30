@@ -3,13 +3,9 @@ package Personajes;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import Logica.Juego;
-
 public class Troll extends Enemigo {
 	
-	public Troll(Juego j) {
-		super(j);
-		vive=true;
+	public Troll() {
 		velocidad=32;
 		puntos=20;
 		monedas=7;

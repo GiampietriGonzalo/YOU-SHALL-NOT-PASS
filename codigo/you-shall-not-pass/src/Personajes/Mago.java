@@ -3,12 +3,9 @@ package Personajes;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import Logica.Juego;
-
 public class Mago extends Aliado {
 	
-	public Mago(Juego j) {
-		super(j);
+	public Mago() {
 		precioAliado=50;
 		rango=2;
 		vida=50;

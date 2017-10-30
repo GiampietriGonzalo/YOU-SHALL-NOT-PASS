@@ -7,8 +7,7 @@ import Personajes.Aliado;
 
 public class Torre extends Aliado {
 	
-	public Torre(Juego j,ImageIcon imagen) {
-		super(j);
+	public Torre(ImageIcon imagen) {
 		rango=1;
 		vida=200;
 		damage=10;

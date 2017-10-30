@@ -3,12 +3,9 @@ package Personajes;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import Logica.Juego;
-
 public class Elfo extends Aliado {
 	
-	public Elfo(Juego j) {
-		super(j);
+	public Elfo() {
 		precioAliado=12;
 		rango=3;
 		vida=70;

@@ -41,6 +41,7 @@ public class DisparoEnemigo extends Disparo {
 			this.terminate();
 		} else {
 			if(juego.getMapa().getObject(x+1, y)==null){
+				
 				juego.getMapa().eliminarObjeto(this,x, y);
 				posX+=velocidad;
 				x=posX/64;

@@ -1,3 +1,4 @@
+
 package Logica;
 
 import java.util.Stack;
@@ -21,10 +22,10 @@ public class Nivel1 extends Nivel{
 		for(int i=0;i<15;i++){
 			a=rnd.nextInt(10);
 			if(a<5){
-				horda.push(new Orco(juego));
+				horda.push(new Orco());
 			}else if (a<8)
-				horda.push(new Huargo(juego));
-			else horda.push(new Nazgul(juego));
+				horda.push(new Huargo());
+			else horda.push(new Nazgul());
 		}
 		
 		return horda;

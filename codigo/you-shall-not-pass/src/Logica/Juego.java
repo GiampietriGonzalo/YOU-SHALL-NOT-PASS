@@ -5,6 +5,8 @@ import java.util.LinkedList;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import Interacciones.Disparo;
+import Interacciones.DisparoEnemigo;
 import Personajes.Aliado;
 import Personajes.Enemigo;
 
@@ -20,6 +22,8 @@ public class Juego {
 	private Mapa mapa;
 	private JPanel panelMapa;
 	private int sumador=0;
+	//private Nivel nivel;
+	int disparador=0;
 	//AudioClip clip = Applet.newAudioClip(this.getClass().getResource("/Musica/Anillo.WAV"));
 	
 	
@@ -36,8 +40,9 @@ public class Juego {
 	}
 	
 	private void colocarTorres(){
+		
 		for(int i=0;i<6;i++){
-			Torre t=new Torre(this,new ImageIcon(this.getClass().getResource("/Imagenes/Torre"+i+".png")));
+			Torre t=new Torre(new ImageIcon(this.getClass().getResource("/Imagenes/Torre"+i+".png")));
 			mapa.agregarObjeto(t, 9, i);
 			todos.add(t);
 			t.setPosGrafic(9*64, i*64);
@@ -111,6 +116,7 @@ public class Juego {
 			j.getGrafico().setOpaque(true);
 		}
 	}
+	
 	public void venderPersonaje(Aliado j,int x, int y){
 		j.morir();
 		aliados.remove(j);
@@ -124,13 +130,12 @@ public class Juego {
 	}
 	
 	public void actualizar(){
+		
 		LinkedList<GameObject> toDelete=new LinkedList<GameObject>();
 		if(sumador++%3==0) monedasJuego++;
+		
 		for(GameObject e:todos){
-			if(e.estaVivo()){
-				e.mover();
-			}
-			else
+			if(!e.estaVivo())
 				toDelete.add(e);
 		}
 		for(GameObject e:toDelete){
@@ -141,5 +146,32 @@ public class Juego {
 			puntosJuego+=e.getPuntos();
 		}
 		panelMapa.repaint();
+		moverEnemigos();
+	}
+	
+	
+	//Refactory (?
+	private void moverEnemigos(){
+		for(Enemigo e:enemigos){
+		if(e.x<4) {
+			if(getMapa().getObject(e.getX()+1,e.getY())==null) {
+				getMapa().eliminarObjeto(e,e.getX(), e.getY());
+				e.posX+=e.getVelocidad();
+				e.setX(e.posX/64);
+				getMapa().agregarObjeto(e, e.getX(), e.getY());
+				e.grafico.setBounds(e.posX,e.posY, 64, 64);
+				if(e.x==8) e.morir();
+			}
+		}
+		else {
+			if(disparador%4==0) {
+				Disparo d=new DisparoEnemigo(this,e,e.getX(),e.getY());
+				d.setPosGrafic((e.getX()+1)*64,e.getY()*64);
+				agregarObjeto(d, e.getX()+1, e.getY());
+				d.start();
+			}
+			disparador++;
+		}
+		}
 	}
 }

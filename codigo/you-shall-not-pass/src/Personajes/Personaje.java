@@ -1,17 +1,12 @@
 package Personajes;
 
 import Logica.GameObject;
-import Logica.Juego;
 
 public abstract class Personaje extends GameObject {
 	
 	protected int vida;
 	protected int rango;
 	protected int damage;
-	
-	public Personaje(Juego j){
-		super(j);
-	}
 	
 	public int getVida(){
 		return vida;

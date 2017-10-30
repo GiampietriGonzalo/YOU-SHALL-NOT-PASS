@@ -7,7 +7,7 @@ public class DisparoAliado extends Disparo {
 	protected VisitorDisparoAliado miVisitor;
 	
 	public DisparoAliado(Juego j,int x, int y) {
-		super(j, x, y);
+		super(j,x, y);
 		miVisitor= new VisitorDisparoAliado();
 		// TODO Auto-generated constructor stub
 	}

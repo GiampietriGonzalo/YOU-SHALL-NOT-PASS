@@ -10,17 +10,13 @@ public abstract class GameObject extends Thread {
 	protected int x;
 	protected int y;
 	protected ImageIcon sprite;
-	protected boolean vive;
+	protected boolean vive=true; //Todo por no hacer super, rata!
 	protected JLabel grafico;
 	protected int posX;
 	protected int posY;
 	protected int monedas;
 	protected int puntos;
 	
-	public GameObject(Juego j){
-		juego=j;
-		vive=true;
-	}
 	public ImageIcon getImg(){
 		return sprite;
 	}

@@ -3,11 +3,8 @@ package Personajes;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import Logica.Juego;
-
 public class Enano extends Aliado{
-	public Enano(Juego j) {
-		super(j);
+	public Enano() {
 		precioAliado=16;
 		rango=1;
 		vida=70;
