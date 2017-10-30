@@ -5,8 +5,7 @@ import java.util.LinkedList;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-import Interacciones.Disparo;
-import Interacciones.DisparoEnemigo;
+import Interacciones.*;
 import Personajes.Aliado;
 import Personajes.Enemigo;
 
@@ -45,6 +44,7 @@ public class Juego {
 			Torre t=new Torre(new ImageIcon(this.getClass().getResource("/Imagenes/Torre"+i+".png")));
 			mapa.agregarObjeto(t, 9, i);
 			todos.add(t);
+			aliados.add(t);
 			t.setPosGrafic(9*64, i*64);
 			t.grafico.setBackground(null);
 			panelMapa.add(t.getGrafico());
@@ -130,48 +130,111 @@ public class Juego {
 	}
 	
 	public void actualizar(){
-		
-		LinkedList<GameObject> toDelete=new LinkedList<GameObject>();
 		if(sumador++%3==0) monedasJuego++;
-		
-		for(GameObject e:todos){
+		moverEnemigos();
+		actualizarAliados();
+		panelMapa.repaint();
+	}
+	
+	//Enemigos
+	private void moverEnemigos(){
+		LinkedList<Enemigo> toDelete=new LinkedList<Enemigo>();
+		for(Enemigo e:enemigos){
 			if(!e.estaVivo())
 				toDelete.add(e);
+			else {
+			if(!hayObjetoEnRango(e)) {
+				//Avanzo
+				if(getMapa().getObject(e.getX()+1,e.getY())==null) {
+					getMapa().eliminarObjeto(e,e.getX(), e.getY());
+					e.posX+=e.getVelocidad();
+					e.setX(e.posX/64);
+					getMapa().agregarObjeto(e, e.getX(), e.getY());
+					e.grafico.setBounds(e.posX,e.posY, 64, 64);
+					if(e.x==7) e.morir();
+				}
+			}
+			else {
+				if(e.getRango()>0){
+					if(disparador%4==0) {
+						//Disparo
+						Disparo d=new DisparoEnemigo(this,e,e.getX(),e.getY());
+						d.setPosGrafic((e.getX()+1)*64,e.getY()*64);
+						agregarObjeto(d, e.getX()+1, e.getY());
+						d.start();
+					}
+					disparador++;
+				}
+				else{
+					//Ataque cuerpo a cuerpos
+					e.colisionar(getMapa().getObject(e.getX()+1,e.getY()));
+				}
+			}
+			}
 		}
-		for(GameObject e:toDelete){
+		for(Enemigo e:toDelete){
 			todos.remove(e);
+			enemigos.remove(e);
 			mapa.eliminarObjeto(e,e.getX(),e.getY());
 			panelMapa.remove(e.getGrafico());
 			monedasJuego+=e.getMonedas();
 			puntosJuego+=e.getPuntos();
 		}
-		panelMapa.repaint();
-		moverEnemigos();
 	}
 	
+	private boolean hayObjetoEnRango(Enemigo e){
+		boolean hay=false;
+		int x=e.getX();
+		while(!hay && x<e.getX()+e.getRango()+1){
+			hay=getMapa().getObject(x+1,e.getY())!=null;
+			x++;
+		}
+		return hay;
+	}
 	
-	//Refactory (?
-	private void moverEnemigos(){
-		for(Enemigo e:enemigos){
-		if(e.x<4) {
-			if(getMapa().getObject(e.getX()+1,e.getY())==null) {
-				getMapa().eliminarObjeto(e,e.getX(), e.getY());
-				e.posX+=e.getVelocidad();
-				e.setX(e.posX/64);
-				getMapa().agregarObjeto(e, e.getX(), e.getY());
-				e.grafico.setBounds(e.posX,e.posY, 64, 64);
-				if(e.x==8) e.morir();
+	//Aliados
+	private void actualizarAliados(){
+		LinkedList<Aliado> toDelete=new LinkedList<Aliado>();
+		for(Aliado e:aliados){
+			
+			if(!e.estaVivo())
+				toDelete.add(e);
+			else{
+				
+			if(hayObjetoEnRango(e)) {
+				if(e.getRango()>0){
+					if(disparador%4==0) {
+						//Disparo
+						Disparo d=new DisparoAliado(this,e,e.getX(),e.getY());
+						d.setPosGrafic((e.getX()-1)*64,e.getY()*64);
+						agregarObjeto(d, e.getX()-1, e.getY());
+						d.start();
+					}
+					disparador++;
+				}
+				else{
+					
+					//Ataque cuerpo a cuerpos
+					e.colisionar(getMapa().getObject(e.getX()-1,e.getY()));
+				}
 			}
+			}	
 		}
-		else {
-			if(disparador%4==0) {
-				Disparo d=new DisparoEnemigo(this,e,e.getX(),e.getY());
-				d.setPosGrafic((e.getX()+1)*64,e.getY()*64);
-				agregarObjeto(d, e.getX()+1, e.getY());
-				d.start();
-			}
-			disparador++;
+		for(Aliado e:toDelete){
+			todos.remove(e);
+			aliados.remove(e);
+			mapa.eliminarObjeto(e,e.getX(),e.getY());
+			panelMapa.remove(e.getGrafico());
 		}
+	}
+	
+	private boolean hayObjetoEnRango(Aliado e){
+		boolean hay=false;
+		int x=e.getX();
+		while(!hay && x>(e.getX()-e.getRango())-1){
+			hay=getMapa().getObject(x-1,e.getY())!=null;
+			x--;
 		}
+		return hay;
 	}
 }

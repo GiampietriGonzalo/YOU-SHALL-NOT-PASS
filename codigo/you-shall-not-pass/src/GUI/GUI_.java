@@ -56,7 +56,7 @@ public class GUI_ extends JFrame{
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.WHITE);
 					
-		frame.setBounds(220, 20, 868, 683);
+		frame.setBounds(20, 20, 868, 683);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(false);
 		
@@ -193,7 +193,7 @@ public class GUI_ extends JFrame{
 				
 				Random rdm=new Random(System.currentTimeMillis());
 				int i=rdm.nextInt(6);
-				MagoOscuro mago=new MagoOscuro();
+				Orco mago=new Orco();
 				mago.setPosGrafic(0, i*64);
 				juego.colocarEnemigo(mago,0, i);
 				

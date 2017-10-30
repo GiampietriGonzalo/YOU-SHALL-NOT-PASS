@@ -7,9 +7,14 @@ import Personajes.Enemigo;
 
 public class VisitorDisparoEnemigo extends Visitor {
 
+	public VisitorDisparoEnemigo(int d) {
+		super(d);
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public void visit(Aliado a) {
-		a.recibirDamage(15);
+		a.recibirDamage(damage);
 	}
 
 	@Override

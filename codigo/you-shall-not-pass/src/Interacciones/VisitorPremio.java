@@ -7,6 +7,11 @@ import Personajes.Enemigo;
 
 public class VisitorPremio extends Visitor{
 
+	public VisitorPremio(int d) {
+		super(d);
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public void visit(Aliado a) {
 		// TODO Auto-generated method stub

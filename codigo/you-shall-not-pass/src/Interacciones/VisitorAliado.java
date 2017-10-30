@@ -6,10 +6,9 @@ import Personajes.Aliado;
 import Personajes.Enemigo;
 
 public class VisitorAliado extends Visitor {
-	protected Aliado miPersonaje;
 	
-	public VisitorAliado(Aliado l){
-		miPersonaje=l;
+	public VisitorAliado(int d){
+		super(d);
 	}
 	
 	
@@ -20,7 +19,7 @@ public class VisitorAliado extends Visitor {
 
 	@Override
 	public void visit(Enemigo e) {
-		e.recibirDamage(10);
+		e.recibirDamage(damage);
 	}
 
 	@Override

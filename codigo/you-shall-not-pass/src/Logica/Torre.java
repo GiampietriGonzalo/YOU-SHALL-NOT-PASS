@@ -14,5 +14,5 @@ public class Torre extends Aliado {
 		sprite=imagen;
 		grafico=new JLabel(sprite);
 	}
-
+	
 }

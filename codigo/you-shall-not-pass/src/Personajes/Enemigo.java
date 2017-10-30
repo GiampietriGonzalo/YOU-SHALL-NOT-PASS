@@ -1,13 +1,17 @@
 package Personajes;
 
 import Interacciones.*;
+import Logica.GameObject;
 
 public abstract class Enemigo extends Personaje {
 	
 	protected int velocidad;
 	protected int monedas;
 	protected int puntos;
-	protected VisitorEnemigo miVisitor;
+	
+	public Enemigo(){
+		miVisitor=new VisitorEnemigo(damage);
+	}
 	
 	public void accept(Visitor v){
 		v.visit(this);
@@ -21,7 +25,9 @@ public abstract class Enemigo extends Personaje {
 		return monedas;
 	}
 	
+	
 	public int getPuntos(){
 		return puntos;
 	}
+	
 }

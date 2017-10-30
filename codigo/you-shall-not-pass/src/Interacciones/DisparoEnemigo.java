@@ -8,7 +8,7 @@ import Personajes.Enemigo;
 
 public class DisparoEnemigo extends Disparo {
 
-	protected VisitorDisparoEnemigo miVisitor;
+	protected Visitor miVisitor;
 	protected Enemigo miEne;
 	protected volatile boolean execute=true;
 	
@@ -16,7 +16,7 @@ public class DisparoEnemigo extends Disparo {
 	public DisparoEnemigo(Juego j,Enemigo e,int x, int y) {
 		super(j,x,y);
 		miEne = e;
-		miVisitor=new VisitorDisparoEnemigo();
+		miVisitor=new VisitorDisparoEnemigo(e.getDamage());
 		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/disparo.png"));
 		grafico=new JLabel(sprite);
 		grafico.setBackground(null);
@@ -40,8 +40,8 @@ public class DisparoEnemigo extends Disparo {
 			
 			this.terminate();
 		} else {
+			
 			if(juego.getMapa().getObject(x+1, y)==null){
-				
 				juego.getMapa().eliminarObjeto(this,x, y);
 				posX+=velocidad;
 				x=posX/64;
@@ -49,6 +49,7 @@ public class DisparoEnemigo extends Disparo {
 				this.grafico.setBounds(posX,posY, 64, 64);	
 			}
 			else {
+				
 				juego.getMapa().getObject(x+1,y).accept(miVisitor);
 				this.morir();
 				juego.eliminarObjeto(this, x,y);
