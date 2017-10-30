@@ -59,7 +59,7 @@ public abstract class GameObject extends Thread {
 	}
 	//Borrar mas tarde
 	public void mover(){
-		//Que tal señores, nada de nada
+		//Que tal seÃ±ores, nada de nada
 	}
 	
 	public int getMonedas(){
