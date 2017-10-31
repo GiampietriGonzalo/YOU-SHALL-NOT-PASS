@@ -34,7 +34,7 @@ public abstract class Enemigo extends Personaje {
 	public void recibirDamage(int d){
 		System.out.println("Soy enemigo me pegaron con daño "+d);
 		vida-=d;
-		if(vida<0){ 
+		if(vida<=0){ 
 			morir();
 		}
 	}

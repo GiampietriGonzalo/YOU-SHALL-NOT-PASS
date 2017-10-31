@@ -17,6 +17,7 @@ import Personajes.Enemigo;
 public class Juego {
 	
 	private boolean perdio;
+	private boolean gano;
 	private int puntosJuego;
 	private int monedasJuego;
 	private LinkedList<Enemigo> enemigos;
@@ -26,6 +27,7 @@ public class Juego {
 	private JPanel panelMapa;
 	private int sumador=0;
 	private Nivel nivel;
+	private Stack <Enemigo> s;
 	int disparador=0;
 	int contador=0;
 //	AudioClip clip = Applet.newAudioClip(this.getClass().getResource("/Musica/Anillo.WAV"));
@@ -40,8 +42,10 @@ public class Juego {
 		puntosJuego=0;
 		monedasJuego=100;
 		perdio=false;
+		gano=false;
 		colocarTorres();
 		nivel = new Nivel1(this);
+		s = nivel.crearPrimeraHorda();
 //	    clip.loop();
 	}
 	
@@ -130,10 +134,15 @@ public class Juego {
 	
 	public void actualizar(){
 		if(sumador++%3==0) monedasJuego++;
-		this.colocarEnemigoMapa();
+		if (!s.isEmpty()) colocarEnemigoMapa(s);
 		moverEnemigos();
 		actualizarAliados();
 		panelMapa.repaint();
+		if (enemigos.isEmpty()) gano = true;
+	}
+	
+	public boolean ganar(){
+		return (gano);
 	}
 	
 	//Enemigos
@@ -240,7 +249,7 @@ public class Juego {
 	}
 	
 	
-	public boolean termino(){
+	public boolean perder(){
 		return perdio;
 	}
 
@@ -248,9 +257,8 @@ public class Juego {
 		return panelMapa;
 	}
 	
-	public void colocarEnemigoMapa(){
-		if(contador%10==0){
-			Stack <Enemigo> s = nivel.crearPrimeraHorda();
+	public void colocarEnemigoMapa(Stack<Enemigo> s){
+		if(contador%2==0){
 			Enemigo e = s.pop();
 			Random rnd = new Random(System.currentTimeMillis());
 			int i = rnd.nextInt(5);
@@ -262,13 +270,18 @@ public class Juego {
 
 	public void reiniciar() {
 		panelMapa.removeAll();
+		aliados.clear();
 		aliados=new LinkedList<Aliado>();
+		enemigos.clear();
 		enemigos=new LinkedList<Enemigo>();
-		todos=new LinkedList<GameObject>();
+		todos.clear();
+		todos = new LinkedList<GameObject>();
 		puntosJuego=0;
 		monedasJuego=100;
 		perdio=false;
+		gano = false;
 		colocarTorres();
+		s = nivel.crearPrimeraHorda();
 		panelMapa.repaint();
 	}
 }

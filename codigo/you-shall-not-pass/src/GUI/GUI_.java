@@ -243,6 +243,7 @@ public class GUI_ extends JFrame{
 		
 		private Juego elJuego;
 		protected volatile boolean terminar = false;
+		protected volatile boolean ganar = false;
 		
 		ContadorPrueba(Juego j) {
 			elJuego = j;
@@ -257,16 +258,29 @@ public class GUI_ extends JFrame{
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-				terminar=elJuego.termino();
+				terminar = elJuego.perder();
+				ganar = elJuego.ganar();
 				if(terminar) {
 					int reinicio=JOptionPane.showConfirmDialog(null,"Perdiste! Queres reiniciar el juego?","Game Over",JOptionPane.YES_NO_OPTION);
 			
+					if(reinicio==0) {
+						panel_mapa.repaint();
+						elJuego.reiniciar();
+					}
+					else System.exit(0);
+				}
+				if (ganar){
+					
+					int reinicio=JOptionPane.showConfirmDialog(null,"Ganaste! Queres reiniciar el juego?","Mision Cumplida",JOptionPane.YES_NO_OPTION);
+					
 					if(reinicio==0) {
 						elJuego.reiniciar();
 						panel_mapa.repaint();
 					}
 					else System.exit(0);
+					
 				}
+			
 			}
 			
 			
