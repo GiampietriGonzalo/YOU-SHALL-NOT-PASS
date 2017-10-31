@@ -8,8 +8,8 @@ public class Orco extends Enemigo {
  
 	
 	public Orco() {
-		super(300);
-		rango=4;
+		super(20,30);
+		rango=0;
 		velocidad=32;
 		puntos=20;	
 		monedas=7;

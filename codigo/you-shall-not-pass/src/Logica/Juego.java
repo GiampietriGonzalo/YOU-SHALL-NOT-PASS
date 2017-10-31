@@ -1,6 +1,10 @@
 package Logica;
 
+import java.applet.Applet;
+import java.applet.AudioClip;
 import java.util.LinkedList;
+import java.util.Random;
+import java.util.Stack;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -21,9 +25,10 @@ public class Juego {
 	private Mapa mapa;
 	private JPanel panelMapa;
 	private int sumador=0;
-	//private Nivel nivel;
+	private Nivel nivel;
 	int disparador=0;
-	//AudioClip clip = Applet.newAudioClip(this.getClass().getResource("/Musica/Anillo.WAV"));
+	int contador=0;
+//	AudioClip clip = Applet.newAudioClip(this.getClass().getResource("/Musica/Anillo.WAV"));
 	
 	
 	public Juego(JPanel panel_Mapa) {
@@ -36,7 +41,8 @@ public class Juego {
 		monedasJuego=100;
 		perdio=false;
 		colocarTorres();
-	    //clip.loop();
+		nivel = new Nivel1(this);
+//	    clip.loop();
 	}
 	
 	private void colocarTorres(){
@@ -124,6 +130,7 @@ public class Juego {
 	
 	public void actualizar(){
 		if(sumador++%3==0) monedasJuego++;
+		this.colocarEnemigoMapa();
 		moverEnemigos();
 		actualizarAliados();
 		panelMapa.repaint();
@@ -239,6 +246,18 @@ public class Juego {
 
 	public JPanel getPanel() {
 		return panelMapa;
+	}
+	
+	public void colocarEnemigoMapa(){
+		if(contador%10==0){
+			Stack <Enemigo> s = nivel.crearPrimeraHorda();
+			Enemigo e = s.pop();
+			Random rnd = new Random(System.currentTimeMillis());
+			int i = rnd.nextInt(5);
+			e.setPosGrafic(0, i*64);
+			this.colocarEnemigo(e, 0, i);
+		}
+		contador++;
 	}
 
 	public void reiniciar() {

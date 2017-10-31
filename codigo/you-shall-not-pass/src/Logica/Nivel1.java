@@ -15,8 +15,8 @@ public class Nivel1 extends Nivel{
 
 	@Override
 	Stack<Enemigo> crearPrimeraHorda() {
-		Stack<Enemigo> horda=new Stack<Enemigo>();
-		Random rnd=new Random(System.currentTimeMillis());
+		Stack<Enemigo> horda = new Stack<Enemigo>();
+		Random rnd = new Random(System.currentTimeMillis());
 		int a;
 		
 		for(int i=0;i<15;i++){

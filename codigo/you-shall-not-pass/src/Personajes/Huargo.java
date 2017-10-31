@@ -6,11 +6,11 @@ import javax.swing.JLabel;
 public class Huargo extends Enemigo {
 	
 	public Huargo(){
-		super(20);
+		super(20,30);
 		velocidad=32;
 		puntos=20;
 		monedas=7;
-		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Saruman.png"));
+		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Huargo.png"));
 		grafico=new JLabel(sprite);
 		grafico.setBackground(null);
 	}

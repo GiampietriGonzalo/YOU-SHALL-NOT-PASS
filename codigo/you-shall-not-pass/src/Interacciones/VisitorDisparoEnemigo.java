@@ -6,14 +6,16 @@ import Personajes.Aliado;
 import Personajes.Enemigo;
 
 public class VisitorDisparoEnemigo extends Visitor {
-
-	public VisitorDisparoEnemigo(int d) {
-		super(d);
+	
+	private Enemigo miEnemigo;
+	
+	public VisitorDisparoEnemigo(Enemigo d) {
+		miEnemigo=d;
 	}
 
 
 	public void visit(Aliado a) {
-		a.recibirDamage(damage);
+		a.recibirDamage(miEnemigo.getDamage());
 	}
 
 	

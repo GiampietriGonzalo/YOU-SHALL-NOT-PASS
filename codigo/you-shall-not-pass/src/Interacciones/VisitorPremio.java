@@ -8,7 +8,7 @@ import Personajes.Enemigo;
 public class VisitorPremio extends Visitor{
 
 	public VisitorPremio(int d) {
-		super(d);
+
 		// TODO Auto-generated constructor stub
 	}
 

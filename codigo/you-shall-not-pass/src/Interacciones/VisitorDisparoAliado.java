@@ -5,10 +5,11 @@ import Logica.GameObject;
 import Personajes.Aliado;
 import Personajes.Enemigo;
 
-public class VisitorDisparoAliado extends Visitor {
 
-	public VisitorDisparoAliado(int d) {
-		super(d);
+public class VisitorDisparoAliado extends Visitor {
+	private Aliado miAliado;
+	public VisitorDisparoAliado(Aliado a) {
+		miAliado=a;
 	}
 
 	
@@ -18,7 +19,8 @@ public class VisitorDisparoAliado extends Visitor {
 
 	
 	public void visit(Enemigo e) {
-		e.recibirDamage(150);
+		
+		e.recibirDamage(miAliado.getDamage());
 	}
 
 	

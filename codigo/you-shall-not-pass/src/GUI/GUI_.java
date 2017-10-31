@@ -16,7 +16,7 @@ public class GUI_ extends JFrame{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JFrame frame;
+	private JFrame frmYouShallNot;
 	private Juego juego;
 	private JPanel panel_mapa;
 	private Aliado temporal;
@@ -28,8 +28,10 @@ public class GUI_ extends JFrame{
 	 * Constructor de la GUI.
 	 */
 	public GUI_() {
-		frame=new JFrame();
-		frame.setVisible(true);
+		frmYouShallNot=new JFrame();
+		frmYouShallNot.setTitle("YOU SHALL NOT PASS!");
+		frmYouShallNot.setIconImage(Toolkit.getDefaultToolkit().getImage(GUI_.class.getResource("/Imagenes/icono.jpg")));
+		frmYouShallNot.setVisible(true);
 		panel_mapa = new JPanel();
 		panel_mapa.setBounds(17, 232,10*64, 6*64);
 		juego=new Juego(panel_mapa);
@@ -44,11 +46,11 @@ public class GUI_ extends JFrame{
 	 * Crea el contenido de la GUI.
 	 */
 	private void initialize() {
-		frame.getContentPane().setBackground(Color.WHITE);
+		frmYouShallNot.getContentPane().setBackground(Color.WHITE);
 					
-		frame.setBounds(20, 20, 868, 683);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setResizable(false);
+		frmYouShallNot.setBounds(20, 20, 868, 683);
+		frmYouShallNot.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmYouShallNot.setResizable(false);
 		
 		//Creacion panel de seleccion de personajes
 		JPanel panel_personajes = new JPanel();
@@ -57,31 +59,31 @@ public class GUI_ extends JFrame{
 		panel_personajes.setLayout(new GridLayout(0, 5, 0, 0));
 		
 		ActionListener oyenteBtnAliado= new oyenteBotonesCrear();
-		JButton btnHumano = new JButton("");
+		JButton btnHumano = new JButton("(15)");
 		btnHumano.setToolTipText("HUMANO");
 		btnHumano.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/BotonHumano.png")));
 		btnHumano.addActionListener(oyenteBtnAliado);
 		
-		JButton btnHobbit = new JButton("");
+		JButton btnHobbit = new JButton("(10)");
 		btnHobbit.addActionListener(oyenteBtnAliado);
 		btnHobbit.setToolTipText("HOBBIT");
 		btnHobbit.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/BotonHobbit.png")));
 		panel_personajes.add(btnHobbit);
 		panel_personajes.add(btnHumano);
 		
-		JButton btnElfo = new JButton("");
+		JButton btnElfo = new JButton("(12)");
 		btnElfo.setToolTipText("ELFO");
 		btnElfo.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/BotonElfo.png")));
 		btnElfo.addActionListener(oyenteBtnAliado);
 		panel_personajes.add(btnElfo);
 		
-		JButton btnEnano = new JButton("");
+		JButton btnEnano = new JButton("(16)");
 		btnEnano.addActionListener(oyenteBtnAliado);
 		btnEnano.setToolTipText("ENANO");
 		btnEnano.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/BotonEnano.png")));
 		panel_personajes.add(btnEnano);
 		
-		JButton btnMago = new JButton("");
+		JButton btnMago = new JButton("(50)");
 		btnMago.setToolTipText("MAGO");
 		btnMago.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/BotonMago.png")));
 		btnMago.addActionListener(oyenteBtnAliado);
@@ -132,15 +134,15 @@ public class GUI_ extends JFrame{
 		panel_mapa.setLayout(null);
 		panel_mapa.setBorder(null);
 		panel_mapa.setVisible(true);
-		frame.getContentPane().setLayout(null);
-		frame.getContentPane().add(panel_personajes);
-		frame.getContentPane().add(panel_tienda);
+		frmYouShallNot.getContentPane().setLayout(null);
+		frmYouShallNot.getContentPane().add(panel_personajes);
+		frmYouShallNot.getContentPane().add(panel_tienda);
 		
 		//Creacion panel puntos
 		JPanel panel_puntos = new JPanel();
 		panel_puntos.setBackground(Color.WHITE);
 		panel_puntos.setBounds(667, 26, 185, 97);
-		frame.getContentPane().add(panel_puntos);
+		frmYouShallNot.getContentPane().add(panel_puntos);
 		
 		//lblPuntos = new JLabel("Puntos: "+juego.getPuntos());
 		lblPuntos.setForeground(Color.DARK_GRAY);
@@ -152,7 +154,7 @@ public class GUI_ extends JFrame{
 		lblMonedas.setFont(new Font("Aniron", Font.PLAIN, 20));
 		panel_puntos.add(lblMonedas);
 		
-		frame.getContentPane().add(panel_mapa);
+		frmYouShallNot.getContentPane().add(panel_mapa);
 		
 		JLabel lblTorre = new JLabel("");
 		lblTorre.setBounds(0, 0, 64, 384);
@@ -162,7 +164,7 @@ public class GUI_ extends JFrame{
 		panel_bg.setBackground(null);
 		panel_bg.setBounds(10, 21, 647, 213);
 		panel_bg.setOpaque(false);
-		frame.getContentPane().add(panel_bg);
+		frmYouShallNot.getContentPane().add(panel_bg);
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setForeground(Color.WHITE);
@@ -173,7 +175,7 @@ public class GUI_ extends JFrame{
 
 		labelFondo.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/FondoPanel.jpg")));
 		labelFondo.setBounds(0, 0, 862, 654);
-		frame.getContentPane().add(labelFondo);
+		frmYouShallNot.getContentPane().add(labelFondo);
 		//Para testear
 		JButton btnAgregarEnemigo = new JButton("Agregar enemigo");
 		btnAgregarEnemigo.setBounds(0, 464, 115, 23);
@@ -251,7 +253,7 @@ public class GUI_ extends JFrame{
 				lblMonedas.setText("Monedas: "+juego.getMonedas());
 				lblPuntos.setText("Puntos: "+juego.getPuntos());
 				try {
-					Thread.sleep(500);
+					Thread.sleep(1000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}

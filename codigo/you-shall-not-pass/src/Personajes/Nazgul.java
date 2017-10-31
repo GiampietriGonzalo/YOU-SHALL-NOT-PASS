@@ -6,11 +6,12 @@ import javax.swing.JLabel;
 public class Nazgul extends Enemigo {
 
 	public Nazgul() {
-		super(20);
+		super(20,60);
+		rango=0;
 		velocidad=32;
 		puntos=20;
 		monedas=7;
-		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Malo.png"));
+		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Nazgul.png"));
 		grafico=new JLabel(sprite);
 	}
 

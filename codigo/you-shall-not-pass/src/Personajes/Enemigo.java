@@ -9,9 +9,9 @@ public abstract class Enemigo extends Personaje {
 	protected int monedas;
 	protected int puntos;
 	
-	public Enemigo(int damage){
-		this.damage=damage;
-		miVisitor=new VisitorEnemigo(damage);
+	public Enemigo(int damage,int vida){
+		super(damage,vida);
+		miVisitor=new VisitorEnemigo(this);
 	}
 	
 	public void accept(Visitor v){
@@ -29,6 +29,14 @@ public abstract class Enemigo extends Personaje {
 	
 	public int getPuntos(){
 		return puntos;
+	}
+	
+	public void recibirDamage(int d){
+		System.out.println("Soy enemigo me pegaron con daño "+d);
+		vida-=d;
+		if(vida<0){ 
+			morir();
+		}
 	}
 	
 }

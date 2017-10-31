@@ -10,11 +10,13 @@ public class DisparoAliado extends Disparo {
 
 	protected VisitorDisparoAliado miVisitor;
 	protected volatile boolean execute=true;
+	protected Aliado miAliado;
 	
 	public DisparoAliado(Juego j,Aliado a,int x, int y) {
 		super(j,x, y);
-		miVisitor=new VisitorDisparoAliado(a.getDamage());
-		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/disparo.png"));
+		miAliado=a;
+		miVisitor=new VisitorDisparoAliado(a);
+		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/disparo2.png"));
 		grafico=new JLabel(sprite);
 		grafico.setBackground(null);
 	}
@@ -58,6 +60,9 @@ public class DisparoAliado extends Disparo {
 		execute=false;
 	}
 	
+	public Aliado getAliado(){
+		return miAliado;
+	}
 	@Override
 	public void accept(Visitor v) {
 		v.visit(this);

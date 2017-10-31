@@ -5,10 +5,6 @@ import Logica.GameObject;
 import Personajes.*;
 
 public abstract class Visitor {
-	protected int damage;
-	public Visitor(int d){
-		damage=d;
-	}
 	abstract public void visit(Aliado a);
 	abstract public void visit(Enemigo e);
 	abstract public void visit(Premio q);

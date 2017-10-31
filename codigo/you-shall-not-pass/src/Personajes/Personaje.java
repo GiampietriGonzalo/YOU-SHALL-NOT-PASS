@@ -10,6 +10,11 @@ public abstract class Personaje extends GameObject {
 	protected int damage;
 	protected Visitor miVisitor;
 	
+	public Personaje(int damage,int vida){
+		this.damage=damage;
+		this.vida=vida;
+	}
+	
 	public int getVida(){
 		return vida;
 	}
@@ -26,10 +31,6 @@ public abstract class Personaje extends GameObject {
 		p.accept(miVisitor);
 	}
 	
-	public void recibirDamage(int d){
-		
-		vida-=d;
-		if(vida<=0) morir();
-	}
+	public void recibirDamage(int d){}
 	
 }

@@ -7,8 +7,10 @@ import Personajes.Enemigo;
 
 public class VisitorAliado extends Visitor {
 	
-	public VisitorAliado(int d){
-		super(d);
+	private Aliado miAliado;
+	
+	public VisitorAliado(Aliado l){
+		miAliado=l;
 	}
 	
 	
@@ -19,7 +21,7 @@ public class VisitorAliado extends Visitor {
 
 	
 	public void visit(Enemigo e) {
-		e.recibirDamage(damage);
+		e.recibirDamage(miAliado.getDamage());
 	}
 
 	

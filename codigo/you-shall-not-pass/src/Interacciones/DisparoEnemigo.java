@@ -16,7 +16,7 @@ public class DisparoEnemigo extends Disparo {
 	public DisparoEnemigo(Juego j,Enemigo e,int x, int y) {
 		super(j,x,y);
 		miEne = e;
-		miVisitor=new VisitorDisparoEnemigo(e.getDamage());
+		miVisitor=new VisitorDisparoEnemigo(e);
 		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/disparo.png"));
 		grafico=new JLabel(sprite);
 		grafico.setBackground(null);

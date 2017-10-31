@@ -6,7 +6,7 @@ import javax.swing.JLabel;
 public class OrcoUrukHai extends Enemigo {
 	
 	public OrcoUrukHai() {
-		super(20);
+		super(30,40);
 		velocidad=32;
 		puntos=20;
 		monedas=7;

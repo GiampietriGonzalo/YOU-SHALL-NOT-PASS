@@ -6,8 +6,9 @@ import javax.swing.JLabel;
 public class MagoOscuro extends Enemigo {
 
 	public MagoOscuro() {
-		super(20);
+		super(20,70);
 		vive=true;
+		rango=3;
 		velocidad=32;
 		puntos=20;
 		monedas=7;

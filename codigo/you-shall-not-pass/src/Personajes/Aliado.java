@@ -7,8 +7,9 @@ public abstract class Aliado extends Personaje {
 	
 	protected int precioAliado;
 	
-	public Aliado(){
-		miVisitor=new VisitorAliado(damage);
+	public Aliado(int damage,int vida){
+		super(damage,vida);
+		miVisitor=new VisitorAliado(this);
 	}
 	
 	public void accept(Visitor v){
@@ -19,5 +20,9 @@ public abstract class Aliado extends Personaje {
 		return precioAliado;
 	}
 	
-	
+	public void recibirDamage(int d){
+		System.out.println("Soy aliado me pegaron con daño "+d);
+		vida-=d;
+		if(vida<0) morir();
+	}
 }
