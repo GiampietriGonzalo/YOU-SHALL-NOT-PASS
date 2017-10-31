@@ -53,10 +53,6 @@ public abstract class GameObject extends Thread {
 		grafico.setBounds(posX,posY,64,64);
 		return grafico;
 	}
-	//Borrar mas tarde
-	public void mover(){
-		//Que tal señores, nada de nada
-	}
 	
 	public int getMonedas(){
 		return monedas;

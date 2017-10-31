@@ -23,29 +23,20 @@ public class GUI_ extends JFrame{
 	private Contador contador;
 	private JLabel lblMonedas;
 	private JLabel lblPuntos;
-	
-
-	/**
-	 * Inicializa la GUI y ejecuta la aplicación.
-	 */
-	public static void main(String[] args) {
-		
-		try {
-			GUI_ window = new GUI_();
-			window.frame.setVisible(true);
-				} catch (Exception e) {e.printStackTrace();}
-	}
 
 	/**
 	 * Constructor de la GUI.
 	 */
 	public GUI_() {
-		
+		frame=new JFrame();
+		frame.setVisible(true);
 		panel_mapa = new JPanel();
 		panel_mapa.setBounds(17, 232,10*64, 6*64);
 		juego=new Juego(panel_mapa);
-		contador=new Contador(juego);
-		contador.start();
+		lblMonedas = new JLabel("Monedas: "+juego.getMonedas());
+		lblPuntos = new JLabel("Puntos: "+juego.getPuntos());
+		ContadorPrueba contP=new ContadorPrueba(juego);
+		contP.start();
 		initialize();
 	}
 
@@ -53,7 +44,6 @@ public class GUI_ extends JFrame{
 	 * Crea el contenido de la GUI.
 	 */
 	private void initialize() {
-		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.WHITE);
 					
 		frame.setBounds(20, 20, 868, 683);
@@ -152,12 +142,12 @@ public class GUI_ extends JFrame{
 		panel_puntos.setBounds(667, 26, 185, 97);
 		frame.getContentPane().add(panel_puntos);
 		
-		lblPuntos = new JLabel("Puntos: "+juego.getPuntos());
+		//lblPuntos = new JLabel("Puntos: "+juego.getPuntos());
 		lblPuntos.setForeground(Color.DARK_GRAY);
 		lblPuntos.setFont(new Font("Aniron", Font.PLAIN, 20));
 		panel_puntos.add(lblPuntos);
 		
-		lblMonedas = new JLabel("Monedas: "+juego.getMonedas());
+		//lblMonedas = new JLabel("Monedas: "+juego.getMonedas());
 		lblMonedas.setForeground(Color.DARK_GRAY);
 		lblMonedas.setFont(new Font("Aniron", Font.PLAIN, 20));
 		panel_puntos.add(lblMonedas);
@@ -200,8 +190,6 @@ public class GUI_ extends JFrame{
 			}
 		});
 		
-		ContadorPuntos contP=new ContadorPuntos();
-		contP.start();
 	}
 	
 	
@@ -247,19 +235,40 @@ public class GUI_ extends JFrame{
 			}		
 		}
 	}
+	
 	//Hilo que actualiza los puntos y monedas
-	public class ContadorPuntos extends Thread{
-		public void run(){
+	public class ContadorPrueba extends Thread{
+		
+		private Juego elJuego;
+		protected volatile boolean terminar = false;
+		
+		ContadorPrueba(Juego j) {
+			elJuego = j;
+		}
+		public void run() {
 			while(true){
+				elJuego.actualizar();
+				lblMonedas.setText("Monedas: "+juego.getMonedas());
+				lblPuntos.setText("Puntos: "+juego.getPuntos());
 				try {
-					Thread.sleep(100);
+					Thread.sleep(500);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-				lblMonedas.setText("Monedas: "+juego.getMonedas());
-				lblPuntos.setText("Puntos: "+juego.getPuntos());
+				terminar=elJuego.termino();
+				if(terminar) {
+					int reinicio=JOptionPane.showConfirmDialog(null,"Perdiste! Queres reiniciar el juego?","Game Over",JOptionPane.YES_NO_OPTION);
+			
+					if(reinicio==0) {
+						elJuego.reiniciar();
+						panel_mapa.repaint();
+					}
+					else System.exit(0);
+				}
 			}
+			
+			
 		}
-		
 	}
+
 }

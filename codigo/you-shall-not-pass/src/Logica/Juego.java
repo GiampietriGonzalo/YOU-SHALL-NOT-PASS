@@ -12,7 +12,7 @@ import Personajes.Enemigo;
 
 public class Juego {
 	
-	private int vidaJugador;
+	private boolean perdio;
 	private int puntosJuego;
 	private int monedasJuego;
 	private LinkedList<Enemigo> enemigos;
@@ -34,6 +34,7 @@ public class Juego {
 		todos=new LinkedList<GameObject>();
 		puntosJuego=0;
 		monedasJuego=100;
+		perdio=false;
 		colocarTorres();
 	    //clip.loop();
 	}
@@ -50,10 +51,6 @@ public class Juego {
 			panelMapa.add(t.getGrafico());
 			t.getGrafico().setOpaque(true);
 		}
-	}
-	
-	public int getVida(){
-		return vidaJugador;
 	}
 	public int getPuntos(){
 		return puntosJuego;
@@ -72,10 +69,6 @@ public class Juego {
 	
 	public void restarMonedas(int m){
 		monedasJuego-=m;
-	}
-	
-	public void restarVida(int v){
-		vidaJugador-=v;
 	}
 	
 	public Mapa getMapa(){
@@ -151,7 +144,7 @@ public class Juego {
 					e.setX(e.posX/64);
 					getMapa().agregarObjeto(e, e.getX(), e.getY());
 					e.grafico.setBounds(e.posX,e.posY, 64, 64);
-					if(e.x==7) e.morir();
+					if(e.x==9) perdio=true; //perder
 				}
 			}
 			else {
@@ -185,7 +178,7 @@ public class Juego {
 	private boolean hayObjetoEnRango(Enemigo e){
 		boolean hay=false;
 		int x=e.getX();
-		while(!hay && x<e.getX()+e.getRango()+1){
+		while(!hay && x!=9 && x<e.getX()+e.getRango()+1){
 			hay=getMapa().getObject(x+1,e.getY())!=null;
 			x++;
 		}
@@ -199,7 +192,6 @@ public class Juego {
 			
 			if(!e.estaVivo()) {
 				toDelete.add(e);
-				System.out.println("entro");
 			}
 			else{
 				
@@ -233,10 +225,31 @@ public class Juego {
 	private boolean hayObjetoEnRango(Aliado e){
 		boolean hay=false;
 		int x=e.getX();
-		while(!hay && x>(e.getX()-e.getRango())-1){
+		while(!hay && x>0 && x>(e.getX()-e.getRango())-1){
 			hay=getMapa().getObject(x-1,e.getY())!=null;
 			x--;
 		}
 		return hay;
+	}
+	
+	
+	public boolean termino(){
+		return perdio;
+	}
+
+	public JPanel getPanel() {
+		return panelMapa;
+	}
+
+	public void reiniciar() {
+		panelMapa.removeAll();
+		aliados=new LinkedList<Aliado>();
+		enemigos=new LinkedList<Enemigo>();
+		todos=new LinkedList<GameObject>();
+		puntosJuego=0;
+		monedasJuego=100;
+		perdio=false;
+		colocarTorres();
+		panelMapa.repaint();
 	}
 }

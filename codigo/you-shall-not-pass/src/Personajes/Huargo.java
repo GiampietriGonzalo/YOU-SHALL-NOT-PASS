@@ -6,6 +6,7 @@ import javax.swing.JLabel;
 public class Huargo extends Enemigo {
 	
 	public Huargo(){
+		super(20);
 		velocidad=32;
 		puntos=20;
 		monedas=7;
