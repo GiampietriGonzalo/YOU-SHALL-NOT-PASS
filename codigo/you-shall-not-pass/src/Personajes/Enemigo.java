@@ -9,7 +9,8 @@ public abstract class Enemigo extends Personaje {
 	protected int monedas;
 	protected int puntos;
 	
-	public Enemigo(){
+	public Enemigo(int damage){
+		this.damage=damage;
 		miVisitor=new VisitorEnemigo(damage);
 	}
 	

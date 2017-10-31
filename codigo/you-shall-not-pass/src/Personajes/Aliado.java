@@ -4,6 +4,7 @@ import Interacciones.*;
 import Logica.GameObject;
 
 public abstract class Aliado extends Personaje {
+	
 	protected int precioAliado;
 	
 	public Aliado(){

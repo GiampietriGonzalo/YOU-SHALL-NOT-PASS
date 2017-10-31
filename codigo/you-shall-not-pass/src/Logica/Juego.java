@@ -156,7 +156,7 @@ public class Juego {
 			}
 			else {
 				if(e.getRango()>0){
-					if(disparador%4==0) {
+					if(disparador%10==0) {
 						//Disparo
 						Disparo d=new DisparoEnemigo(this,e,e.getX(),e.getY());
 						d.setPosGrafic((e.getX()+1)*64,e.getY()*64);
@@ -197,8 +197,10 @@ public class Juego {
 		LinkedList<Aliado> toDelete=new LinkedList<Aliado>();
 		for(Aliado e:aliados){
 			
-			if(!e.estaVivo())
+			if(!e.estaVivo()) {
 				toDelete.add(e);
+				System.out.println("entro");
+			}
 			else{
 				
 			if(hayObjetoEnRango(e)) {

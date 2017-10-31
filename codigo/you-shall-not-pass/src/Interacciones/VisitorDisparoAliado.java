@@ -9,42 +9,37 @@ public class VisitorDisparoAliado extends Visitor {
 
 	public VisitorDisparoAliado(int d) {
 		super(d);
-		// TODO Auto-generated constructor stub
 	}
 
-	@Override
+	
 	public void visit(Aliado a) {
-		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
+	
 	public void visit(Enemigo e) {
-		// TODO Auto-generated method stub
 		e.recibirDamage(150);
 	}
 
-	@Override
+	
 	public void visit(Premio q) {
-		// TODO Auto-generated method stub
+	
 		
 	}
 
-	@Override
+
 	public void visit(DisparoAliado da) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
-	@Override
+
 	public void visit(DisparoEnemigo de) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void visit(GameObject gameObject) {
-		// TODO Auto-generated method stub
 		
 	}
 

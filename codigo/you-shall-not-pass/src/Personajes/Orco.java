@@ -5,11 +5,11 @@ import javax.swing.JLabel;
 
 public class Orco extends Enemigo {
 	
-	private int damage=30;
+ 
 	
 	public Orco() {
-		super();
-		rango=0;
+		super(300);
+		rango=4;
 		velocidad=32;
 		puntos=20;	
 		monedas=7;
