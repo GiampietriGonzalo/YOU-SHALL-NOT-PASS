@@ -1,7 +1,6 @@
 package Logica;
 
-import java.applet.Applet;
-import java.applet.AudioClip;
+import java.applet.*;
 import java.util.LinkedList;
 import java.util.Random;
 import java.util.Stack;
@@ -9,9 +8,9 @@ import java.util.Stack;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import Entidad.*;
 import Interacciones.*;
-import Personajes.Aliado;
-import Personajes.Enemigo;
+import Personajes.*;
 
 
 public class Juego {
@@ -149,8 +148,9 @@ public class Juego {
 	private void moverEnemigos(){
 		LinkedList<Enemigo> toDelete=new LinkedList<Enemigo>();
 		for(Enemigo e:enemigos){
-			if(!e.estaVivo())
+			if(!e.estaVivo()){
 				toDelete.add(e);
+			}
 			else {
 			if(!hayObjetoEnRango(e)) {
 				//Avanzo
@@ -181,7 +181,19 @@ public class Juego {
 			}
 			}
 		}
-		for(Enemigo e:toDelete){
+		for(Enemigo e:toDelete){;
+			Random rnd = new Random(System.currentTimeMillis());
+			int i = rnd.nextInt(3);
+			if (i==1){
+				Bomba b = new Bomba();
+				b.setPosGrafic(e.getX()*64, e.getY()*64);
+				agregarPower(b, e.getX(), e.getY());
+			}
+			if (i==2){
+				RelojArena r = new RelojArena();
+				r.setPosGrafic(e.getX()*64, e.getY()*64);
+				agregarPower(r, e.getX(), e.getY());
+			}
 			todos.remove(e);
 			enemigos.remove(e);
 			mapa.eliminarObjeto(e,e.getX(),e.getY());
@@ -189,6 +201,17 @@ public class Juego {
 			monedasJuego+=e.getMonedas();
 			puntosJuego+=e.getPuntos();
 		}
+	}
+	
+	public void agregarPower(GameObject j,int x, int y){
+		
+		mapa.agregarObjeto(j,x,y);
+		j.setX(x);
+		j.setY(y);
+		panelMapa.add(j.getGrafico());
+		j.grafico.setBackground(null);
+		j.getGrafico().setOpaque(true);
+		
 	}
 	
 	private boolean hayObjetoEnRango(Enemigo e){

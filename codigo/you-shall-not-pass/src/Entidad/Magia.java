@@ -1,6 +1,8 @@
 package Entidad;
 
-public abstract class Magia {
+import Logica.GameObject;
+
+public abstract class Magia extends GameObject{
 	
 	protected int tiempoDuracion;
 	

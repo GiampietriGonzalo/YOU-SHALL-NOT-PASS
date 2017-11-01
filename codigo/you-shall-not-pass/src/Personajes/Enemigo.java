@@ -1,5 +1,7 @@
 package Personajes;
 
+import java.util.Random;
+
 import Interacciones.*;
 import Logica.GameObject;
 
