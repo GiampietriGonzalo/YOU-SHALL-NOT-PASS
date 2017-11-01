@@ -21,8 +21,9 @@ public abstract class Aliado extends Personaje {
 	}
 	
 	public void recibirDamage(int d){
-		System.out.println("Soy aliado me pegaron con daño "+d+" y tengo de vida"+vida);
+		//System.out.println("Soy aliado me pegaron con daño "+d+" y tengo de vida"+vida);
 		vida-=d;
 		if(vida<=0) morir();
 	}
+	
 }

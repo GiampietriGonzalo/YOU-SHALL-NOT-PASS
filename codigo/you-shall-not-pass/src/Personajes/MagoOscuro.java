@@ -16,5 +16,11 @@ public class MagoOscuro extends Enemigo {
 		grafico=new JLabel(sprite);
 		grafico.setBackground(null);
 	}
+
+	@Override
+	public int getVidaOriginal() {
+		// TODO Auto-generated method stub
+		return 70;
+	}
 	
 }

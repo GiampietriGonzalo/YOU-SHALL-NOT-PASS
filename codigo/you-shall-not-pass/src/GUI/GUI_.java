@@ -15,7 +15,7 @@ public class GUI_ extends JFrame{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	//private static final long serialVersionUID = 1L;
 	private JFrame frmYouShallNot;
 	private Juego juego;
 	private JPanel panel_mapa;
@@ -125,8 +125,7 @@ public class GUI_ extends JFrame{
 		//aca
 		
 		
-		
-		
+
 		oyenteMouse oyenteM= new oyenteMouse();
 		panel_mapa.setBackground(new Color(0, 0, 0));
 		panel_mapa.addMouseListener(oyenteM);
@@ -225,16 +224,20 @@ public class GUI_ extends JFrame{
 	public class oyenteMouse extends MouseAdapter{
 		
 		public void mouseClicked(MouseEvent e) {
+			int x=e.getX()-e.getX() % 64;
+			int y=e.getY()-e.getY() % 64;
 			if(temporal!=null) {
-				int x=e.getX()-e.getX() % 64;
-				int y=e.getY()-e.getY() % 64;
 				temporal.setX(x/64);
 				temporal.setY(y/64);
 				temporal.setPosGrafic(x, y);
 				juego.colocarAliado(temporal,e.getX()/64,e.getY()/64 );
 				lblMonedas.setText("Monedas: "+juego.getMonedas());
 				temporal=null;
-			}		
+			}
+			else{
+				if(juego.getMapa().getObject(x/64, y/64)!=null) 
+					juego.reaccionar(x/64,y/64);
+			}
 		}
 	}
 	

@@ -12,5 +12,11 @@ public class Hobbit extends Aliado {
 		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Sam.png"));
 		grafico=new JLabel(sprite);
 	}
+
+	@Override
+	public int getVidaOriginal() {
+		// TODO Auto-generated method stub
+		return 40;
+	}
 	
 }

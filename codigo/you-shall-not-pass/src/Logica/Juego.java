@@ -29,7 +29,7 @@ public class Juego {
 	private Stack <Enemigo> s;
 	int disparador=0;
 	int contador=0;
-	AudioClip clip = Applet.newAudioClip(this.getClass().getResource("/Musica/Anillo.WAV"));
+	//AudioClip clip = Applet.newAudioClip(this.getClass().getResource("/Musica/Anillo.WAV"));
 	
 	
 	public Juego(JPanel panel_Mapa) {
@@ -45,7 +45,7 @@ public class Juego {
 		colocarTorres();
 		nivel = new Nivel1(this);
 		s = nivel.crearPrimeraHorda();
-	    clip.loop();
+	    //clip.loop();
 	}
 	
 	private void colocarTorres(){
@@ -182,29 +182,31 @@ public class Juego {
 			}
 		}
 		for(Enemigo e:toDelete){;
-			Random rnd = new Random(System.currentTimeMillis());
-			int i = rnd.nextInt(4);
-			if (i==1){
-				Bomba b = new Bomba();
-				b.setPosGrafic(e.getX()*64, e.getY()*64);
-				agregarPower(b, e.getX(), e.getY());
-			}
-			if (i==2){
-				RelojArena r = new RelojArena();
-				r.setPosGrafic(e.getX()*64, e.getY()*64);
-				agregarPower(r, e.getX(), e.getY());
-			}
-			if (i==3){
-				Curacion c = new Curacion();
-				c.setPosGrafic(e.getX()*64, e.getY()*64);
-				agregarPower(c, e.getX(), e.getY());
-			}
+			
+		Random rnd = new Random(System.currentTimeMillis());
 			todos.remove(e);
 			enemigos.remove(e);
 			mapa.eliminarObjeto(e,e.getX(),e.getY());
 			panelMapa.remove(e.getGrafico());
 			monedasJuego+=e.getMonedas();
 			puntosJuego+=e.getPuntos();
+			int i = rnd.nextInt(4);
+			if (i==1){
+				Bomba b = new Bomba(this);
+				b.setPosGrafic(e.getX()*64, e.getY()*64);
+				this.agregarObjeto(b,e.getX(), e.getY());
+			}
+			if (i==2){
+				RelojArena r = new RelojArena(this);
+				r.setPosGrafic(e.getX()*64, e.getY()*64);
+				this.agregarObjeto(r,e.getX(), e.getY());
+			}
+			if (i==3){
+				Curacion c = new Curacion(this);
+				c.setPosGrafic(e.getX()*64, e.getY()*64);
+				this.agregarObjeto(c,e.getX(), e.getY());
+			}
+			
 		}
 	}
 	
@@ -286,7 +288,7 @@ public class Juego {
 	}
 	
 	public void colocarEnemigoMapa(Stack<Enemigo> s){
-		if(contador%2==0){
+		if(contador%6==0){
 			Enemigo e = s.pop();
 			Random rnd = new Random(System.currentTimeMillis());
 			int i = rnd.nextInt(5);
@@ -312,4 +314,15 @@ public class Juego {
 		s = nivel.crearPrimeraHorda();
 		panelMapa.repaint();
 	}
+
+	public void reaccionar(int i, int j) {
+		
+		mapa.getObject(i, j).efecto();
+		
+	}
+
+	public LinkedList<Aliado> getAliados() {
+		return aliados;
+	}
+	
 }

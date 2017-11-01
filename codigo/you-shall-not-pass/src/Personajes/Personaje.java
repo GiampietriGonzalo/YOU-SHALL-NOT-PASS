@@ -19,6 +19,12 @@ public abstract class Personaje extends GameObject {
 		return vida;
 	}
 	
+	public void setVida(int v){
+		vida=v;
+	}
+	
+	public abstract int getVidaOriginal();
+	
 	public int getRango(){
 		return rango;
 	}
@@ -32,5 +38,6 @@ public abstract class Personaje extends GameObject {
 	}
 	
 	public void recibirDamage(int d){}
+	public void efecto(){}
 	
 }

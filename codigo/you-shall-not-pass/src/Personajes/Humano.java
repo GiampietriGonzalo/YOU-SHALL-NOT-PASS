@@ -14,4 +14,10 @@ public class Humano extends Aliado {
 		grafico=new JLabel(sprite);
 		
 	}
+
+	@Override
+	public int getVidaOriginal() {
+		// TODO Auto-generated method stub
+		return 50;
+	}
 }

@@ -27,10 +27,11 @@ public class Mapa {
 	}
 	
 	public void eliminarObjeto(GameObject j,int x, int y){
-		grilla[x][y].setElement(null);
+		if(x<grilla.length && y<grilla[0].length) grilla[x][y].setElement(null);
 	}
 	
 	public GameObject getObject(int x, int y){
-		return grilla[x][y].getElement();
+		if(x<grilla.length && y<grilla[0].length) return grilla[x][y].getElement();
+		else return null;
 	}
 }

@@ -15,5 +15,11 @@ public class Nazgul extends Enemigo {
 		grafico=new JLabel(sprite);
 	}
 
+	@Override
+	public int getVidaOriginal() {
+		// TODO Auto-generated method stub
+		return 60;
+	}
+
 }
 

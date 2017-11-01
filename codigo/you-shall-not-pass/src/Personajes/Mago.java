@@ -12,5 +12,11 @@ public class Mago extends Aliado {
 		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/GandalfElBlanco.png"));
 		grafico=new JLabel(sprite);
 	}
+
+	@Override
+	public int getVidaOriginal() {
+		// TODO Auto-generated method stub
+		return 80;
+	}
 	
 }

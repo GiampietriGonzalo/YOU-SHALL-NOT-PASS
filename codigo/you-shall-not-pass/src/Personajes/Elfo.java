@@ -11,4 +11,10 @@ public class Elfo extends Aliado {
 		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Legolas.png"));
 		grafico=new JLabel(sprite);
 	}
+
+	@Override
+	public int getVidaOriginal() {
+		// TODO Auto-generated method stub
+		return 70;
+	}
 }

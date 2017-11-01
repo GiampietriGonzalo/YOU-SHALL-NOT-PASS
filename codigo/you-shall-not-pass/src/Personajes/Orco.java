@@ -5,8 +5,6 @@ import javax.swing.JLabel;
 
 public class Orco extends Enemigo {
 	
- 
-	
 	public Orco() {
 		super(20,30);
 		rango=0;
@@ -17,5 +15,11 @@ public class Orco extends Enemigo {
 		grafico=new JLabel(sprite);
 		grafico.setBackground(null);
 		
+	}
+
+	@Override
+	public int getVidaOriginal() {
+		// TODO Auto-generated method stub
+		return 30;
 	}
 }

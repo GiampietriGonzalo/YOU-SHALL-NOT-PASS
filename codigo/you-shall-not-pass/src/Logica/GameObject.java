@@ -64,5 +64,7 @@ public abstract class GameObject extends Thread {
 	
 	public void accept(Visitor v) {
 		v.visit(this);
-	} 
+	}
+
+	public abstract void efecto();
 }
