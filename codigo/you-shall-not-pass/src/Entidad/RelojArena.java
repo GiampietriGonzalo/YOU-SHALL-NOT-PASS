@@ -3,7 +3,7 @@ package Entidad;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-public class RelojArena extends Magia{
+public class RelojArena extends ObjetoPrecioso{
 		
 		public RelojArena(){
 			sprite=new ImageIcon(this.getClass().getResource("/Imagenes/reloj.png"));

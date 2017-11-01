@@ -29,7 +29,7 @@ public class Juego {
 	private Stack <Enemigo> s;
 	int disparador=0;
 	int contador=0;
-//	AudioClip clip = Applet.newAudioClip(this.getClass().getResource("/Musica/Anillo.WAV"));
+	AudioClip clip = Applet.newAudioClip(this.getClass().getResource("/Musica/Anillo.WAV"));
 	
 	
 	public Juego(JPanel panel_Mapa) {
@@ -45,7 +45,7 @@ public class Juego {
 		colocarTorres();
 		nivel = new Nivel1(this);
 		s = nivel.crearPrimeraHorda();
-//	    clip.loop();
+	    clip.loop();
 	}
 	
 	private void colocarTorres(){
@@ -183,7 +183,7 @@ public class Juego {
 		}
 		for(Enemigo e:toDelete){;
 			Random rnd = new Random(System.currentTimeMillis());
-			int i = rnd.nextInt(3);
+			int i = rnd.nextInt(4);
 			if (i==1){
 				Bomba b = new Bomba();
 				b.setPosGrafic(e.getX()*64, e.getY()*64);
@@ -193,6 +193,11 @@ public class Juego {
 				RelojArena r = new RelojArena();
 				r.setPosGrafic(e.getX()*64, e.getY()*64);
 				agregarPower(r, e.getX(), e.getY());
+			}
+			if (i==3){
+				Curacion c = new Curacion();
+				c.setPosGrafic(e.getX()*64, e.getY()*64);
+				agregarPower(c, e.getX(), e.getY());
 			}
 			todos.remove(e);
 			enemigos.remove(e);
