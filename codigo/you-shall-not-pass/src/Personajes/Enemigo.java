@@ -10,6 +10,7 @@ public abstract class Enemigo extends Personaje {
 	protected int velocidad;
 	protected int monedas;
 	protected int puntos;
+	protected EstadoEnemigo estado;
 	
 	public Enemigo(int damage,int vida){
 		super(damage,vida);
@@ -40,5 +41,7 @@ public abstract class Enemigo extends Personaje {
 			morir();
 		}
 	}
+	
+	public EstadoEnemigo getEstado() {return estado;}
 	
 }

@@ -6,6 +6,7 @@ import Logica.GameObject;
 public abstract class Aliado extends Personaje {
 	
 	protected int precioAliado;
+	protected EstadoAliado estado;
 	
 	public Aliado(int damage,int vida){
 		super(damage,vida);
@@ -25,5 +26,7 @@ public abstract class Aliado extends Personaje {
 		vida-=d;
 		if(vida<=0) morir();
 	}
+	
+	public EstadoAliado getEstado() {return estado;}
 	
 }
