@@ -8,7 +8,7 @@ public class Orco extends Enemigo {
 	public Orco() {
 		super(20,30);
 		rango=0;
-		velocidad=32;
+		velocidad=8;
 		puntos=20;	
 		monedas=7;
 		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Orco.png"));

@@ -4,7 +4,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import Logica.Juego;
-import Personajes.Aliado;
 import Personajes.Enemigo;
 
 public class Bomba extends ObjetoPrecioso{

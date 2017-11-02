@@ -15,12 +15,11 @@ public class GUI_ extends JFrame{
 	/**
 	 * 
 	 */
-	//private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 	private JFrame frmYouShallNot;
 	private Juego juego;
 	private JPanel panel_mapa;
 	private Aliado temporal;
-	private Contador contador;
 	private JLabel lblMonedas;
 	private JLabel lblPuntos;
 
@@ -91,8 +90,9 @@ public class GUI_ extends JFrame{
 		/*JButton btnEnt = new JButton("Ent");
 		btnEnt.setToolTipText("ENT");
 		btnEnt.addActionListener(oyenteBtnAliado);
-		panel_personajes.add(btnEnt);
-		panel_personajes.add(btnMago);*/
+		panel_personajes.add(btnEnt);*/
+		
+		panel_personajes.add(btnMago);
 		
 		//Creacion panel tienda
 		JPanel panel_tienda = new JPanel();
@@ -263,7 +263,7 @@ public class GUI_ extends JFrame{
 				lblMonedas.setText("Monedas: "+juego.getMonedas());
 				lblPuntos.setText("Puntos: "+juego.getPuntos());
 				try {
-					Thread.sleep(1000);
+					Thread.sleep(300);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}

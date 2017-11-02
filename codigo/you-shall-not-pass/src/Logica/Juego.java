@@ -189,6 +189,7 @@ public class Juego {
 				}
 			}
 			else {
+				System.out.println("Hay alguien aca");
 				if(e.getRango()>0){
 					if(disparador%10==0) {
 						//Disparo
@@ -268,7 +269,7 @@ public class Juego {
 				
 			if(hayObjetoEnRango(e)) {
 				if(e.getRango()>0){
-					if(disparador%4==0) {
+					if(disparador%6==0) {
 						//Disparo
 						Disparo d=new DisparoAliado(this,e,e.getX(),e.getY());
 						d.setPosGrafic((e.getX()-1)*64,e.getY()*64);
@@ -333,6 +334,7 @@ public class Juego {
 		todos = new LinkedList<GameObject>();
 		puntosJuego=0;
 		monedasJuego=100;
+		mapa=new Mapa(10,6);
 		perdio=false;
 		gano = false;
 		colocarTorres();

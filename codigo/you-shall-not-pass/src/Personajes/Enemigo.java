@@ -1,9 +1,7 @@
 package Personajes;
 
-import java.util.Random;
 
 import Interacciones.*;
-import Logica.GameObject;
 
 public abstract class Enemigo extends Personaje {
 	

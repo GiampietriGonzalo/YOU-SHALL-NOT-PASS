@@ -7,7 +7,7 @@ public class Huargo extends Enemigo {
 	
 	public Huargo(){
 		super(20,30);
-		velocidad=32;
+		velocidad=10;
 		puntos=20;
 		monedas=7;
 		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Huargo.png"));

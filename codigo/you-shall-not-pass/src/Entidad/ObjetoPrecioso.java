@@ -1,6 +1,5 @@
 package Entidad;
 
-import Logica.GameObject;
 import Logica.Juego;
 
 public abstract class ObjetoPrecioso extends Premio{
