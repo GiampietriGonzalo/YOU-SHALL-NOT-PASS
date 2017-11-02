@@ -43,5 +43,9 @@ public abstract class Enemigo extends Personaje {
 	}
 	
 	public EstadoEnemigo getEstado() {return estado;}
+
+	public void setVelocidad(int i) {
+		velocidad=i;
+	}
 	
 }

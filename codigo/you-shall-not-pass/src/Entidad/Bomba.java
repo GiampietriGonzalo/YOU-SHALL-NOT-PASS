@@ -4,6 +4,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import Logica.Juego;
+import Personajes.Aliado;
+import Personajes.Enemigo;
 
 public class Bomba extends ObjetoPrecioso{
 	
@@ -14,11 +16,16 @@ public class Bomba extends ObjetoPrecioso{
 		grafico=new JLabel(sprite);
 		grafico.setBackground(null);
 	}
-
+	
 	@Override
 	public void efecto() {
-		// TODO Auto-generated method stub
-		
+		for(Enemigo a:miJuego.getEnemigos()){
+			a.recibirDamage(40);
+		}
+		System.out.println("Recibieron damage");
+		this.morir();
+		miJuego.eliminarObjeto(this,this.x, this.y);
+		this.grafico.setOpaque(false);
 	}
 
 }

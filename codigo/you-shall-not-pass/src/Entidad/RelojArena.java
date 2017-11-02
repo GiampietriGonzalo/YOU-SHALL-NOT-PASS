@@ -4,6 +4,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import Logica.Juego;
+import Personajes.Enemigo;
 
 public class RelojArena extends ObjetoPrecioso{
 		
@@ -17,7 +18,12 @@ public class RelojArena extends ObjetoPrecioso{
 
 		@Override
 		public void efecto() {
-			// TODO Auto-generated method stub
-			
+			for(Enemigo a:miJuego.getEnemigos()){
+				a.setVelocidad(a.getVelocidad()/2);
+			}
+			System.out.println("Recibieron damage");
+			this.morir();
+			miJuego.eliminarObjeto(this,this.x, this.y);
+			this.grafico.setOpaque(false);
 		}
 }

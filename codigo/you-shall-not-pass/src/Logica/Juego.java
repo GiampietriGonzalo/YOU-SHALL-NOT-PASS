@@ -324,5 +324,10 @@ public class Juego {
 	public LinkedList<Aliado> getAliados() {
 		return aliados;
 	}
+
+	public LinkedList<Enemigo> getEnemigos() {
+		// TODO Auto-generated method stub
+		return enemigos;
+	}
 	
 }

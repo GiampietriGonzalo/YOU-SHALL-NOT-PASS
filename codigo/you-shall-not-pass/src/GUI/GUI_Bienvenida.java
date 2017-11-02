@@ -17,7 +17,7 @@ import javax.swing.ImageIcon;
 public class GUI_Bienvenida {
 
 	private JFrame frmYouShallNot;
-	AudioClip clip = Applet.newAudioClip(this.getClass().getResource("/Musica/Medley.WAV"));
+	//AudioClip clip = Applet.newAudioClip(this.getClass().getResource("/Musica/Medley.WAV"));
 
 	/**
 	 * Launch the application.
@@ -50,7 +50,7 @@ public class GUI_Bienvenida {
 		frmYouShallNot.setTitle("YOU SHALL NOT PASS!");
 		frmYouShallNot.setIconImage(Toolkit.getDefaultToolkit().getImage(GUI_Bienvenida.class.getResource("/Imagenes/icono.jpg")));
 		frmYouShallNot.setBounds(20, 20, 868, 683);
-		clip.loop();
+		//clip.loop();
 		frmYouShallNot.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmYouShallNot.getContentPane().setLayout(null);
 		
@@ -58,7 +58,7 @@ public class GUI_Bienvenida {
 		btnJugar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				frmYouShallNot.dispose();
-				clip.stop();
+				//6clip.stop();
 				GUI_ juegoPrincipal=new GUI_();
 				
 			}

@@ -261,32 +261,25 @@ public class GUI_ extends JFrame{
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-				terminar = elJuego.perder();
-				ganar = elJuego.ganar();
-				if(terminar) {
+				if(elJuego.perder()) {
 					int reinicio=JOptionPane.showConfirmDialog(null,"Perdiste! Queres reiniciar el juego?","Game Over",JOptionPane.YES_NO_OPTION);
-			
 					if(reinicio==0) {
 						panel_mapa.repaint();
 						elJuego.reiniciar();
 					}
 					else System.exit(0);
+				if (elJuego.ganar()){
+						int reinicio1=JOptionPane.showConfirmDialog(null,"Ganaste! Queres reiniciar el juego?","Mision Cumplida",JOptionPane.YES_NO_OPTION);						
+						if(reinicio1==0) {
+							elJuego.reiniciar();
+							panel_mapa.repaint();
+						}
+						else System.exit(0);
+					
+				
 				}
-				if (ganar){
-					
-					int reinicio=JOptionPane.showConfirmDialog(null,"Ganaste! Queres reiniciar el juego?","Mision Cumplida",JOptionPane.YES_NO_OPTION);
-					
-					if(reinicio==0) {
-						elJuego.reiniciar();
-						panel_mapa.repaint();
-					}
-					else System.exit(0);
-					
 				}
-			
 			}
-			
-			
 		}
 	}
 
