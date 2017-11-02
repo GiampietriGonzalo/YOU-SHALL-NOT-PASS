@@ -86,7 +86,30 @@ public class Juego {
 	
 	public void colocarAliado(Aliado j,int x, int y){
 		if(j.getPrecioAliado()<=monedasJuego && mapa.getObject(x, y)==null){
+			j.setX(x);
+			j.setY(y);
+			j.setPosGrafic(x*64, y*64);
+			
+			
 			mapa.agregarObjeto(j,x,y);
+			monedasJuego-=j.getPrecioAliado();
+			todos.add(j);
+			aliados.add(j);
+			panelMapa.add(j.getGrafico());
+			j.grafico.setBackground(null);
+			j.getGrafico().setOpaque(true);
+			panelMapa.repaint();
+		}
+	}
+	public void colocarAliado(Ent j,int x,int y){
+		if(j.getPrecioAliado()<=monedasJuego && mapa.getObject(x, y)==null){
+			j.setX(x);
+			j.setY(y);
+			j.setPosGrafic(x*64, y*64);
+			
+			
+			mapa.agregarObjeto(j,x,y);
+			mapa.agregarObjeto(j, x, y);
 			monedasJuego-=j.getPrecioAliado();
 			todos.add(j);
 			aliados.add(j);
@@ -133,11 +156,13 @@ public class Juego {
 	
 	public void actualizar(){
 		if(sumador++%3==0) monedasJuego++;
-		if (!s.isEmpty()) colocarEnemigoMapa(s);
+		if(s.isEmpty() && enemigos.isEmpty()) gano=true;
+		else if(!s.isEmpty()) colocarEnemigoMapa(s);
+		
 		moverEnemigos();
 		actualizarAliados();
 		panelMapa.repaint();
-		if (enemigos.isEmpty()) gano = true;
+		//if (enemigos.isEmpty()) gano = true;
 	}
 	
 	public boolean ganar(){
@@ -329,5 +354,6 @@ public class Juego {
 		// TODO Auto-generated method stub
 		return enemigos;
 	}
+
 	
 }

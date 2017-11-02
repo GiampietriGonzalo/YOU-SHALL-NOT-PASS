@@ -87,7 +87,12 @@ public class GUI_ extends JFrame{
 		btnMago.setToolTipText("MAGO");
 		btnMago.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/BotonMago.png")));
 		btnMago.addActionListener(oyenteBtnAliado);
-		panel_personajes.add(btnMago);
+		
+		/*JButton btnEnt = new JButton("Ent");
+		btnEnt.setToolTipText("ENT");
+		btnEnt.addActionListener(oyenteBtnAliado);
+		panel_personajes.add(btnEnt);
+		panel_personajes.add(btnMago);*/
 		
 		//Creacion panel tienda
 		JPanel panel_tienda = new JPanel();
@@ -217,6 +222,9 @@ public class GUI_ extends JFrame{
 			case "HOBBIT":{
 				temporal=new Hobbit();break;
 			}
+			/*case "ENT": {
+				temporal=new Ent();break;
+			}*/
 			}
 		}
 	}
@@ -227,9 +235,7 @@ public class GUI_ extends JFrame{
 			int x=e.getX()-e.getX() % 64;
 			int y=e.getY()-e.getY() % 64;
 			if(temporal!=null) {
-				temporal.setX(x/64);
-				temporal.setY(y/64);
-				temporal.setPosGrafic(x, y);
+				
 				juego.colocarAliado(temporal,e.getX()/64,e.getY()/64 );
 				lblMonedas.setText("Monedas: "+juego.getMonedas());
 				temporal=null;
@@ -268,7 +274,9 @@ public class GUI_ extends JFrame{
 						elJuego.reiniciar();
 					}
 					else System.exit(0);
-				if (elJuego.ganar()){
+				}	
+				else{
+					if (elJuego.ganar()){
 						int reinicio1=JOptionPane.showConfirmDialog(null,"Ganaste! Queres reiniciar el juego?","Mision Cumplida",JOptionPane.YES_NO_OPTION);						
 						if(reinicio1==0) {
 							elJuego.reiniciar();
@@ -277,10 +285,10 @@ public class GUI_ extends JFrame{
 						else System.exit(0);
 					
 				
-				}
+					}
+				
 				}
 			}
 		}
 	}
-
 }

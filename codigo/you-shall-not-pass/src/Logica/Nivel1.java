@@ -19,7 +19,7 @@ public class Nivel1 extends Nivel{
 		Random rnd = new Random(System.currentTimeMillis());
 		int a;
 		
-		for(int i=0;i<15;i++){
+		for(int i=0;i<10;i++){
 			a=rnd.nextInt(10);
 			if(a<5){
 				horda.push(new Orco());
