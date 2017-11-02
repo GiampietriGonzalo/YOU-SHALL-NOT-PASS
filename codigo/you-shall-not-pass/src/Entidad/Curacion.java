@@ -20,7 +20,6 @@ public class Curacion extends ObjetoPrecioso{
 		for(Aliado a:miJuego.getAliados()){
 			a.setVida(a.getVidaOriginal());
 		}
-		System.out.println("Se curaron");
 		this.morir();
 		miJuego.eliminarObjeto(this,this.x, this.y);
 		this.grafico.setOpaque(false);

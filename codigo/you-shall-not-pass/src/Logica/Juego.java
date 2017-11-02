@@ -189,7 +189,6 @@ public class Juego {
 				}
 			}
 			else {
-				System.out.println("Hay alguien aca");
 				if(e.getRango()>0){
 					if(disparador%10==0) {
 						//Disparo

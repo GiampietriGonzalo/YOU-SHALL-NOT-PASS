@@ -21,7 +21,6 @@ public class Bomba extends ObjetoPrecioso{
 		for(Enemigo a:miJuego.getEnemigos()){
 			a.recibirDamage(40);
 		}
-		System.out.println("Recibieron damage");
 		this.morir();
 		miJuego.eliminarObjeto(this,this.x, this.y);
 		this.grafico.setOpaque(false);
