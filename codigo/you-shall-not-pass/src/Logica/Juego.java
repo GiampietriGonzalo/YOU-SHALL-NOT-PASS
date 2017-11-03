@@ -100,6 +100,7 @@ public class Juego {
 	}
 	
 	public void colocarAliado(Aliado j,int x, int y){
+		System.out.println("Hola1");
 		if(j.getPrecioAliado()<=monedasJuego && mapa.getObject(x, y)==null){
 			j.setX(x);
 			j.setY(y);
@@ -117,17 +118,26 @@ public class Juego {
 		}
 	}
 	public void colocarAliado(Ent j,int x,int y){
-		if(j.getPrecioAliado()<=monedasJuego && mapa.getObject(x, y)==null){
+		System.out.println("Hola");
+		if(j.getPrecioAliado()<=monedasJuego && mapa.getObject(x, y)==null && mapa.getObject(x, y+1)==null){
 			j.setX(x);
 			j.setY(y);
 			j.setPosGrafic(x*64, y*64);
-			
-			
+			System.out.println("X: "+x+" Y: "+y);
 			mapa.agregarObjeto(j,x,y);
-			mapa.agregarObjeto(j, x, y);
-			monedasJuego-=j.getPrecioAliado();
 			todos.add(j);
 			aliados.add(j);
+			
+			Ent e = j;
+			
+			e.setX(x);
+			e.setY(y+1);
+			System.out.println("X: "+x+" Y: "+y);
+			mapa.agregarObjeto(e, x, y+1);
+			
+			monedasJuego-=j.getPrecioAliado();
+			todos.add(e);
+			aliados.add(e);
 			panelMapa.add(j.getGrafico());
 			j.grafico.setBackground(null);
 			j.getGrafico().setOpaque(true);

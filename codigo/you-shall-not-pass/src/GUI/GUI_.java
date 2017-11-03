@@ -57,7 +57,14 @@ public class GUI_ extends JFrame{
 		panel_personajes.setBounds(0, 620, 862, 34);
 		panel_personajes.setLayout(new GridLayout(0, 5, 0, 0));
 		
+		
+		
 		ActionListener oyenteBtnAliado= new oyenteBotonesCrear();
+		
+		JButton btnEnt = new JButton("Ent");
+		btnEnt.addActionListener(oyenteBtnAliado);
+		btnEnt.setToolTipText("ENT");
+		
 		JButton btnHumano = new JButton("(15)");
 		btnHumano.setToolTipText("HUMANO");
 		btnHumano.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/BotonHumano.png")));
@@ -65,6 +72,7 @@ public class GUI_ extends JFrame{
 		
 		JButton btnHobbit = new JButton("(10)");
 		btnHobbit.addActionListener(oyenteBtnAliado);
+		panel_personajes.add(btnEnt);
 		btnHobbit.setToolTipText("HOBBIT");
 		btnHobbit.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/BotonHobbit.png")));
 		panel_personajes.add(btnHobbit);
@@ -217,9 +225,9 @@ public class GUI_ extends JFrame{
 			case "HOBBIT":{
 				temporal=new Hobbit();break;
 			}
-			/*case "ENT": {
+			case "ENT": {
 				temporal=new Ent();break;
-			}*/
+			}
 			}
 		}
 	}

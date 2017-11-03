@@ -18,4 +18,9 @@ public class Ent extends Aliado {
 		// TODO Auto-generated method stub
 		return 60;
 	}
+	
+	public JLabel getGrafico() {
+		grafico.setBounds(posX,posY,64,128);
+		return grafico;
+	}
 }
