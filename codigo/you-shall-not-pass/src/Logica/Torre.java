@@ -8,7 +8,7 @@ import Personajes.Aliado;
 public class Torre extends Aliado {
 	
 	public Torre(ImageIcon imagen) {
-		super(3,20);
+		super(100,20);
 		rango=0;
 		sprite=imagen;
 		grafico=new JLabel(sprite);

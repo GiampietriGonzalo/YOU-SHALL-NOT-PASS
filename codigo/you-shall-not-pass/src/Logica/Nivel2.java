@@ -6,10 +6,10 @@ import java.util.Random;
 import Personajes.Enemigo;
 import Personajes.*;
 
-public class Nivel1 extends Nivel{
+public class Nivel2 extends Nivel{
 	
 	
-	public Nivel1(Juego j) {
+	public Nivel2(Juego j) {
 		super(j);
 	}
 
@@ -22,10 +22,10 @@ public class Nivel1 extends Nivel{
 		for(int i=0;i<10;i++){
 			a=rnd.nextInt(10);
 			if(a<5){
-				horda.push(new Orco());
+				horda.push(new Troll());
 			}else if (a<8)
-				horda.push(new Huargo());
-			else horda.push(new Nazgul());
+				horda.push(new Troll());
+			else horda.push(new Troll());
 		}
 		
 		return horda;

@@ -6,6 +6,7 @@ import java.util.Random;
 import java.util.Stack;
 
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import Entidad.*;
@@ -15,6 +16,7 @@ import Personajes.*;
 
 public class Juego {
 	
+	private int oleada;
 	private boolean perdio;
 	private boolean gano;
 	private int puntosJuego;
@@ -43,9 +45,22 @@ public class Juego {
 		perdio=false;
 		gano=false;
 		colocarTorres();
-		nivel = new Nivel1(this);
-		s = nivel.crearPrimeraHorda();
+		nivel1();
+		s = nivel.crearHorda();
+		oleada = 1;
 	    //clip.loop();
+	}
+	
+	private void nivel1(){
+		
+		nivel = new Nivel1(this);
+		
+	}
+	
+	private void nivel2(){
+		
+		nivel = new Nivel2(this);
+		
 	}
 	
 	private void colocarTorres(){
@@ -156,15 +171,35 @@ public class Juego {
 	
 	public void actualizar(){
 		if(sumador++%3==0) monedasJuego++;
-		if(s.isEmpty() && enemigos.isEmpty()) gano=true;
-		else if(!s.isEmpty()) colocarEnemigoMapa(s);
+			if(s.isEmpty() && enemigos.isEmpty()){
+			
+				s = nivel.crearHorda();
+				nuevaoleada();
+			
+			}
+			//gano=true;
+			else{ 
+				if(!s.isEmpty()) 
+					colocarEnemigoMapa(s);
+			}
 		
 		moverEnemigos();
 		actualizarAliados();
 		panelMapa.repaint();
+		
+		if (oleada == 3)
+			nivel2();
+		
+		if(s.isEmpty() && enemigos.isEmpty() && oleada==6) gano = true;
 		//if (enemigos.isEmpty()) gano = true;
 	}
 	
+
+	private void nuevaoleada(){
+		if (oleada==3) JOptionPane.showMessageDialog(null, "NIVEL 2 ALCANZADO!", "NIVEL 2", JOptionPane.INFORMATION_MESSAGE);
+		oleada++;
+		System.out.println("Oleada "+oleada+" en camino ");
+	}
 	public boolean ganar(){
 		return (gano);
 	}
@@ -337,7 +372,9 @@ public class Juego {
 		perdio=false;
 		gano = false;
 		colocarTorres();
-		s = nivel.crearPrimeraHorda();
+		oleada = 1;
+		nivel1();
+		s = nivel.crearHorda();
 		panelMapa.repaint();
 	}
 
