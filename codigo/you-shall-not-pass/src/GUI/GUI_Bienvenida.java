@@ -13,10 +13,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
+import java.awt.Font;
 
 public class GUI_Bienvenida {
 
 	private JFrame frmYouShallNot;
+	private String[] arreglomain;
 	//AudioClip clip = Applet.newAudioClip(this.getClass().getResource("/Musica/Medley.WAV"));
 
 	/**
@@ -55,10 +57,11 @@ public class GUI_Bienvenida {
 		frmYouShallNot.getContentPane().setLayout(null);
 		
 		JButton btnJugar = new JButton("Jugar");
+		btnJugar.setFont(new Font("Aniron", Font.PLAIN, 16));
 		btnJugar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				frmYouShallNot.dispose();
-				//6clip.stop();
+				//clip.stop();
 				GUI_ juegoPrincipal=new GUI_();
 				
 			}
@@ -67,10 +70,18 @@ public class GUI_Bienvenida {
 		frmYouShallNot.getContentPane().add(btnJugar);
 		
 		JButton btnSobreElJuego = new JButton("Sobre el juego");
+		btnSobreElJuego.setFont(new Font("Aniron", Font.PLAIN, 12));
+		btnSobreElJuego.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				frmYouShallNot.dispose();
+				GUI_Info.main(arreglomain);;
+			}
+		});
 		btnSobreElJuego.setBounds(339, 537, 167, 72);
 		frmYouShallNot.getContentPane().add(btnSobreElJuego);
 		
 		JButton btnSalir = new JButton("Salir");
+		btnSalir.setFont(new Font("Aniron", Font.PLAIN, 16));
 		btnSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);

@@ -99,31 +99,35 @@ public class GUI_ extends JFrame{
 		
 		
 		panel_tienda.setBackground(null);
-		panel_tienda.setBounds(667, 128, 195, 487);
+		panel_tienda.setBounds(667, 136, 195, 479);
 		panel_tienda.setOpaque(false);
 				panel_tienda.setLayout(null);
 		
 				JButton btnGimli = new JButton("");
 				btnGimli.setBackground(new Color(139, 69, 19));
-				btnGimli.setBounds(5, 11, 167, 103);
+				btnGimli.setBounds(5, 58, 167, 103);
 				btnGimli.setIcon(new ImageIcon (this.getClass().getResource("/Imagenes/hachaGimli.png")));
 				btnGimli.setToolTipText("Aumenta el daño y la resistencia de todos los Enanos aliados durante 8s");
 				panel_tienda.add(btnGimli);
 				JButton btnAragorn = new JButton("");
 				btnAragorn.setBackground(new Color(47, 79, 79));
-				btnAragorn.setBounds(5, 125, 167, 103);
+				btnAragorn.setBounds(5, 168, 167, 103);
 				btnAragorn.setIcon(new ImageIcon (this.getClass().getResource("/Imagenes/coronaAragorn.png")));
 				btnAragorn.setToolTipText("Aumenta el daño de todos los Humanos aliados durante 10s");
 				panel_tienda.add(btnAragorn);
 				JButton btnGandalf = new JButton("");
 				btnGandalf.setBackground(Color.LIGHT_GRAY);
-				btnGandalf.setBounds(5, 239, 167, 101);
+				btnGandalf.setBounds(5, 277, 167, 101);
 				btnGandalf.setIcon(new ImageIcon (this.getClass().getResource("/Imagenes/baculoGandalf.png")));
 				btnGandalf.setToolTipText("Aumenta la resistencia y el alcance de todos los Magos aliados durante 5s");
 				panel_tienda.add(btnGandalf);
 				JButton btnLegolas = new JButton("");
+				btnLegolas.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+					}
+				});
 				btnLegolas.setBackground(new Color(0, 128, 0));
-				btnLegolas.setBounds(5, 351, 167, 103);
+				btnLegolas.setBounds(5, 384, 167, 103);
 				btnLegolas.setIcon(new ImageIcon (this.getClass().getResource("/Imagenes/arcoLegolas.png")));
 				btnLegolas.setToolTipText("Aumenta el alcance y el daño de todos los Elfos aliados durante 8s");
 				panel_tienda.add(btnLegolas);
@@ -142,31 +146,36 @@ public class GUI_ extends JFrame{
 		frmYouShallNot.getContentPane().add(panel_personajes);
 		frmYouShallNot.getContentPane().add(panel_tienda);
 		
+		JLabel lblNewLabel_1 = new JLabel(" TIENDA RAPIDA");
+		lblNewLabel_1.setBounds(5, 14, 167, 33);
+		panel_tienda.add(lblNewLabel_1);
+		lblNewLabel_1.setBackground(Color.BLACK);
+		lblNewLabel_1.setOpaque(true);
+		lblNewLabel_1.setForeground(new Color(255, 0, 0));
+		lblNewLabel_1.setFont(new Font("Ringbearer", Font.BOLD, 18));
+		
 		//Creacion panel puntos
 		JPanel panel_puntos = new JPanel();
+		panel_puntos.setOpaque(false);
 		panel_puntos.setBackground(Color.WHITE);
-		panel_puntos.setBounds(667, 26, 185, 97);
+		panel_puntos.setBounds(667, 26, 185, 111);
 		frmYouShallNot.getContentPane().add(panel_puntos);
 		
 		//lblPuntos = new JLabel("Puntos: "+juego.getPuntos());
-		lblPuntos.setForeground(Color.DARK_GRAY);
+		lblPuntos.setForeground(new Color(255, 255, 0));
 		lblPuntos.setFont(new Font("Aniron", Font.PLAIN, 20));
 		panel_puntos.add(lblPuntos);
 		
 		//lblMonedas = new JLabel("Monedas: "+juego.getMonedas());
-		lblMonedas.setForeground(Color.DARK_GRAY);
+		lblMonedas.setForeground(new Color(255, 255, 0));
 		lblMonedas.setFont(new Font("Aniron", Font.PLAIN, 20));
 		panel_puntos.add(lblMonedas);
 		
 		frmYouShallNot.getContentPane().add(panel_mapa);
 		
-		JLabel lblTorre = new JLabel("");
-		lblTorre.setBounds(0, 0, 64, 384);
-		panel_mapa.add(lblTorre);
-		
 		JPanel panel_bg = new JPanel();
 		panel_bg.setBackground(null);
-		panel_bg.setBounds(10, 21, 647, 213);
+		panel_bg.setBounds(17, 21, 640, 213);
 		panel_bg.setOpaque(false);
 		frmYouShallNot.getContentPane().add(panel_bg);
 		
@@ -180,21 +189,7 @@ public class GUI_ extends JFrame{
 		labelFondo.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/FondoPanel.jpg")));
 		labelFondo.setBounds(0, 0, 862, 654);
 		frmYouShallNot.getContentPane().add(labelFondo);
-		//Para testear
-		JButton btnAgregarEnemigo = new JButton("Agregar enemigo");
-		btnAgregarEnemigo.setBounds(0, 464, 115, 23);
-		panel_tienda.add(btnAgregarEnemigo);
-		btnAgregarEnemigo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-				Random rdm=new Random(System.currentTimeMillis());
-				int i=rdm.nextInt(6);
-				Orco mago=new Orco();
-				mago.setPosGrafic(0, i*64);
-				juego.colocarEnemigo(mago,0, i);
-				
-			}
-		});
+		lblNewLabel.setOpaque(true);
 		
 	}
 	
@@ -268,7 +263,8 @@ public class GUI_ extends JFrame{
 					e.printStackTrace();
 				}
 				if(elJuego.perder()) {
-					int reinicio=JOptionPane.showConfirmDialog(null,"Perdiste! Queres reiniciar el juego?","Game Over",JOptionPane.YES_NO_OPTION);
+					String nl = System.getProperty("line.separator");
+					int reinicio=JOptionPane.showConfirmDialog(null,"Perdiste!" + nl + "PUNTACIÓN "+juego.getPuntos() + nl + "Queres reiniciar el juego?","Game Over",JOptionPane.YES_NO_OPTION);
 					if(reinicio==0) {
 						panel_mapa.repaint();
 						elJuego.reiniciar();
@@ -277,7 +273,8 @@ public class GUI_ extends JFrame{
 				}	
 				else{
 					if (elJuego.ganar()){
-						int reinicio1=JOptionPane.showConfirmDialog(null,"Ganaste! Queres reiniciar el juego?","Mision Cumplida",JOptionPane.YES_NO_OPTION);						
+						String nl = System.getProperty("line.separator");
+						int reinicio1=JOptionPane.showConfirmDialog(null,"Ganaste!" + nl + "PUNTUACIÓN "+juego.getPuntos() + nl + "Queres reiniciar el juego?","Mision Cumplida",JOptionPane.YES_NO_OPTION);						
 						if(reinicio1==0) {
 							elJuego.reiniciar();
 							panel_mapa.repaint();
