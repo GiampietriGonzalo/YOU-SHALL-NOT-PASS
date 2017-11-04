@@ -6,7 +6,6 @@ public abstract class ObjetoPrecioso extends Premio{
 	
 	public ObjetoPrecioso(Juego j) {
 		super(j);
-		// TODO Auto-generated constructor stub
 	}
 
 	protected int tiempoDuracion;

@@ -21,9 +21,8 @@ public class GUI_Bienvenida {
 	private String[] arreglomain;
 	//AudioClip clip = Applet.newAudioClip(this.getClass().getResource("/Musica/Medley.WAV"));
 
-	/**
-	 * Launch the application.
-	 */
+	
+	//Inicia la aplicacion.
 	public static void main(String [] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -37,16 +36,12 @@ public class GUI_Bienvenida {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
+	
 	public GUI_Bienvenida() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+	
 	private void initialize() {
 		frmYouShallNot = new JFrame();
 		frmYouShallNot.setTitle("YOU SHALL NOT PASS!");

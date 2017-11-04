@@ -4,6 +4,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public class Elfo extends Aliado {
+	
 	public Elfo() {
 		super(18,70);
 		precioAliado=12;
@@ -12,9 +13,8 @@ public class Elfo extends Aliado {
 		grafico=new JLabel(sprite);
 	}
 
-	@Override
+
 	public int getVidaOriginal() {
-		// TODO Auto-generated method stub
 		return 70;
 	}
 }

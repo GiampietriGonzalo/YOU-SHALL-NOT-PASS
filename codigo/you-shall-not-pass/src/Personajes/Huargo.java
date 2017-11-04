@@ -15,9 +15,8 @@ public class Huargo extends Enemigo {
 		grafico.setBackground(null);
 	}
 
-	@Override
+
 	public int getVidaOriginal() {
-		// TODO Auto-generated method stub
 		return 30;
 	}
 }

@@ -9,9 +9,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import Entidad.*;
 import Interacciones.*;
 import Personajes.*;
+import Entidad.*;
 
 
 public class Juego {
@@ -369,6 +369,7 @@ public class Juego {
 	}
 
 	public void reiniciar() {
+		//Preg por clear
 		panelMapa.removeAll();
 		aliados.clear();
 		aliados=new LinkedList<Aliado>();
@@ -399,9 +400,10 @@ public class Juego {
 	}
 
 	public LinkedList<Enemigo> getEnemigos() {
-		// TODO Auto-generated method stub
 		return enemigos;
 	}
+	
+	
 
 	
 }

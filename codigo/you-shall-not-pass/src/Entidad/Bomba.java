@@ -16,7 +16,6 @@ public class Bomba extends ObjetoPrecioso{
 		grafico.setBackground(null);
 	}
 	
-	@Override
 	public void efecto() {
 		for(Enemigo a:miJuego.getEnemigos()){
 			a.recibirDamage(40);

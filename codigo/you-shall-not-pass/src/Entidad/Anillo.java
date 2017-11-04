@@ -6,13 +6,8 @@ public class Anillo extends Magia {
 
 	public Anillo(Juego j) {
 		super(j);
-		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public void efecto() {
-		// TODO Auto-generated method stub
-		
-	}
+	public void efecto() {/*redefinir*/}
 
 }

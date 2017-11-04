@@ -17,9 +17,7 @@ public class Orco extends Enemigo {
 		
 	}
 
-	@Override
 	public int getVidaOriginal() {
-		// TODO Auto-generated method stub
 		return 30;
 	}
 }

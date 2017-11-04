@@ -15,7 +15,6 @@ public class Troll extends Enemigo {
 		grafico.setBackground(null);
 	}
 
-	@Override
 	public int getVidaOriginal() {
 		return 70;
 	}

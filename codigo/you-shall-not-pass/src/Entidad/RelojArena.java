@@ -16,7 +16,6 @@ public class RelojArena extends ObjetoPrecioso{
 
 		}
 
-		@Override
 		public void efecto() {
 			for(Enemigo a:miJuego.getEnemigos()){
 				a.setVelocidad(a.getVelocidad()/2);

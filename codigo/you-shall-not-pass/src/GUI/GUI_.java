@@ -12,9 +12,6 @@ import java.util.Random;
 
 public class GUI_ extends JFrame{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JFrame frmYouShallNot;
 	private Juego juego;
@@ -30,6 +27,7 @@ public class GUI_ extends JFrame{
 		frmYouShallNot=new JFrame();
 		frmYouShallNot.setTitle("YOU SHALL NOT PASS!");
 		frmYouShallNot.setIconImage(Toolkit.getDefaultToolkit().getImage(GUI_.class.getResource("/Imagenes/icono.jpg")));
+		frmYouShallNot.setBounds(20, 20, 868, 683);
 		frmYouShallNot.setVisible(true);
 		panel_mapa = new JPanel();
 		panel_mapa.setBounds(17, 232,10*64, 6*64);
@@ -46,8 +44,6 @@ public class GUI_ extends JFrame{
 	 */
 	private void initialize() {
 		frmYouShallNot.getContentPane().setBackground(Color.WHITE);
-					
-		frmYouShallNot.setBounds(20, 20, 868, 683);
 		frmYouShallNot.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmYouShallNot.setResizable(false);
 		
@@ -111,36 +107,36 @@ public class GUI_ extends JFrame{
 		panel_tienda.setOpaque(false);
 				panel_tienda.setLayout(null);
 		
-				JButton btnGimli = new JButton("");
-				btnGimli.setBackground(new Color(139, 69, 19));
-				btnGimli.setBounds(5, 58, 167, 103);
-				btnGimli.setIcon(new ImageIcon (this.getClass().getResource("/Imagenes/hachaGimli.png")));
-				btnGimli.setToolTipText("Aumenta el daño y la resistencia de todos los Enanos aliados durante 8s");
-				panel_tienda.add(btnGimli);
-				JButton btnAragorn = new JButton("");
-				btnAragorn.setBackground(new Color(47, 79, 79));
-				btnAragorn.setBounds(5, 168, 167, 103);
-				btnAragorn.setIcon(new ImageIcon (this.getClass().getResource("/Imagenes/coronaAragorn.png")));
-				btnAragorn.setToolTipText("Aumenta el daño de todos los Humanos aliados durante 10s");
-				panel_tienda.add(btnAragorn);
-				JButton btnGandalf = new JButton("");
-				btnGandalf.setBackground(Color.LIGHT_GRAY);
-				btnGandalf.setBounds(5, 277, 167, 101);
-				btnGandalf.setIcon(new ImageIcon (this.getClass().getResource("/Imagenes/baculoGandalf.png")));
-				btnGandalf.setToolTipText("Aumenta la resistencia y el alcance de todos los Magos aliados durante 5s");
-				panel_tienda.add(btnGandalf);
-				JButton btnLegolas = new JButton("");
-				btnLegolas.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-					}
-				});
-				btnLegolas.setBackground(new Color(0, 128, 0));
-				btnLegolas.setBounds(5, 384, 167, 103);
-				btnLegolas.setIcon(new ImageIcon (this.getClass().getResource("/Imagenes/arcoLegolas.png")));
-				btnLegolas.setToolTipText("Aumenta el alcance y el daño de todos los Elfos aliados durante 8s");
-				panel_tienda.add(btnLegolas);
-		//aca
+		JButton btnGimli = new JButton("");
+		btnGimli.setBackground(new Color(139, 69, 19));
+		btnGimli.setBounds(5, 58, 167, 103);
+		btnGimli.setIcon(new ImageIcon (this.getClass().getResource("/Imagenes/hachaGimli.png")));
+		btnGimli.setToolTipText("Aumenta el danio y la resistencia de todos los Enanos aliados durante 8s");
+		panel_tienda.add(btnGimli);
+		JButton btnAragorn = new JButton("");
+		btnAragorn.setBackground(new Color(47, 79, 79));
+		btnAragorn.setBounds(5, 168, 167, 103);
+		btnAragorn.setIcon(new ImageIcon (this.getClass().getResource("/Imagenes/coronaAragorn.png")));
+		btnAragorn.setToolTipText("Aumenta el danio de todos los Humanos aliados durante 10s");
+		panel_tienda.add(btnAragorn);
+		JButton btnGandalf = new JButton("");
+		btnGandalf.setBackground(Color.LIGHT_GRAY);
+		btnGandalf.setBounds(5, 277, 167, 101);
+		btnGandalf.setIcon(new ImageIcon (this.getClass().getResource("/Imagenes/baculoGandalf.png")));
+		btnGandalf.setToolTipText("Aumenta la resistencia y el alcance de todos los Magos aliados durante 5s");
+		panel_tienda.add(btnGandalf);
+		JButton btnLegolas = new JButton("");
 		
+		btnLegolas.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {}
+		});
+		
+		btnLegolas.setBackground(new Color(0, 128, 0));
+		btnLegolas.setBounds(5, 384, 167, 103);
+		btnLegolas.setIcon(new ImageIcon (this.getClass().getResource("/Imagenes/arcoLegolas.png")));
+		btnLegolas.setToolTipText("Aumenta el alcance y el danio de todos los Elfos aliados durante 8s");
+		panel_tienda.add(btnLegolas);
 		
 
 		oyenteMouse oyenteM= new oyenteMouse();
@@ -237,13 +233,13 @@ public class GUI_ extends JFrame{
 		public void mouseClicked(MouseEvent e) {
 			int x=e.getX()-e.getX() % 64;
 			int y=e.getY()-e.getY() % 64;
-			if(temporal!=null) {
-				
+			
+			if(temporal!=null){ //Se coloca un aliado
 				juego.colocarAliado(temporal,e.getX()/64,e.getY()/64 );
 				lblMonedas.setText("Monedas: "+juego.getMonedas());
 				temporal=null;
 			}
-			else{
+			else{ //Reaccion de un power up
 				if(juego.getMapa().getObject(x/64, y/64)!=null) 
 					juego.reaccionar(x/64,y/64);
 			}
@@ -261,6 +257,7 @@ public class GUI_ extends JFrame{
 			elJuego = j;
 		}
 		public void run() {
+			
 			while(true){
 				elJuego.actualizar();
 				lblMonedas.setText("Monedas: "+juego.getMonedas());
@@ -272,7 +269,7 @@ public class GUI_ extends JFrame{
 				}
 				if(elJuego.perder()) {
 					String nl = System.getProperty("line.separator");
-					int reinicio=JOptionPane.showConfirmDialog(null,"Perdiste!" + nl + "PUNTACIÓN "+juego.getPuntos() + nl + "Queres reiniciar el juego?","Game Over",JOptionPane.YES_NO_OPTION);
+					int reinicio=JOptionPane.showConfirmDialog(null,"Perdiste!" + nl + "PUNTUACION:"+juego.getPuntos() + nl + "Queres reiniciar el juego?","Game Over",JOptionPane.YES_NO_OPTION);
 					if(reinicio==0) {
 						panel_mapa.repaint();
 						elJuego.reiniciar();
@@ -282,16 +279,13 @@ public class GUI_ extends JFrame{
 				else{
 					if (elJuego.ganar()){
 						String nl = System.getProperty("line.separator");
-						int reinicio1=JOptionPane.showConfirmDialog(null,"Ganaste!" + nl + "PUNTUACIÓN "+juego.getPuntos() + nl + "Queres reiniciar el juego?","Mision Cumplida",JOptionPane.YES_NO_OPTION);						
+						int reinicio1=JOptionPane.showConfirmDialog(null,"Ganaste!" + nl + "PUNTUACION:"+juego.getPuntos() + nl + "Queres reiniciar el juego?","Mision Cumplida",JOptionPane.YES_NO_OPTION);						
 						if(reinicio1==0) {
 							elJuego.reiniciar();
 							panel_mapa.repaint();
 						}
-						else System.exit(0);
-					
-				
+						else System.exit(0);	
 					}
-				
 				}
 			}
 		}

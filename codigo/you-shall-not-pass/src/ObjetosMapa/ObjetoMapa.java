@@ -4,5 +4,6 @@ import Logica.GameObject;
 
 public abstract class ObjetoMapa extends GameObject{
 
-	public void efecto(){}
+	public void efecto() {/*redefinir*/}
+	
 }

@@ -33,7 +33,7 @@ public class DisparoAliado extends Disparo {
 	}
 	
 	public void avanzar(){
-		if(x==9) {
+		if(x==0) {
 			this.morir();
 			juego.eliminarObjeto(this, x,y);
 			

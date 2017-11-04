@@ -15,9 +15,8 @@ public class Humano extends Aliado {
 		
 	}
 
-	@Override
+
 	public int getVidaOriginal() {
-		// TODO Auto-generated method stub
 		return 50;
 	}
 }

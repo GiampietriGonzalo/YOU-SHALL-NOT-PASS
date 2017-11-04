@@ -13,7 +13,6 @@ public class Nivel2 extends Nivel{
 		super(j);
 	}
 
-	@Override
 	Stack<Enemigo> crearHorda() {
 		Stack<Enemigo> horda = new Stack<Enemigo>();
 		Random rnd = new Random(System.currentTimeMillis());
@@ -31,9 +30,7 @@ public class Nivel2 extends Nivel{
 		return horda;
 	}
 
-	@Override
 	Enemigo crearBoss() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	

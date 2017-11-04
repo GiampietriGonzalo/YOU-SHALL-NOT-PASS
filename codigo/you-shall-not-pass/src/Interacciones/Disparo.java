@@ -4,6 +4,7 @@ import Logica.GameObject;
 import Logica.Juego;
 
 abstract public class Disparo extends GameObject implements Runnable {
+	
 	protected static final int velocidad=25;
 	protected Juego juego;
 	
@@ -13,11 +14,9 @@ abstract public class Disparo extends GameObject implements Runnable {
 		this.y=y;
 	}
 	
-	public void mover(){
-
-	}
+	public void efecto(){}
+	abstract public void avanzar();
 	
 	abstract public void accept(Visitor v);
 	
-	public void efecto(){}
 }
