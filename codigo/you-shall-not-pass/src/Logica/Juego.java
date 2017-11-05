@@ -100,7 +100,7 @@ public class Juego {
 	}
 	
 	public void colocarAliado(Aliado j,int x, int y){
-		System.out.println("Hola1");
+		System.out.println("Hola, soy un aliado");
 		if(j.getPrecioAliado()<=monedasJuego && mapa.getObject(x, y)==null){
 			j.setX(x);
 			j.setY(y);
@@ -118,7 +118,7 @@ public class Juego {
 		}
 	}
 	public void colocarAliado(Ent j,int x,int y){
-		System.out.println("Hola");
+		System.out.println("Hola, soy un ent");
 		if(j.getPrecioAliado()<=monedasJuego && mapa.getObject(x, y)==null && mapa.getObject(x, y+1)==null){
 			j.setX(x);
 			j.setY(y);
@@ -144,7 +144,7 @@ public class Juego {
 			panelMapa.repaint();
 		}
 	}
-	public void colocarEnemigo(Enemigo j,int x, int y){
+	public boolean colocarEnemigo(Enemigo j,int x, int y){
 		if(mapa.getObject(x, y)==null){	
 			mapa.agregarObjeto(j,x,y);
 			j.setX(x);
@@ -154,7 +154,9 @@ public class Juego {
 			panelMapa.add(j.getGrafico());
 			j.grafico.setBackground(null);
 			j.getGrafico().setOpaque(true);
+			return true;
 		}
+		else return false;
 	}
 	public void agregarObjeto(GameObject j,int x, int y){
 		if(mapa.getObject(x, y)==null){	
@@ -201,10 +203,9 @@ public class Juego {
 			nivel2();
 		
 		if(s.isEmpty() && enemigos.isEmpty() && oleada==6) gano = true;
-		//if (enemigos.isEmpty()) gano = true;
 	}
 	
-
+	
 	private void nuevaoleada(){
 		if (oleada==3) JOptionPane.showMessageDialog(null, "NIVEL 2 ALCANZADO!", "NIVEL 2", JOptionPane.INFORMATION_MESSAGE);
 		oleada++;
@@ -334,6 +335,7 @@ public class Juego {
 			todos.remove(e);
 			aliados.remove(e);
 			mapa.eliminarObjeto(e,e.getX(),e.getY());
+			System.out.println("Me mori");
 			panelMapa.remove(e.getGrafico());
 		}
 	}
@@ -359,11 +361,12 @@ public class Juego {
 	
 	public void colocarEnemigoMapa(Stack<Enemigo> s){
 		if(contador%6==0){
-			Enemigo e = s.pop();
+			Enemigo e = s.peek();
 			Random rnd = new Random(System.currentTimeMillis());
-			int i = rnd.nextInt(5);
+			int i = rnd.nextInt(6);
 			e.setPosGrafic(0, i*64);
-			this.colocarEnemigo(e, 0, i);
+			if(this.colocarEnemigo(e, 0, i)) s.pop();
+			//Si la posicion esta ocupada por alguien, no inserto el enemigo
 		}
 		contador++;
 	}
@@ -401,6 +404,34 @@ public class Juego {
 
 	public LinkedList<Enemigo> getEnemigos() {
 		return enemigos;
+	}
+
+	public void colocarEnt(Ent j, int x, int y) {
+		System.out.println("Hola, soy un ent");
+		if(j.getPrecioAliado()<=monedasJuego && mapa.getObject(x, y)==null && mapa.getObject(x, y+1)==null){
+			j.setX(x);
+			j.setY(y);
+			j.setPosGrafic(x*64, y*64);
+			System.out.println("X: "+x+" Y: "+y);
+			mapa.agregarObjeto(j,x,y);
+			todos.add(j);
+			aliados.add(j);
+			
+			Ent e = j;
+			
+			e.setX(x);
+			e.setY(y+1);
+			System.out.println("X: "+x+" Y: "+y);
+			mapa.agregarObjeto(e, x, y+1);
+			
+			monedasJuego-=j.getPrecioAliado();
+			todos.add(e);
+			aliados.add(e);
+			panelMapa.add(j.getGrafico());
+			j.grafico.setBackground(null);
+			j.getGrafico().setOpaque(true);
+			panelMapa.repaint();
+		}
 	}
 	
 	

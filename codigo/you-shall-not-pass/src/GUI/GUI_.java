@@ -4,10 +4,9 @@ package GUI;
 import java.awt.*;
 import javax.swing.*;
 
+import Creador.*;
 import Logica.Juego;
-import Personajes.*;
 import java.awt.event.*;
-import java.util.Random;
 
 
 public class GUI_ extends JFrame{
@@ -16,7 +15,7 @@ public class GUI_ extends JFrame{
 	private JFrame frmYouShallNot;
 	private Juego juego;
 	private JPanel panel_mapa;
-	private Aliado temporal;
+	private CreadorAliado creadorPersonajes;
 	private JLabel lblMonedas;
 	private JLabel lblPuntos;
 
@@ -30,6 +29,23 @@ public class GUI_ extends JFrame{
 		frmYouShallNot.setBounds(20, 20, 868, 683);
 		frmYouShallNot.setVisible(true);
 		panel_mapa = new JPanel();
+		panel_mapa.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+						int x=e.getX()-e.getX() % 64;
+						int y=e.getY()-e.getY() % 64;
+						
+						if(creadorPersonajes!=null){ //Se coloca un aliado
+							creadorPersonajes.crear(e.getX()/64,e.getY()/64);
+							lblMonedas.setText("Monedas: "+juego.getMonedas());
+							creadorPersonajes=null;
+						}
+						else{ //Reaccion de un power up
+							if(juego.getMapa().getObject(x/64, y/64)!=null) 
+								juego.reaccionar(x/64,y/64);
+						}
+					}
+		});
 		panel_mapa.setBounds(17, 232,10*64, 6*64);
 		juego=new Juego(panel_mapa);
 		lblMonedas = new JLabel("Monedas: "+juego.getMonedas());
@@ -51,51 +67,66 @@ public class GUI_ extends JFrame{
 		JPanel panel_personajes = new JPanel();
 		panel_personajes.setOpaque(false);
 		panel_personajes.setBounds(0, 620, 862, 34);
-		panel_personajes.setLayout(new GridLayout(0, 5, 0, 0));
-		
-		
-		
-		ActionListener oyenteBtnAliado= new oyenteBotonesCrear();
-		
-		JButton btnEnt = new JButton("Ent");
-		btnEnt.addActionListener(oyenteBtnAliado);
-		btnEnt.setToolTipText("ENT");
+		panel_personajes.setLayout(new GridLayout(0, 6, 0, 0));
 		
 		JButton btnHumano = new JButton("(15)");
+		btnHumano.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				creadorPersonajes=new CreadorHumano(juego);
+			}
+		});
 		btnHumano.setToolTipText("HUMANO");
 		btnHumano.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/BotonHumano.png")));
-		btnHumano.addActionListener(oyenteBtnAliado);
 		
 		JButton btnHobbit = new JButton("(10)");
-		btnHobbit.addActionListener(oyenteBtnAliado);
-		panel_personajes.add(btnEnt);
+		btnHobbit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				creadorPersonajes=new CreadorHobbit(juego);
+			}
+		});
 		btnHobbit.setToolTipText("HOBBIT");
 		btnHobbit.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/BotonHobbit.png")));
 		panel_personajes.add(btnHobbit);
 		panel_personajes.add(btnHumano);
 		
 		JButton btnElfo = new JButton("(12)");
+		btnElfo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				creadorPersonajes=new CreadorElfo(juego);
+			}
+		});
 		btnElfo.setToolTipText("ELFO");
 		btnElfo.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/BotonElfo.png")));
-		btnElfo.addActionListener(oyenteBtnAliado);
 		panel_personajes.add(btnElfo);
 		
 		JButton btnEnano = new JButton("(16)");
-		btnEnano.addActionListener(oyenteBtnAliado);
+		btnEnano.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				creadorPersonajes=new CreadorEnano(juego);
+			}
+		});
 		btnEnano.setToolTipText("ENANO");
 		btnEnano.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/BotonEnano.png")));
 		panel_personajes.add(btnEnano);
 		
+		
+		JButton btnEnt = new JButton("Ent");
+		btnEnt.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				creadorPersonajes=new CreadorEnt(juego);
+			}
+		});
+		btnEnt.setToolTipText("ENT");
+		panel_personajes.add(btnEnt);
+		
 		JButton btnMago = new JButton("(50)");
+		btnMago.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				creadorPersonajes=new CreadorMago(juego);
+			}
+		});
 		btnMago.setToolTipText("MAGO");
 		btnMago.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/BotonMago.png")));
-		btnMago.addActionListener(oyenteBtnAliado);
-		
-		/*JButton btnEnt = new JButton("Ent");
-		btnEnt.setToolTipText("ENT");
-		btnEnt.addActionListener(oyenteBtnAliado);
-		panel_personajes.add(btnEnt);*/
-		
 		panel_personajes.add(btnMago);
 		
 		//Creacion panel tienda
@@ -127,21 +158,13 @@ public class GUI_ extends JFrame{
 		panel_tienda.add(btnGandalf);
 		JButton btnLegolas = new JButton("");
 		
-		btnLegolas.addActionListener(new ActionListener() {
-			
-			public void actionPerformed(ActionEvent e) {}
-		});
-		
 		btnLegolas.setBackground(new Color(0, 128, 0));
 		btnLegolas.setBounds(5, 384, 167, 103);
 		btnLegolas.setIcon(new ImageIcon (this.getClass().getResource("/Imagenes/arcoLegolas.png")));
 		btnLegolas.setToolTipText("Aumenta el alcance y el danio de todos los Elfos aliados durante 8s");
 		panel_tienda.add(btnLegolas);
 		
-
-		oyenteMouse oyenteM= new oyenteMouse();
 		panel_mapa.setBackground(new Color(0, 0, 0));
-		panel_mapa.addMouseListener(oyenteM);
 		
 		panel_mapa.setLayout(null);
 		panel_mapa.setBorder(null);
@@ -195,55 +218,6 @@ public class GUI_ extends JFrame{
 		frmYouShallNot.getContentPane().add(labelFondo);
 		lblNewLabel.setOpaque(true);
 		
-	}
-	
-	
-	//OYENTES
-	public class oyenteBotonesCrear implements ActionListener{
-		public void actionPerformed(ActionEvent e) {
-		
-			JButton aux=(JButton) e.getSource();
-			
-			switch (aux.getToolTipText()) {
-			
-			case "ELFO":{
-				temporal=new Elfo(); break;
-				}
-			case "HUMANO":{
-				temporal=new Humano(); break;
-				}
-			case "MAGO":{
-				temporal=new Mago();break;
-			}
-			case "ENANO":{
-				temporal=new Enano();break;
-			}
-			case "HOBBIT":{
-				temporal=new Hobbit();break;
-			}
-			case "ENT": {
-				temporal=new Ent();break;
-			}
-			}
-		}
-	}
-	
-	public class oyenteMouse extends MouseAdapter{
-		
-		public void mouseClicked(MouseEvent e) {
-			int x=e.getX()-e.getX() % 64;
-			int y=e.getY()-e.getY() % 64;
-			
-			if(temporal!=null){ //Se coloca un aliado
-				juego.colocarAliado(temporal,e.getX()/64,e.getY()/64 );
-				lblMonedas.setText("Monedas: "+juego.getMonedas());
-				temporal=null;
-			}
-			else{ //Reaccion de un power up
-				if(juego.getMapa().getObject(x/64, y/64)!=null) 
-					juego.reaccionar(x/64,y/64);
-			}
-		}
 	}
 	
 	//Hilo que actualiza los puntos y monedas
