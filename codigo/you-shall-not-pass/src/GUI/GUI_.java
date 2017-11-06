@@ -115,7 +115,8 @@ public class GUI_ extends JFrame{
 		panel_personajes.add(btnEnano);
 		
 		
-		JButton btnEnt = new JButton("Ent");
+		JButton btnEnt = new JButton("(20)");
+		btnEnt.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/BotonEnt.png")));
 		btnEnt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				creadorPersonajes=new CreadorEnt(juego);
@@ -179,7 +180,7 @@ public class GUI_ extends JFrame{
 		frmYouShallNot.getContentPane().add(panel_tienda);
 		
 		JLabel lblNewLabel_1 = new JLabel(" TIENDA RAPIDA");
-		lblNewLabel_1.setBounds(5, 14, 167, 33);
+		lblNewLabel_1.setBounds(5, 22, 167, 33);
 		panel_tienda.add(lblNewLabel_1);
 		lblNewLabel_1.setBackground(Color.BLACK);
 		lblNewLabel_1.setOpaque(true);
@@ -190,7 +191,7 @@ public class GUI_ extends JFrame{
 		JPanel panel_puntos = new JPanel();
 		panel_puntos.setOpaque(false);
 		panel_puntos.setBackground(Color.WHITE);
-		panel_puntos.setBounds(667, 26, 185, 111);
+		panel_puntos.setBounds(667, 11, 185, 92);
 		frmYouShallNot.getContentPane().add(panel_puntos);
 		
 		//lblPuntos = new JLabel("Puntos: "+juego.getPuntos());
@@ -230,7 +231,7 @@ public class GUI_ extends JFrame{
 					juego.venderPersonaje(a);
 			}	
 		});
-		btnNewButton.setBounds(17, 0, 142, 23);
+		btnNewButton.setBounds(677, 110, 163, 34);
 		frmYouShallNot.getContentPane().add(btnNewButton);
 		
 		JLabel labelFondo = new JLabel("");
