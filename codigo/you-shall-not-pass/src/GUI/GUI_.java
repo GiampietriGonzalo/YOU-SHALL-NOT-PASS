@@ -6,6 +6,9 @@ import javax.swing.*;
 
 import Creador.*;
 import Logica.Juego;
+import Logica.Mapa;
+import Personajes.Aliado;
+
 import java.awt.event.*;
 
 
@@ -18,6 +21,8 @@ public class GUI_ extends JFrame{
 	private CreadorAliado creadorPersonajes;
 	private JLabel lblMonedas;
 	private JLabel lblPuntos;
+	Aliado a;
+
 
 	/**
 	 * Constructor de la GUI.
@@ -210,6 +215,23 @@ public class GUI_ extends JFrame{
 		lblNewLabel.setForeground(Color.WHITE);
 		lblNewLabel.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/fondomonta\u00F1a.png")));
 		panel_bg.add(lblNewLabel);
+		
+		JButton btnNewButton = new JButton("VENDER PERSONAJE");
+		panel_mapa.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+						int x=e.getX()-e.getX() % 64;
+						int y=e.getY()-e.getY() % 64;
+						 a = (Aliado) juego.getMapa().getObject(x/64,y/64);
+			}
+		});
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+					juego.venderPersonaje(a);
+			}	
+		});
+		btnNewButton.setBounds(17, 0, 142, 23);
+		frmYouShallNot.getContentPane().add(btnNewButton);
 		
 		JLabel labelFondo = new JLabel("");
 

@@ -169,10 +169,18 @@ public class Juego {
 		}
 	}
 	
-	public void venderPersonaje(Aliado j,int x, int y){
+	public void venderPersonaje(Aliado j){
+		if (j.getVida() <= j.getVida()/2){
 		j.morir();
-		aliados.remove(j);
+		//aliados.remove(j);
 		monedasJuego+=j.getPrecioAliado()/2;
+		}
+		else{
+			j.morir();
+			//aliados.remove(j);
+			monedasJuego+=j.getPrecioAliado();
+			
+		}
 	}
 	
 	public void eliminarObjeto(GameObject j,int x,int y){
