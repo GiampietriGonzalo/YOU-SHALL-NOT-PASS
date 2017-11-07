@@ -9,7 +9,7 @@ public class Elfo extends Aliado {
 		super(18,70);
 		precioAliado=12;
 		rango=3;
-		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Legolas.png"));
+		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Elfo.gif"));
 		grafico=new JLabel(sprite);
 	}
 

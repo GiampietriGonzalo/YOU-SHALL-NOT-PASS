@@ -11,8 +11,9 @@ public class Nazgul extends Enemigo {
 		velocidad=16;
 		puntos=20;
 		monedas=7;
-		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Nazgul.png"));
+		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Nazgul.gif"));
 		grafico=new JLabel(sprite);
+		sprite.setImageObserver(grafico);
 	}
 
 	public int getVidaOriginal() {

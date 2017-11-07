@@ -9,7 +9,7 @@ public class Enano extends Aliado{
 		super(300,700);
 		precioAliado=16;
 		rango=0;
-		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Gimli.png"));
+		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Enano.gif"));
 		grafico=new JLabel(sprite);
 	}
 

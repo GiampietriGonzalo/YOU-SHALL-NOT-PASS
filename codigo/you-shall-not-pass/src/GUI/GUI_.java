@@ -170,7 +170,7 @@ public class GUI_ extends JFrame{
 		btnLegolas.setToolTipText("Aumenta el alcance y el danio de todos los Elfos aliados durante 8s");
 		panel_tienda.add(btnLegolas);
 		
-		panel_mapa.setBackground(new Color(0, 0, 0));
+		panel_mapa.setBackground(Color.BLACK);
 		
 		panel_mapa.setLayout(null);
 		panel_mapa.setBorder(null);
@@ -218,6 +218,8 @@ public class GUI_ extends JFrame{
 		panel_bg.add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("VENDER PERSONAJE");
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		btnNewButton.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/Moneda.png")));
 		panel_mapa.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -231,7 +233,7 @@ public class GUI_ extends JFrame{
 					juego.venderPersonaje(a);
 			}	
 		});
-		btnNewButton.setBounds(677, 110, 163, 34);
+		btnNewButton.setBounds(667, 110, 185, 34);
 		frmYouShallNot.getContentPane().add(btnNewButton);
 		
 		JLabel labelFondo = new JLabel("");

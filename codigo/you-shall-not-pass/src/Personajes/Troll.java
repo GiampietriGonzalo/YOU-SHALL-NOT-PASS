@@ -10,8 +10,9 @@ public class Troll extends Enemigo {
 		velocidad=32;
 		puntos=20;
 		monedas=7;
-		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/troll.png"));
+		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Troll.gif"));
 		grafico=new JLabel(sprite);
+		sprite.setImageObserver(grafico);
 		grafico.setBackground(null);
 	}
 

@@ -10,8 +10,9 @@ public class Huargo extends Enemigo {
 		velocidad=10;
 		puntos=20;
 		monedas=7;
-		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Huargo.png"));
+		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Huargo.gif"));
 		grafico=new JLabel(sprite);
+		sprite.setImageObserver(grafico);
 		grafico.setBackground(null);
 	}
 

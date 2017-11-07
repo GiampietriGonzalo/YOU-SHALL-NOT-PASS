@@ -9,7 +9,7 @@ public class Mago extends Aliado {
 		super(40,80);
 		precioAliado=50;
 		rango=2;
-		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/GandalfElBlanco.png"));
+		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Gandalf.gif"));
 		grafico=new JLabel(sprite);
 	}
 

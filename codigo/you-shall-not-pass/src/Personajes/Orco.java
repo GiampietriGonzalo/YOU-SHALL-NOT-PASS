@@ -1,6 +1,6 @@
 package Personajes;
 
-import javax.swing.ImageIcon;
+import javax.swing.*;
 import javax.swing.JLabel;
 
 public class Orco extends Enemigo {
@@ -11,8 +11,9 @@ public class Orco extends Enemigo {
 		velocidad=8;
 		puntos=20;	
 		monedas=7;
-		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Orco.png"));
+		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Orco.gif"));
 		grafico=new JLabel(sprite);
+		sprite.setImageObserver(grafico);
 		grafico.setBackground(null);
 		
 	}

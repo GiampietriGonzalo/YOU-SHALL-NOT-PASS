@@ -10,8 +10,9 @@ public class OrcoUrukHai extends Enemigo {
 		velocidad=32;
 		puntos=20;
 		monedas=7;
-		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/UrukHai.png"));
+		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/UrukHai.gif"));
 		grafico=new JLabel(sprite);
+		sprite.setImageObserver(grafico);
 		grafico.setBackground(null);
 	}
 
