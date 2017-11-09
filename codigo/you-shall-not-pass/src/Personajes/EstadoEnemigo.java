@@ -1,5 +1,10 @@
 package Personajes;
 
 public abstract class EstadoEnemigo {
-	protected Enemigo MiEnemigo;
+	protected Enemigo miEnemigo;
+	
+	public EstadoEnemigo(Enemigo e){
+		miEnemigo=e;
+	}
+	public abstract void relentizar();
 }

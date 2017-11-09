@@ -18,7 +18,7 @@ public class RelojArena extends ObjetoPrecioso{
 
 		public void efecto() {
 			for(Enemigo a:miJuego.getEnemigos()){
-				a.setVelocidad(a.getVelocidad()/2);
+				a.relentizar();
 			}
 			this.morir();
 			miJuego.eliminarObjeto(this,this.x, this.y);
