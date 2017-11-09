@@ -221,7 +221,7 @@ public class GUI_ extends JFrame{
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnNewButton.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/Moneda.png")));
 		panel_mapa.addMouseListener(new MouseAdapter() {
-			@Override
+	
 			public void mouseClicked(MouseEvent e) {
 						int x=e.getX()-e.getX() % 64;
 						int y=e.getY()-e.getY() % 64;

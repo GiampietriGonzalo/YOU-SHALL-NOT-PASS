@@ -7,13 +7,11 @@ public class CreadorEnt extends CreadorAliado {
 
 	public CreadorEnt(Juego j) {
 		super(j);
-		// TODO Auto-generated constructor stub
 	}
 
-	@Override
 	public void crear(int x, int y) {
-		// TODO Auto-generated method stub
-		miJuego.colocarEnt(new Ent(),x,y);
+		if(y<5)
+			miJuego.colocarEnt(new Ent(),x,y);
 	}
 
 }

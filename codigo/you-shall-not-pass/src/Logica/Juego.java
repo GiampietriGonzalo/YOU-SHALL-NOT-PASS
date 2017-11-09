@@ -105,8 +105,6 @@ public class Juego {
 			j.setX(x);
 			j.setY(y);
 			j.setPosGrafic(x*64, y*64);
-			
-			
 			mapa.agregarObjeto(j,x,y);
 			monedasJuego-=j.getPrecioAliado();
 			todos.add(j);
@@ -192,7 +190,7 @@ public class Juego {
 			if(s.isEmpty() && enemigos.isEmpty()){
 			
 				s = nivel.crearHorda();
-				nuevaoleada();
+				nuevaOleada();
 			
 			}
 			//gano=true;
@@ -212,7 +210,7 @@ public class Juego {
 	}
 	
 	
-	private void nuevaoleada(){
+	private void nuevaOleada(){
 		if (oleada==3) JOptionPane.showMessageDialog(null, "NIVEL 2 ALCANZADO!", "NIVEL 2", JOptionPane.INFORMATION_MESSAGE);
 		oleada++;
 		System.out.println("Oleada "+oleada+" en camino ");

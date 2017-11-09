@@ -7,5 +7,5 @@ public class Relentizado extends EstadoEnemigo{
 		miEnemigo.setVelocidad(miEnemigo.getVelocidad()/2);
 	}
 	
-	public void relentizar(){}
+	public void relentizar(){/*No vuelve a relentizar*/}
 }
