@@ -21,10 +21,10 @@ public class Nivel2 extends Nivel{
 		for(int i=0;i<10;i++){
 			a=rnd.nextInt(10);
 			if(a<5){
-				horda.push(new OrcoUrukHai());
+				horda.push(new OrcoUrukHai(juego.getMapa()));
 			}else if (a<8)
-				horda.push(new MagoOscuro());
-			else horda.push(new Troll());
+				horda.push(new MagoOscuro(juego.getMapa()));
+			else horda.push(new Troll(juego.getMapa()));
 		}
 		
 		return horda;

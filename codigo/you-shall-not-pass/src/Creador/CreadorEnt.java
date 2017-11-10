@@ -11,7 +11,7 @@ public class CreadorEnt extends CreadorAliado {
 
 	public void crear(int x, int y) {
 		if(y<5)
-			miJuego.colocarEnt(new Ent(),x,y);
+			juego.colocarAliado(new Ent(juego.getMapa()),x,y);
 	}
 
 }

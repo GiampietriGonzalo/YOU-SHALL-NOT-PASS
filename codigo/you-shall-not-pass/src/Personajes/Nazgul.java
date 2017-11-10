@@ -3,10 +3,12 @@ package Personajes;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import Logica.Mapa;
+
 public class Nazgul extends Enemigo {
 
-	public Nazgul() {
-		super(20,60);
+	public Nazgul(Mapa m) {
+		super(m,20,60);
 		rango=0;
 		velocidad=16;
 		puntos=20;

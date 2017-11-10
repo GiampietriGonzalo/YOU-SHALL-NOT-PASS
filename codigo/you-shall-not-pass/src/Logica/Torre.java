@@ -7,8 +7,11 @@ import Personajes.Aliado;
 
 public class Torre extends Aliado {
 	
-	public Torre(ImageIcon imagen) {
-		super(200,20);
+	
+	public Torre(Mapa m,ImageIcon imagen,int x, int y) {
+		super(m,10,20);
+		this.x=x;
+		this.y=y;
 		rango=0;
 		sprite=imagen;
 		grafico=new JLabel(sprite);
@@ -16,6 +19,10 @@ public class Torre extends Aliado {
 
 	public int getVidaOriginal() {
 		return 200;
+	}
+	
+	public void eliminar(){
+		mapa.eliminarObjeto(this, 9, y);
 	}
 	
 }

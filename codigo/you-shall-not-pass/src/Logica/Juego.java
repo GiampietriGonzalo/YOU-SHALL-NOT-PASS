@@ -66,7 +66,7 @@ public class Juego {
 	private void colocarTorres(){
 		
 		for(int i=0;i<6;i++){
-			Torre t=new Torre(new ImageIcon(this.getClass().getResource("/Imagenes/Torre"+i+".png")));
+			Torre t=new Torre(mapa,new ImageIcon(this.getClass().getResource("/Imagenes/Torre"+i+".png")),9,i);
 			mapa.agregarObjeto(t, 9, i);
 			todos.add(t);
 			aliados.add(t);
@@ -100,7 +100,7 @@ public class Juego {
 	}
 	
 	public void colocarAliado(Aliado j,int x, int y){
-		System.out.println("Hola, soy un aliado");
+
 		if(j.getPrecioAliado()<=monedasJuego && mapa.getObject(x, y)==null){
 			j.setX(x);
 			j.setY(y);
@@ -116,26 +116,19 @@ public class Juego {
 		}
 	}
 	public void colocarAliado(Ent j,int x,int y){
-		System.out.println("Hola, soy un ent");
+
 		if(j.getPrecioAliado()<=monedasJuego && mapa.getObject(x, y)==null && mapa.getObject(x, y+1)==null){
 			j.setX(x);
 			j.setY(y);
 			j.setPosGrafic(x*64, y*64);
-			System.out.println("X: "+x+" Y: "+y);
+
 			mapa.agregarObjeto(j,x,y);
+			mapa.agregarObjeto(j,x,y+1);
 			todos.add(j);
 			aliados.add(j);
 			
-			Ent e = j;
-			
-			e.setX(x);
-			e.setY(y+1);
-			System.out.println("X: "+x+" Y: "+y);
-			mapa.agregarObjeto(e, x, y+1);
-			
 			monedasJuego-=j.getPrecioAliado();
-			todos.add(e);
-			aliados.add(e);
+
 			panelMapa.add(j.getGrafico());
 			j.grafico.setBackground(null);
 			j.getGrafico().setOpaque(true);
@@ -213,8 +206,8 @@ public class Juego {
 	private void nuevaOleada(){
 		if (oleada==3) JOptionPane.showMessageDialog(null, "NIVEL 2 ALCANZADO!", "NIVEL 2", JOptionPane.INFORMATION_MESSAGE);
 		oleada++;
-		System.out.println("Oleada "+oleada+" en camino ");
 	}
+	
 	public boolean ganar(){
 		return (gano);
 	}
@@ -229,11 +222,11 @@ public class Juego {
 			else {
 			if(!hayObjetoEnRango(e)) {
 				//Avanzo
-				if(getMapa().getObject(e.getX()+1,e.getY())==null) {
-					getMapa().eliminarObjeto(e,e.getX(), e.getY());
+				if(mapa.getObject(e.getX()+1,e.getY())==null) {
+					mapa.eliminarObjeto(e,e.getX(), e.getY());
 					e.posX+=e.getVelocidad();
 					e.setX(e.posX/64);
-					getMapa().agregarObjeto(e, e.getX(), e.getY());
+					mapa.agregarObjeto(e, e.getX(), e.getY());
 					e.grafico.setBounds(e.posX,e.posY, 64, 64);
 					if(e.x==9) perdio=true; //perder
 				}
@@ -251,21 +244,21 @@ public class Juego {
 				}
 				else{
 					//Ataque cuerpo a cuerpos
-					e.colisionar(getMapa().getObject(e.getX()+1,e.getY()));
+					e.colisionar(mapa.getObject(e.getX()+1,e.getY()));
 				}
 			}
 			}
 		}
-		for(Enemigo e:toDelete){;
+		for(Enemigo e:toDelete){
 			
-		Random rnd = new Random(System.currentTimeMillis());
+			Random rnd = new Random(System.currentTimeMillis());
 			todos.remove(e);
 			enemigos.remove(e);
-			mapa.eliminarObjeto(e,e.getX(),e.getY());
+			e.eliminar();
 			panelMapa.remove(e.getGrafico());
 			monedasJuego+=e.getMonedas();
 			puntosJuego+=e.getPuntos();
-			int i = rnd.nextInt(4);
+			int i = rnd.nextInt(10);
 			if (i==1){
 				Bomba b = new Bomba(this);
 				b.setPosGrafic(e.getX()*64, e.getY()*64);
@@ -300,7 +293,7 @@ public class Juego {
 		boolean hay=false;
 		int x=e.getX();
 		while(!hay && x!=9 && x<e.getX()+e.getRango()+1){
-			hay=getMapa().getObject(x+1,e.getY())!=null;
+			hay=mapa.getObject(x+1,e.getY())!=null;
 			x++;
 		}
 		return hay;
@@ -330,7 +323,7 @@ public class Juego {
 				else{
 					
 					//Ataque cuerpo a cuerpos
-					e.colisionar(getMapa().getObject(e.getX()-1,e.getY()));
+					e.colisionar(mapa.getObject(e.getX()-1,e.getY()));
 				}
 			}
 			}	
@@ -338,8 +331,7 @@ public class Juego {
 		for(Aliado e:toDelete){
 			todos.remove(e);
 			aliados.remove(e);
-			mapa.eliminarObjeto(e,e.getX(),e.getY());
-			System.out.println("Me mori");
+			e.eliminar();
 			panelMapa.remove(e.getGrafico());
 		}
 	}
@@ -348,7 +340,7 @@ public class Juego {
 		boolean hay=false;
 		int x=e.getX();
 		while(!hay && x>0 && x>(e.getX()-e.getRango())-1){
-			hay=getMapa().getObject(x-1,e.getY())!=null;
+			hay=mapa.getObject(x-1,e.getY())!=null;
 			x--;
 		}
 		return hay;
@@ -410,33 +402,7 @@ public class Juego {
 		return enemigos;
 	}
 
-	public void colocarEnt(Ent j, int x, int y) {
-		System.out.println("Hola, soy un ent");
-		if(j.getPrecioAliado()<=monedasJuego && mapa.getObject(x, y)==null && mapa.getObject(x, y+1)==null){
-			j.setX(x);
-			j.setY(y);
-			j.setPosGrafic(x*64, y*64);
-			System.out.println("X: "+x+" Y: "+y);
-			mapa.agregarObjeto(j,x,y);
-			todos.add(j);
-			aliados.add(j);
-			
-			Ent e = j;
-			
-			e.setX(x);
-			e.setY(y+1);
-			System.out.println("X: "+x+" Y: "+y);
-			mapa.agregarObjeto(e, x, y+1);
-			
-			monedasJuego-=j.getPrecioAliado();
-			todos.add(e);
-			aliados.add(e);
-			panelMapa.add(j.getGrafico());
-			j.grafico.setBackground(null);
-			j.getGrafico().setOpaque(true);
-			panelMapa.repaint();
-		}
-	}
+	
 	
 	
 

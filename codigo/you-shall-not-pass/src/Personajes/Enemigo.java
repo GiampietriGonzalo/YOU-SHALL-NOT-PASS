@@ -2,6 +2,7 @@ package Personajes;
 
 
 import Interacciones.*;
+import Logica.Mapa;
 
 public abstract class Enemigo extends Personaje {
 	
@@ -10,8 +11,8 @@ public abstract class Enemigo extends Personaje {
 	protected int puntos;
 	protected EstadoEnemigo estado;
 	
-	public Enemigo(int damage,int vida){
-		super(damage,vida);
+	public Enemigo(Mapa m,int damage,int vida){
+		super(m,damage,vida);
 		miVisitor=new VisitorEnemigo(this);
 	}
 	
@@ -54,6 +55,10 @@ public abstract class Enemigo extends Personaje {
 	
 	public void setEstado(EstadoEnemigo e) {
 		estado=e;
+	}
+	
+	public void eliminar(){
+		mapa.eliminarObjeto(this, x, y);
 	}
 	
 }

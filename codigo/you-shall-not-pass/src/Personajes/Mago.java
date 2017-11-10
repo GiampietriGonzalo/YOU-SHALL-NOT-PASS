@@ -3,10 +3,12 @@ package Personajes;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import Logica.Mapa;
+
 public class Mago extends Aliado {
 	
-	public Mago() {
-		super(40,80);
+	public Mago(Mapa m) {
+		super(m,40,80);
 		precioAliado=50;
 		rango=2;
 		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Gandalf.gif"));
@@ -18,4 +20,7 @@ public class Mago extends Aliado {
 		return 80;
 	}
 	
+	public void eliminar(){
+		mapa.eliminarObjeto(this, x, y);
+	}
 }

@@ -3,10 +3,13 @@ package Personajes;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-public class Ent extends Aliado {
+import Logica.Mapa;
 
-	public Ent() {
-		super(60, 60);
+public class Ent extends Aliado {
+	
+	
+	public Ent(Mapa m) {
+		super(m,10, 10);
 		precioAliado=20;
 		rango=0;
 		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Ent.png"));
@@ -22,4 +25,11 @@ public class Ent extends Aliado {
 		grafico.setBounds(posX,posY,64,128);
 		return grafico;
 	}
+
+	
+	public void eliminar(){
+		mapa.eliminarObjeto(this, x, y+1);
+		mapa.eliminarObjeto(this, x, y);
+	}
+	
 }

@@ -2,15 +2,18 @@ package Personajes;
 
 import Interacciones.Visitor;
 import Logica.GameObject;
+import Logica.Mapa;
 
 public abstract class Personaje extends GameObject {
 	
+	protected Mapa mapa;
 	protected int vida;
 	protected int rango;
 	protected int damage;
 	protected Visitor miVisitor;
 	
-	public Personaje(int damage,int vida){
+	public Personaje(Mapa m,int damage,int vida){
+		mapa=m;
 		this.damage=damage;
 		this.vida=vida;
 	}
@@ -38,6 +41,9 @@ public abstract class Personaje extends GameObject {
 	}
 	
 	public void recibirDamage(int d){}
+	
 	public void efecto(){}
+	
+	public abstract void eliminar(); 
 	
 }

@@ -3,10 +3,12 @@ package Personajes;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import Logica.Mapa;
+
 public class MagoOscuro extends Enemigo {
 
-	public MagoOscuro() {
-		super(20,70);
+	public MagoOscuro(Mapa m) {
+		super(m,20,70);
 		vive=true;
 		rango=3;
 		velocidad=32;

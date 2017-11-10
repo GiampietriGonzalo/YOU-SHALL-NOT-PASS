@@ -10,7 +10,7 @@ public class CreadorElfo extends CreadorAliado {
 	}
 	
 	public void crear(int x, int y) {
-		miJuego.colocarAliado(new Elfo(), x, y);
+		juego.colocarAliado(new Elfo(juego.getMapa()), x, y);
 	}
 	
 }

@@ -1,14 +1,15 @@
 package Personajes;
 
 import Interacciones.*;
+import Logica.Mapa;
 
 public abstract class Aliado extends Personaje {
 	
 	protected int precioAliado;
 	protected EstadoAliado estado;
 	
-	public Aliado(int damage,int vida){
-		super(damage,vida);
+	public Aliado(Mapa m,int damage,int vida){
+		super(m,damage,vida);
 		miVisitor=new VisitorAliado(this);
 	}
 	

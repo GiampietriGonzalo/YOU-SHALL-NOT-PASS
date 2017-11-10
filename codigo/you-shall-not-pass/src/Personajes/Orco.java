@@ -3,10 +3,12 @@ package Personajes;
 import javax.swing.*;
 import javax.swing.JLabel;
 
+import Logica.Mapa;
+
 public class Orco extends Enemigo {
 	
-	public Orco() {
-		super(20,30);
+	public Orco(Mapa m) {
+		super(m,20,30);
 		rango=0;
 		velocidad=8;
 		puntos=20;	

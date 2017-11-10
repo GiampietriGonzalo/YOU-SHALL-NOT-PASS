@@ -2,11 +2,9 @@ package Logica;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-
 import Interacciones.Visitor;
 
 public abstract class GameObject extends Thread {
-	protected Juego juego;
 	protected int x;
 	protected int y;
 	protected ImageIcon sprite;

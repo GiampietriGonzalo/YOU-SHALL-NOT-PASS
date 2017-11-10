@@ -22,8 +22,6 @@ public class Mapa {
 	
 	public void agregarObjeto(GameObject j,int x, int y){
 		grilla[x][y].setElement(j);
-		j.setX(x);
-		j.setY(y);
 	}
 	
 	public void eliminarObjeto(GameObject j,int x, int y){

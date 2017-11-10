@@ -3,11 +3,13 @@ package Personajes;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import Logica.Mapa;
+
 public class Humano extends Aliado {
 	
-	public Humano() {
+	public Humano(Mapa m) {
 		
-		super(30,50);
+		super(m,30,50);
 		precioAliado=15;
 		rango=0;
 		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Humano2.gif"));
@@ -19,5 +21,9 @@ public class Humano extends Aliado {
 
 	public int getVidaOriginal() {
 		return 50;
+	}
+	
+	public void eliminar(){
+		mapa.eliminarObjeto(this, x, y);
 	}
 }
