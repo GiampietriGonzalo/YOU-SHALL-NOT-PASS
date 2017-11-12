@@ -161,14 +161,15 @@ public class Juego {
 	}
 	
 	public void venderPersonaje(Aliado j){
-		if (j.getVida() <= j.getVida()/2){
+		if(j!=null){
+			if (j.getVida() <= j.getVida()/2){
 		j.morir();
 		monedasJuego+=j.getPrecioAliado()/2;
 		}
 		else{
 			j.morir();
 			monedasJuego+=j.getPrecioAliado();
-			
+			}
 		}
 	}
 	

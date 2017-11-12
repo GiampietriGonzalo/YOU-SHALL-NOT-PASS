@@ -24,7 +24,6 @@ public class Nivel1 extends Nivel{
 			if(a<5){
 				Enemigo e = new Orco(juego.getMapa());
 				if (p == 1) e.proteccion();
-				System.out.println("Soy un orco con vida "+e.getVida());
 				horda.push(e);
 			}else if (a<8){
 				horda.push(new Huargo(juego.getMapa()));

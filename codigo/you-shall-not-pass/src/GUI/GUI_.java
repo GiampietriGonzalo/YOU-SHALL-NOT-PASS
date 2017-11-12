@@ -6,7 +6,6 @@ import javax.swing.*;
 
 import Creador.*;
 import Logica.Juego;
-import Logica.Mapa;
 import Personajes.Aliado;
 
 import java.awt.event.*;

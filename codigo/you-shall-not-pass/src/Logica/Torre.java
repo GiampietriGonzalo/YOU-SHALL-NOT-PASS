@@ -9,12 +9,13 @@ public class Torre extends Aliado {
 	
 	
 	public Torre(Mapa m,ImageIcon imagen,int x, int y) {
-		super(m,500,20);
+		super(m,500,100);
 		this.x=x;
 		this.y=y;
 		rango=0;
 		sprite=imagen;
 		grafico=new JLabel(sprite);
+		grafico.setBackground(null);
 	}
 
 	public int getVidaOriginal() {

@@ -15,6 +15,7 @@ public class VisitorEnemigo extends Visitor{
 
 	public void visit(Aliado a) {
 		System.out.println("Me estoy chocando algo");
+		System.out.println("Estoy pegando con daño "+miEnemigo.getDamage());
 		a.recibirDamage(miEnemigo.getDamage());
 	}
 

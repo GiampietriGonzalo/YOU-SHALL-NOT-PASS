@@ -18,7 +18,6 @@ public class Humano extends Aliado {
 		
 	}
 
-
 	public int getVidaOriginal() {
 		return 50;
 	}

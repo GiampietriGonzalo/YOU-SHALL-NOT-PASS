@@ -10,7 +10,7 @@ public class Hobbit extends Aliado {
 	public Hobbit(Mapa m) {
 		super(m,15,40);
 		precioAliado=10;
-		rango=1;
+		rango=0;
 		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Sam.png"));
 		grafico=new JLabel(sprite);
 	}
