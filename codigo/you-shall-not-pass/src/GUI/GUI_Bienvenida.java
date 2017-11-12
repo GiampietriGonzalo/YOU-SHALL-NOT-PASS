@@ -86,7 +86,7 @@ public class GUI_Bienvenida {
 		frmYouShallNot.getContentPane().add(btnSalir);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(GUI_Bienvenida.class.getResource("/Imagenes/aa.png")));
+		lblNewLabel.setIcon(new ImageIcon(GUI_Bienvenida.class.getResource("/Imagenes/imagenprincipal.png")));
 		lblNewLabel.setBounds(376, 48, 436, 258);
 		frmYouShallNot.getContentPane().add(lblNewLabel);
 		

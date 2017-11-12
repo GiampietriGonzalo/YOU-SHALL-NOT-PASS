@@ -9,7 +9,7 @@ public class Torre extends Aliado {
 	
 	
 	public Torre(Mapa m,ImageIcon imagen,int x, int y) {
-		super(m,10,20);
+		super(m,500,20);
 		this.x=x;
 		this.y=y;
 		rango=0;

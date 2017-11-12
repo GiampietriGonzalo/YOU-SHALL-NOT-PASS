@@ -20,6 +20,9 @@ public abstract class Enemigo extends Personaje {
 		v.visit(this);
 	}
 	
+	public void setSprite(String s){
+	}
+	
 	public int getVelocidad(){
 		return velocidad;
 	}
@@ -51,6 +54,13 @@ public abstract class Enemigo extends Personaje {
 			estado.relentizar();
 		else
 			estado= new Relentizado(this);	
+	}
+	
+	public void proteccion(){
+		if(estado!=null)
+			estado.proteccion();
+		else
+			estado= new Protegido(this);
 	}
 	
 	public void setEstado(EstadoEnemigo e) {

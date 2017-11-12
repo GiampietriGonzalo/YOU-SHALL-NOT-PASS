@@ -18,6 +18,13 @@ public class Nazgul extends Enemigo {
 		sprite.setImageObserver(grafico);
 	}
 
+	public void setSprite (String s){
+		sprite = new ImageIcon(this.getClass().getResource(s));
+		grafico=new JLabel(sprite);
+		sprite.setImageObserver(grafico);
+		grafico.setBackground(null);
+	}
+	
 	public int getVidaOriginal() {
 		return 60;
 	}

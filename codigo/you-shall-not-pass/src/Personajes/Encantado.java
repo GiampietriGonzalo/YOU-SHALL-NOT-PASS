@@ -12,6 +12,9 @@ public class Encantado extends EstadoEnemigo{
 		miEnemigo.setEstado(new Relentizado(miEnemigo));
 	}
 	
+	public void proteccion(){
+		miEnemigo.setEstado(new Protegido(miEnemigo));
+	}
 	//Un enemigo no encantado inicialmente no se puede encantar.
 	//Si un enemigo está encantando y se relentiza, Pasa al estado Relentizado y conserva el escudo.
 }

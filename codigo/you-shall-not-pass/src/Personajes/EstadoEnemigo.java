@@ -7,4 +7,7 @@ public abstract class EstadoEnemigo {
 		miEnemigo=e;
 	}
 	public abstract void relentizar();
+	public abstract void proteccion();
+		// TODO Auto-generated method stub
+		
 }

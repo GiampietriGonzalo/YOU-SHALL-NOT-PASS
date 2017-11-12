@@ -8,4 +8,10 @@ public class Relentizado extends EstadoEnemigo{
 	}
 	
 	public void relentizar(){/*No vuelve a relentizar*/}
+
+	@Override
+	public void proteccion() {
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -186,7 +186,6 @@ public class Juego {
 				nuevaOleada();
 			
 			}
-			//gano=true;
 			else{ 
 				if(!s.isEmpty()) 
 					colocarEnemigoMapa(s);

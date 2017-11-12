@@ -18,6 +18,13 @@ public class OrcoUrukHai extends Enemigo {
 		grafico.setBackground(null);
 	}
 
+	public void setSprite (String s){
+		sprite = new ImageIcon(this.getClass().getResource(s));
+		grafico=new JLabel(sprite);
+		sprite.setImageObserver(grafico);
+		grafico.setBackground(null);
+	}
+	
 	@Override
 	public int getVidaOriginal() {
 		return 40;
