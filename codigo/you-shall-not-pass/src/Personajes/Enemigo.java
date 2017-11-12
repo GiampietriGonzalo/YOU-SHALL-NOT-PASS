@@ -50,18 +50,15 @@ public abstract class Enemigo extends Personaje {
 	}
 	
 	public void relentizar(){
-		if(estado!=null)
-			estado.relentizar();
-		else
+		if(estado==null)
 			estado= new Relentizado(this);	
 	}
 	
 	public void proteccion(){
-		if(estado!=null)
-			estado.proteccion();
-		else
+		if(estado==null)
 			estado= new Protegido(this);
 	}
+
 	
 	public void setEstado(EstadoEnemigo e) {
 		estado=e;

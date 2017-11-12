@@ -16,5 +16,9 @@ abstract public class Premio extends GameObject{
 	public void accept(Visitor v){
 		v.visit(this);
 	}
-	
+	@Override
+	public void actualizar(){
+		tiempo++;
+		if(tiempo==10) morir();
+	}
 }

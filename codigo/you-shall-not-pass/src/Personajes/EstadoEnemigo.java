@@ -6,7 +6,5 @@ public abstract class EstadoEnemigo {
 	public EstadoEnemigo(Enemigo e){
 		miEnemigo=e;
 	}
-	public abstract void relentizar();
-	public abstract void proteccion();
 		
 }
