@@ -14,6 +14,11 @@ public abstract class GameObject extends Thread {
 	protected int posY;
 	protected int monedas;
 	protected int puntos;
+	protected int tiempo;
+	
+	public GameObject(){
+		tiempo=0;
+	}
 	
 	public ImageIcon getImg(){
 		return sprite;
@@ -63,6 +68,10 @@ public abstract class GameObject extends Thread {
 	public void accept(Visitor v) {
 		v.visit(this);
 	}
-
+	
+	public abstract void actualizar();
+	
 	public abstract void efecto();
+	
+	
 }

@@ -45,5 +45,9 @@ public abstract class Personaje extends GameObject {
 	public void efecto(){}
 	
 	public abstract void eliminar(); 
+	public void actualizar(){
+		//tiempo++;
+	}
+	
 	
 }

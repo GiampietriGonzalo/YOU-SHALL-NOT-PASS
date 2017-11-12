@@ -9,7 +9,7 @@ public class Ent extends Aliado {
 	
 	
 	public Ent(Mapa m) {
-		super(m,10, 10);
+		super(m,30, 60);
 		precioAliado=20;
 		rango=0;
 		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Ent.png"));

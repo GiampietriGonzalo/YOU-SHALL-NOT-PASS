@@ -7,17 +7,4 @@ public class Protegido extends EstadoEnemigo{
 		miEnemigo.setVida(500000);
 		miEnemigo.setSprite("/Imagenes/"+e.getClass().getSimpleName()+"Protegido.gif");
 	}
-
-	@Override
-	public void relentizar() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void proteccion() {
-		// TODO Auto-generated method stub
-		
-	} 
-
 }

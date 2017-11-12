@@ -1,6 +1,7 @@
 package Logica;
 
 import java.applet.*;
+import java.awt.Container;
 import java.util.LinkedList;
 import java.util.Random;
 import java.util.Stack;
@@ -24,6 +25,7 @@ public class Juego {
 	private LinkedList<Enemigo> enemigos;
 	private LinkedList<Aliado> aliados;
 	private LinkedList<GameObject> todos;
+	private LinkedList<Premio> premios;
 	private Mapa mapa;
 	private JPanel panelMapa;
 	private int sumador=0;
@@ -40,6 +42,7 @@ public class Juego {
 		aliados=new LinkedList<Aliado>();
 		enemigos=new LinkedList<Enemigo>();
 		todos=new LinkedList<GameObject>();
+		premios=new LinkedList<Premio>();
 		puntosJuego=0;
 		monedasJuego=100;
 		perdio=false;
@@ -191,7 +194,10 @@ public class Juego {
 				if(!s.isEmpty()) 
 					colocarEnemigoMapa(s);
 			}
-		
+		for(GameObject e:todos){
+			e.actualizar();
+		}
+		eliminarMuertos();
 		moverEnemigos();
 		actualizarAliados();
 		panelMapa.repaint();
@@ -203,6 +209,20 @@ public class Juego {
 	}
 	
 	
+	private void eliminarMuertos() {
+		LinkedList<GameObject> toDelete = new LinkedList<GameObject>();
+		for(Premio e:premios){
+			if(!e.estaVivo()){
+				toDelete.add(e);
+			}
+		}
+		for(GameObject e:toDelete){
+			premios.remove(e);
+			mapa.eliminarObjeto(e,e.x,e.y);
+			panelMapa.remove(e.getGrafico());
+		}
+	}
+
 	private void nuevaOleada(){
 		if (oleada==3) JOptionPane.showMessageDialog(null, "NIVEL 2 ALCANZADO!", "NIVEL 2", JOptionPane.INFORMATION_MESSAGE);
 		oleada++;
@@ -243,7 +263,7 @@ public class Juego {
 					disparador++;
 				}
 				else{
-					//Ataque cuerpo a cuerpos
+					//Ataque cuerpo a cuerpo
 					e.colisionar(mapa.getObject(e.getX()+1,e.getY()));
 				}
 			}
@@ -262,25 +282,27 @@ public class Juego {
 			if (i==1){
 				Bomba b = new Bomba(this);
 				b.setPosGrafic(e.getX()*64, e.getY()*64);
-				this.agregarObjeto(b,e.getX(), e.getY());
+				this.agregarPower(b,e.getX(), e.getY());
 			}
 			if (i==2){
 				RelojArena r = new RelojArena(this);
 				r.setPosGrafic(e.getX()*64, e.getY()*64);
-				this.agregarObjeto(r,e.getX(), e.getY());
+				this.agregarPower(r,e.getX(), e.getY());
 			}
 			if (i==3){
 				Curacion c = new Curacion(this);
 				c.setPosGrafic(e.getX()*64, e.getY()*64);
-				this.agregarObjeto(c,e.getX(), e.getY());
+				this.agregarPower(c,e.getX(), e.getY());
 			}
 			
 		}
 	}
 	
-	public void agregarPower(GameObject j,int x, int y){
+	public void agregarPower(Premio j,int x, int y){
 		
 		mapa.agregarObjeto(j,x,y);
+		premios.add(j);
+		todos.add(j);
 		j.setX(x);
 		j.setY(y);
 		panelMapa.add(j.getGrafico());

@@ -19,4 +19,7 @@ abstract public class Disparo extends GameObject implements Runnable {
 	
 	abstract public void accept(Visitor v);
 	
+	public void actualizar(){
+	}
+	
 }

@@ -28,4 +28,5 @@ public abstract class Aliado extends Personaje {
 	
 	public EstadoAliado getEstado() {return estado;}
 	
+
 }
