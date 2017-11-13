@@ -6,4 +6,13 @@ public class Relentizado extends EstadoEnemigo{
 		super(e);
 		miEnemigo.setVelocidad(miEnemigo.getVelocidad()/2);
 	}
+
+	public void proteccion() {
+	}
+
+
+	public void relentizar() {
+		//No vuelve a relentizar
+	}
+
 }

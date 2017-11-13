@@ -16,9 +16,6 @@ public abstract class Enemigo extends Personaje {
 		miVisitor=new VisitorEnemigo(this);
 	}
 	
-	public void accept(Visitor v){
-		v.visit(this);
-	}
 	
 	public void setSprite(String s){
 	}
@@ -27,14 +24,6 @@ public abstract class Enemigo extends Personaje {
 		return velocidad;
 	}
 	
-	public int getMonedas(){
-		return monedas;
-	}
-	
-	
-	public int getPuntos(){
-		return puntos;
-	}
 	
 	public void recibirDamage(int d){
 		vida-=d;

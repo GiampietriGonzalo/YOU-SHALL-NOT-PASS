@@ -7,6 +7,8 @@ abstract public class Disparo extends GameObject implements Runnable {
 	
 	protected static final int velocidad=25;
 	protected Juego juego;
+	protected volatile boolean execute=true;
+	protected Visitor miVisitor;
 	
 	public Disparo(Juego j,int x, int y) {
 		juego=j;
@@ -17,9 +19,15 @@ abstract public class Disparo extends GameObject implements Runnable {
 	public void efecto(){}
 	abstract public void avanzar();
 	
-	abstract public void accept(Visitor v);
+	public void accept(Visitor v) {
+		v.visit(this);
+	}
 	
 	public void actualizar(){
+	}
+	
+	public void terminate(){
+		execute=false;
 	}
 	
 }

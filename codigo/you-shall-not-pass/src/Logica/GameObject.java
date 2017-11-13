@@ -15,6 +15,7 @@ public abstract class GameObject extends Thread {
 	protected int monedas;
 	protected int puntos;
 	protected int tiempo;
+	protected Visitor miVisitor;
 	
 	public GameObject(){
 		tiempo=0;

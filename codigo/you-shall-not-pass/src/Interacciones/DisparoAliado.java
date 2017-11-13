@@ -8,8 +8,7 @@ import Personajes.Aliado;
 
 public class DisparoAliado extends Disparo {
 
-	protected VisitorDisparoAliado miVisitor;
-	protected volatile boolean execute=true;
+	
 	protected Aliado miAliado;
 	
 	public DisparoAliado(Juego j,Aliado a,int x, int y) {
@@ -56,16 +55,10 @@ public class DisparoAliado extends Disparo {
 			}
 		}
 	}
-	public void terminate(){
-		execute=false;
-	}
+	
 	
 	public Aliado getAliado(){
 		return miAliado;
-	}
-	@Override
-	public void accept(Visitor v) {
-		v.visit(this);
 	}
 
 }

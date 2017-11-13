@@ -13,10 +13,6 @@ public abstract class Aliado extends Personaje {
 		miVisitor=new VisitorAliado(this);
 	}
 	
-	public void accept(Visitor v){
-		v.visit(this);
-	}
-	
 	public int getPrecioAliado(){
 		return precioAliado;
 	}

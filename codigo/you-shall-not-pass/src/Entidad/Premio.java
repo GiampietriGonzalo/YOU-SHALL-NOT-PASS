@@ -6,7 +6,6 @@ import Logica.Juego;
 
 abstract public class Premio extends GameObject{
 	
-	protected VisitorPremio miVisitor;
 	protected Juego miJuego;
 	
 	public Premio(Juego j){
@@ -16,7 +15,7 @@ abstract public class Premio extends GameObject{
 	public void accept(Visitor v){
 		v.visit(this);
 	}
-	@Override
+
 	public void actualizar(){
 		tiempo++;
 		if(tiempo==10) morir();

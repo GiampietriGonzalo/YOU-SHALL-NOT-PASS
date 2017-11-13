@@ -8,14 +8,12 @@ import Personajes.Enemigo;
 
 public class DisparoEnemigo extends Disparo {
 
-	protected Visitor miVisitor;
-	protected Enemigo miEne;
-	protected volatile boolean execute=true;
+	protected Enemigo miEnemigo;
 	
 	
 	public DisparoEnemigo(Juego j,Enemigo e,int x, int y) {
 		super(j,x,y);
-		miEne = e;
+		miEnemigo = e;
 		miVisitor=new VisitorDisparoEnemigo(e);
 		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/disparo.png"));
 		grafico=new JLabel(sprite);
@@ -58,11 +56,7 @@ public class DisparoEnemigo extends Disparo {
 			}
 		}
 	}
-	public void terminate(){
-		execute=false;
-	}
-	@Override
-	public void accept(Visitor v) {
-		v.visit(this);
-	} 
+	
+	
+	 
 }
