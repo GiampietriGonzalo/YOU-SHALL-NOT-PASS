@@ -57,4 +57,15 @@ public abstract class Enemigo extends Personaje {
 		mapa.eliminarObjeto(this, x, y);
 	}
 	
+	public void accept(Visitor v) {
+		v.visit(this);
+	}
+	
+	public int getPuntos(){
+		return puntos;
+	}
+	
+	public int getMonedas(){
+		return monedas;
+	}
 }

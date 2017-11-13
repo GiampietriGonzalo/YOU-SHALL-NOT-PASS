@@ -18,11 +18,15 @@ public abstract class GameObject extends Thread {
 	protected Visitor miVisitor;
 	
 	public GameObject(){
-		tiempo=0;
+		tiempo=20;
 	}
 	
 	public ImageIcon getImg(){
 		return sprite;
+	}
+	
+	public int getPuntos(){
+		return puntos;
 	}
 	
 	public int getX(){
@@ -57,18 +61,8 @@ public abstract class GameObject extends Thread {
 		grafico.setBounds(posX,posY,64,64);
 		return grafico;
 	}
-	
-	public int getMonedas(){
-		return monedas;
-	}
-	
-	public int getPuntos(){
-		return puntos;
-	}
-	
-	public void accept(Visitor v) {
-		v.visit(this);
-	}
+
+	public abstract void accept(Visitor v);
 	
 	public abstract void actualizar();
 	

@@ -17,7 +17,7 @@ abstract public class Premio extends GameObject{
 	}
 
 	public void actualizar(){
-		tiempo++;
-		if(tiempo==10) morir();
+		tiempo--;
+		if(tiempo==0) morir();
 	}
 }

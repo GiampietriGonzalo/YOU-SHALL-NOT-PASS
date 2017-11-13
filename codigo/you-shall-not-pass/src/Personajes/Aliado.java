@@ -24,5 +24,8 @@ public abstract class Aliado extends Personaje {
 	
 	public EstadoAliado getEstado() {return estado;}
 	
+	public void accept(Visitor v) {
+		v.visit(this);
+	}
 
 }

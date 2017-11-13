@@ -1,6 +1,5 @@
 package Personajes;
 
-import Interacciones.Visitor;
 import Logica.GameObject;
 import Logica.Mapa;
 
@@ -39,13 +38,14 @@ public abstract class Personaje extends GameObject {
 		p.accept(miVisitor);
 	}
 	
+	
 	public void recibirDamage(int d){}
 	
 	public void efecto(){}
 	
 	public abstract void eliminar(); 
 	public void actualizar(){
-		//tiempo++;
+		//tiempo--;
 	}
 	
 	

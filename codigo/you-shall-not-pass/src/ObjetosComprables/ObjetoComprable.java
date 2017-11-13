@@ -1,4 +1,5 @@
 package ObjetosComprables;
+import Interacciones.Visitor;
 import Logica.GameObject;
 
 public abstract class ObjetoComprable extends GameObject{
@@ -9,5 +10,9 @@ public abstract class ObjetoComprable extends GameObject{
 	
 	public void actualizar(){
 
+	}
+	
+	public void accept(Visitor v) {
+		v.visit(this);
 	}
 }
