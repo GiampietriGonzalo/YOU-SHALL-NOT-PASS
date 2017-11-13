@@ -261,7 +261,7 @@ public class GUI_ extends JFrame{
 				lblMonedas.setText("Monedas: "+juego.getMonedas());
 				lblPuntos.setText("Puntos: "+juego.getPuntos());
 				try {
-					Thread.sleep(275);
+					Thread.sleep(300);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}

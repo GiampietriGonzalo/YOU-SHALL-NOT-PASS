@@ -1,7 +1,6 @@
 package Logica;
 
 import java.applet.*;
-import java.awt.Container;
 import java.util.LinkedList;
 import java.util.Random;
 import java.util.Stack;
@@ -11,6 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import Interacciones.*;
+import ObjetosMapa.*;
 import Personajes.*;
 import Entidad.*;
 
@@ -31,8 +31,9 @@ public class Juego {
 	private int sumador=0;
 	private Nivel nivel;
 	private Stack <Enemigo> s;
-	int disparador=0;
-	int contador=0;
+	private int disparador;
+	private int contador;
+	private int cont;
 	//AudioClip clip = Applet.newAudioClip(this.getClass().getResource("/Musica/Anillo.WAV"));
 	
 	
@@ -51,6 +52,9 @@ public class Juego {
 		nivel1();
 		s = nivel.crearHorda();
 		oleada = 1;
+		contador=0;
+		disparador=0;
+		cont=0;
 	    //clip.loop();
 	}
 	
@@ -183,23 +187,40 @@ public class Juego {
 	}
 	
 	public void actualizar(){
-		if(sumador++%3==0) monedasJuego++;
-			if(s.isEmpty() && enemigos.isEmpty()){
+		if(sumador++%3==0) 
+			monedasJuego++;
+		if(s.isEmpty() && enemigos.isEmpty()){
 			
-				s = nivel.crearHorda();
-				nuevaOleada();
+			s = nivel.crearHorda();
+			nuevaOleada();
 			
-			}
-			else{ 
-				if(!s.isEmpty()) 
-					colocarEnemigoMapa(s);
-			}
+		}
+		else{ 
+			if(!s.isEmpty()) 
+				colocarEnemigoMapa(s);
+		}
+		LinkedList<GameObject> toDelete = new LinkedList<GameObject>();
 		for(GameObject e:todos){
 			e.actualizar();
+			if(!e.estaVivo()){
+				toDelete.add(e);
+			}
+			
 		}
-		eliminarMuertos();
+		for(GameObject e:toDelete){
+			todos.remove(e);	
+			mapa.eliminarObjeto(e,e.x,e.y);
+			panelMapa.remove(e.getGrafico());
+		}
+		eliminarPremios();
 		moverEnemigos();
 		actualizarAliados();
+		
+		Random i;
+		i=new Random(System.currentTimeMillis());
+		int prob=i.nextInt(25);
+		if(prob==13)
+			colocarObjetoMapa();
 		panelMapa.repaint();
 		
 		if (oleada == 3)
@@ -209,7 +230,40 @@ public class Juego {
 	}
 	
 	
-	private void eliminarMuertos() {
+	private void colocarObjetoMapa() {
+		Random i;
+		cont++;
+		i=new Random(System.currentTimeMillis()+cont);
+		int tipo=i.nextInt(4);
+		int x=i.nextInt(10);
+		int y=i.nextInt(6);
+		ObjetoMapa objeto;
+		switch(tipo){
+			case 0:
+				objeto=new Piedra();
+				objeto.setPosGrafic(x*64, y*64);
+				agregarObjeto(objeto,x,y);
+				todos.add(objeto);
+			case 1:
+				objeto=new Agua();
+				objeto.setPosGrafic(x*64, y*64);
+				agregarObjeto(objeto,x,y);
+				todos.add(objeto);
+			case 2:
+				objeto=new Gandalf();
+				objeto.setPosGrafic(x*64, y*64);
+				agregarObjeto(objeto,x,y);
+				todos.add(objeto);
+			case 3:
+				objeto=new Gollum();
+				objeto.setPosGrafic(x*64, y*64);
+				agregarObjeto(objeto,x,y);
+				todos.add(objeto);
+		}
+		
+	}
+
+	private void eliminarPremios() {
 		LinkedList<GameObject> toDelete = new LinkedList<GameObject>();
 		for(Premio e:premios){
 			if(!e.estaVivo()){
@@ -298,7 +352,7 @@ public class Juego {
 		}
 	}
 	
-	public void agregarPower(Premio j,int x, int y){
+	private void agregarPower(Premio j,int x, int y){
 		
 		mapa.agregarObjeto(j,x,y);
 		premios.add(j);

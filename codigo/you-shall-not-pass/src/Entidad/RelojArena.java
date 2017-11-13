@@ -8,6 +8,10 @@ import Personajes.Enemigo;
 
 public class RelojArena extends ObjetoPrecioso{
 		
+	/*
+	 * Reloj de banda gris (?
+	 * 
+	 */
 		public RelojArena(Juego j){
 			super(j);
 			sprite=new ImageIcon(this.getClass().getResource("/Imagenes/reloj.png"));

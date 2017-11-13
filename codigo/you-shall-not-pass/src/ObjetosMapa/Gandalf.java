@@ -1,7 +1,16 @@
 package ObjetosMapa;
 
-public class Gandalf extends Temporal{
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
-	public void efecto() {/*redefinir*/}
+public class Gandalf extends ObjetoMapa{
+
+	
+	public Gandalf() {
+		super();
+		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/GandalfElGris.png"));
+		grafico=new JLabel(sprite);
+	}
+
 	
 }
