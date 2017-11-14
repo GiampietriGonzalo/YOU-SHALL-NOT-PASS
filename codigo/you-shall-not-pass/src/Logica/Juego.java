@@ -244,21 +244,25 @@ public class Juego {
 				objeto.setPosGrafic(x*64, y*64);
 				agregarObjeto(objeto,x,y);
 				todos.add(objeto);
+				break;
 			case 1:
 				objeto=new Agua();
 				objeto.setPosGrafic(x*64, y*64);
 				agregarObjeto(objeto,x,y);
 				todos.add(objeto);
+				break;
 			case 2:
 				objeto=new Gandalf();
 				objeto.setPosGrafic(x*64, y*64);
 				agregarObjeto(objeto,x,y);
 				todos.add(objeto);
+				break;
 			case 3:
 				objeto=new Gollum();
 				objeto.setPosGrafic(x*64, y*64);
 				agregarObjeto(objeto,x,y);
 				todos.add(objeto);
+				break;
 		}
 		
 	}

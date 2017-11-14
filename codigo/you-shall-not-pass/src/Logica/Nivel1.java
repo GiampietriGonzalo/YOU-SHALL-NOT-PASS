@@ -20,7 +20,7 @@ public class Nivel1 extends Nivel{
 		
 		for(int i=0;i<10;i++){
 			a = rnd.nextInt(10);
-			int p = rnd.nextInt(15);
+			int p = rnd.nextInt(2);
 			if(a<5){
 				Enemigo e = new Orco(juego.getMapa());
 				if (p == 1) e.proteccion();

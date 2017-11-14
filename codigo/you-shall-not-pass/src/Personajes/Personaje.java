@@ -9,6 +9,7 @@ public abstract class Personaje extends GameObject {
 	protected int vida;
 	protected int rango;
 	protected int damage;
+	protected boolean proteccion = false;
 	
 	public Personaje(Mapa m,int damage,int vida){
 		mapa=m;
@@ -48,5 +49,12 @@ public abstract class Personaje extends GameObject {
 		//tiempo--;
 	}
 	
+	public void setProteccion(boolean p){
+		proteccion = p;
+	}
+	
+	public boolean getProteccion(){
+		return proteccion;
+	}
 	
 }

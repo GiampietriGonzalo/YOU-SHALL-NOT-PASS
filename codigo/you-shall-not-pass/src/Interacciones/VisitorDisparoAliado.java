@@ -2,8 +2,7 @@ package Interacciones;
 
 import Entidad.Premio;
 import Logica.GameObject;
-import Personajes.Aliado;
-import Personajes.Enemigo;
+import Personajes.*;
 
 
 public class VisitorDisparoAliado extends Visitor {
@@ -22,6 +21,11 @@ public class VisitorDisparoAliado extends Visitor {
 	
 	public void visit(Enemigo e) {
 		e.recibirDamage(miAliado.getDamage());
+		if (e.getProteccion() == true){
+			miAliado.morir();
+			System.out.println("Perdi proteccion");
+			e.normal();
+		}
 	}
 
 	

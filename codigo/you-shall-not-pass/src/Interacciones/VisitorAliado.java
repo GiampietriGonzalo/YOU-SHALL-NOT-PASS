@@ -22,6 +22,11 @@ public class VisitorAliado extends Visitor {
 	
 	public void visit(Enemigo e) {
 		e.recibirDamage(miAliado.getDamage());
+		if (e.getProteccion() == true){
+			miAliado.morir();
+			System.out.println("Perdi proteccion");
+			e.normal();
+		}
 	}
 
 	

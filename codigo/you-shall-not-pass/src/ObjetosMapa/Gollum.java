@@ -9,8 +9,10 @@ public class Gollum extends ObjetoMapa{
 	
 	public Gollum() {
 		super();
-		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Gollum.png"));
+		System.out.println("Gollum");
+		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Gollum.gif"));
 		grafico=new JLabel(sprite);
+		sprite.setImageObserver(grafico);
 	}
 	
 	public void recibirDamage(int d) {

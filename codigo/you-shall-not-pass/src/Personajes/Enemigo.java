@@ -47,7 +47,10 @@ public abstract class Enemigo extends Personaje {
 		if(estado==null)
 			estado= new Protegido(this);
 	}
-
+	
+	public void normal(){
+			estado= new Normal(this);
+	}
 	
 	public void setEstado(EstadoEnemigo e) {
 		estado=e;
