@@ -19,7 +19,7 @@ public class GUI_Bienvenida {
 
 	private JFrame frmYouShallNot;
 	private String[] arreglomain;
-	//AudioClip clip = Applet.newAudioClip(this.getClass().getResource("/Musica/Medley.WAV"));
+	//AudioClip clip = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/Medley.WAV"));
 
 	
 	//Inicia la aplicacion.

@@ -2,6 +2,7 @@ package Interacciones;
 
 import Entidad.Premio;
 import Logica.GameObject;
+import ObjetosMapa.ObjetoConVida;
 import Personajes.Aliado;
 import Personajes.Enemigo;
 
@@ -44,6 +45,14 @@ public class VisitorAliado extends Visitor {
 	
 	public void visit(GameObject gameObject) {
 		
+		
+	}
+
+
+
+	@Override
+	public void visit(ObjetoConVida o) {
+		// TODO Auto-generated method stub
 		
 	}
 	

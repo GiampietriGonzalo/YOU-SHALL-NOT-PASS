@@ -1,15 +1,20 @@
 package ObjetosMapa;
 
+import java.applet.Applet;
+import java.applet.AudioClip;
+
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-public class Gollum extends ObjetoMapa{
+public class Gollum extends ObjetoConVida{
 	
-	private int vida;
+	AudioClip gollum = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/GollumGollum.wav"));
 	
 	public Gollum() {
 		super();
 		System.out.println("Gollum");
+		gollum.play();
+		vida = 200;
 		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Gollum.gif"));
 		grafico=new JLabel(sprite);
 		sprite.setImageObserver(grafico);

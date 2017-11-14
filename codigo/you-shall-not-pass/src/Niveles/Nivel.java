@@ -1,7 +1,8 @@
-package Logica;
+package Niveles;
 
 import java.util.Stack;
 
+import Logica.Juego;
 import Personajes.Enemigo;
 
 public abstract class Nivel {
@@ -12,5 +13,5 @@ public abstract class Nivel {
 	}
 	abstract Enemigo crearBoss();
 
-	abstract Stack<Enemigo> crearHorda();
+	public abstract Stack<Enemigo> crearHorda();
 }

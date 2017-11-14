@@ -14,7 +14,7 @@ public class MagoOscuro extends Enemigo {
 		velocidad=32;
 		puntos=20;
 		monedas=7;
-		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Saruman.png"));
+		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/MagoOscuro.gif"));
 		grafico=new JLabel(sprite);
 		grafico.setBackground(null);
 	}

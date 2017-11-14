@@ -17,7 +17,7 @@ public abstract class Aliado extends Personaje {
 		return precioAliado;
 	}
 	
-	public void recibirDamage(int d){
+	public void recibirDamage(int d, Personaje p){
 		vida-=d;
 		if(vida<=0) morir();
 	}

@@ -2,6 +2,7 @@ package Interacciones;
 
 import Entidad.Premio;
 import Logica.GameObject;
+import ObjetosMapa.ObjetoConVida;
 import Personajes.Aliado;
 import Personajes.Enemigo;
 
@@ -37,6 +38,12 @@ public class VisitorEnemigo extends Visitor{
 	}
 
 	public void visit(GameObject gameObject) {
+		
+	}
+
+	@Override
+	public void visit(ObjetoConVida o) {
+		o.recibirDamage(miEnemigo.getDamage());
 		
 	}
 

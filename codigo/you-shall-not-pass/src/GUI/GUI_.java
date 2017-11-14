@@ -32,7 +32,7 @@ public class GUI_ extends JFrame{
 		frmYouShallNot.setIconImage(Toolkit.getDefaultToolkit().getImage(GUI_.class.getResource("/Imagenes/icono.jpg")));
 		frmYouShallNot.setBounds(20, 20, 868, 683);
 		frmYouShallNot.setVisible(true);
-		panel_mapa = new PanelMapa();
+		panel_mapa = new JPanel();
 		panel_mapa.setForeground(new Color(0, 0, 0));
 		panel_mapa.addMouseListener(new MouseAdapter() {
 			@Override
@@ -196,13 +196,11 @@ public class GUI_ extends JFrame{
 		panel_puntos.setBackground(Color.WHITE);
 		panel_puntos.setBounds(667, 11, 185, 92);
 		frmYouShallNot.getContentPane().add(panel_puntos);
-		
-		//lblPuntos = new JLabel("Puntos: "+juego.getPuntos());
+
 		lblPuntos.setForeground(new Color(255, 255, 0));
 		lblPuntos.setFont(new Font("Aniron", Font.PLAIN, 20));
 		panel_puntos.add(lblPuntos);
-		
-		//lblMonedas = new JLabel("Monedas: "+juego.getMonedas());
+
 		lblMonedas.setForeground(new Color(255, 255, 0));
 		lblMonedas.setFont(new Font("Aniron", Font.PLAIN, 20));
 		panel_puntos.add(lblMonedas);

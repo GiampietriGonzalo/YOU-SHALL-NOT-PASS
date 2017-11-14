@@ -19,8 +19,10 @@ public class Protegido extends EstadoEnemigo{
 	
 	public void recibirDamage(int d, Personaje p){
 			System.out.println("Perdi proteccion");
-			p.morir();
-			p.eliminar();
-			miEnemigo.setEstado(new Normal(miEnemigo));
+			if (p!=null){ //Si no es una bomba
+				p.morir();
+				p.eliminar();
+				miEnemigo.setEstado(new Normal(miEnemigo));
 		}
+	}
 	}

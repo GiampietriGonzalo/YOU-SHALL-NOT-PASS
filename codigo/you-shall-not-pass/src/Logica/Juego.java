@@ -1,15 +1,10 @@
 package Logica;
 
 import java.applet.*;
-import java.util.LinkedList;
-import java.util.Random;
-import java.util.Stack;
-
-import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-
+import java.util.*;
+import javax.swing.*;
 import Interacciones.*;
+import Niveles.*;
 import ObjetosMapa.*;
 import Personajes.*;
 import Entidad.*;
@@ -34,7 +29,7 @@ public class Juego {
 	private int disparador;
 	private int contador;
 	private int cont;
-	//AudioClip clip = Applet.newAudioClip(this.getClass().getResource("/Musica/Anillo.WAV"));
+	//AudioClip clip = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/Anillo.WAV"));
 	
 	
 	public Juego(JPanel panel_Mapa) {

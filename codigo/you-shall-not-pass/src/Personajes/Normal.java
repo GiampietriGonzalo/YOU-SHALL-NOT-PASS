@@ -9,7 +9,6 @@ public class Normal extends EstadoEnemigo{
 
 	}
 
-
 	public void proteccion() {
 		
 	}
