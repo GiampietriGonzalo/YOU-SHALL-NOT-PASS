@@ -21,15 +21,20 @@ public class Nivel2 extends Nivel{
 		for(int i=0;i<10;i++){
 			a = rnd.nextInt(10);
 			int p = rnd.nextInt(15);
+			Enemigo e;
 			if(a<5){
-				horda.push(new OrcoUrukHai(juego.getMapa()));
+				e = new OrcoUrukHai(juego.getMapa());
+				e.normal();
+				horda.push(e);
 			}else if (a<8){
-				horda.push(new MagoOscuro(juego.getMapa()));
+				e = new MagoOscuro(juego.getMapa());
+				e.normal();
+				horda.push(e);
 			}
 			else {
-				Enemigo e = new Troll(juego.getMapa());
+				e = new Troll(juego.getMapa());
+				e.normal();
 				if (p == 9) e.proteccion();
-				System.out.println("Soy un Troll con vida "+e.getVida());
 				horda.push(e);
 			}
 		}

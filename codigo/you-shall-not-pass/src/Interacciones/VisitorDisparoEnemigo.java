@@ -13,12 +13,9 @@ public class VisitorDisparoEnemigo extends Visitor {
 
 
 	public void visit(Aliado a) {
-		a.recibirDamage(miEnemigo.getDamage());
-		if (a.getProteccion()){
-			miEnemigo.morir();
-			a.setProteccion(false);
-		}
+		a.recibirDamage(miEnemigo.getDamage(), miEnemigo);
 	}
+
 
 	
 	public void visit(Enemigo e) {

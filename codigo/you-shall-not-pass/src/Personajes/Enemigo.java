@@ -17,35 +17,29 @@ public abstract class Enemigo extends Personaje {
 	}
 	
 	
-	public void setSprite(String s){
-	}
-	
 	public int getVelocidad(){
 		return velocidad;
 	}
 	
-	
-	public void recibirDamage(int d){
-		vida-=d;
-		if(vida<=0){ 
-			morir();
-		}
+	public void recibirDamage(int d, Personaje p){
+		estado.recibirDamage(d,p);
 	}
 	
-	public EstadoEnemigo getEstado() {return estado;}
+	public EstadoEnemigo getEstado() {
+		return estado;
+	}
 
 	public void setVelocidad(int i) {
 		velocidad=i;
 	}
 	
 	public void relentizar(){
-		if(estado==null)
 			estado= new Relentizado(this);	
 	}
 	
 	public void proteccion(){
-		if(estado==null)
 			estado= new Protegido(this);
+			
 	}
 	
 	public void normal(){
@@ -71,4 +65,5 @@ public abstract class Enemigo extends Personaje {
 	public int getMonedas(){
 		return monedas;
 	}
+
 }

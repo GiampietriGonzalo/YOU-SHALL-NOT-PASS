@@ -32,7 +32,8 @@ public class GUI_ extends JFrame{
 		frmYouShallNot.setIconImage(Toolkit.getDefaultToolkit().getImage(GUI_.class.getResource("/Imagenes/icono.jpg")));
 		frmYouShallNot.setBounds(20, 20, 868, 683);
 		frmYouShallNot.setVisible(true);
-		panel_mapa = new JPanel();
+		panel_mapa = new PanelMapa();
+		panel_mapa.setForeground(new Color(0, 0, 0));
 		panel_mapa.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -66,6 +67,7 @@ public class GUI_ extends JFrame{
 		frmYouShallNot.getContentPane().setBackground(Color.WHITE);
 		frmYouShallNot.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmYouShallNot.setResizable(false);
+		
 		
 		//Creacion panel de seleccion de personajes
 		JPanel panel_personajes = new JPanel();
@@ -169,7 +171,9 @@ public class GUI_ extends JFrame{
 		btnLegolas.setToolTipText("Aumenta el alcance y el danio de todos los Elfos aliados durante 8s");
 		panel_tienda.add(btnLegolas);
 		
-		panel_mapa.setBackground(Color.BLACK);
+		Color transparente=new Color(Color.TRANSLUCENT);
+		panel_mapa.setBackground(transparente);
+		panel_mapa.setForeground(transparente);
 		
 		panel_mapa.setLayout(null);
 		panel_mapa.setBorder(null);

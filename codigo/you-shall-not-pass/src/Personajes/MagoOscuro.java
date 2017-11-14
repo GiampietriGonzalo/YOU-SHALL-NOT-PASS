@@ -22,5 +22,6 @@ public class MagoOscuro extends Enemigo {
 	public int getVidaOriginal() {
 		return 70;
 	}
+
 	
 }

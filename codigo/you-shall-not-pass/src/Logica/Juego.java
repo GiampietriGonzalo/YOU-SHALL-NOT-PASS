@@ -239,30 +239,34 @@ public class Juego {
 		int y=i.nextInt(6);
 		ObjetoMapa objeto;
 		switch(tipo){
-			case 0:
+			case 0:{
 				objeto=new Piedra();
 				objeto.setPosGrafic(x*64, y*64);
 				agregarObjeto(objeto,x,y);
 				todos.add(objeto);
 				break;
-			case 1:
+				}
+			case 1:{
 				objeto=new Agua();
 				objeto.setPosGrafic(x*64, y*64);
 				agregarObjeto(objeto,x,y);
 				todos.add(objeto);
 				break;
-			case 2:
+				}
+			case 2:{
 				objeto=new Gandalf();
 				objeto.setPosGrafic(x*64, y*64);
 				agregarObjeto(objeto,x,y);
 				todos.add(objeto);
 				break;
-			case 3:
+				}
+			case 3:{
 				objeto=new Gollum();
 				objeto.setPosGrafic(x*64, y*64);
 				agregarObjeto(objeto,x,y);
 				todos.add(objeto);
 				break;
+				}
 		}
 		
 	}
@@ -305,6 +309,7 @@ public class Juego {
 					e.posX+=e.getVelocidad();
 					e.setX(e.posX/64);
 					mapa.agregarObjeto(e, e.getX(), e.getY());
+					e.setPosGrafic(e.posX, e.posY);
 					e.grafico.setBounds(e.posX,e.posY, 64, 64);
 					if(e.x==9) perdio=true; //perder
 				}

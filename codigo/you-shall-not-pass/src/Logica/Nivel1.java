@@ -21,18 +21,24 @@ public class Nivel1 extends Nivel{
 		for(int i=0;i<10;i++){
 			a = rnd.nextInt(10);
 			int p = rnd.nextInt(2);
+			Enemigo e;
 			if(a<5){
-				Enemigo e = new Orco(juego.getMapa());
-				if (p == 1) e.proteccion();
+				e = new Troll(juego.getMapa());
+				e.normal();
+				//if (p == 1) 
+					e.proteccion();
 				horda.push(e);
 			}else if (a<8){
-				horda.push(new Huargo(juego.getMapa()));
+				e = new Huargo(juego.getMapa());
+				e.normal();
+				horda.push(e);
 			}
 			else {
-				horda.push(new Nazgul(juego.getMapa()));
+				e=new Nazgul(juego.getMapa());
+				e.normal();
+				horda.push(e);
 				
 			}
-			
 		}
 		
 		return horda;

@@ -1,5 +1,7 @@
 package Personajes;
 
+import javax.swing.ImageIcon;
+
 import Logica.GameObject;
 import Logica.Mapa;
 
@@ -9,7 +11,6 @@ public abstract class Personaje extends GameObject {
 	protected int vida;
 	protected int rango;
 	protected int damage;
-	protected boolean proteccion = false;
 	
 	public Personaje(Mapa m,int damage,int vida){
 		mapa=m;
@@ -39,22 +40,22 @@ public abstract class Personaje extends GameObject {
 		p.accept(miVisitor);
 	}
 	
+	public void setSprite (String s){
+		sprite = new ImageIcon(this.getClass().getResource(s));
+		grafico.setIcon(sprite);
+		grafico.repaint();
+		sprite.setImageObserver(grafico);
+		this.getGrafico();
+		grafico.setBackground(null);
+	}
 	
-	public void recibirDamage(int d){}
+	public void recibirDamage(int d, Personaje p){}
 	
 	public void efecto(){}
 	
 	public abstract void eliminar(); 
-	public void actualizar(){
-		//tiempo--;
-	}
 	
-	public void setProteccion(boolean p){
-		proteccion = p;
-	}
+	public void actualizar(){}
 	
-	public boolean getProteccion(){
-		return proteccion;
-	}
 	
 }

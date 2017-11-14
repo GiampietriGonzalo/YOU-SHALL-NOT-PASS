@@ -11,4 +11,7 @@ public abstract class EstadoEnemigo {
 	public abstract void proteccion();
 	
 	public abstract void relentizar();
+
+	public void recibirDamage(int d, Personaje p) {}
+
 }
