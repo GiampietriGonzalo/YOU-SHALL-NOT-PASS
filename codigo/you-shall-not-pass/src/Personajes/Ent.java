@@ -12,14 +12,25 @@ public class Ent extends Aliado {
 		super(m,30, 60);
 		precioAliado=20;
 		rango=0;
-		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Ent.png"));
+		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Ent.gif"));
 		grafico=new JLabel(sprite);
+		sprite.setImageObserver(grafico);
+		grafico.setBackground(null);
 	}
 
 
 	public int getVidaOriginal() {
 		return 60;
 	}
+	
+	public int getDamageOriginal() {
+		return 30;
+	}
+	
+	public int getRangoOriginal() {
+		return 0;
+	}
+	
 	
 	public JLabel getGrafico() {
 		grafico.setBounds(posX,posY,64,128);

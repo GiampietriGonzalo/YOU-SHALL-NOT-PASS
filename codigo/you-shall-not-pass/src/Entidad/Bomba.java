@@ -1,10 +1,7 @@
 package Entidad;
 
-import java.applet.Applet;
-import java.applet.AudioClip;
-
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
+import java.applet.*;
+import javax.swing.*;
 
 import Logica.Juego;
 import Personajes.Enemigo;
@@ -22,11 +19,11 @@ public class Bomba extends ObjetoPrecioso{
 	
 	public void efecto() {
 		bomba.play();
-		for(Enemigo a:miJuego.getEnemigos()){
+		for(Enemigo a:j.getEnemigos()){
 			a.recibirDamage(40,null);
 		}
 		this.morir();
-		miJuego.eliminarObjeto(this,this.x, this.y);
+		j.getManipulador().eliminarObjeto(this,this.x, this.y);
 		this.grafico.setOpaque(false);
 	}
 

@@ -22,4 +22,16 @@ public class Hobbit extends Aliado {
 	public void eliminar(){
 		mapa.eliminarObjeto(this, x, y);
 	}
+
+	@Override
+	public int getRangoOriginal() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getDamageOriginal() {
+		// TODO Auto-generated method stub
+		return 15;
+	}
 }

@@ -34,23 +34,22 @@ public class DisparoEnemigo extends Disparo {
 	public void avanzar(){
 		if(x==9) {
 			this.morir();
-			juego.eliminarObjeto(this, x,y);
-			
+			j.getManipulador().eliminarObjeto(this, x,y);
 			this.terminate();
 		} else {
 			
-			if(juego.getMapa().getObject(x+1, y)==null){
-				juego.getMapa().eliminarObjeto(this,x, y);
+			if(j.getMapa().getObject(x+1, y)==null){
+				j.getMapa().eliminarObjeto(this,x, y);
 				posX+=velocidad;
 				x=posX/64;
-				juego.getMapa().agregarObjeto(this, x, y);
+				j.getMapa().agregarObjeto(this, x, y);
 				this.grafico.setBounds(posX,posY, 64, 64);	
 			}
 			else {
 				
-				juego.getMapa().getObject(x+1,y).accept(miVisitor);
+				j.getMapa().getObject(x+1,y).accept(miVisitor);
 				this.morir();
-				juego.eliminarObjeto(this, x,y);
+				j.getManipulador().eliminarObjeto(this, x,y);
 				
 				this.terminate();
 			}

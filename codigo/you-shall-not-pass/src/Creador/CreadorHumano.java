@@ -10,7 +10,7 @@ public class CreadorHumano extends CreadorAliado{
 	}
 
 	public void crear(int x, int y) {
-		juego.colocarAliado(new Humano(juego.getMapa()), x, y);
+		juego.getManipulador().colocarAliado(new Humano(juego.getMapa()), x, y);
 	}
 
 }

@@ -10,7 +10,7 @@ public class CreadorMago extends CreadorAliado {
 	}
 
 	public void crear(int x, int y) {
-		juego.colocarAliado(new Mago(juego.getMapa()), x, y);
+		juego.getManipulador().colocarAliado(new Mago(juego.getMapa()), x, y);
 	}
 
 }

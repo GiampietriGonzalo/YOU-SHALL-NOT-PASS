@@ -11,7 +11,7 @@ public class CreadorHobbit extends CreadorAliado {
 
 
 	public void crear(int x, int y) {
-		juego.colocarAliado(new Hobbit(juego.getMapa()),x,y);
+		juego.getManipulador().colocarAliado(new Hobbit(juego.getMapa()),x,y);
 	}
 
 }

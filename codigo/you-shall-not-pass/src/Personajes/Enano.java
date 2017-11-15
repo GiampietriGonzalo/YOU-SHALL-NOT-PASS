@@ -15,10 +15,18 @@ public class Enano extends Aliado{
 	}
 
 	public int getVidaOriginal() {
-		return 700;
+		return 30;
+	}
+	
+	public int getDamageOriginal() {
+		return 30;
 	}
 	
 	public void eliminar(){
 		mapa.eliminarObjeto(this, x, y);
+	}
+
+	public int getRangoOriginal() {
+		return 0;
 	}
 }

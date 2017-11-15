@@ -1,7 +1,23 @@
 package ObjetosComprables;
 
-public class ArcoLegolas extends ObjetoComprable{
+import Personajes.*;
 
-	public void efecto() {/*redefinir*/}
+public class ArcoLegolas extends ObjetoComprable{
 	
+	public ArcoLegolas(){
+		tiempo = 8;
+	}
+
+	public void actualizar(){
+		tiempo--;
+	}
+	
+	public void efecto(Aliado a){
+		a.setEstado(new Potenciado(a));
+		a.getEstado().potenciar((Elfo) a);
+	}
+
+
+	public void efecto() {}
 }
+

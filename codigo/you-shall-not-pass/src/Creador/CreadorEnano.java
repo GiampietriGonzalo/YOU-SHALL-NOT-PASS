@@ -11,7 +11,7 @@ public class CreadorEnano extends CreadorAliado {
 
 
 	public void crear(int x, int y) {
-		juego.colocarAliado(new Enano(juego.getMapa()), x, y);
+		juego.getManipulador().colocarAliado(new Enano(juego.getMapa()), x, y);
 	}
 
 }

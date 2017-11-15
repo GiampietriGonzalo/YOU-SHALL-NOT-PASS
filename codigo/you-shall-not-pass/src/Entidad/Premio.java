@@ -4,12 +4,13 @@ import Interacciones.*;
 import Logica.GameObject;
 import Logica.Juego;
 
+
 abstract public class Premio extends GameObject{
 	
-	protected Juego miJuego;
+	protected Juego j;
 	
 	public Premio(Juego j){
-		miJuego=j;
+		this.j=j;
 	}
 	
 	public void accept(Visitor v){

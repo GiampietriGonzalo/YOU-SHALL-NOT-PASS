@@ -20,6 +20,14 @@ public class Elfo extends Aliado {
 		return 70;
 	}
 	
+	public int getDamageOriginal() {
+		return 18;
+	}
+	
+	public int getRangoOriginal() {
+		return 3;
+	}
+	
 	public void eliminar(){
 		mapa.eliminarObjeto(this, x, y);
 	}

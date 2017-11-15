@@ -23,7 +23,7 @@ public class Nivel1 extends Nivel{
 		
 		for(int i=0;i<10;i++){
 			a = rnd.nextInt(10);
-			int p = rnd.nextInt(15);
+			int p = rnd.nextInt(13);
 			Enemigo e;
 			if(a<5){
 				e = new Orco(juego.getMapa());
@@ -31,7 +31,7 @@ public class Nivel1 extends Nivel{
 				if (p == 1) 
 					e.proteccion();
 				horda.push(e);
-			}else if (a<8){
+			}else if (a<=8){
 				e = new Huargo(juego.getMapa());
 				e.normal();
 				horda.push(e);

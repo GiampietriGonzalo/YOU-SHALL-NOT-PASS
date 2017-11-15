@@ -22,7 +22,7 @@ public class Orco extends Enemigo {
 	
 	
 	public int getVidaOriginal() {
-		return 30;
+		return 40;
 	}
 	
 }

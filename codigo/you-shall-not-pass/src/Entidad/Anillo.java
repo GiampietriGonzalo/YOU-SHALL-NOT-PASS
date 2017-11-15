@@ -2,6 +2,7 @@ package Entidad;
 
 import Logica.Juego;
 
+
 public class Anillo extends Magia {
 
 	public Anillo(Juego j) {

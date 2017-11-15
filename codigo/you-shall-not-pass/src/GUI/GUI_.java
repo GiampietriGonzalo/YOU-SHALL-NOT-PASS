@@ -1,11 +1,14 @@
 package GUI;
 
-//Importaciones
+
+import java.applet.*;
 import java.awt.*;
 import javax.swing.*;
 
 import Creador.*;
+import Logica.Aritmetica;
 import Logica.Juego;
+import Logica.Manipulador;
 import Personajes.Aliado;
 
 import java.awt.event.*;
@@ -16,11 +19,13 @@ public class GUI_ extends JFrame{
 	private static final long serialVersionUID = 1L;
 	private JFrame frmYouShallNot;
 	private Juego juego;
-	private JPanel panel_mapa;
+	private JPanel panelMapa;
 	private CreadorAliado creadorPersonajes;
 	private JLabel lblMonedas;
 	private JLabel lblPuntos;
-	Aliado a;
+	private Aritmetica ari;
+	private Aliado a;
+	private Manipulador mani;
 
 
 	/**
@@ -32,34 +37,50 @@ public class GUI_ extends JFrame{
 		frmYouShallNot.setIconImage(Toolkit.getDefaultToolkit().getImage(GUI_.class.getResource("/Imagenes/icono.jpg")));
 		frmYouShallNot.setBounds(20, 20, 868, 683);
 		frmYouShallNot.setVisible(true);
-		panel_mapa = new JPanel();
-		panel_mapa.setForeground(new Color(0, 0, 0));
-		panel_mapa.addMouseListener(new MouseAdapter() {
-			@Override
+		
+		
+		
+		panelMapa = new JPanel();
+		panelMapa.setForeground(new Color(0, 0, 0));
+		
+		ari= new Aritmetica(0,100);
+		mani= new Manipulador();
+		juego=new Juego(panelMapa,mani,ari);
+		mani.setJuego(juego);
+		mani.colocarTorres();
+		
+		panelMapa.addMouseListener(new MouseAdapter() {
+			
 			public void mouseClicked(MouseEvent e) {
 						int x=e.getX()-e.getX() % 64;
 						int y=e.getY()-e.getY() % 64;
 						
 						if(creadorPersonajes!=null){ //Se coloca un aliado
 							creadorPersonajes.crear(e.getX()/64,e.getY()/64);
-							lblMonedas.setText("Monedas: "+juego.getMonedas());
+							lblMonedas.setText("Monedas: "+ari.getMonedas());
 							creadorPersonajes=null;
 						}
 						else{ //Reaccion de un power up
 							if(juego.getMapa().getObject(x/64, y/64)!=null) 
-								juego.reaccionar(x/64,y/64);
+								mani.reaccionar(x/64,y/64);
 						}
 					}
 		});
-		panel_mapa.setBounds(17, 232,10*64, 6*64);
-		juego=new Juego(panel_mapa);
-		lblMonedas = new JLabel("Monedas: "+juego.getMonedas());
-		lblPuntos = new JLabel("Puntos: "+juego.getPuntos());
+		panelMapa.setBounds(17, 232,10*64, 6*64);
+		
+		
+		
+		lblMonedas = new JLabel("Monedas: "+ari.getMonedas());
+		lblPuntos = new JLabel("Puntos: "+ari.getPuntos());
+		
 		ContadorPrueba contP=new ContadorPrueba(juego);
 		contP.start();
 		initialize();
 	}
 
+	public void setAritmerica(Aritmetica ari) {this.ari=ari;}
+	public void setManipulador(Manipulador mani) {this.mani=mani;}
+	
 	/**
 	 * Crea el contenido de la GUI.
 	 */
@@ -172,12 +193,12 @@ public class GUI_ extends JFrame{
 		panel_tienda.add(btnLegolas);
 		
 		Color transparente=new Color(Color.TRANSLUCENT);
-		panel_mapa.setBackground(transparente);
-		panel_mapa.setForeground(transparente);
+		panelMapa.setBackground(transparente);
+		panelMapa.setForeground(transparente);
 		
-		panel_mapa.setLayout(null);
-		panel_mapa.setBorder(null);
-		panel_mapa.setVisible(true);
+		panelMapa.setLayout(null);
+		panelMapa.setBorder(null);
+		panelMapa.setVisible(true);
 		frmYouShallNot.getContentPane().setLayout(null);
 		frmYouShallNot.getContentPane().add(panel_personajes);
 		frmYouShallNot.getContentPane().add(panel_tienda);
@@ -205,7 +226,7 @@ public class GUI_ extends JFrame{
 		lblMonedas.setFont(new Font("Aniron", Font.PLAIN, 20));
 		panel_puntos.add(lblMonedas);
 		
-		frmYouShallNot.getContentPane().add(panel_mapa);
+		frmYouShallNot.getContentPane().add(panelMapa);
 		
 		JPanel panel_bg = new JPanel();
 		panel_bg.setBackground(null);
@@ -221,7 +242,7 @@ public class GUI_ extends JFrame{
 		JButton btnNewButton = new JButton("VENDER PERSONAJE");
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnNewButton.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/Moneda.png")));
-		panel_mapa.addMouseListener(new MouseAdapter() {
+		panelMapa.addMouseListener(new MouseAdapter() {
 	
 			public void mouseClicked(MouseEvent e) {
 						int x=e.getX()-e.getX() % 64;
@@ -249,6 +270,9 @@ public class GUI_ extends JFrame{
 	//Hilo que actualiza los puntos y monedas
 	public class ContadorPrueba extends Thread{
 		
+		private AudioClip musica_ganar = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/Medley.WAV"));
+		private AudioClip musica_perder = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/game_over.wav"));
+		
 		private Juego elJuego;
 		protected volatile boolean terminar = false;
 		protected volatile boolean ganar = false;
@@ -260,29 +284,31 @@ public class GUI_ extends JFrame{
 			
 			while(true){
 				elJuego.actualizar();
-				lblMonedas.setText("Monedas: "+juego.getMonedas());
-				lblPuntos.setText("Puntos: "+juego.getPuntos());
+				lblMonedas.setText("Monedas: "+ari.getMonedas());
+				lblPuntos.setText("Puntos: "+ari.getPuntos());
 				try {
-					Thread.sleep(300);
+					Thread.sleep(400);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
 				if(elJuego.perder()) {
+					musica_perder.play();
 					String nl = System.getProperty("line.separator");
-					int reinicio=JOptionPane.showConfirmDialog(null,"Perdiste!" + nl + "PUNTUACION:"+juego.getPuntos() + nl + "Queres reiniciar el juego?","Game Over",JOptionPane.YES_NO_OPTION);
+					int reinicio=JOptionPane.showConfirmDialog(null,"Perdiste!" + nl + "PUNTUACION:"+ari.getPuntos() + nl + "Queres reiniciar el juego?","Game Over",JOptionPane.YES_NO_OPTION);
 					if(reinicio==0) {
-						panel_mapa.repaint();
+						panelMapa.repaint();
 						elJuego.reiniciar();
 					}
 					else System.exit(0);
 				}	
 				else{
 					if (elJuego.ganar()){
+						musica_ganar.play();
 						String nl = System.getProperty("line.separator");
-						int reinicio1=JOptionPane.showConfirmDialog(null,"Ganaste!" + nl + "PUNTUACION:"+juego.getPuntos() + nl + "Queres reiniciar el juego?","Mision Cumplida",JOptionPane.YES_NO_OPTION);						
+						int reinicio1=JOptionPane.showConfirmDialog(null,"Ganaste!" + nl + "PUNTUACION:"+ari.getPuntos() + nl + "Queres reiniciar el juego?","Mision Cumplida",JOptionPane.YES_NO_OPTION);						
 						if(reinicio1==0) {
 							elJuego.reiniciar();
-							panel_mapa.repaint();
+							panelMapa.repaint();
 						}
 						else System.exit(0);	
 					}
