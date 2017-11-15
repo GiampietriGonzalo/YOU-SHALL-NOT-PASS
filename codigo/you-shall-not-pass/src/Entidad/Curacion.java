@@ -2,6 +2,7 @@ package Entidad;
 
 import java.applet.Applet;
 import java.applet.AudioClip;
+
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -22,9 +23,9 @@ public class Curacion extends ObjetoPrecioso{
 	
 	public void efecto(){
 		pocion.play();
-		for(Aliado a:j.getAliados()){
+		for(Aliado a:j.getAliados())
 			a.setVida(a.getVidaOriginal());
-		}
+		
 		this.morir();
 		j.getManipulador().eliminarObjeto(this,this.x, this.y);
 		this.grafico.setOpaque(false);

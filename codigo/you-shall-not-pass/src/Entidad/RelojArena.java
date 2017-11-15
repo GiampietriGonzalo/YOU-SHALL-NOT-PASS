@@ -12,7 +12,7 @@ import Personajes.Enemigo;
 public class RelojArena extends ObjetoPrecioso{
 
 	 	private AudioClip reloj = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/reloj.wav")); 	
-	
+
 		public RelojArena(Juego j){
 			super(j);
 			sprite=new ImageIcon(this.getClass().getResource("/Imagenes/reloj.png"));
@@ -23,9 +23,10 @@ public class RelojArena extends ObjetoPrecioso{
 
 		public void efecto() {
 			reloj.play();
-			for(Enemigo a:j.getEnemigos()){
+
+			for(Enemigo a:j.getEnemigos())
 				a.relentizar();
-			}
+			
 			this.morir();
 			j.getManipulador().eliminarObjeto(this,this.x, this.y);
 			this.grafico.setOpaque(false);

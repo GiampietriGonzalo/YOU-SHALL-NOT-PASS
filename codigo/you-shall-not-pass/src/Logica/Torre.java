@@ -10,6 +10,7 @@ import Personajes.Aliado;
 public class Torre extends Aliado {
 
 	//private AudioClip caer = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/caida_torre.WAV")); 
+
 	
 	public Torre(Mapa m,ImageIcon imagen,int x, int y) {
 		super(m,20,10);

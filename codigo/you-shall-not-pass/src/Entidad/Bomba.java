@@ -2,7 +2,6 @@ package Entidad;
 
 import java.applet.*;
 import javax.swing.*;
-
 import Logica.Juego;
 import Personajes.Enemigo;
 

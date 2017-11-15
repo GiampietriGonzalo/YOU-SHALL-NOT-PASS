@@ -23,8 +23,4 @@ public class Gollum extends ObjetoConVida{
 		vida-=d;
 		if(vida<=0) this.morir();
 	}
-	
-	
-
-	public void efecto() {/*redefinir*/}
 }

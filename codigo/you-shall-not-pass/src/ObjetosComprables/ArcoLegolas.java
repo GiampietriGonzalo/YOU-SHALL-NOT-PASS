@@ -17,7 +17,5 @@ public class ArcoLegolas extends ObjetoComprable{
 		a.getEstado().potenciar((Elfo) a);
 	}
 
-
-	public void efecto() {}
 }
 

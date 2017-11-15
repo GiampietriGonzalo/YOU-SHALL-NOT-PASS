@@ -14,4 +14,7 @@ public abstract class ObjetoComprable{
 	
 	public void actualizar(){}
 	
+
 }
+
+

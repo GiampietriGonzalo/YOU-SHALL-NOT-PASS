@@ -4,13 +4,11 @@ package GUI;
 import java.applet.*;
 import java.awt.*;
 import javax.swing.*;
-
 import Creador.*;
 import Logica.Aritmetica;
 import Logica.Juego;
 import Logica.Manipulador;
 import Personajes.Aliado;
-
 import java.awt.event.*;
 
 
@@ -172,6 +170,7 @@ public class GUI_ extends JFrame{
 		btnGimli.setIcon(new ImageIcon (this.getClass().getResource("/Imagenes/hachaGimli.png")));
 		btnGimli.setToolTipText("Aumenta el danio y la resistencia de todos los Enanos aliados durante 8s");
 		panel_tienda.add(btnGimli);
+		
 		JButton btnAragorn = new JButton("");
 		btnAragorn.setBackground(new Color(47, 79, 79));
 		btnAragorn.setBounds(5, 168, 167, 103);
@@ -272,7 +271,7 @@ public class GUI_ extends JFrame{
 		
 		private AudioClip musica_ganar = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/Medley.WAV"));
 		private AudioClip musica_perder = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/game_over.wav"));
-		
+
 		private Juego elJuego;
 		protected volatile boolean terminar = false;
 		protected volatile boolean ganar = false;

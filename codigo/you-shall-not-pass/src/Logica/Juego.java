@@ -62,18 +62,19 @@ public class Juego {
 		return mapa;
 	}
 	
-	
+
 	public void venderPersonaje(Aliado j){
 		if(j!=null){
 			if (j.getVida() <= j.getVida()/2){
 				j.morir();
+
 				ari.sumarMonedas(j.getPrecioAliado()/2);
 			}
 		}
 		else{
 			j.morir();
 			ari.sumarMonedas(j.getPrecioAliado());
-			}
+		}
 	}
 	
 	
@@ -110,8 +111,10 @@ public class Juego {
 		Random i;
 		i=new Random(System.currentTimeMillis());
 		int prob=i.nextInt(22);
+
 		if(prob==13)
 			mani.colocarObjetoMapa();
+
 		panelMapa.repaint();
 		
 		if (oleada == 3)
@@ -121,7 +124,7 @@ public class Juego {
 			gano = true;
 	}
 	
-	
+
 	private void nuevaOleada(){
 		if (oleada==3) JOptionPane.showMessageDialog(null, "NIVEL 2 ALCANZADO!", "NIVEL 2", JOptionPane.INFORMATION_MESSAGE);
 		oleada++;
@@ -131,7 +134,7 @@ public class Juego {
 		return (gano);
 	}
 	
-	
+
 	
 	public boolean perder(){
 		return perdio;
@@ -191,8 +194,5 @@ public class Juego {
 	public Manipulador getManipulador(){return mani;}	
 	public void setGano(boolean gano) {this.gano=gano;}
 	public void setPerdio(boolean perdio) {this.perdio=perdio;}
-	
-	
-
 	
 }

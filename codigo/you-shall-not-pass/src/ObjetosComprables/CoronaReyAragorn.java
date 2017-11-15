@@ -17,6 +17,4 @@ public class CoronaReyAragorn extends ObjetoComprable{
 	}
 
 
-	public void efecto() {}
-	
 }
