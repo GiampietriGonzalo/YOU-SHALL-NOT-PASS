@@ -22,6 +22,15 @@ public class Humano extends Aliado {
 		return 50;
 	}
 	
+	public int getDamageOriginal() {
+		return 30;
+	}
+	
+	public int getRangoOriginal() {
+		return 0;
+	}
+	
+	
 	public void eliminar(){
 		mapa.eliminarObjeto(this, x, y);
 	}

@@ -1,7 +1,5 @@
 package Personajes;
 
-import javax.swing.ImageIcon;
-
 import Logica.GameObject;
 import Logica.Mapa;
 
@@ -32,21 +30,20 @@ public abstract class Personaje extends GameObject {
 		return rango;
 	}
 	
+	public void setRango(int r){
+		rango = r;
+	}
+	
 	public int getDamage(){
 		return damage;
 	}
 	
-	public void colisionar(GameObject p){
-		p.accept(miVisitor);
+	public void setDamage(int d){
+		damage = d;
 	}
 	
-	public void setSprite (String s){
-		sprite = new ImageIcon(this.getClass().getResource(s));
-		grafico.setIcon(sprite);
-		grafico.repaint();
-		sprite.setImageObserver(grafico);
-		this.getGrafico();
-		grafico.setBackground(null);
+	public void colisionar(GameObject p){
+		p.accept(miVisitor);
 	}
 	
 	public void recibirDamage(int d, Personaje p){}

@@ -1,14 +1,9 @@
 package ObjetosMapa;
 
 import Interacciones.Visitor;
-import Logica.GameObject;
 
 public abstract class ObjetoTemporal extends ObjetoMapa{
 
-	public void efecto() {
-		//Que tal señores, nada de nada
-	}
-	
 	public ObjetoTemporal(){
 		tiempo=30;
 	}

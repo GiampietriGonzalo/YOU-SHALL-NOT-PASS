@@ -61,6 +61,15 @@ public abstract class GameObject extends Thread {
 		grafico.setBounds(posX,posY,64,64);
 		return grafico;
 	}
+	
+	public void setSprite (String s){
+		sprite = new ImageIcon(this.getClass().getResource(s));
+		grafico.setIcon(sprite);
+		grafico.repaint();
+		sprite.setImageObserver(grafico);
+		this.getGrafico();
+		grafico.setBackground(null);
+	}
 
 	public abstract void accept(Visitor v);
 	

@@ -1,21 +1,17 @@
 package Personajes;
 
-public class Normal extends EstadoEnemigo{
+public class EnemigoNormal extends EstadoEnemigo{
 	
-	public Normal(Enemigo e) {
+	public EnemigoNormal(Enemigo e) {
 		super(e);
 		miEnemigo.setVida(e.getVidaOriginal());
 		miEnemigo.setSprite("/Imagenes/"+e.getClass().getSimpleName()+".gif");
 
 	}
 
-	public void proteccion() {
-		
-	}
+	public void proteccion() {}
 
-	public void relentizar() {
-		
-	}
+	public void relentizar() {}
 	
 	public void recibirDamage(int d, Personaje p){
 				miEnemigo.setVida(miEnemigo.getVida()-d);

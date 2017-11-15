@@ -9,6 +9,11 @@ import ObjetosMapa.*;
 import Personajes.*;
 import Entidad.*;
 
+/* AUTORES
+ * Giampietri, Gonzalo
+ * Gonzalo, Facundo
+ * Zarate, Tomas/*
+ */
 
 public class Juego {
 	
@@ -103,7 +108,7 @@ public class Juego {
 	
 	public void colocarAliado(Aliado j,int x, int y){
 
-		if(j.getPrecioAliado()<=monedasJuego && mapa.getObject(x, y)==null){
+		if(j.getPrecioAliado()<=monedasJuego && mapa.getObject(x, y)==null && x!=0){
 			j.setX(x);
 			j.setY(y);
 			j.setPosGrafic(x*64, y*64);
@@ -117,26 +122,24 @@ public class Juego {
 			panelMapa.repaint();
 		}
 	}
+	
 	public void colocarAliado(Ent j,int x,int y){
-
 		if(j.getPrecioAliado()<=monedasJuego && mapa.getObject(x, y)==null && mapa.getObject(x, y+1)==null){
 			j.setX(x);
 			j.setY(y);
 			j.setPosGrafic(x*64, y*64);
-
 			mapa.agregarObjeto(j,x,y);
 			mapa.agregarObjeto(j,x,y+1);
 			todos.add(j);
 			aliados.add(j);
-			
 			monedasJuego-=j.getPrecioAliado();
-
 			panelMapa.add(j.getGrafico());
 			j.grafico.setBackground(null);
 			j.getGrafico().setOpaque(true);
 			panelMapa.repaint();
 		}
 	}
+	
 	public boolean colocarEnemigo(Enemigo j,int x, int y){
 		if(mapa.getObject(x, y)==null){	
 			mapa.agregarObjeto(j,x,y);
@@ -149,8 +152,10 @@ public class Juego {
 			j.getGrafico().setOpaque(true);
 			return true;
 		}
-		else return false;
+		else 
+			return false;
 	}
+	
 	public void agregarObjeto(GameObject j,int x, int y){
 		if(mapa.getObject(x, y)==null){	
 			mapa.agregarObjeto(j,x,y);
@@ -165,12 +170,12 @@ public class Juego {
 	public void venderPersonaje(Aliado j){
 		if(j!=null){
 			if (j.getVida() <= j.getVida()/2){
-		j.morir();
-		monedasJuego+=j.getPrecioAliado()/2;
-		}
+				j.morir();
+				monedasJuego+=j.getPrecioAliado()/2;
+			}
 		else{
-			j.morir();
-			monedasJuego+=j.getPrecioAliado();
+				j.morir();
+				monedasJuego+=j.getPrecioAliado();
 			}
 		}
 	}
@@ -185,10 +190,8 @@ public class Juego {
 		if(sumador++%3==0) 
 			monedasJuego++;
 		if(s.isEmpty() && enemigos.isEmpty()){
-			
 			s = nivel.crearHorda();
 			nuevaOleada();
-			
 		}
 		else{ 
 			if(!s.isEmpty()) 
@@ -213,27 +216,28 @@ public class Juego {
 		
 		Random i;
 		i=new Random(System.currentTimeMillis());
-		int prob=i.nextInt(25);
-		if(prob==13)
+		int prob=i.nextInt(22);
+		if(prob == 13)
 			colocarObjetoMapa();
 		panelMapa.repaint();
 		
 		if (oleada == 3)
 			nivel2();
 		
-		if(s.isEmpty() && enemigos.isEmpty() && oleada==6) gano = true;
+		if(s.isEmpty() && enemigos.isEmpty() && oleada==6) 
+			gano = true;
 	}
-	
 	
 	private void colocarObjetoMapa() {
 		Random i;
 		cont++;
 		i=new Random(System.currentTimeMillis()+cont);
-		int tipo=i.nextInt(4);
-		int x=i.nextInt(10);
-		int y=i.nextInt(6);
+		int tipo=i.nextInt(5);
+		int x= 1 + i.nextInt(8);
+		int y= 1 + i.nextInt(5);
 		ObjetoMapa objeto;
-		switch(tipo){
+		if ((mapa.getObject(x-1, y) == null) && (mapa.getObject(x, y) == null)){
+		 switch(tipo){
 			case 0:{
 				objeto=new Piedra();
 				objeto.setPosGrafic(x*64, y*64);
@@ -262,8 +266,15 @@ public class Juego {
 				todos.add(objeto);
 				break;
 				}
+			case 4:{
+				objeto=new Ent2();
+				objeto.setPosGrafic(x*64, y*64);
+				agregarObjeto(objeto,x,y);
+				todos.add(objeto);
+				break;
+				}
+		 }
 		}
-		
 	}
 
 	private void eliminarPremios() {
@@ -297,38 +308,38 @@ public class Juego {
 				toDelete.add(e);
 			}
 			else {
-			if(!hayObjetoEnRango(e)) {
+				if(!hayObjetoEnRango(e)) {
 				//Avanzo
-				if(mapa.getObject(e.getX()+1,e.getY())==null) {
-					mapa.eliminarObjeto(e,e.getX(), e.getY());
-					e.posX+=e.getVelocidad();
-					e.setX(e.posX/64);
-					mapa.agregarObjeto(e, e.getX(), e.getY());
-					e.setPosGrafic(e.posX, e.posY);
-					e.grafico.setBounds(e.posX,e.posY, 64, 64);
-					if(e.x==9) perdio=true; //perder
-				}
-			}
-			else {
-				if(e.getRango()>0){
-					if(disparador%10==0) {
-						//Disparo
-						Disparo d=new DisparoEnemigo(this,e,e.getX(),e.getY());
-						d.setPosGrafic((e.getX()+1)*64,e.getY()*64);
-						agregarObjeto(d, e.getX()+1, e.getY());
-						d.start();
+					if(mapa.getObject(e.getX()+1,e.getY())==null) {
+						mapa.eliminarObjeto(e,e.getX(), e.getY());
+						e.posX+=e.getVelocidad();
+						e.setX(e.posX/64);
+						mapa.agregarObjeto(e, e.getX(), e.getY());
+						e.setPosGrafic(e.posX, e.posY);
+						e.grafico.setBounds(e.posX,e.posY, 64, 64);
+						if(e.x==9) perdio=true; //perder
 					}
+				}
+				else {
+					if(e.getRango()>0){
+						if(disparador%10==0) {
+						//Disparo
+							Disparo d=new DisparoEnemigo(this,e,e.getX(),e.getY());
+							d.setSprite("/Imagenes/Disparo"+e.getClass().getSimpleName()+".gif");
+							d.setPosGrafic((e.getX()+1)*64,e.getY()*64);
+							agregarObjeto(d, e.getX()+1, e.getY());
+							d.start();
+						}
 					disparador++;
+					}
+					else{
+						//Ataque cuerpo a cuerpo
+						e.colisionar(mapa.getObject(e.getX()+1,e.getY()));
+					}
 				}
-				else{
-					//Ataque cuerpo a cuerpo
-					e.colisionar(mapa.getObject(e.getX()+1,e.getY()));
-				}
-			}
 			}
 		}
 		for(Enemigo e:toDelete){
-			
 			Random rnd = new Random(System.currentTimeMillis());
 			todos.remove(e);
 			enemigos.remove(e);
@@ -352,12 +363,10 @@ public class Juego {
 				c.setPosGrafic(e.getX()*64, e.getY()*64);
 				this.agregarPower(c,e.getX(), e.getY());
 			}
-			
 		}
 	}
 	
 	private void agregarPower(Premio j,int x, int y){
-		
 		mapa.agregarObjeto(j,x,y);
 		premios.add(j);
 		todos.add(j);
@@ -366,7 +375,6 @@ public class Juego {
 		panelMapa.add(j.getGrafico());
 		j.grafico.setBackground(null);
 		j.getGrafico().setOpaque(true);
-		
 	}
 	
 	private boolean hayObjetoEnRango(Enemigo e){
@@ -389,23 +397,23 @@ public class Juego {
 			}
 			else{
 				
-			if(hayObjetoEnRango(e)) {
-				if(e.getRango()>0){
-					if(disparador%6==0) {
-						//Disparo
-						Disparo d=new DisparoAliado(this,e,e.getX(),e.getY());
-						d.setPosGrafic((e.getX()-1)*64,e.getY()*64);
-						agregarObjeto(d, e.getX()-1, e.getY());
-						d.start();
-					}
+				if(hayObjetoEnRango(e)) {
+					if(e.getRango()>0){
+						if(disparador%6==0) {
+							//Disparo
+							Disparo d=new DisparoAliado(this,e,e.getX(),e.getY());
+							d.setSprite("/Imagenes/Disparo"+e.getClass().getSimpleName()+".gif");
+							d.setPosGrafic((e.getX()-1)*64,e.getY()*64);
+							agregarObjeto(d, e.getX()-1, e.getY());
+							d.start();
+						}
 					disparador++;
+					}
+					else{
+						//Ataque cuerpo a cuerpos
+						e.colisionar(mapa.getObject(e.getX()-1,e.getY()));
+					}
 				}
-				else{
-					
-					//Ataque cuerpo a cuerpos
-					e.colisionar(mapa.getObject(e.getX()-1,e.getY()));
-				}
-			}
 			}	
 		}
 		for(Aliado e:toDelete){
@@ -425,7 +433,6 @@ public class Juego {
 		}
 		return hay;
 	}
-	
 	
 	public boolean perder(){
 		return perdio;
@@ -469,9 +476,7 @@ public class Juego {
 	}
 
 	public void reaccionar(int i, int j) {
-		
 		mapa.getObject(i, j).efecto();
-		
 	}
 
 	public LinkedList<Aliado> getAliados() {
@@ -481,10 +486,4 @@ public class Juego {
 	public LinkedList<Enemigo> getEnemigos() {
 		return enemigos;
 	}
-
-	
-	
-	
-
-	
 }

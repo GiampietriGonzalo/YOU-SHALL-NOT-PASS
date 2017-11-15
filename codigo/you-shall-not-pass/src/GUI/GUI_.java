@@ -1,13 +1,11 @@
 package GUI;
 
-//Importaciones
+import java.applet.*;
 import java.awt.*;
 import javax.swing.*;
-
 import Creador.*;
 import Logica.Juego;
 import Personajes.Aliado;
-
 import java.awt.event.*;
 
 
@@ -151,6 +149,7 @@ public class GUI_ extends JFrame{
 		btnGimli.setIcon(new ImageIcon (this.getClass().getResource("/Imagenes/hachaGimli.png")));
 		btnGimli.setToolTipText("Aumenta el danio y la resistencia de todos los Enanos aliados durante 8s");
 		panel_tienda.add(btnGimli);
+		
 		JButton btnAragorn = new JButton("");
 		btnAragorn.setBackground(new Color(47, 79, 79));
 		btnAragorn.setBounds(5, 168, 167, 103);
@@ -249,6 +248,8 @@ public class GUI_ extends JFrame{
 	//Hilo que actualiza los puntos y monedas
 	public class ContadorPrueba extends Thread{
 		
+		AudioClip musica_ganar = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/Medley.WAV"));
+		AudioClip musica_perder = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/game_over.wav"));
 		private Juego elJuego;
 		protected volatile boolean terminar = false;
 		protected volatile boolean ganar = false;
@@ -263,11 +264,12 @@ public class GUI_ extends JFrame{
 				lblMonedas.setText("Monedas: "+juego.getMonedas());
 				lblPuntos.setText("Puntos: "+juego.getPuntos());
 				try {
-					Thread.sleep(300);
+					Thread.sleep(400);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
 				if(elJuego.perder()) {
+					musica_perder.play();
 					String nl = System.getProperty("line.separator");
 					int reinicio=JOptionPane.showConfirmDialog(null,"Perdiste!" + nl + "PUNTUACION:"+juego.getPuntos() + nl + "Queres reiniciar el juego?","Game Over",JOptionPane.YES_NO_OPTION);
 					if(reinicio==0) {
@@ -278,6 +280,7 @@ public class GUI_ extends JFrame{
 				}	
 				else{
 					if (elJuego.ganar()){
+						musica_ganar.play();
 						String nl = System.getProperty("line.separator");
 						int reinicio1=JOptionPane.showConfirmDialog(null,"Ganaste!" + nl + "PUNTUACION:"+juego.getPuntos() + nl + "Queres reiniciar el juego?","Mision Cumplida",JOptionPane.YES_NO_OPTION);						
 						if(reinicio1==0) {

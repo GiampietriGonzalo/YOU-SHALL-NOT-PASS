@@ -1,8 +1,6 @@
 package Interacciones;
 
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-
 import Logica.Juego;
 import Personajes.Aliado;
 
@@ -15,7 +13,7 @@ public class DisparoAliado extends Disparo {
 		super(j,x, y);
 		miAliado=a;
 		miVisitor=new VisitorDisparoAliado(a);
-		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/disparo2.png"));
+		//sprite = new ImageIcon(this.getClass().getResource("/Imagenes/disparo2.png"));
 		grafico=new JLabel(sprite);
 		grafico.setBackground(null);
 	}

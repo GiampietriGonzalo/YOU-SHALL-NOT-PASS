@@ -1,11 +1,7 @@
 package Entidad;
 
-import java.applet.Applet;
-import java.applet.AudioClip;
-
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-
+import java.applet.*;
+import javax.swing.*;
 import Logica.Juego;
 import Personajes.Enemigo;
 

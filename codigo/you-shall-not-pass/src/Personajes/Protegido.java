@@ -1,6 +1,11 @@
 package Personajes;
 
+import java.applet.Applet;
+import java.applet.AudioClip;
+
 public class Protegido extends EstadoEnemigo{
+	
+	AudioClip proteccion = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/proteccion.wav"));
 	
 	public Protegido(Enemigo e) {
 		super(e);
@@ -18,11 +23,11 @@ public class Protegido extends EstadoEnemigo{
 	}
 	
 	public void recibirDamage(int d, Personaje p){
-			System.out.println("Perdi proteccion");
-			if (p!=null){ //Si no es una bomba
+			proteccion.play();
+			if (p!=null){
 				p.morir();
 				p.eliminar();
-				miEnemigo.setEstado(new Normal(miEnemigo));
+				miEnemigo.setEstado(new EnemigoNormal(miEnemigo));
 		}
 	}
-	}
+}

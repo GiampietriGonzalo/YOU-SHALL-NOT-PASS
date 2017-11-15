@@ -11,7 +11,6 @@ public class Gandalf extends ObjetoTemporal{
 	
 	public Gandalf() {
 		super();
-		System.out.println("Gandalf");
 		gandalf.play();
 		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/GandalfElGris.png"));
 		grafico=new JLabel(sprite);

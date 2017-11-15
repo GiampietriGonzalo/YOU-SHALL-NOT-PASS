@@ -1,5 +1,8 @@
 package Entidad;
 
+import java.applet.Applet;
+import java.applet.AudioClip;
+
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -7,6 +10,8 @@ import Logica.Juego;
 import Personajes.Aliado;
 
 public class Curacion extends ObjetoPrecioso{
+	
+	AudioClip pocion = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/pocion.wav"));
 	
 	public Curacion(Juego j){
 		super(j);
@@ -17,6 +22,7 @@ public class Curacion extends ObjetoPrecioso{
 	
 	
 	public void efecto(){
+		pocion.play();
 		for(Aliado a:miJuego.getAliados()){
 			a.setVida(a.getVidaOriginal());
 		}

@@ -2,10 +2,10 @@ package ObjetosComprables;
 
 import Personajes.*;
 
-public class BaculoGandalf extends ObjetoComprable{
+public class HachaGimli extends ObjetoComprable{
 	
-	public BaculoGandalf(){
-		tiempo = 5;
+	public HachaGimli(){
+		tiempo = 8;
 	}
 	
 	public void actualizar(){
@@ -14,6 +14,6 @@ public class BaculoGandalf extends ObjetoComprable{
 	
 	public void efecto(Aliado a){
 		a.setEstado(new Potenciado(a));
-		a.getEstado().potenciar((Mago) a);
+		a.getEstado().potenciar((Enano) a);
 	}
 }
