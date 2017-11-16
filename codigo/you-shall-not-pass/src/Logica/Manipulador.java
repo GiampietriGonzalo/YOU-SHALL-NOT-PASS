@@ -4,7 +4,6 @@ import java.util.LinkedList;
 import java.util.Random;
 import java.util.Stack;
 import javax.swing.ImageIcon;
-import javax.swing.JPanel;
 
 import Entidad.*;
 import Interacciones.*;
@@ -49,7 +48,8 @@ public class Manipulador {
 
 	public void colocarAliado(Aliado j,int x, int y){
 
-		if(j.getPrecioAliado()<=juego.getAritmetica().getMonedas() && juego.getMapa().getObject(x, y)==null && x!=0){ 			j.setX(x);
+		if(j.getPrecioAliado()<=juego.getAritmetica().getMonedas() && juego.getMapa().getObject(x, y)==null && x!=0){ 			
+			j.setX(x);
 			j.setY(y);
 			j.setPosGrafic(x*64, y*64);
 			juego.getMapa().agregarObjeto(j,x,y);
@@ -65,7 +65,7 @@ public class Manipulador {
 		
 	public void colocarAliado(Ent j,int x,int y){
 
-		if(j.getPrecioAliado()<=juego.getAritmetica().getMonedas() && juego.getMapa().getObject(x, y)==null && juego.getMapa().getObject(x, y+1)==null){
+		if(j.getPrecioAliado()<=juego.getAritmetica().getMonedas() && juego.getMapa().getObject(x, y)==null && juego.getMapa().getObject(x, y+1)==null && x!=0){
 			j.setX(x);
 			j.setY(y);
 			j.setPosGrafic(x*64, y*64);
@@ -121,12 +121,12 @@ public class Manipulador {
 		Random i;
 		cont++;
 		i=new Random(System.currentTimeMillis()+cont);
-		int tipo=i.nextInt(5);
-		int x=i.nextInt(8);
+		int t=i.nextInt(5);
+		int x=i.nextInt(7)+1;
 		int y=i.nextInt(5);
 		ObjetoMapa objeto;
 		if ((juego.getMapa().getObject(x, y) == null)){
-		  switch(tipo){
+		  switch(t){
 			case 0:{
 				objeto=new Piedra();
 				objeto.setPosGrafic(x*64, y*64);

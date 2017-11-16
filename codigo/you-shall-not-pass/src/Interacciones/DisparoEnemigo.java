@@ -1,6 +1,5 @@
 package Interacciones;
 
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import Logica.Juego;

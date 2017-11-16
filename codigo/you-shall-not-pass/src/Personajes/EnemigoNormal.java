@@ -6,7 +6,6 @@ public class EnemigoNormal extends EstadoEnemigo{
 		super(e);
 		miEnemigo.setVida(e.getVidaOriginal());
 		miEnemigo.setSprite("/Imagenes/"+e.getClass().getSimpleName()+".gif");
-
 	}
 
 	public void proteccion() {}

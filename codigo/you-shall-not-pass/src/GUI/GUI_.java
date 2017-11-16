@@ -9,8 +9,6 @@ import Logica.Aritmetica;
 import Logica.GameObject;
 import Logica.Juego;
 import Logica.Manipulador;
-import Personajes.Aliado;
-import Personajes.Personaje;
 
 import java.awt.event.*;
 
