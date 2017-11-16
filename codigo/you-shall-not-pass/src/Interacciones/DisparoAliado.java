@@ -13,8 +13,6 @@ public class DisparoAliado extends Disparo {
 		super(j,x, y);
 		miAliado=a;
 		miVisitor=new VisitorDisparoAliado(a);
-		//sprite=new ImageIcon(this.getClass().getResource("/Imagenes/disparo2.png"));
-
 		grafico=new JLabel(sprite);
 		grafico.setBackground(null);
 	}

@@ -217,6 +217,7 @@ public class Manipulador {
 							if(disparador%10==0) {
 								//Disparo
 								Disparo d=new DisparoEnemigo(juego,e,e.getX(),e.getY());
+								d.setSprite("/Imagenes/Disparo"+e.getClass().getSimpleName()+".gif");
 								d.setPosGrafic((e.getX()+1)*64,e.getY()*64);
 								agregarObjeto(d, e.getX()+1, e.getY());
 								d.start();
@@ -298,6 +299,7 @@ public class Manipulador {
 							if(disparador%6==0) {
 								//Disparo
 								Disparo d=new DisparoAliado(juego,e,e.getX(),e.getY());
+								d.setSprite("/Imagenes/Disparo"+e.getClass().getSimpleName()+".gif");
 								d.setPosGrafic((e.getX()-1)*64,e.getY()*64);
 								agregarObjeto(d, e.getX()-1, e.getY());
 								d.start();
