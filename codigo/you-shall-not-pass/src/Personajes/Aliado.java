@@ -36,5 +36,16 @@ public abstract class Aliado extends Personaje {
 	public void accept(Visitor v) {
 		v.visit(this);
 	}
-
+	
+	@Override
+	public int vender(){
+		morir();
+		eliminar();
+		int mon=this.getPrecioAliado();
+		if(this.vida<this.getVidaOriginal())
+			mon=mon/2;
+		return mon;
+	}
+	
+	
 }

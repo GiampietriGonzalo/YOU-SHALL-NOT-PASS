@@ -78,5 +78,9 @@ public abstract class GameObject extends Thread {
 	
 	public abstract void efecto();
 	
+	public int vender() {
+		return 0;
+	}
+	
 	
 }

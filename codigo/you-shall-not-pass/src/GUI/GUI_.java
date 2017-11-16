@@ -6,9 +6,12 @@ import java.awt.*;
 import javax.swing.*;
 import Creador.*;
 import Logica.Aritmetica;
+import Logica.GameObject;
 import Logica.Juego;
 import Logica.Manipulador;
 import Personajes.Aliado;
+import Personajes.Personaje;
+
 import java.awt.event.*;
 
 
@@ -22,7 +25,7 @@ public class GUI_ extends JFrame{
 	private JLabel lblMonedas;
 	private JLabel lblPuntos;
 	private Aritmetica ari;
-	private Aliado a;
+	private GameObject temporal;
 	private Manipulador mani;
 
 
@@ -47,23 +50,7 @@ public class GUI_ extends JFrame{
 		mani.setJuego(juego);
 		mani.colocarTorres();
 		
-		panelMapa.addMouseListener(new MouseAdapter() {
-			
-			public void mouseClicked(MouseEvent e) {
-						int x=e.getX()-e.getX() % 64;
-						int y=e.getY()-e.getY() % 64;
-						
-						if(creadorPersonajes!=null){ //Se coloca un aliado
-							creadorPersonajes.crear(e.getX()/64,e.getY()/64);
-							lblMonedas.setText("Monedas: "+ari.getMonedas());
-							creadorPersonajes=null;
-						}
-						else{ //Reaccion de un power up
-							if(juego.getMapa().getObject(x/64, y/64)!=null) 
-								mani.reaccionar(x/64,y/64);
-						}
-					}
-		});
+		
 		panelMapa.setBounds(17, 232,10*64, 6*64);
 		
 		
@@ -71,8 +58,8 @@ public class GUI_ extends JFrame{
 		lblMonedas = new JLabel("Monedas: "+ari.getMonedas());
 		lblPuntos = new JLabel("Puntos: "+ari.getPuntos());
 		
-		ContadorPrueba contP=new ContadorPrueba(juego);
-		contP.start();
+		Hilo hiloPrincipal=new Hilo(juego);
+		hiloPrincipal.start();
 		initialize();
 	}
 
@@ -162,7 +149,7 @@ public class GUI_ extends JFrame{
 		panel_tienda.setBackground(null);
 		panel_tienda.setBounds(667, 136, 195, 479);
 		panel_tienda.setOpaque(false);
-				panel_tienda.setLayout(null);
+		panel_tienda.setLayout(null);
 		
 		JButton btnGimli = new JButton("");
 		btnGimli.setBackground(new Color(139, 69, 19));
@@ -238,24 +225,45 @@ public class GUI_ extends JFrame{
 		lblNewLabel.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/fondomonta\u00F1a.png")));
 		panel_bg.add(lblNewLabel);
 		
-		JButton btnNewButton = new JButton("VENDER PERSONAJE");
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		btnNewButton.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/Moneda.png")));
+		JButton btnVender = new JButton("VENDER PERSONAJE");
+		btnVender.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		btnVender.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/Moneda.png")));
+		
+		panelMapa.addMouseListener(new MouseAdapter() {
+			
+			public void mouseClicked(MouseEvent e) {
+						int x=e.getX()-e.getX() % 64;
+						int y=e.getY()-e.getY() % 64;
+						
+						if(creadorPersonajes!=null){ //Se coloca un aliado
+							creadorPersonajes.crear(e.getX()/64,e.getY()/64);
+							lblMonedas.setText("Monedas: "+ari.getMonedas());
+							creadorPersonajes=null;
+						}
+						else{ //Reaccion de un power up
+							if(juego.getMapa().getObject(x/64, y/64)!=null) 
+								mani.reaccionar(x/64,y/64);
+						}
+					}
+		});
+		
 		panelMapa.addMouseListener(new MouseAdapter() {
 	
 			public void mouseClicked(MouseEvent e) {
 						int x=e.getX()-e.getX() % 64;
 						int y=e.getY()-e.getY() % 64;
-						 a = (Aliado) juego.getMapa().getObject(x/64,y/64);
+						temporal = juego.getMapa().getObject(x/64,y/64);
 			}
 		});
-		btnNewButton.addActionListener(new ActionListener() {
+		btnVender.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-					juego.venderPersonaje(a);
+					
+					juego.venderPersonaje(temporal);
+					temporal=null;
 			}	
 		});
-		btnNewButton.setBounds(667, 110, 185, 34);
-		frmYouShallNot.getContentPane().add(btnNewButton);
+		btnVender.setBounds(667, 110, 185, 34);
+		frmYouShallNot.getContentPane().add(btnVender);
 		
 		JLabel labelFondo = new JLabel("");
 
@@ -267,7 +275,7 @@ public class GUI_ extends JFrame{
 	}
 	
 	//Hilo que actualiza los puntos y monedas
-	public class ContadorPrueba extends Thread{
+	public class Hilo extends Thread{
 		
 		private AudioClip musica_ganar = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/Medley.WAV"));
 		private AudioClip musica_perder = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/game_over.wav"));
@@ -276,7 +284,7 @@ public class GUI_ extends JFrame{
 		protected volatile boolean terminar = false;
 		protected volatile boolean ganar = false;
 		
-		ContadorPrueba(Juego j) {
+		Hilo(Juego j) {
 			elJuego = j;
 		}
 		public void run() {

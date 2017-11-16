@@ -62,18 +62,11 @@ public class Juego {
 		return mapa;
 	}
 	
-
-	public void venderPersonaje(Aliado j){
+	
+	public void venderPersonaje(GameObject j){
 		if(j!=null){
-			if (j.getVida() <= j.getVida()/2){
-				j.morir();
-
-				ari.sumarMonedas(j.getPrecioAliado()/2);
-			}
-		}
-		else{
-			j.morir();
-			ari.sumarMonedas(j.getPrecioAliado());
+			int mon=j.vender();
+			ari.sumarMonedas(mon);
 		}
 	}
 	
