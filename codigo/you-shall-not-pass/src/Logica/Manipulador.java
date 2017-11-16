@@ -34,7 +34,7 @@ public class Manipulador {
 	public void colocarTorres(){
 		
 		for(int i=0;i<6;i++){
-			Torre t=new Torre(juego.getMapa(),new ImageIcon(this.getClass().getResource("/Imagenes/Torre"+i+".png")),9,i);
+			Torre t=new Torre(juego.getMapa(),new ImageIcon(this.getClass().getResource("/Imagenes/Torre"+i+".gif")),9,i);
 			juego.getMapa().agregarObjeto(t, 9, i);
 			juego.getTodos().add(t);
 			juego.getAliados().add(t);

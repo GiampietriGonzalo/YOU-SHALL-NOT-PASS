@@ -9,10 +9,10 @@ public class Humano extends Aliado {
 	
 	public Humano(Mapa m) {
 		
-		super(m,30,50);
+		super(m,1,200);
 		precioAliado=15;
 		rango=0;
-		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Humano2.gif"));
+		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Humano.gif"));
 		grafico=new JLabel(sprite);
 		sprite.setImageObserver(grafico);
 		

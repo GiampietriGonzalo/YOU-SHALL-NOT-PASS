@@ -7,7 +7,7 @@ import Logica.Mapa;
 public class Orco extends Enemigo {
 	
 	public Orco(Mapa m) {
-		super(m,20,40);
+		super(m,20,4000);
 		rango=0;
 		velocidad=8;
 		puntos=20;	

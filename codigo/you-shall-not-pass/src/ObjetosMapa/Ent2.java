@@ -5,6 +5,8 @@ import java.applet.AudioClip;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import Personajes.Enemigo;
+
 public class Ent2 extends ObjetoConVida{
 	
 	//AudioClip gollum = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/GollumGollum.wav"));
@@ -18,8 +20,13 @@ public class Ent2 extends ObjetoConVida{
 		sprite.setImageObserver(grafico);
 	}
 	
-	public void recibirDamage(int d) {
+	public void recibirDamage(int d, Enemigo e) {
+		e.setSprite("/Imagenes/pelea.gif");
 		vida-=d;
-		if(vida<=0) this.morir();
+		if(vida<=0) {
+			this.setSprite("/Imagenes/sangre.gif");
+			e.setSprite("/Imagenes/"+e.getClass().getSimpleName()+".gif");
+			this.morir();
+		}
 	}
 }

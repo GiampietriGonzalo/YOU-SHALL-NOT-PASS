@@ -25,5 +25,5 @@ public class Bomba extends ObjetoPrecioso{
 		j.getManipulador().eliminarObjeto(this,this.x, this.y);
 		this.grafico.setOpaque(false);
 	}
-
 }
+

@@ -27,7 +27,7 @@ public class Protegido extends EstadoEnemigo{
 			if (p!=null){
 				p.morir();
 				p.eliminar();
-				miEnemigo.setEstado(new EnemigoNormal(miEnemigo));
 		}
+			miEnemigo.setEstado(new EnemigoNormal(miEnemigo));
 	}
 }

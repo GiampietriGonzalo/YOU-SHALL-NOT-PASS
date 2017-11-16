@@ -301,6 +301,7 @@ public class GUI_ extends JFrame{
 					String nl = System.getProperty("line.separator");
 					int reinicio=JOptionPane.showConfirmDialog(null,"Perdiste!" + nl + "PUNTUACION:"+ari.getPuntos() + nl + "Queres reiniciar el juego?","Game Over",JOptionPane.YES_NO_OPTION);
 					if(reinicio==0) {
+						musica_perder.stop();
 						panelMapa.repaint();
 						elJuego.reiniciar();
 					}
@@ -312,6 +313,7 @@ public class GUI_ extends JFrame{
 						String nl = System.getProperty("line.separator");
 						int reinicio1=JOptionPane.showConfirmDialog(null,"Ganaste!" + nl + "PUNTUACION:"+ari.getPuntos() + nl + "Queres reiniciar el juego?","Mision Cumplida",JOptionPane.YES_NO_OPTION);						
 						if(reinicio1==0) {
+							musica_ganar.stop();
 							elJuego.reiniciar();
 							panelMapa.repaint();
 						}

@@ -13,9 +13,12 @@ public class EnemigoNormal extends EstadoEnemigo{
 	public void relentizar() {}
 	
 	public void recibirDamage(int d, Personaje p){
-				miEnemigo.setVida(miEnemigo.getVida()-d);
-				if(miEnemigo.getVida() <= 0){ 
-					miEnemigo.morir();
-				}
+		if (p!= null)
+			miEnemigo.setSprite("/Imagenes/pelea.gif");
+		miEnemigo.setVida(miEnemigo.getVida()-d);
+		if(miEnemigo.getVida() <= 0){ 
+			miEnemigo.setSprite("/Imagenes/sangre.gif");
+			miEnemigo.morir();
+		}
 	}
 }

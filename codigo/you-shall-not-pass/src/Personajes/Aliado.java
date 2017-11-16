@@ -21,8 +21,12 @@ public abstract class Aliado extends Personaje {
 	}
 	
 	public void recibirDamage(int d, Personaje p){
+		setSprite("/Imagenes/pelea.gif");
 		vida-=d;
-		if(vida<=0) morir();
+		if(vida<=0){ 
+			setSprite("/Imagenes/sangre.gif");
+			morir();
+		}
 	}
 	
 	public EstadoAliado getEstado() {

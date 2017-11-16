@@ -22,6 +22,7 @@ public class VisitorDisparoAliado extends Visitor {
 	
 	public void visit(Enemigo e) {
 		e.recibirDamage(miAliado.getDamage(), miAliado);
+		miAliado.setSprite("/Imagenes/"+miAliado.getClass().getSimpleName()+".gif");
 	}
 
 	
@@ -46,9 +47,7 @@ public class VisitorDisparoAliado extends Visitor {
 	}
 
 
-	@Override
 	public void visit(ObjetoConVida o) {
-		// TODO Auto-generated method stub
 		
 	}
 
