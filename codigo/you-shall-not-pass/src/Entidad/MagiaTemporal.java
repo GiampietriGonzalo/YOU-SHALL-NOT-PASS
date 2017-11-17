@@ -3,11 +3,11 @@ package Entidad;
 import Logica.Juego;
 
 
-public abstract class Magia extends Premio{
+public abstract class MagiaTemporal extends Premio{
 	
 	protected int duracion;
 	
-	public Magia(Juego j) {
+	public MagiaTemporal(Juego j) {
 		super(j);
 	}
 	

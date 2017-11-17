@@ -37,7 +37,7 @@ public abstract class Enemigo extends Personaje {
 	}
 	
 	public void proteccion(){
-			estado= new Protegido(this);
+			estado= new EnemigoProtegido(this);
 	}
 	
 	public void normal(){

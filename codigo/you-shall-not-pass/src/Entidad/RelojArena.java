@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 import Logica.Juego;
 import Personajes.Enemigo;
 
-public class RelojArena extends ObjetoPrecioso{
+public class RelojArena extends MagiaTemporal{
 
 	 	private AudioClip reloj = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/reloj.wav")); 	
 

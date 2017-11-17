@@ -255,7 +255,7 @@ public class Manipulador {
 				juego.getPanel().remove(e.getGrafico());
 				juego.getAritmetica().sumarMonedas(e.getMonedas());
 				juego.getAritmetica().sumarPuntos(e.getPuntos());
-				int i = rnd.nextInt(10);
+				int i = rnd.nextInt(15);
 				if (i==1){
 					Bomba b = new Bomba(juego);
 					b.setPosGrafic(e.getX()*64, e.getY()*64);
@@ -271,7 +271,11 @@ public class Manipulador {
 					c.setPosGrafic(e.getX()*64, e.getY()*64);
 					this.agregarPower(c,e.getX(), e.getY());
 				}
-				
+				if(i==4){
+					Anillo a=new Anillo(juego);
+					a.setPosGrafic(e.getX()*64, e.getY()*64);
+					this.agregarPower(a,e.getX(), e.getY());
+				}
 			}
 		}
 		
