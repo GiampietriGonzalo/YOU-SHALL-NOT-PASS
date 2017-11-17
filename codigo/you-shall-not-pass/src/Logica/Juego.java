@@ -109,9 +109,9 @@ public class Juego {
 		
 		Random i;
 		i=new Random(System.currentTimeMillis());
-		int prob=i.nextInt(22);
+		int prob=i.nextInt(50);
 
-		if(prob==13)
+		if(prob==51)
 			mani.colocarObjetoMapa();
 
 		panelMapa.repaint();

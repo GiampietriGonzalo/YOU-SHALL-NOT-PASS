@@ -43,7 +43,8 @@ public abstract class Personaje extends GameObject {
 	}
 	
 	public void colisionar(GameObject p){
-		p.accept(miVisitor);
+		if(p!=null)
+			p.accept(miVisitor);
 	}
 	
 	public void recibirDamage(int d, Personaje p){}
