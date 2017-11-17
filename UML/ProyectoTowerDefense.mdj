@@ -41369,7 +41369,7 @@
 							"width": 561,
 							"height": 225,
 							"autoResize": false,
-							"text": "POLITICAS CON RESPECTO A CLASES Y METODOS ABSTRACTOS\n\n1) Un método y una clase asbtracta se identifica con el nombre en cursiva.\n\n2) Un método que implemeta a un método abstracto se identifica con ** al final de su encabezado.\n\n3 )Un método que redefine a otro método se identifica con * al final de su encabezado.",
+							"text": "POLITICAS CON RESPECTO A CLASES Y METODOS ABSTRACTOS\n\n1) Un método y una clase asbtracta se identifica con el nombre en cursiva.\n\n2) Un método que implemeta a un método abstracto se identifica con * al final de su encabezado.\n\n3 )Un método que redefine a otro método se identifica con ** al final de su encabezado.",
 							"wordWrap": true
 						},
 						{
