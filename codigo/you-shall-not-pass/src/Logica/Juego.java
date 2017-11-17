@@ -66,7 +66,7 @@ public class Juego {
 	
 	
 	public void venderPersonaje(GameObject j){
-		if(j!=null){
+		if(j!=null && j.getX()!=9){
 			int mon=j.vender();
 			ari.sumarMonedas(mon);
 		}
@@ -74,6 +74,7 @@ public class Juego {
 	
 	
 	public void actualizar(){
+		
 		if(sumador++%3==0) 
 			ari.sumarMonedas(1);
 		

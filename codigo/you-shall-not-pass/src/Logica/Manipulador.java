@@ -40,8 +40,8 @@ public class Manipulador {
 			juego.getAliados().add(t);
 			t.setPosGrafic(9*64, i*64);
 			t.grafico.setBackground(null);
+			t.grafico.setOpaque(false);
 			juego.getPanel().add(t.getGrafico());
-			t.getGrafico().setOpaque(true);
 		}
 	}
 
@@ -58,7 +58,7 @@ public class Manipulador {
 			juego.getAliados().add(j);
 			juego.getPanel().add(j.getGrafico());
 			j.grafico.setBackground(null);
-			j.getGrafico().setOpaque(true);
+			j.getGrafico().setOpaque(false);
 			juego.getPanel().repaint();
 		}
 	}
@@ -79,7 +79,7 @@ public class Manipulador {
 
 			juego.getPanel().add(j.getGrafico());
 			j.grafico.setBackground(null);
-			j.getGrafico().setOpaque(true);
+			j.getGrafico().setOpaque(false);
 			juego.getPanel().repaint();
 		}
 	}
@@ -93,7 +93,7 @@ public class Manipulador {
 			juego.getEnemigos().add(j);
 			juego.getPanel().add(j.getGrafico());
 			j.grafico.setBackground(null);
-			j.getGrafico().setOpaque(true);
+			j.getGrafico().setOpaque(false);
 			return true;
 		}
 		else 
@@ -107,7 +107,7 @@ public class Manipulador {
 			j.setY(y);
 			juego.getPanel().add(j.getGrafico());
 			j.grafico.setBackground(null);
-			j.getGrafico().setOpaque(true);
+			j.getGrafico().setOpaque(false);
 		}
 	}
 
@@ -294,7 +294,7 @@ public class Manipulador {
 			j.setY(y);
 			juego.getPanel().add(j.getGrafico());
 			j.grafico.setBackground(null);
-			j.getGrafico().setOpaque(true);
+			j.getGrafico().setOpaque(false);
 			
 		}
 		

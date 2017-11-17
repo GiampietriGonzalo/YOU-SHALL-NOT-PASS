@@ -1,5 +1,7 @@
 package Logica;
 
+import java.awt.Graphics;
+
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import Interacciones.Visitor;
@@ -8,7 +10,7 @@ public abstract class GameObject extends Thread {
 	protected int x;
 	protected int y;
 	protected ImageIcon sprite;
-	protected boolean vive=true; //Todo por no hacer super, rata!
+	protected boolean vive;
 	protected JLabel grafico;
 	protected int posX;
 	protected int posY;
@@ -18,6 +20,7 @@ public abstract class GameObject extends Thread {
 	
 	public GameObject(){
 		tiempo=20;
+		vive=true;
 	}
 	
 	public ImageIcon getImg(){
@@ -64,6 +67,7 @@ public abstract class GameObject extends Thread {
 	
 	public void setSprite (String s){
 		sprite = new ImageIcon(this.getClass().getResource(s));
+		grafico.setOpaque(false);
 		grafico.setIcon(sprite);
 		grafico.repaint();
 		sprite.setImageObserver(grafico);

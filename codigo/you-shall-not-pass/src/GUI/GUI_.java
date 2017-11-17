@@ -18,7 +18,7 @@ public class GUI_ extends JFrame{
 	private static final long serialVersionUID = 1L;
 	private JFrame frmYouShallNot;
 	private Juego juego;
-	protected JPanel panelMapa;
+	protected PanelMapa panelMapa;
 	private CreadorAliado creadorPersonajes;
 	private JLabel lblMonedas;
 	private JLabel lblPuntos;
@@ -36,10 +36,9 @@ public class GUI_ extends JFrame{
 		frmYouShallNot.setBounds(20, 20, 868, 683);
 		frmYouShallNot.setVisible(true);
 		
+		panelMapa = new PanelMapa();
+		panelMapa.setForeground(null);
 		
-		
-		panelMapa = new JPanel();
-		panelMapa.setForeground(new Color(0, 0, 0));
 		
 		ari= new Aritmetica(0,100);
 		mani= new Manipulador();
@@ -174,8 +173,10 @@ public class GUI_ extends JFrame{
 		btnAragorn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				ComprableTemporal corona= new CoronaReyAragorn(juego);
-				ari.sumarMonedas(-corona.getPrecio());
-				corona.efecto();
+				if(ari.getMonedas()>=corona.getPrecio()){	
+					ari.sumarMonedas(-corona.getPrecio());
+					corona.efecto();
+				}
 			}
 		});
 		
@@ -201,14 +202,13 @@ public class GUI_ extends JFrame{
 		btnLegolas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				ComprableTemporal arco= new ArcoLegolas(juego);
-				ari.sumarMonedas(-arco.getPrecio());
-				arco.efecto();
+				if(ari.getMonedas()>=arco.getPrecio()){
+					ari.sumarMonedas(-arco.getPrecio());
+					arco.efecto();
+				}
 			}
 		});
 		
-		Color transparente=new Color(Color.TRANSLUCENT);
-		panelMapa.setBackground(transparente);
-		panelMapa.setForeground(transparente);
 		
 		panelMapa.setLayout(null);
 		panelMapa.setBorder(null);
@@ -298,7 +298,6 @@ public class GUI_ extends JFrame{
 		labelFondo.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/FondoPanel.jpg")));
 		labelFondo.setBounds(0, 0, 862, 654);
 		frmYouShallNot.getContentPane().add(labelFondo);
-		lblNewLabel.setOpaque(true);
 		
 	}
 	

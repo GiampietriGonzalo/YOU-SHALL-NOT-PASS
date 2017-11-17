@@ -22,7 +22,7 @@ public class DisparoEnemigo extends Disparo {
 		while(execute){
 			this.avanzar();
 			try {
-				Thread.sleep(300);
+				Thread.sleep(400);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}	

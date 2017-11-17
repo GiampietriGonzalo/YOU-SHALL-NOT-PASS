@@ -45,6 +45,7 @@ public class Torre extends Aliado {
 			s = "/Imagenes/"+this.getClass().getSimpleName()+"Rota3.gif";
 		sprite = new ImageIcon(this.getClass().getResource(s));
 		grafico.setIcon(sprite);
+		grafico.setOpaque(false);
 		grafico.repaint();
 		sprite.setImageObserver(grafico);
 		this.getGrafico();

@@ -26,10 +26,11 @@ public class Nivel1 extends Nivel{
 			int p = rnd.nextInt(13);
 			Enemigo e;
 			if(a<5){
-				e = new Orco(juego.getMapa());
+				//Volver a poner al orco
+				e = new MagoOscuro(juego.getMapa());
 				e.normal();
-				if (p == 1) 
-					e.proteccion();
+				/*if (p == 1) 
+					e.proteccion();*/
 				horda.push(e);
 			}else if (a<=8){
 				e = new Huargo(juego.getMapa());

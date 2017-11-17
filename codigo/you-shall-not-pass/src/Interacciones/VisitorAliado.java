@@ -29,7 +29,7 @@ public class VisitorAliado extends Visitor {
 	
 	public void visit(Premio q) {
 		
-		//Rellenar mas tarde
+		//No pasa nada
 	}
 
 	
@@ -39,7 +39,7 @@ public class VisitorAliado extends Visitor {
 
 	
 	public void visit(DisparoEnemigo de) {
-		//miPersonaje.recibirDamage(10);
+		//Nada
 	}
 
 
@@ -48,8 +48,6 @@ public class VisitorAliado extends Visitor {
 		
 		
 	}
-
-
 
 	@Override
 	public void visit(ObjetoConVida o) {
