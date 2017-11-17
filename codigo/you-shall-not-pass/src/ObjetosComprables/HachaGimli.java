@@ -1,15 +1,16 @@
 package ObjetosComprables;
 
+import Interacciones.Visitor;
 import Personajes.*;
 
-public class HachaGimli extends ObjetoComprable{
+public class HachaGimli extends ComprableConVida{
 	
-	public HachaGimli(){
-		tiempo = 8;
+	public HachaGimli(int v){
+		super(v);
 	}
 	
 	public void actualizar(){
-		tiempo--;
+	
 	}
 	
 	public void efecto(Aliado a){
@@ -20,6 +21,9 @@ public class HachaGimli extends ObjetoComprable{
 
 
 	public void efecto() {}
+
+	public void accept(Visitor v){
+		v.visit(this);}
 }
 
 

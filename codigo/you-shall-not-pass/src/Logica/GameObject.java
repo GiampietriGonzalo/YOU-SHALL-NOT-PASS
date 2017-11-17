@@ -12,7 +12,6 @@ public abstract class GameObject extends Thread {
 	protected JLabel grafico;
 	protected int posX;
 	protected int posY;
-	protected int monedas;
 	protected int puntos;
 	protected int tiempo;
 	protected Visitor miVisitor;

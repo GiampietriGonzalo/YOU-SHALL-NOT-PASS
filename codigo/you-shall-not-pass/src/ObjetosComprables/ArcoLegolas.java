@@ -1,20 +1,24 @@
 package ObjetosComprables;
 
+import Interacciones.Visitor;
+import Logica.Juego;
 import Personajes.*;
 
-public class ArcoLegolas extends ObjetoComprable{
+public class ArcoLegolas extends ComprableTemporal{
 	
-	public ArcoLegolas(){
-		tiempo = 8;
+	public ArcoLegolas(Juego j){
+		super(j);
+		tiempo = 15;
+		precio=20;
 	}
 
-	public void actualizar(){
-		tiempo--;
-	}
-	
-	public void efecto(Aliado a){
-		a.setEstado(new Potenciado(a));
-		a.getEstado().potenciar((Elfo) a);
+	public void accept(Visitor v) {}
+
+
+	public void efecto() {
+		//Aumenta el rango de cada Aliado en un 50%
+		for(Aliado a:juego.getAliados())
+			a.setRango(a.getRango()+(a.getRango()/2));	
 	}
 
 }

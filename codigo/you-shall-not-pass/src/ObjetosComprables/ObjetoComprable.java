@@ -1,16 +1,15 @@
 package ObjetosComprables;
 
-import Logica.Juego;
+import Logica.GameObject;
 
-public abstract class ObjetoComprable{
+public abstract class ObjetoComprable extends GameObject{
 	
 	protected int precio;
-	protected int tiempo;
-	protected Juego juego;
+	
 	
 	public int getPrecio(){return precio;}
 	
-	public int getTiempo(){return tiempo;}
+	
 	
 	public void actualizar(){}
 	

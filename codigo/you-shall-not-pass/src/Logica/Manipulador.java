@@ -7,6 +7,7 @@ import javax.swing.ImageIcon;
 
 import Entidad.*;
 import Interacciones.*;
+import ObjetosComprables.ComprableTemporal;
 import ObjetosMapa.*;
 import Personajes.*;
 
@@ -180,6 +181,20 @@ public class Manipulador {
 		}
 	}
 
+	public void eliminarTemporales() {
+		LinkedList<ComprableTemporal> toDelete = new LinkedList<ComprableTemporal>();
+		for(ComprableTemporal e:juego.getTemporales()){
+			if(!e.estaVivo()){
+				toDelete.add(e);
+			}
+		}
+		for(GameObject e:toDelete)
+			juego.getTemporales().remove(e);
+		
+	}
+
+	
+	
 	public void colocarEnemigoMapa(Stack<Enemigo> s){
 		if(contador%6==0){
 			Enemigo e = s.peek();

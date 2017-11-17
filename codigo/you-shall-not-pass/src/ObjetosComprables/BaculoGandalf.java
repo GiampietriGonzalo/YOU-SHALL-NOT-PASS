@@ -1,5 +1,6 @@
 package ObjetosComprables;
 
+import Interacciones.Visitor;
 import Personajes.*;
 
 public class BaculoGandalf extends ObjetoComprable{
@@ -16,6 +17,12 @@ public class BaculoGandalf extends ObjetoComprable{
 	public void efecto(Aliado a){
 		a.setEstado(new Potenciado(a));
 		a.getEstado().potenciar((Mago) a);
+	}
+
+	public void accept(Visitor v) {
+	}
+
+	public void efecto() { 
 	}
 
 }

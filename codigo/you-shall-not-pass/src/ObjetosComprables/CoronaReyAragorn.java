@@ -1,19 +1,24 @@
 package ObjetosComprables;
 
+import Interacciones.Visitor;
+import Logica.Juego;
 import Personajes.*;
-public class CoronaReyAragorn extends ObjetoComprable{
+
+public class CoronaReyAragorn extends ComprableTemporal{
 	
-	public CoronaReyAragorn(){
+	public CoronaReyAragorn(Juego j){
+		super(j);
 		tiempo = 10;
+		precio=20;
 	}
 
-	public void actualizar(){
-		tiempo--;
-	}
+	public void accept(Visitor v) {}
+
 	
-	public void efecto(Aliado a){
-		a.setEstado(new Potenciado(a));
-		a.getEstado().potenciar((Humano) a);
+	public void efecto() {
+		//Aumenta el danio de los Aliados en un 30%
+		for(Aliado a:juego.getAliados())
+			a.setDamage(a.getDamage()+(a.getDamage()/3));	
 	}
 
 

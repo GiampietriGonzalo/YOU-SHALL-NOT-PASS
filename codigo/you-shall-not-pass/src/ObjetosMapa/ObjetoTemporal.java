@@ -13,7 +13,8 @@ public abstract class ObjetoTemporal extends ObjetoMapa{
 	
 	public void actualizar(){
 		tiempo--;
-		if(tiempo==0) morir();
+		if(tiempo==0) 
+			morir();
 	}
 	
 	public void accept(Visitor v) {

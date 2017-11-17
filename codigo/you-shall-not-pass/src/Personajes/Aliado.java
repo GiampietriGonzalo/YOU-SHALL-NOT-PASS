@@ -41,7 +41,7 @@ public abstract class Aliado extends Personaje {
 		v.visit(this);
 	}
 	
-	@Override
+
 	public int vender(){
 		morir();
 		eliminar();

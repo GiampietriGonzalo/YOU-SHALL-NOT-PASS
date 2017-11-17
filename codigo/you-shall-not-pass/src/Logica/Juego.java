@@ -3,6 +3,7 @@ package Logica;
 import java.util.*;
 import javax.swing.*;
 import Niveles.*;
+import ObjetosComprables.ComprableTemporal;
 import Personajes.*;
 import Entidad.*;
 
@@ -21,6 +22,7 @@ public class Juego {
 	private LinkedList<Aliado> aliados;
 	private LinkedList<GameObject> todos;
 	private LinkedList<Premio> premios;
+	private LinkedList<ComprableTemporal> CTemporales;
 	protected Mapa mapa;
 	private JPanel panelMapa;
 	private int sumador=0;
@@ -85,6 +87,7 @@ public class Juego {
 		}
 		
 		LinkedList<GameObject> toDelete = new LinkedList<GameObject>();
+		
 		for(GameObject e:todos){
 			e.actualizar();
 			if(!e.estaVivo()){
@@ -92,11 +95,13 @@ public class Juego {
 			}
 			
 		}
+		
 		for(GameObject e:toDelete){
 			todos.remove(e);	
 			mapa.eliminarObjeto(e,e.x,e.y);
 			panelMapa.remove(e.getGrafico());
 		}
+		
 		mani.eliminarPremios();
 		mani.moverEnemigos();
 		mani.actualizarAliados();
@@ -176,6 +181,10 @@ public class Juego {
 	
 	public LinkedList<Premio> getPremios() {
 		return premios;
+	}
+	
+	public LinkedList<ComprableTemporal> getTemporales() {
+		return CTemporales;
 	}
 	
 	public Aritmetica getAritmetica() {

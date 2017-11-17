@@ -4,13 +4,13 @@ package GUI;
 import java.applet.*;
 import java.awt.*;
 import javax.swing.*;
-import Creador.*;
-import Logica.Aritmetica;
-import Logica.GameObject;
-import Logica.Juego;
-import Logica.Manipulador;
-
 import java.awt.event.*;
+
+import Logica.*;
+import Creador.*;
+import ObjetosComprables.*;
+
+
 
 
 public class GUI_ extends JFrame{
@@ -25,7 +25,6 @@ public class GUI_ extends JFrame{
 	private Aritmetica ari;
 	private GameObject temporal;
 	private Manipulador mani;
-
 
 	/**
 	 * Constructor de la GUI.
@@ -94,6 +93,7 @@ public class GUI_ extends JFrame{
 				creadorPersonajes=new CreadorHobbit(juego);
 			}
 		});
+		
 		btnHobbit.setToolTipText("HOBBIT");
 		btnHobbit.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/BotonHobbit.png")));
 		panel_personajes.add(btnHobbit);
@@ -105,6 +105,7 @@ public class GUI_ extends JFrame{
 				creadorPersonajes=new CreadorElfo(juego);
 			}
 		});
+		
 		btnElfo.setToolTipText("ELFO");
 		btnElfo.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/BotonElfo.png")));
 		panel_personajes.add(btnElfo);
@@ -115,6 +116,7 @@ public class GUI_ extends JFrame{
 				creadorPersonajes=new CreadorEnano(juego);
 			}
 		});
+		
 		btnEnano.setToolTipText("ENANO");
 		btnEnano.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/BotonEnano.png")));
 		panel_personajes.add(btnEnano);
@@ -127,6 +129,7 @@ public class GUI_ extends JFrame{
 				creadorPersonajes=new CreadorEnt(juego);
 			}
 		});
+		
 		btnEnt.setToolTipText("ENT");
 		panel_personajes.add(btnEnt);
 		
@@ -136,6 +139,7 @@ public class GUI_ extends JFrame{
 				creadorPersonajes=new CreadorMago(juego);
 			}
 		});
+		
 		btnMago.setToolTipText("MAGO");
 		btnMago.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/BotonMago.png")));
 		panel_personajes.add(btnMago);
@@ -153,28 +157,44 @@ public class GUI_ extends JFrame{
 		btnGimli.setBackground(new Color(139, 69, 19));
 		btnGimli.setBounds(5, 58, 167, 103);
 		btnGimli.setIcon(new ImageIcon (this.getClass().getResource("/Imagenes/hachaGimli.png")));
-		btnGimli.setToolTipText("Aumenta el danio y la resistencia de todos los Enanos aliados durante 8s");
+		btnGimli.setToolTipText("Coloca un Enano potenciado");
 		panel_tienda.add(btnGimli);
 		
 		JButton btnAragorn = new JButton("");
 		btnAragorn.setBackground(new Color(47, 79, 79));
 		btnAragorn.setBounds(5, 168, 167, 103);
 		btnAragorn.setIcon(new ImageIcon (this.getClass().getResource("/Imagenes/coronaAragorn.png")));
-		btnAragorn.setToolTipText("Aumenta el danio de todos los Humanos aliados durante 10s");
+		btnAragorn.setToolTipText("Aumenta el danio de todos los aliados en n 30% durante 5s");
 		panel_tienda.add(btnAragorn);
+		btnAragorn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ComprableTemporal corona= new CoronaReyAragorn(juego);
+				ari.sumarMonedas(-corona.getPrecio());
+				corona.efecto();
+			}
+		});
+		
+		
 		JButton btnGandalf = new JButton("");
 		btnGandalf.setBackground(Color.LIGHT_GRAY);
 		btnGandalf.setBounds(5, 277, 167, 101);
 		btnGandalf.setIcon(new ImageIcon (this.getClass().getResource("/Imagenes/baculoGandalf.png")));
-		btnGandalf.setToolTipText("Aumenta la resistencia y el alcance de todos los Magos aliados durante 5s");
+		btnGandalf.setToolTipText("Coloca un mago potenciado");
 		panel_tienda.add(btnGandalf);
-		JButton btnLegolas = new JButton("");
 		
+		JButton btnLegolas = new JButton("");
 		btnLegolas.setBackground(new Color(0, 128, 0));
 		btnLegolas.setBounds(5, 384, 167, 103);
 		btnLegolas.setIcon(new ImageIcon (this.getClass().getResource("/Imagenes/arcoLegolas.png")));
-		btnLegolas.setToolTipText("Aumenta el alcance y el danio de todos los Elfos aliados durante 8s");
+		btnLegolas.setToolTipText("Aumenta el alcance de todos los Aliados en un 50% durante 15s");
 		panel_tienda.add(btnLegolas);
+		btnLegolas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ComprableTemporal arco= new ArcoLegolas(juego);
+				ari.sumarMonedas(-arco.getPrecio());
+				arco.efecto();
+			}
+		});
 		
 		Color transparente=new Color(Color.TRANSLUCENT);
 		panelMapa.setBackground(transparente);
