@@ -7,7 +7,7 @@ import Personajes.Enemigo;
 
 public class Bomba extends ObjetoPrecioso{
 	
-	AudioClip bomba = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/bomba.wav"));
+	protected AudioClip bomba = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/bomba.wav"));
 	
 	public Bomba(Juego j){
 		super(j);

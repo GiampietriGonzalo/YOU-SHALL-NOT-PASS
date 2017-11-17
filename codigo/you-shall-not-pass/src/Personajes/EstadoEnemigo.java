@@ -12,6 +12,6 @@ public abstract class EstadoEnemigo {
 	
 	public abstract void relentizar();
 
-	public void recibirDamage(int d, Personaje p) {}
+	public abstract void recibirDamage(int d, Personaje p);
 
 }

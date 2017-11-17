@@ -1,7 +1,7 @@
 package Logica;
 
 public class Mapa {
-	private Celda[][] grilla;
+	protected Celda[][] grilla;
 	
 	public Mapa(int x, int y){
 		grilla=new Celda[x][y];

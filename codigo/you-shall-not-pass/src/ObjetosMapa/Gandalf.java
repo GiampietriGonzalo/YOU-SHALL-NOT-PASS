@@ -7,7 +7,7 @@ import javax.swing.JLabel;
 
 public class Gandalf extends ObjetoTemporal{
 	
-	AudioClip gandalf = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/NotPass.wav"));
+	protected AudioClip gandalf = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/NotPass.wav"));
 	
 	public Gandalf() {
 		super();

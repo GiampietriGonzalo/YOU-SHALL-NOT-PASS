@@ -5,7 +5,7 @@ import java.applet.AudioClip;
 
 public class Protegido extends EstadoEnemigo{
 	
-	AudioClip proteccion = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/proteccion.wav"));
+	protected AudioClip proteccion = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/proteccion.wav"));
 	
 	public Protegido(Enemigo e) {
 		super(e);

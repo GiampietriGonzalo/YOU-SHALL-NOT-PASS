@@ -1,6 +1,6 @@
 package ObjetosComprables;
 
-import Interacciones.Visitor;
+
 import Logica.Juego;
 import Personajes.*;
 
@@ -12,7 +12,6 @@ public class ArcoLegolas extends ComprableTemporal{
 		precio=20;
 	}
 
-	public void accept(Visitor v) {}
 
 
 	public void efecto() {

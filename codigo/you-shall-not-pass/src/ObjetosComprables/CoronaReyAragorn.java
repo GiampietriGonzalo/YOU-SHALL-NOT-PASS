@@ -1,6 +1,5 @@
 package ObjetosComprables;
 
-import Interacciones.Visitor;
 import Logica.Juego;
 import Personajes.*;
 
@@ -11,9 +10,6 @@ public class CoronaReyAragorn extends ComprableTemporal{
 		tiempo = 10;
 		precio=20;
 	}
-
-	public void accept(Visitor v) {}
-
 	
 	public void efecto() {
 		//Aumenta el danio de los Aliados en un 30%

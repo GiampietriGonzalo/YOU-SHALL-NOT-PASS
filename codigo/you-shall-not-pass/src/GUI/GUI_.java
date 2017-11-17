@@ -18,7 +18,7 @@ public class GUI_ extends JFrame{
 	private static final long serialVersionUID = 1L;
 	private JFrame frmYouShallNot;
 	private Juego juego;
-	private JPanel panelMapa;
+	protected JPanel panelMapa;
 	private CreadorAliado creadorPersonajes;
 	private JLabel lblMonedas;
 	private JLabel lblPuntos;

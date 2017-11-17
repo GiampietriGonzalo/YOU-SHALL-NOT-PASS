@@ -19,7 +19,6 @@ public class Manipulador {
 	private int disparador;
 	private int contador;
 	private int cont;
-
 	protected Juego juego;
 	
 	public Manipulador(){

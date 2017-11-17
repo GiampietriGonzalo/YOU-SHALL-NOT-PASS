@@ -11,7 +11,7 @@ import Personajes.Aliado;
 
 public class Curacion extends ObjetoPrecioso{
 	
-	AudioClip pocion = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/pocion.wav"));
+	protected AudioClip pocion = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/pocion.wav"));
 	
 	public Curacion(Juego j){
 		super(j);

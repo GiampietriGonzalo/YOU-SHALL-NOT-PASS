@@ -1,6 +1,5 @@
 package ObjetosComprables;
 
-import Interacciones.Visitor;
 import Personajes.*;
 
 public class HachaGimli extends ComprableConVida{
@@ -22,8 +21,7 @@ public class HachaGimli extends ComprableConVida{
 
 	public void efecto() {}
 
-	public void accept(Visitor v){
-		v.visit(this);}
+
 }
 
 

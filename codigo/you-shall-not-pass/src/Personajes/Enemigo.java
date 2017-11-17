@@ -8,7 +8,6 @@ public abstract class Enemigo extends Personaje {
 	
 	protected int velocidad;
 	protected int monedas;
-	protected int puntos;
 	protected EstadoEnemigo estado;
 	
 	public Enemigo(Mapa m,int damage,int vida){
@@ -55,10 +54,6 @@ public abstract class Enemigo extends Personaje {
 	
 	public void accept(Visitor v) {
 		v.visit(this);
-	}
-	
-	public int getPuntos(){
-		return puntos;
 	}
 	
 	public int getMonedas(){

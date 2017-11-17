@@ -10,7 +10,7 @@ import Personajes.Enemigo;
 
 public class Gollum extends ObjetoConVida{
 	
-	AudioClip gollum = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/GollumGollum.wav"));
+	protected AudioClip gollum = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/GollumGollum.wav"));
 	
 	public Gollum() {
 		super();

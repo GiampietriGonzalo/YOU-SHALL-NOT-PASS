@@ -1,7 +1,7 @@
 package Logica;
 
 public class Celda {
-	private GameObject element;
+	protected GameObject element;
 	
 	public Celda(){
 		element=null;

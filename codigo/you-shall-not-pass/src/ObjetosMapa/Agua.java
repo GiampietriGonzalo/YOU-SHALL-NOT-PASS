@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 
 public class Agua extends ObjetoTemporal{
 
-	AudioClip agua = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/agua.wav"));
+	protected AudioClip agua = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/agua.wav"));
 	
 	public Agua() {
 		super();

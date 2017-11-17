@@ -15,4 +15,6 @@ public class Relentizado extends EstadoEnemigo{
 		//No vuelve a relentizar
 	}
 
+	public void recibirDamage(int d, Personaje p){}
+
 }

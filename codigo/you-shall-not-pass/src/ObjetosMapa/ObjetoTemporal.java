@@ -5,8 +5,6 @@ import Interacciones.Visitor;
 public abstract class ObjetoTemporal extends ObjetoMapa{
 
 
-	public void efecto() {}
-
 	public ObjetoTemporal(){
 		tiempo=30;
 	}
