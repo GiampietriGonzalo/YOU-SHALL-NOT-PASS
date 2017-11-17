@@ -59,5 +59,4 @@ public abstract class Enemigo extends Personaje {
 	public int getMonedas(){
 		return monedas;
 	}
-
 }

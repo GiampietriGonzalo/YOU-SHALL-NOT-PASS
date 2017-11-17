@@ -158,6 +158,11 @@ public class GUI_ extends JFrame{
 		btnGimli.setBounds(5, 58, 167, 103);
 		btnGimli.setIcon(new ImageIcon (this.getClass().getResource("/Imagenes/hachaGimli.png")));
 		btnGimli.setToolTipText("Coloca un Enano potenciado");
+		btnGimli.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				creadorPersonajes=new CreadorEnanoPotenciado(juego);
+			}
+		});
 		panel_tienda.add(btnGimli);
 		
 		JButton btnAragorn = new JButton("");
@@ -180,6 +185,11 @@ public class GUI_ extends JFrame{
 		btnGandalf.setBounds(5, 277, 167, 101);
 		btnGandalf.setIcon(new ImageIcon (this.getClass().getResource("/Imagenes/baculoGandalf.png")));
 		btnGandalf.setToolTipText("Coloca un mago potenciado");
+		btnGandalf.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				creadorPersonajes=new CreadorMagoPotenciado(juego);
+			}
+		});
 		panel_tienda.add(btnGandalf);
 		
 		JButton btnLegolas = new JButton("");

@@ -1,7 +1,5 @@
 package ObjetosComprables;
 
-import Personajes.*;
-
 public class HachaGimli extends ComprableConVida{
 	
 	public HachaGimli(int v){
@@ -12,16 +10,7 @@ public class HachaGimli extends ComprableConVida{
 	
 	}
 	
-	public void efecto(Aliado a){
-		a.setEstado(new Potenciado(a));
-		a.getEstado().potenciar((Enano) a);
-	}
-
-
-
 	public void efecto() {}
-
-
 }
 
 

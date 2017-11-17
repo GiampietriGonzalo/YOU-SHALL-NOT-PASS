@@ -15,6 +15,7 @@ public class ArcoLegolas extends ComprableTemporal{
 
 
 	public void efecto() {
+		System.out.println("Rango aumentado");
 		//Aumenta el rango de cada Aliado en un 50%
 		for(Aliado a:juego.getAliados())
 			a.setRango(a.getRango()+(a.getRango()/2));	

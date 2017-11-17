@@ -21,7 +21,6 @@ public class Ent2 extends ObjetoConVida{
 	}
 	
 	public void recibirDamage(int d, Enemigo e) {
-		e.setSprite("/Imagenes/pelea.gif");
 		vida-=d;
 		if(vida<=0) {
 			this.setSprite("/Imagenes/sangre.gif");

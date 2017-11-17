@@ -15,8 +15,8 @@ public class VisitorEnemigo extends Visitor{
 	}
 
 	public void visit(Aliado a) {
+		miEnemigo.setSprite("/Imagenes/pelea.gif");
 		 a.recibirDamage(miEnemigo.getDamage(), miEnemigo);
-		 miEnemigo.setSprite("/Imagenes/"+miEnemigo.getClass().getSimpleName()+".gif");
 	}
 
 	
@@ -44,6 +44,7 @@ public class VisitorEnemigo extends Visitor{
 
 	@Override
 	public void visit(ObjetoConVida o) {
+		miEnemigo.setSprite("/Imagenes/pelea.gif");
 		o.recibirDamage(miEnemigo.getDamage(), miEnemigo);
 	}
 

@@ -15,7 +15,6 @@ public class VisitorDisparoEnemigo extends Visitor {
 
 	public void visit(Aliado a) {
 		a.recibirDamage(miEnemigo.getDamage(), miEnemigo);
-		miEnemigo.setSprite("/Imagenes/"+miEnemigo.getClass().getSimpleName()+".gif");
 	}
 
 
