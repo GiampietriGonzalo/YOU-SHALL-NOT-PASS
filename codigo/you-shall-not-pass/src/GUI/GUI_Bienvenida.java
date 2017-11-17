@@ -51,8 +51,9 @@ public class GUI_Bienvenida {
 		frmYouShallNot.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmYouShallNot.getContentPane().setLayout(null);
 		
-		JButton btnJugar = new JButton("Jugar");
-		btnJugar.setFont(new Font("Aniron", Font.PLAIN, 16));
+		JButton btnJugar = new JButton("");
+		btnJugar.setIcon(new ImageIcon(GUI_Bienvenida.class.getResource("/Imagenes/jugar.png")));
+		//btnJugar.setFont(new Font("Aniron", Font.PLAIN, 16));
 		btnJugar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				frmYouShallNot.dispose();
@@ -64,7 +65,8 @@ public class GUI_Bienvenida {
 		btnJugar.setBounds(74, 537, 167, 67);
 		frmYouShallNot.getContentPane().add(btnJugar);
 		
-		JButton btnSobreElJuego = new JButton("Sobre el juego");
+		JButton btnSobreElJuego = new JButton("");
+		btnSobreElJuego.setIcon(new ImageIcon(GUI_Bienvenida.class.getResource("/Imagenes/sobre.png")));
 		btnSobreElJuego.setFont(new Font("Aniron", Font.PLAIN, 12));
 		btnSobreElJuego.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -75,7 +77,8 @@ public class GUI_Bienvenida {
 		btnSobreElJuego.setBounds(339, 537, 167, 72);
 		frmYouShallNot.getContentPane().add(btnSobreElJuego);
 		
-		JButton btnSalir = new JButton("Salir");
+		JButton btnSalir = new JButton("");
+		btnSalir.setIcon(new ImageIcon(GUI_Bienvenida.class.getResource("/Imagenes/salir.png")));
 		btnSalir.setFont(new Font("Aniron", Font.PLAIN, 16));
 		btnSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
