@@ -46,7 +46,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFfyxmU+rpf+Ok="
 							},
-							"name": "SequenceDiagram1",
+							"name": "ataqueEnemigo",
 							"visible": true,
 							"defaultDiagram": false,
 							"ownedViews": [
@@ -77,11 +77,11 @@
 											"containerExtending": false,
 											"left": 75.97900390625,
 											"top": 10,
-											"width": 115.9052734375,
+											"width": 92.06982421875,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "SequenceDiagram1",
+											"text": "ataqueEnemigo",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -494,7 +494,7 @@
 											"left": 237,
 											"top": 104,
 											"width": 14,
-											"height": 145,
+											"height": 745,
 											"autoResize": false
 										}
 									],
@@ -866,7 +866,7 @@
 											"left": 413,
 											"top": 128,
 											"width": 14,
-											"height": 29,
+											"height": 665,
 											"autoResize": false
 										}
 									],
@@ -1238,7 +1238,7 @@
 											"left": 591,
 											"top": 144,
 											"width": 14,
-											"height": 113,
+											"height": 625,
 											"autoResize": false
 										}
 									],
@@ -1445,7 +1445,7 @@
 											"left": 736,
 											"top": 80,
 											"width": 1,
-											"height": 541,
+											"height": 567,
 											"autoResize": false
 										}
 									],
@@ -1461,7 +1461,7 @@
 									"left": 672,
 									"top": 40,
 									"width": 128,
-									"height": 581,
+									"height": 607,
 									"autoResize": false,
 									"stereotypeDisplay": "label",
 									"showVisibility": true,
@@ -1504,19 +1504,19 @@
 											"showShadow": true,
 											"containerChangeable": false,
 											"containerExtending": false,
-											"left": 364,
-											"top": 172,
+											"left": 271,
+											"top": 192,
 											"width": 118.4853515625,
 											"height": 13,
 											"autoResize": false,
-											"alpha": 1.5707963267948966,
-											"distance": 10,
+											"alpha": 0.3089307747372203,
+											"distance": 98.67117106835208,
 											"hostEdge": {
 												"$ref": "AAAAAAFfyyVfH7weop0="
 											},
 											"edgePosition": 1,
 											"underline": false,
-											"text": "4 : getDamage(x)",
+											"text": "4 : getDamage(N)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -1674,13 +1674,13 @@
 											"showShadow": true,
 											"containerChangeable": false,
 											"containerExtending": false,
-											"left": 403,
-											"top": 200,
-											"width": 42.63720703125,
+											"left": 293,
+											"top": 232,
+											"width": 46,
 											"height": 13,
 											"autoResize": false,
-											"alpha": 1.5707963267948966,
-											"distance": 10,
+											"alpha": -2.9406383717917177,
+											"distance": 110.21796586763884,
 											"hostEdge": {
 												"$ref": "AAAAAAFfyybwT7w4VHk="
 											},
@@ -1950,7 +1950,7 @@
 											"left": 729,
 											"top": 232,
 											"width": 14,
-											"height": 375,
+											"height": 401,
 											"autoResize": false
 										}
 									],
@@ -2003,7 +2003,7 @@
 									"containerExtending": false,
 									"left": 760,
 									"top": 200,
-									"width": 62.9990234375,
+									"width": 69,
 									"height": 25,
 									"autoResize": false,
 									"text": "vida-=d",
@@ -2031,7 +2031,7 @@
 										"$ref": "AAAAAAFfyyKj4ru/fRA="
 									},
 									"lineStyle": 1,
-									"points": "735:330;784:225"
+									"points": "735:343;788:225"
 								},
 								{
 									"_type": "UMLNoteLinkView",
@@ -2055,7 +2055,7 @@
 										"$ref": "AAAAAAFfyyKj4ru/fRA="
 									},
 									"lineStyle": 1,
-									"points": "735:330;784:225"
+									"points": "735:343;788:225"
 								},
 								{
 									"_type": "UMLCombinedFragmentView",
@@ -2318,7 +2318,7 @@
 											},
 											"edgePosition": 1,
 											"underline": false,
-											"text": "7 : Morir(x)",
+											"text": "7 : Morir(N)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -2476,9 +2476,9 @@
 											"showShadow": true,
 											"containerChangeable": false,
 											"containerExtending": false,
-											"left": 779,
+											"left": 778,
 											"top": 523,
-											"width": 18.0654296875,
+											"width": 20,
 											"height": 13,
 											"autoResize": false,
 											"alpha": 1.5707963267948966,
@@ -2639,7 +2639,30 @@
 									"width": 248,
 									"height": 102,
 									"autoResize": false,
-									"text": "metodo() = metodo (x)\nStarUml no deja colocar argumentos vacíos.",
+									"text": "metodo() = metodo (N)\nStarUml no deja colocar argumentos vacíos.",
+									"wordWrap": true
+								},
+								{
+									"_type": "UMLNoteView",
+									"_id": "AAAAAAFfy3WUx8OM2XI=",
+									"_parent": {
+										"$ref": "AAAAAAFfyxmU+rpg83c="
+									},
+									"visible": true,
+									"enabled": true,
+									"lineColor": "#000000",
+									"fillColor": "#ffffff",
+									"fontColor": "#000000",
+									"font": "Arial;22;0",
+									"showShadow": true,
+									"containerChangeable": false,
+									"containerExtending": false,
+									"left": 856,
+									"top": 360,
+									"width": 232,
+									"height": 122,
+									"autoResize": false,
+									"text": "El objeto \"a\" es de tipo estático \"GameObject\" y de tipo dinámico \"Aliado\" ",
 									"wordWrap": true
 								}
 							],
@@ -2728,7 +2751,7 @@
 							},
 							"visibility": "public",
 							"messageSort": "synchCall",
-							"arguments": "x",
+							"arguments": "N",
 							"isConcurrentIteration": false
 						},
 						{
@@ -2781,7 +2804,7 @@
 							},
 							"visibility": "public",
 							"messageSort": "synchCall",
-							"arguments": "x",
+							"arguments": "N",
 							"isConcurrentIteration": false
 						},
 						{
@@ -3004,6 +3027,24 @@
 					"isStatic": false,
 					"isLeaf": false,
 					"type": "Aliado",
+					"isReadOnly": false,
+					"isOrdered": false,
+					"isUnique": false,
+					"isDerived": false,
+					"aggregation": "none",
+					"isID": false
+				},
+				{
+					"_type": "UMLAttribute",
+					"_id": "AAAAAAFfy474rcOSlpM=",
+					"_parent": {
+						"$ref": "AAAAAAFfyxmU+rpeDwE="
+					},
+					"name": "Role7",
+					"visibility": "public",
+					"isStatic": false,
+					"isLeaf": false,
+					"type": "",
 					"isReadOnly": false,
 					"isOrdered": false,
 					"isUnique": false,
