@@ -124,7 +124,7 @@
 									"containerExtending": false,
 									"left": 5,
 									"top": 5,
-									"width": 924,
+									"width": 1132,
 									"height": 908,
 									"autoResize": false,
 									"nameLabel": {
@@ -2618,6 +2618,29 @@
 									},
 									"showProperty": true,
 									"showType": true
+								},
+								{
+									"_type": "UMLNoteView",
+									"_id": "AAAAAAFfyzzjPr56s18=",
+									"_parent": {
+										"$ref": "AAAAAAFfyxmU+rpg83c="
+									},
+									"visible": true,
+									"enabled": true,
+									"lineColor": "#000000",
+									"fillColor": "#ffffff",
+									"fontColor": "#000000",
+									"font": "Arial;22;0",
+									"showShadow": true,
+									"containerChangeable": false,
+									"containerExtending": false,
+									"left": 856,
+									"top": 192,
+									"width": 248,
+									"height": 102,
+									"autoResize": false,
+									"text": "metodo() = metodo (x)\nStarUml no deja colocar argumentos vacíos.",
+									"wordWrap": true
 								}
 							],
 							"showSequenceNumber": true,
