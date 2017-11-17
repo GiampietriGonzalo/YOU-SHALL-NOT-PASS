@@ -1,5 +1,7 @@
 package Creador;
 
+import javax.swing.JOptionPane;
+
 import Logica.Juego;
 import Personajes.Mago;
 
@@ -10,7 +12,11 @@ public class CreadorMago extends CreadorAliado {
 	}
 
 	public void crear(int x, int y) {
-		juego.getManipulador().colocarAliado(new Mago(juego.getMapa()), x, y);
+		Mago e = new Mago(juego.getMapa());
+		if (e.getPrecioAliado() <= juego.getAritmetica().getMonedas())
+			juego.getManipulador().colocarAliado(new Mago(juego.getMapa()), x, y);
+		else
+			JOptionPane.showMessageDialog(null, "NO TENES MONEDAS!", "Monedas insuficientes", JOptionPane.INFORMATION_MESSAGE);
 	}
 
 }

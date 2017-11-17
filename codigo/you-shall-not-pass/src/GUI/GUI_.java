@@ -9,6 +9,7 @@ import java.awt.event.*;
 import Logica.*;
 import Creador.*;
 import ObjetosComprables.*;
+import Personajes.Elfo;
 
 
 
@@ -177,6 +178,8 @@ public class GUI_ extends JFrame{
 					ari.sumarMonedas(-corona.getPrecio());
 					corona.efecto();
 				}
+				else
+					JOptionPane.showMessageDialog(null, "NO TENES MONEDAS!", "Monedas insuficientes", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		
@@ -202,12 +205,15 @@ public class GUI_ extends JFrame{
 		btnLegolas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				ComprableTemporal arco= new ArcoLegolas(juego);
-				if(ari.getMonedas()>=arco.getPrecio()){
+				if(ari.getMonedas()>= arco.getPrecio()){
 					ari.sumarMonedas(-arco.getPrecio());
 					arco.efecto();
 				}
+				else
+					JOptionPane.showMessageDialog(null, "NO TENES MONEDAS!", "Monedas insuficientes", JOptionPane.INFORMATION_MESSAGE);
 			}
-		});
+			}
+		);
 		
 		
 		panelMapa.setLayout(null);
