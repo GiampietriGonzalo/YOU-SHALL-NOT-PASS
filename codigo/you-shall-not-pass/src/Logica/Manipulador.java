@@ -180,7 +180,17 @@ public class Manipulador {
 		}
 	}
 
-
+	public void eliminarTemporales() {
+		LinkedList<ComprableTemporal> toDelete = new LinkedList<ComprableTemporal>();
+		for(ComprableTemporal e:juego.getTemporales()){
+			if(!e.estaVivo()){
+				toDelete.add(e);
+			}
+		}
+		for(GameObject e:toDelete)
+			juego.getTemporales().remove(e);
+		
+	}
 
 	
 	
