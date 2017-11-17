@@ -1,6 +1,5 @@
 package GUI;
 
-
 import java.applet.*;
 import java.awt.*;
 import javax.swing.*;
@@ -9,9 +8,6 @@ import java.awt.event.*;
 import Logica.*;
 import Creador.*;
 import ObjetosComprables.*;
-
-
-
 
 public class GUI_ extends JFrame{
 
