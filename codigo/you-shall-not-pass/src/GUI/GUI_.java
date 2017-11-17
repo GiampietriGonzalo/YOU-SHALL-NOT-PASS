@@ -9,7 +9,6 @@ import java.awt.event.*;
 import Logica.*;
 import Creador.*;
 import ObjetosComprables.*;
-import Personajes.Elfo;
 
 
 
