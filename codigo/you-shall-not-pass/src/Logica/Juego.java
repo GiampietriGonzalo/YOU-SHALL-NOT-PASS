@@ -22,6 +22,7 @@ public class Juego {
 	private LinkedList<Aliado> aliados;
 	private LinkedList<GameObject> todos;
 	private LinkedList<Premio> premios;
+	private LinkedList<ComprableTemporal> CTemporales;
 	protected Mapa mapa;
 	private JPanel panelMapa;
 	private int sumador=0;
@@ -108,9 +109,9 @@ public class Juego {
 		
 		Random i;
 		i=new Random(System.currentTimeMillis());
-		int prob=i.nextInt(22);
+		int prob=i.nextInt(50);
 
-		if(prob==13)
+		if(prob==51)
 			mani.colocarObjetoMapa();
 
 		panelMapa.repaint();
@@ -183,6 +184,9 @@ public class Juego {
 		return premios;
 	}
 	
+	public LinkedList<ComprableTemporal> getTemporales() {
+		return CTemporales;
+	}
 	
 	public Aritmetica getAritmetica() {
 		return ari;

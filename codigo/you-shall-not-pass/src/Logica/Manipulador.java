@@ -180,7 +180,17 @@ public class Manipulador {
 		}
 	}
 
-
+	public void eliminarTemporales() {
+		LinkedList<ComprableTemporal> toDelete = new LinkedList<ComprableTemporal>();
+		for(ComprableTemporal e:juego.getTemporales()){
+			if(!e.estaVivo()){
+				toDelete.add(e);
+			}
+		}
+		for(GameObject e:toDelete)
+			juego.getTemporales().remove(e);
+		
+	}
 
 	
 	
@@ -197,159 +207,165 @@ public class Manipulador {
 	}
 
 	//Enemigos
-		public void moverEnemigos(){
-			LinkedList<Enemigo> toDelete=new LinkedList<Enemigo>();
-			for(Enemigo e:juego.getEnemigos()){
-				if(!e.estaVivo()){
-					toDelete.add(e);
+	public void moverEnemigos(){
+		LinkedList<Enemigo> toDelete=new LinkedList<Enemigo>();
+		for(Enemigo e:juego.getEnemigos()){
+			if(!e.estaVivo()){
+				toDelete.add(e);
+			}
+			else {
+				if(!hayObjetoEnRango(e)) {
+					//Avanzo
+					if(juego.getMapa().getObject(e.getX()+1,e.getY())==null) {
+						juego.getMapa().eliminarObjeto(e,e.getX(), e.getY());
+						e.posX+=e.getVelocidad();
+						e.setX(e.posX/64);
+						juego.getMapa().agregarObjeto(e, e.getX(), e.getY());
+						e.setPosGrafic(e.posX, e.posY);
+						e.grafico.setBounds(e.posX,e.posY, 64, 64);
+						if(e.x==9) juego.setPerdio(true); //perder
+					}	
 				}
 				else {
-					if(!hayObjetoEnRango(e)) {
-						//Avanzo
-						if(juego.getMapa().getObject(e.getX()+1,e.getY())==null) {
-							juego.getMapa().eliminarObjeto(e,e.getX(), e.getY());
-							e.posX+=e.getVelocidad();
-							e.setX(e.posX/64);
-							juego.getMapa().agregarObjeto(e, e.getX(), e.getY());
-							e.setPosGrafic(e.posX, e.posY);
-							e.grafico.setBounds(e.posX,e.posY, 64, 64);
-							if(e.x==9) juego.setPerdio(true); //perder
-						}	
-					}
-					else {
-						if(e.getRango()>0){
-							if(disparador%10==0) {
-								//Disparo
-								Disparo d=new DisparoEnemigo(juego,e,e.getX(),e.getY());
-								d.setSprite("/Imagenes/Disparo"+e.getClass().getSimpleName()+".gif");
-								d.setPosGrafic((e.getX()+1)*64,e.getY()*64);
-								agregarObjeto(d, e.getX()+1, e.getY());
-								d.start();
-							}
-							disparador++;
+					if(e.getRango()>0 && juego.getMapa().getObject(e.x+1, e.y)==null){
+						if(disparador%10==0) {
+								
+							//Disparo
+							Disparo d=new DisparoEnemigo(juego,e,e.getX(),e.getY());
+							d.setSprite("/Imagenes/Disparo"+e.getClass().getSimpleName()+".gif");
+							d.setPosGrafic((e.getX())*64,e.getY()*64);
+							agregarObjeto(d, e.getX()+1, e.getY());
+							d.start();
+							
 						}
-						else{
-							//Ataque cuerpo a cuerpo
+						disparador++;
+						juego.getMapa().agregarObjeto(e, e.x, e.y);
+						
+					}
+					else{
+						//Ataque cuerpo a cuerpo
+						if(juego.getMapa().getObject(e.x+1, e.y)!=null)
 							e.colisionar(juego.getMapa().getObject(e.getX()+1,e.getY()));
-						}
 					}
 				}
 			}
-			
-			for(Enemigo e:toDelete){
+		}
+		
+		for(Enemigo e:toDelete){
 				
-				Random rnd = new Random(System.currentTimeMillis());
-				juego.getTodos().remove(e);
-				juego.getEnemigos().remove(e);
-				e.eliminar();
-				juego.getPanel().remove(e.getGrafico());
-				juego.getAritmetica().sumarMonedas(e.getMonedas());
-				juego.getAritmetica().sumarPuntos(e.getPuntos());
-				int i = rnd.nextInt(20);
-				if (i==1){
-					Bomba b = new Bomba(juego);
-					b.setPosGrafic(e.getX()*64, e.getY()*64);
-					this.agregarPower(b,e.getX(), e.getY());
-				}
-				if (i==2){
-					RelojArena r = new RelojArena(juego);
-					r.setPosGrafic(e.getX()*64, e.getY()*64);
-					this.agregarPower(r,e.getX(), e.getY());
-				}
-				if (i==3){
-					Curacion c = new Curacion(juego);
-					c.setPosGrafic(e.getX()*64, e.getY()*64);
-					this.agregarPower(c,e.getX(), e.getY());
-				}
-				if(i==4){
-					Anillo a=new Anillo(juego);
-					a.setPosGrafic(e.getX()*64, e.getY()*64);
-					this.agregarPower(a,e.getX(), e.getY());
-				}
-				if(i==5){
-					SacoMonedas s=new SacoMonedas(juego);
-					s.setPosGrafic(e.getX()*64, e.getY()*64);
-					this.agregarPower(s,e.getX(), e.getY());
+			Random rnd = new Random(System.currentTimeMillis());
+			juego.getTodos().remove(e);
+			juego.getEnemigos().remove(e);
+			e.eliminar();
+			juego.getPanel().remove(e.getGrafico());
+			juego.getAritmetica().sumarMonedas(e.getMonedas());
+			juego.getAritmetica().sumarPuntos(e.getPuntos());
+			int i = rnd.nextInt(20);
+			if (i==1){
+				Bomba b = new Bomba(juego);
+				b.setPosGrafic(e.getX()*64, e.getY()*64);
+				this.agregarPower(b,e.getX(), e.getY());
+			}
+			if (i==2){
+				RelojArena r = new RelojArena(juego);
+				r.setPosGrafic(e.getX()*64, e.getY()*64);
+				this.agregarPower(r,e.getX(), e.getY());
+			}
+			if (i==3){
+				Curacion c = new Curacion(juego);
+				c.setPosGrafic(e.getX()*64, e.getY()*64);
+				this.agregarPower(c,e.getX(), e.getY());
+			}
+			if(i==4){
+				Anillo a=new Anillo(juego);
+				a.setPosGrafic(e.getX()*64, e.getY()*64);
+				this.agregarPower(a,e.getX(), e.getY());
+			}
+			if(i==5){
+				SacoMonedas s=new SacoMonedas(juego);
+				s.setPosGrafic(e.getX()*64, e.getY()*64);
+				this.agregarPower(s,e.getX(), e.getY());
 					
-				}
 			}
 		}
-		
-		public void agregarPower(Premio j,int x, int y){
-			
-			juego.getMapa().agregarObjeto(j,x,y);
-			juego.getPremios().add(j);
-			juego.getTodos().add(j);
-			j.setX(x);
-			j.setY(y);
-			juego.getPanel().add(j.getGrafico());
-			j.grafico.setBackground(null);
-			j.getGrafico().setOpaque(false);
-			
-		}
-		
-		private boolean hayObjetoEnRango(Enemigo e){
-			boolean hay=false;
-			int x=e.getX();
-			while(!hay && x!=9 && x<e.getX()+e.getRango()+1){
-				hay=juego.getMapa().getObject(x+1,e.getY())!=null;
-				x++;
-			}
-			return hay;
-		}
-		
-		//Aliados
-		public void actualizarAliados(){
-			LinkedList<Aliado> toDelete=new LinkedList<Aliado>();
-			for(Aliado e:juego.getAliados()){
-				
-				if(!e.estaVivo()) {
-					toDelete.add(e);
-				}
-				else{
-					
-					if(hayObjetoEnRango(e)) {
-						if(e.getRango()>0){
-							if(disparador%6==0) {
-								//Disparo
-								Disparo d=new DisparoAliado(juego,e,e.getX(),e.getY());
-								d.setSprite("/Imagenes/Disparo"+e.getClass().getSimpleName()+".gif");
-								d.setPosGrafic((e.getX()-1)*64,e.getY()*64);
-								agregarObjeto(d, e.getX()-1, e.getY());
-								d.start();
-							}
-							disparador++;
-						}
-						else{
-							//Ataque cuerpo a cuerpos
-							e.colisionar(juego.getMapa().getObject(e.getX()-1,e.getY()));
-						}
-					}
-				}	
-			}
-			
-			for(Aliado e:toDelete){
-				juego.getTodos().remove(e);
-				juego.getAliados().remove(e);
-				e.eliminar();
-				juego.getPanel().remove(e.getGrafico());
-			}
-		}
-		
-		private boolean hayObjetoEnRango(Aliado e){
-			boolean hay=false;
-			int x=e.getX();
-			while(!hay && x>0 && x>(e.getX()-e.getRango())-1){
-				hay=juego.getMapa().getObject(x-1,e.getY())!=null;
-				x--;
-			}
-			return hay;
-		}
-		
-		public void reaccionar(int i, int j) {	
-			juego.getMapa().getObject(i, j).efecto();
-		}
+	}
 	
+	public void agregarPower(Premio j,int x, int y){
+			
+		juego.getMapa().agregarObjeto(j,x,y);
+		juego.getPremios().add(j);
+		juego.getTodos().add(j);
+		j.setX(x);
+		j.setY(y);
+		juego.getPanel().add(j.getGrafico());
+		j.grafico.setBackground(null);
+		j.getGrafico().setOpaque(false);
+			
+	}
 		
+	private boolean hayObjetoEnRango(Enemigo e){
+		boolean hay=false;
+		int x=e.getX();
+		while(!hay && x!=9 && x<e.getX()+e.getRango()+1){
+			hay=juego.getMapa().getObject(x+1,e.getY())!=null;
+			x++;
+		}
+		return hay;
+	}
+		
+	//Aliados
+	public void actualizarAliados(){
+		LinkedList<Aliado> toDelete=new LinkedList<Aliado>();
+		for(Aliado e:juego.getAliados()){
+				
+			if(!e.estaVivo()) {
+				toDelete.add(e);
+			}
+			else{
+					
+				if(hayObjetoEnRango(e)) {
+					if(e.getRango()>0 && juego.getMapa().getObject(e.x-1, e.y)==null){
+						if(disparador%6==0) {
+							//Disparo
+							Disparo d=new DisparoAliado(juego,e,e.getX(),e.getY());
+							d.setSprite("/Imagenes/Disparo"+e.getClass().getSimpleName()+".gif");
+							d.setPosGrafic((e.getX()-1)*64,e.getY()*64);
+							agregarObjeto(d, e.getX()-1, e.getY());
+							d.start();
+							
+						}
+						disparador++;
+						juego.getMapa().agregarObjeto(e, e.x, e.y);
+					}
+					else{
+						//Ataque cuerpo a cuerpo
+						if(juego.getMapa().getObject(e.x-1, e.y)!=null)
+							e.colisionar(juego.getMapa().getObject(e.getX()-1,e.getY()));
+					}
+				}
+			}	
+		}
+			
+		for(Aliado e:toDelete){
+			juego.getTodos().remove(e);
+			juego.getAliados().remove(e);
+			e.eliminar();
+			juego.getPanel().remove(e.getGrafico());
+		}
+	}
+		
+	private boolean hayObjetoEnRango(Aliado e){
+		boolean hay=false;
+		int x=e.getX();
+		while(!hay && x>0 && x>(e.getX()-e.getRango())-1){
+			hay=juego.getMapa().getObject(x-1,e.getY())!=null;
+			x--;
+		}
+		return hay;
+	}
+		
+	public void reaccionar(int i, int j) {	
+		juego.getMapa().getObject(i, j).efecto();
+	}
 
 }
