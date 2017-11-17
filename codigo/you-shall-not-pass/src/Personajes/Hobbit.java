@@ -11,7 +11,7 @@ public class Hobbit extends Aliado {
 		super(m,15,40);
 		precioAliado=10;
 		rango=0;
-		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Sam.png"));
+		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Hobbit.gif"));
 		grafico=new JLabel(sprite);
 	}
 
