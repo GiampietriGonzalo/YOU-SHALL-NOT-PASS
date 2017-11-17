@@ -1,6 +1,5 @@
 package GUI;
 
-
 import java.applet.*;
 import java.awt.*;
 import javax.swing.*;
@@ -10,9 +9,6 @@ import Logica.*;
 import Creador.*;
 import ObjetosComprables.*;
 import Personajes.Elfo;
-
-
-
 
 public class GUI_ extends JFrame{
 
