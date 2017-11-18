@@ -6,6 +6,10 @@ import Logica.Juego;
 import Personajes.Enano;
 import Personajes.Potenciado;
 
+/**
+ * Concret factory para Enanos potenciados.
+ * */
+
 public class CreadorEnanoPotenciado extends CreadorAliado {
 
 	public CreadorEnanoPotenciado(Juego j) {
@@ -18,7 +22,7 @@ public class CreadorEnanoPotenciado extends CreadorAliado {
 		e.setEstado(new Potenciado(e));
 		if (e.getPrecioAliado()+20 <= juego.getAritmetica().getMonedas()){
 			juego.getManipulador().colocarAliado(e, x, y);
-			juego.getAritmetica().restarMonedas(20);
+			juego.getAritmetica().sumarMonedas(-20);
 		}
 		else
 			JOptionPane.showMessageDialog(null, "NO TENES MONEDAS!", "Monedas insuficientes", JOptionPane.INFORMATION_MESSAGE);

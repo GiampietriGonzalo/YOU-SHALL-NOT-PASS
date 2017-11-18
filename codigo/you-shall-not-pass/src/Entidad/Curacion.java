@@ -21,6 +21,10 @@ public class Curacion extends ObjetoPrecioso{
 	}
 	
 	
+	/**
+	 * Especifica el efecto de éste Premio concreto.
+	 * Efecto: cura a todos los Aliados del mapa; 
+	 * */
 	public void efecto(){
 		pocion.play();
 		for(Aliado a:j.getAliados())

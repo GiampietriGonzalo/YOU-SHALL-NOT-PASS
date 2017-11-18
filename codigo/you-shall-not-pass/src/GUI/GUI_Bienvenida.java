@@ -14,6 +14,10 @@ import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 
+/**
+ * Interfaz gráfica de la bienvenida al juego. 
+ * */
+
 public class GUI_Bienvenida {
 
 	private JFrame frmYouShallNot;

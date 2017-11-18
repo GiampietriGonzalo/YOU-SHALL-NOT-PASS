@@ -2,7 +2,9 @@ package Personajes;
 
 import java.applet.Applet;
 import java.applet.AudioClip;
-
+/**
+ * Clase que representa al estado protegeido de un enemigo.
+ * */
 public class EnemigoProtegido extends EstadoEnemigo{
 	
 	protected AudioClip proteccion = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/proteccion.wav"));

@@ -5,6 +5,10 @@ import javax.swing.JOptionPane;
 import Logica.Juego;
 import Personajes.Mago;
 
+/**
+ * Concret factory para Magos.
+ * */
+
 public class CreadorMago extends CreadorAliado {
 
 	public CreadorMago(Juego j) {

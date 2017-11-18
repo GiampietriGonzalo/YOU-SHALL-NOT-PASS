@@ -5,6 +5,10 @@ import javax.swing.JOptionPane;
 import Logica.Juego;
 import Personajes.Elfo;
 
+/**
+ * Concret factory para Elfos.
+ * */
+
 public class CreadorElfo extends CreadorAliado {
 
 	public CreadorElfo(Juego j) {

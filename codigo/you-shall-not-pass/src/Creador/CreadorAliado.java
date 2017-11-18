@@ -1,7 +1,9 @@
 package Creador;
 
 import Logica.Juego;
-
+/**
+ * Abstract Factory para la cración de Aliados. 
+ * */
 abstract public class CreadorAliado {
 	
 	protected Juego juego;
@@ -10,6 +12,9 @@ abstract public class CreadorAliado {
 		juego=j;
 	}
 	
+	/**
+	 * Crea y coloca la ALiado en la posición xy del mapa.
+	 * */
 	abstract public void crear(int x, int y);
 	
 }

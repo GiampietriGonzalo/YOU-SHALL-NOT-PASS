@@ -15,6 +15,10 @@ import Entidad.*;
  * Zarate, Tomas/*
  */
 
+
+/**
+ * Clase Responsable actualizar los eventos del juego, y el estado del mismo(ganar/perder).
+ * */
 public class Juego {
 	
 	private int oleada;
@@ -53,10 +57,16 @@ public class Juego {
 	    clip.loop();
 	}
 	
+	/**
+	 * Incia el nivel 1
+	 * */
 	private void nivel1(){
 		nivel = new Nivel1(this);
 	}
 	
+	/**
+	 * Incia el nivel 2
+	 * */
 	private void nivel2(){	
 		nivel = new Nivel2(this);
 	}
@@ -73,7 +83,9 @@ public class Juego {
 		}
 	}
 	
-	
+	/**
+	 * Actualiza el estado del juego y los movimientos de los objetos del mapa.
+	 * */
 	public void actualizar(){
 		
 		if(sumador++%3==0) 
@@ -124,7 +136,9 @@ public class Juego {
 			gano = true;
 	}
 	
-
+	/**
+	 * Envia una nueva oleada de enemigos.
+	 * */
 	private void nuevaOleada(){
 		if (oleada==3) JOptionPane.showMessageDialog(null, "NIVEL 2 ALCANZADO!", "NIVEL 2", JOptionPane.INFORMATION_MESSAGE);
 		oleada++;
@@ -134,7 +148,6 @@ public class Juego {
 		return (gano);
 	}
 	
-
 	
 	public boolean perder(){
 		return perdio;
@@ -143,9 +156,10 @@ public class Juego {
 	public JPanel getPanel() {
 		return panelMapa;
 	}
-	
 
-
+	/**
+	 * Reestablece el juego a su estado inicial, tras perder o ganar. Lo decide el jugador.
+	 * */
 	public void reiniciar() {
 		panelMapa.removeAll();
 		aliados.clear();

@@ -15,6 +15,10 @@ public class SacoMonedas extends ObjetoPrecioso {
 	}
 
 	
+	/**
+	 * Especifica el efecto de éste Premio concreto.
+	 * Efecto: Otorga una recompensa de 100 monedas al jugador.
+	 * */
 	public void efecto() {
 		j.getAritmetica().sumarMonedas(100);
 		this.morir();

@@ -20,7 +20,11 @@ public class RelojArena extends MagiaTemporal{
 			grafico.setBackground(null);
 
 		}
-
+		
+		/**
+		 * Especifica el efecto de éste Premio concreto.
+		 * Efecto: ralentiza a todos los enemigos del mapa.
+		 * */
 		public void efecto() {
 			reloj.play();
 

@@ -7,6 +7,9 @@ import javax.swing.JLabel;
 
 import Personajes.Aliado;
 
+/**
+ * Clase que representa la base aliada a defender.
+ * */
 public class Torre extends Aliado {
 
 	private AudioClip caer = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/caida_torre.WAV")); 
@@ -54,6 +57,9 @@ public class Torre extends Aliado {
 		grafico.setBackground(null);
 	}
 	
+	/*
+	 * Elimina la torre al ser destruida.
+	 * **/
 	public void eliminar(){
 		setSprite("/Imagenes/explosion.gif");
 		caer.play();

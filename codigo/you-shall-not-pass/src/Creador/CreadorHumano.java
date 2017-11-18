@@ -5,6 +5,10 @@ import javax.swing.JOptionPane;
 import Logica.Juego;
 import Personajes.Humano;
 
+/**
+ * Concret factory para Humanos.
+ * */
+
 public class CreadorHumano extends CreadorAliado{
 
 	public CreadorHumano(Juego j) {

@@ -5,6 +5,10 @@ import javax.swing.JOptionPane;
 import Logica.Juego;
 import Personajes.Enano;
 
+/**
+ * Concret factory para Enanos.
+ * */
+
 public class CreadorEnano extends CreadorAliado {
 
 	public CreadorEnano(Juego j) {

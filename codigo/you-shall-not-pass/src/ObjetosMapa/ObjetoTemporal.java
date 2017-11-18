@@ -2,8 +2,11 @@ package ObjetosMapa;
 
 import Interacciones.Visitor;
 
-public abstract class ObjetoTemporal extends ObjetoMapa{
+/**
+ * Clase representante de los objetos obstruyan el paso de los enemigos durante 30 segundos.
+ * */
 
+public abstract class ObjetoTemporal extends ObjetoMapa{
 
 	public ObjetoTemporal(){
 		tiempo=30;

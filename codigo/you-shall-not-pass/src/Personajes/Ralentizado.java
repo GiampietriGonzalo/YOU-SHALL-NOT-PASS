@@ -1,5 +1,9 @@
 package Personajes;
 
+
+/**
+ * Clase que representa al estado ralentizado de un enemigo.
+ * */
 public class Ralentizado extends EstadoEnemigo{
 
 	public Ralentizado(Enemigo e) {

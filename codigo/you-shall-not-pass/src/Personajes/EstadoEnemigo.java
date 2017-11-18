@@ -1,5 +1,7 @@
 package Personajes;
-
+/**
+ * Representación de los posible estados de un enemigo.
+ * */
 public abstract class EstadoEnemigo {
 	
 	protected Enemigo miEnemigo;

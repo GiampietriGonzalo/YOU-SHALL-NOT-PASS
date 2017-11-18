@@ -19,6 +19,10 @@ public class Anillo extends MagiaTemporal {
 		grafico.setBackground(null);
 	}
 
+	/**
+	 * Especifica el efecto de éste Premio concreto.
+	 * Efecto: A veces, otorga un escudo de protección a un Aliado aleatorio. 
+	 * */
 	public void efecto() {
 		
 		Random r=new Random(System.currentTimeMillis());

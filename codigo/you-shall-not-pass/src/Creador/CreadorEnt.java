@@ -5,6 +5,10 @@ import javax.swing.JOptionPane;
 import Logica.Juego;
 import Personajes.Ent;
 
+/**
+ * Concret factory para Ents.
+ * */
+
 public class CreadorEnt extends CreadorAliado {
 
 	public CreadorEnt(Juego j) {

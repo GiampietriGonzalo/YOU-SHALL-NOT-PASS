@@ -5,6 +5,10 @@ import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/**
+ * Interfaz gráfica de contenido informativo sobre el juego. 
+ * */
+
 public class GUI_Info {
 
 	private JFrame frmInfo;

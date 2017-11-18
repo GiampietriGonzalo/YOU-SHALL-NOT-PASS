@@ -11,10 +11,11 @@ import ObjetosComprables.ComprableTemporal;
 import ObjetosMapa.*;
 import Personajes.*;
 
+/**
+ * Clase respoonsable de administrar(colocar,eliminar,actualizar) los objetos(personajes, premios, etc) del juego.
+ * */
 
 public class Manipulador {
-
-
 
 	private int disparador;
 	private int contador;
@@ -53,7 +54,7 @@ public class Manipulador {
 			j.setY(y);
 			j.setPosGrafic(x*64, y*64);
 			juego.getMapa().agregarObjeto(j,x,y);
-			juego.getAritmetica().restarMonedas(j.getPrecioAliado());
+			juego.getAritmetica().sumarMonedas(-j.getPrecioAliado());
 			juego.getTodos().add(j);
 			juego.getAliados().add(j);
 			juego.getPanel().add(j.getGrafico());
@@ -75,7 +76,7 @@ public class Manipulador {
 			juego.getTodos().add(j);
 			juego.getAliados().add(j);
 		
-			juego.getAritmetica().restarMonedas(j.getPrecioAliado());
+			juego.getAritmetica().sumarMonedas(-j.getPrecioAliado());
 
 			juego.getPanel().add(j.getGrafico());
 			j.grafico.setBackground(null);

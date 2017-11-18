@@ -4,6 +4,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import Interacciones.Visitor;
 
+/**
+ * Clase que representa a todos los objetos del juego.
+ * */
 public abstract class GameObject extends Thread {
 	protected int x;
 	protected int y;

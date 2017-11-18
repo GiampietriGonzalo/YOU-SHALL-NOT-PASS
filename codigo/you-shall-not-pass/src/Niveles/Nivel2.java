@@ -45,8 +45,4 @@ public class Nivel2 extends Nivel{
 		return horda;
 	}
 
-	Enemigo crearBoss() {
-		return null;
-	}
-	
 }

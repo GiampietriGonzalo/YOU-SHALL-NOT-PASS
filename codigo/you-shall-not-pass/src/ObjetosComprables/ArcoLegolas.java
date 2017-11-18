@@ -12,10 +12,11 @@ public class ArcoLegolas extends ComprableTemporal{
 		precio=25;
 	}
 
-
-
+	/**
+	 * Establece el efecto de la mejora.
+	 * Efecto: Aumenta el rango de cada Aliado en un 50%.
+	 * */
 	public void efecto() {;
-		//Aumenta el rango de cada Aliado en un 50%
 		for(Aliado a:juego.getAliados())
 			a.setRango(a.getRango()+(a.getRango()/2));	
 	}

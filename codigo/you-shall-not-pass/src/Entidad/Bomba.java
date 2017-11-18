@@ -16,6 +16,10 @@ public class Bomba extends ObjetoPrecioso{
 		grafico.setBackground(null);
 	}
 	
+	/**
+	 * Especifica el efecto de éste Premio concreto.
+	 * Efecto: Hiere a todos los enemigos del mapa. 
+	 * */
 	public void efecto() {
 		bomba.play();
 		for(Enemigo a:j.getEnemigos()){

@@ -1,5 +1,9 @@
 package Personajes;
 
+/**
+ * Clase que representa al estado normal de un aliado.
+ * */
+
 public class AliadoNormal extends EstadoAliado{
 	
 	public AliadoNormal(Aliado a) {

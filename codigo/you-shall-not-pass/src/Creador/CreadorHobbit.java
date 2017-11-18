@@ -5,6 +5,11 @@ import javax.swing.JOptionPane;
 import Logica.Juego;
 import Personajes.Hobbit;
 
+/**
+ * Concret factory para Hobbits.
+ * */
+
+
 public class CreadorHobbit extends CreadorAliado {
 
 	public CreadorHobbit(Juego j) {

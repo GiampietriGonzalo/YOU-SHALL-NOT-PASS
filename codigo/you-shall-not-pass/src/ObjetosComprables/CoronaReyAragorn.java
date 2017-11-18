@@ -11,8 +11,12 @@ public class CoronaReyAragorn extends ComprableTemporal{
 		precio=25;
 	}
 	
+	/**
+	 * Establece el efecto de la mejora.
+	 * Efecto: Aumenta el danio de los Aliados en un 30%.
+	 * */
 	public void efecto() {
-		//Aumenta el danio de los Aliados en un 30%
+
 		for(Aliado a:juego.getAliados())
 			a.setDamage(a.getDamage()+(a.getDamage()/3));	
 	}

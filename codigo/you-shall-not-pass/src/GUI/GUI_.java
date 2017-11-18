@@ -9,6 +9,10 @@ import Logica.*;
 import Creador.*;
 import ObjetosComprables.*;
 
+
+/**
+ * Interfaz gráfica del juego. incluye el mapa, la tienda y la compra/venta de personajes. 
+ * */
 public class GUI_ extends JFrame{
 
 	private static final long serialVersionUID = 1L;

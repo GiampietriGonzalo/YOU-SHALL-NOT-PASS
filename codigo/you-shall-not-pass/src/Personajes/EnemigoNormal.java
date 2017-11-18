@@ -1,5 +1,9 @@
 package Personajes;
 
+/**
+ * Clase que representa al estado normal de un enemigo.
+ * */
+
 public class EnemigoNormal extends EstadoEnemigo{
 	
 	public EnemigoNormal(Enemigo e) {

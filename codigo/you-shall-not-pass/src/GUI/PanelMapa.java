@@ -7,9 +7,8 @@ import javax.swing.JPanel;
 
 public class PanelMapa extends JPanel{
 	
-	
 	/**
-	 * 
+	 *Panel gáfico del mapa. 
 	 */
 	private static final long serialVersionUID = 1L;
 	public void paint(Graphics g) {

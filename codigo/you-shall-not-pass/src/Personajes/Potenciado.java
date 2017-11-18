@@ -1,5 +1,9 @@
 package Personajes;
 
+/*
+ * Clase potencia a un aliado.
+ * **/
+
 public class Potenciado extends EstadoAliado{
 	
 	public Potenciado(Aliado a) {

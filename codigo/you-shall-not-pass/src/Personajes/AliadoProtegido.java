@@ -1,5 +1,9 @@
 package Personajes;
 
+/**
+ * Clase que representa al estado protegeido de un aliado.
+ * */
+
 public class AliadoProtegido extends EstadoAliado {
 
 	public AliadoProtegido(Aliado a) {

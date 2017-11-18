@@ -1,5 +1,9 @@
 package Logica;
 
+/**
+ * Clase respoonsable de administrar los puntos y monedas del Juego.
+ * */
+
 public class Aritmetica {
 
 	protected int puntosJuego;
@@ -26,8 +30,6 @@ public class Aritmetica {
 		monedasJuego+=m;
 	}
 	
-	public void restarMonedas(int m){
-		monedasJuego-=m;
-	}
+
 	
 }
