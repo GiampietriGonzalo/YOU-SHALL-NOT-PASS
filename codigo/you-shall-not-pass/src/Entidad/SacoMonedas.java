@@ -14,7 +14,7 @@ public class SacoMonedas extends ObjetoPrecioso {
 		grafico.setBackground(null);
 	}
 
-	@Override
+	
 	public void efecto() {
 		j.getAritmetica().sumarMonedas(100);
 		this.morir();

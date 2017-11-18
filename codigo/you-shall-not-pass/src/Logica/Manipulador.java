@@ -261,7 +261,6 @@ public class Manipulador {
 			juego.getAritmetica().sumarMonedas(e.getMonedas());
 			juego.getAritmetica().sumarPuntos(e.getPuntos());
 			int i = rnd.nextInt(20);
-			i=2;
 			if (i==1){
 				Bomba b = new Bomba(juego);
 				b.setPosGrafic(e.getX()*64, e.getY()*64);

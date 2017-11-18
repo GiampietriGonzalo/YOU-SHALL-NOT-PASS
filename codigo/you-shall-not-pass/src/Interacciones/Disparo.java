@@ -6,7 +6,7 @@ import Logica.Juego;
 abstract public class Disparo extends GameObject implements Runnable {
 	
 	protected static final int velocidad=20;
-	Juego j;
+	protected Juego j;
 	protected volatile boolean execute=true;
 	protected Visitor miVisitor;
 	

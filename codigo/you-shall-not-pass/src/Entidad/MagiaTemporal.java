@@ -11,6 +11,8 @@ public abstract class MagiaTemporal extends Premio{
 		super(j);
 	}
 	
-	public int getDuracion(){return duracion;}
+	public int getDuracion(){
+		return duracion;
+	}
 
 }

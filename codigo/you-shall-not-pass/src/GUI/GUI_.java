@@ -18,9 +18,9 @@ public class GUI_ extends JFrame{
 	private CreadorAliado creadorPersonajes;
 	private JLabel lblMonedas;
 	private JLabel lblPuntos;
-	private Aritmetica ari;
+	protected Aritmetica ari;
 	private GameObject temporal;
-	private Manipulador mani;
+	protected Manipulador mani;
 
 	/**
 	 * Constructor de la GUI.

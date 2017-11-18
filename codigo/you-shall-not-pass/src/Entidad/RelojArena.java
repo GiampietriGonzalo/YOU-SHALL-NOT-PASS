@@ -11,7 +11,7 @@ import Personajes.Enemigo;
 
 public class RelojArena extends MagiaTemporal{
 
-	 	private AudioClip reloj = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/reloj.wav")); 	
+	 	protected AudioClip reloj = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/reloj.wav")); 	
 
 		public RelojArena(Juego j){
 			super(j);
