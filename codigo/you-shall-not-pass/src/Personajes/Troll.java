@@ -8,10 +8,10 @@ import Logica.Mapa;
 public class Troll extends Enemigo {
 	
 	public Troll(Mapa m) {
-		super(m,60,70);
-		velocidad=32;
-		puntos=20;
-		monedas=7;
+		super(m,3,25);
+		velocidad=7;
+		puntos=24;
+		monedas=12;
 		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Troll.gif"));
 		grafico=new JLabel(sprite);
 		sprite.setImageObserver(grafico);
@@ -19,6 +19,6 @@ public class Troll extends Enemigo {
 	}
 	
 	public int getVidaOriginal() {
-		return 70;
+		return 20;
 	}
 }

@@ -8,18 +8,18 @@ import Logica.Mapa;
 public class Nazgul extends Enemigo {
 
 	public Nazgul(Mapa m) {
-		super(m,20,60);
+		super(m,4,18);
 		rango=0;
-		velocidad=16;
+		velocidad=10;
 		puntos=20;
-		monedas=7;
+		monedas=10;
 		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Nazgul.gif"));
 		grafico=new JLabel(sprite);
 		sprite.setImageObserver(grafico);
 	}
 	
 	public int getVidaOriginal() {
-		return 60;
+		return 18;
 	}
 
 }

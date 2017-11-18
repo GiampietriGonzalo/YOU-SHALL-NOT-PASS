@@ -15,8 +15,10 @@ public class CreadorMagoPotenciado extends CreadorAliado {
 	public void crear(int x, int y) {
 		Mago e = new Mago(juego.getMapa());
 		e.setEstado(new Potenciado(e));
-		if (e.getPrecioAliado() <= juego.getAritmetica().getMonedas())
+		if (e.getPrecioAliado()+20 <= juego.getAritmetica().getMonedas()){
 			juego.getManipulador().colocarAliado(e, x, y);
+			juego.getAritmetica().restarMonedas(20);
+		}
 		else
 			JOptionPane.showMessageDialog(null, "NO TENES MONEDAS!", "Monedas insuficientes", JOptionPane.INFORMATION_MESSAGE);
 	}

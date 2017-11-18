@@ -8,7 +8,7 @@ public class CoronaReyAragorn extends ComprableTemporal{
 	public CoronaReyAragorn(Juego j){
 		super(j);
 		tiempo = 10;
-		precio=20;
+		precio=25;
 	}
 	
 	public void efecto() {

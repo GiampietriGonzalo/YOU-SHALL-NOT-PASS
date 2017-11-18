@@ -8,7 +8,7 @@ import Logica.Mapa;
 public class Hobbit extends Aliado {
 	
 	public Hobbit(Mapa m) {
-		super(m,15,40);
+		super(m,1,10);
 		precioAliado=10;
 		rango=0;
 		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Hobbit.gif"));
@@ -16,7 +16,7 @@ public class Hobbit extends Aliado {
 	}
 
 	public int getVidaOriginal() {
-		return 40;
+		return 10;
 	}
 	
 	public void eliminar(){
@@ -32,6 +32,6 @@ public class Hobbit extends Aliado {
 	@Override
 	public int getDamageOriginal() {
 		// TODO Auto-generated method stub
-		return 15;
+		return 1;
 	}
 }

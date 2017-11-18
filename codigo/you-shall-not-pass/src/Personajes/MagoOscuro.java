@@ -8,19 +8,19 @@ import Logica.Mapa;
 public class MagoOscuro extends Enemigo {
 
 	public MagoOscuro(Mapa m) {
-		super(m,20,70);
+		super(m,2,12);
 		vive=true;
 		rango=3;
-		velocidad=32;
+		velocidad=8;
 		puntos=20;
-		monedas=7;
+		monedas=10;
 		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/MagoOscuro.gif"));
 		grafico=new JLabel(sprite);
 		grafico.setBackground(null);
 	}
 
 	public int getVidaOriginal() {
-		return 70;
+		return 12;
 	}
 
 	

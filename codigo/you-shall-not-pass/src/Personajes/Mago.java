@@ -8,8 +8,8 @@ import Logica.Mapa;
 public class Mago extends Aliado {
 	
 	public Mago(Mapa m) {
-		super(m,40,80);
-		precioAliado=50;
+		super(m,3,18);
+		precioAliado=20;
 		rango=3;
 		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Mago.gif"));
 		grafico=new JLabel(sprite);
@@ -17,11 +17,11 @@ public class Mago extends Aliado {
 
 
 	public int getVidaOriginal() {
-		return 80;
+		return 18;
 	}
 	
 	public int getDamageOriginal() {
-		return 40;
+		return 3;
 	}
 	
 	public int getRangoOriginal() {

@@ -32,8 +32,8 @@ public abstract class Enemigo extends Personaje {
 		velocidad=i;
 	}
 	
-	public void relentizar(){
-			estado= new Relentizado(this);	
+	public void ralentizar(){
+		estado.ralentizar();
 	}
 	
 	public void proteccion(){
@@ -59,4 +59,5 @@ public abstract class Enemigo extends Personaje {
 	public int getMonedas(){
 		return monedas;
 	}
+
 }

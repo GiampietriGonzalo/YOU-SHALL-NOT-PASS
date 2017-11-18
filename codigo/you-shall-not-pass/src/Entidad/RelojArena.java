@@ -25,7 +25,7 @@ public class RelojArena extends MagiaTemporal{
 			reloj.play();
 
 			for(Enemigo a:j.getEnemigos())
-				a.relentizar();
+				a.ralentizar();
 			
 			this.morir();
 			j.getManipulador().eliminarObjeto(this,this.x, this.y);

@@ -9,11 +9,11 @@ import Personajes.Aliado;
 
 public class Torre extends Aliado {
 
-	//private AudioClip caer = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/caida_torre.WAV")); 
+	private AudioClip caer = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/caida_torre.WAV")); 
 
 	
 	public Torre(Mapa m,ImageIcon imagen,int x, int y) {
-		super(m,5,500);
+		super(m,5,50);
 		this.x=x;
 		this.y=y;
 		rango=0;
@@ -25,11 +25,11 @@ public class Torre extends Aliado {
 	
 	
 	public int getVidaOriginal() {
-		return 500;
+		return 50;
 	}
 	
 	public int getDamageOriginal() {
-		return 20;
+		return 5;
 	}
 	
 	public int getRangoOriginal() {
@@ -56,7 +56,7 @@ public class Torre extends Aliado {
 	
 	public void eliminar(){
 		setSprite("/Imagenes/explosion.gif");
-		//caer.play();
+		caer.play();
 		mapa.eliminarObjeto(this, 9, y);
 	}
 	

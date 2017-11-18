@@ -18,7 +18,7 @@ public class EnemigoProtegido extends EstadoEnemigo{
 		
 	}
 
-	public void relentizar() {
+	public void ralentizar() {
 		
 	}
 	

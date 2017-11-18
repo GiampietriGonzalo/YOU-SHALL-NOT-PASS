@@ -7,11 +7,11 @@ import Logica.Mapa;
 public class Orco extends Enemigo {
 	
 	public Orco(Mapa m) {
-		super(m,20,4000);
+		super(m,2,10);
 		rango=0;
 		velocidad=8;
-		puntos=20;	
-		monedas=7;
+		puntos=10;	
+		monedas=5;
 		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Orco.gif"));
 		grafico=new JLabel(sprite);
 		sprite.setImageObserver(grafico);
@@ -22,7 +22,7 @@ public class Orco extends Enemigo {
 	
 	
 	public int getVidaOriginal() {
-		return 40;
+		return 10;
 	}
 	
 }

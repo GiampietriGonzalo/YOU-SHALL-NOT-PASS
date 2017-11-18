@@ -9,7 +9,7 @@ public class ArcoLegolas extends ComprableTemporal{
 	public ArcoLegolas(Juego j){
 		super(j);
 		tiempo = 15;
-		precio=20;
+		precio=25;
 	}
 
 

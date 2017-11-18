@@ -9,7 +9,7 @@ public class Humano extends Aliado {
 	
 	public Humano(Mapa m) {
 		
-		super(m,1,200);
+		super(m,2,15);
 		precioAliado=15;
 		rango=0;
 		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Humano.gif"));
@@ -19,11 +19,11 @@ public class Humano extends Aliado {
 	}
 
 	public int getVidaOriginal() {
-		return 50;
+		return 15;
 	}
 	
 	public int getDamageOriginal() {
-		return 30;
+		return 2;
 	}
 	
 	public int getRangoOriginal() {

@@ -8,9 +8,9 @@ import Logica.Mapa;
 public class OrcoUrukHai extends Enemigo {
 	
 	public OrcoUrukHai(Mapa m) {
-		super(m,30,40);
-		velocidad=32;
-		puntos=20;
+		super(m,3,15);
+		velocidad=9;
+		puntos=14;
 		monedas=7;
 		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/OrcoUrukHai.gif"));
 		grafico=new JLabel(sprite);
@@ -19,6 +19,6 @@ public class OrcoUrukHai extends Enemigo {
 	}
 
 	public int getVidaOriginal() {
-		return 40;
+		return 15;
 	}
 }

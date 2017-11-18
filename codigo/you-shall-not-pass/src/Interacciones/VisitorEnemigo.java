@@ -45,6 +45,7 @@ public class VisitorEnemigo extends Visitor{
 
 	@Override
 	public void visit(ObjetoConVida o) {
+		o.setSprite("/Imagenes/pelea.gif");
 		miEnemigo.setSprite("/Imagenes/pelea.gif");
 		o.recibirDamage(miEnemigo.getDamage(), miEnemigo);
 	}

@@ -15,7 +15,7 @@ public class Gollum extends ObjetoConVida{
 	public Gollum() {
 		super();
 		gollum.play();
-		vida = 200;
+		vida = 10;
 		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Gollum.gif"));
 		grafico=new JLabel(sprite);
 		sprite.setImageObserver(grafico);

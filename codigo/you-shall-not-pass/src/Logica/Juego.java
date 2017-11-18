@@ -1,5 +1,7 @@
 package Logica;
 
+import java.applet.Applet;
+import java.applet.AudioClip;
 import java.util.*;
 import javax.swing.*;
 import Niveles.*;
@@ -30,7 +32,7 @@ public class Juego {
 	private Stack <Enemigo> s;
 	protected Aritmetica ari;
 	protected Manipulador mani;
-	//protected AudioClip clip = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/Anillo.WAV"));
+	protected AudioClip clip = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/Anillo.WAV"));
 	
 	
 	public Juego(JPanel panelMapa,Manipulador mani,Aritmetica ari) {
@@ -43,13 +45,12 @@ public class Juego {
 		this.mani=mani;
 		this.ari= ari;
 		
-		
 		perdio=false;
 		gano=false;
 		nivel1();
 		s = nivel.crearHorda();
 		oleada = 1;
-	    //clip.loop();
+	    clip.loop();
 	}
 	
 	private void nivel1(){
@@ -111,7 +112,7 @@ public class Juego {
 		i=new Random(System.currentTimeMillis());
 		int prob=i.nextInt(50);
 
-		if(prob==51)
+		if(prob==20)
 			mani.colocarObjetoMapa();
 
 		panelMapa.repaint();
@@ -146,7 +147,6 @@ public class Juego {
 
 
 	public void reiniciar() {
-		//Preg por clear
 		panelMapa.removeAll();
 		aliados.clear();
 		aliados=new LinkedList<Aliado>();
@@ -192,10 +192,14 @@ public class Juego {
 		return ari;
 	}
 
-
-
-	public Manipulador getManipulador(){return mani;}	
-	public void setGano(boolean gano) {this.gano=gano;}
-	public void setPerdio(boolean perdio) {this.perdio=perdio;}
+	public Manipulador getManipulador(){
+		return mani;
+	}	
+	public void setGano(boolean gano) {
+		this.gano=gano;
+	}
+	public void setPerdio(boolean perdio) {
+		this.perdio=perdio;
+	}
 	
 }

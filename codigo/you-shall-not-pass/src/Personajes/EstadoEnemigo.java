@@ -10,7 +10,7 @@ public abstract class EstadoEnemigo {
 	
 	public abstract void proteccion();
 	
-	public abstract void relentizar();
+	public abstract void ralentizar();
 
 	public abstract void recibirDamage(int d, Personaje p);
 

@@ -26,11 +26,11 @@ public class Nivel2 extends Nivel{
 			int p = rnd.nextInt(15);
 			Enemigo e;
 			if(a<5){
-				e = new OrcoUrukHai(juego.getMapa());
+				e = new MagoOscuro(juego.getMapa());
 				e.normal();
 				horda.push(e);
 			}else if (a<8){
-				e = new MagoOscuro(juego.getMapa());
+				e = new Nazgul(juego.getMapa());
 				e.normal();
 				horda.push(e);
 			}

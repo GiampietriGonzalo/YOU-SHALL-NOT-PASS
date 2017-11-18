@@ -1,19 +1,20 @@
 package Personajes;
 
-public class EnemigoNormal extends EstadoEnemigo{
-	
-	public EnemigoNormal(Enemigo e) {
+public class Ralentizado extends EstadoEnemigo{
+
+	public Ralentizado(Enemigo e) {
 		super(e);
-		miEnemigo.setVida(e.getVidaOriginal());
-		miEnemigo.setSprite("/Imagenes/"+e.getClass().getSimpleName()+".gif");
+		miEnemigo.setVida(miEnemigo.vida);
+		miEnemigo.setVelocidad(miEnemigo.getVelocidad()/2);
 	}
 
-	public void proteccion() {}
+	public void proteccion() {
+	
+	}
+
 
 	public void ralentizar() {
-		
-		miEnemigo.setEstado(new Ralentizado(miEnemigo));
-		
+		//No vuelve a relentizar
 	}
 	
 	public void recibirDamage(int d, Personaje p){
@@ -25,4 +26,5 @@ public class EnemigoNormal extends EstadoEnemigo{
 			p.setSprite("/Imagenes/"+p.getClass().getSimpleName()+".gif");
 		}
 	}
+
 }

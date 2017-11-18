@@ -7,7 +7,7 @@ import Logica.Mapa;
 public class Enano extends Aliado{
 	
 	public Enano(Mapa m) {
-		super(m,1000,3000);
+		super(m,4,20);
 		precioAliado=16;
 		rango=0;
 		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Enano.gif"));

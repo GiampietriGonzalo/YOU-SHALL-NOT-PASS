@@ -8,7 +8,6 @@ import java.awt.event.*;
 import Logica.*;
 import Creador.*;
 import ObjetosComprables.*;
-import Personajes.Elfo;
 
 public class GUI_ extends JFrame{
 
@@ -37,7 +36,7 @@ public class GUI_ extends JFrame{
 		panelMapa.setForeground(null);
 		
 		
-		ari= new Aritmetica(0,100);
+		ari= new Aritmetica(0,50);
 		mani= new Manipulador();
 		juego=new Juego(panelMapa,mani,ari);
 		mani.setJuego(juego);
@@ -117,19 +116,7 @@ public class GUI_ extends JFrame{
 		btnEnano.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/BotonEnano.png")));
 		panel_personajes.add(btnEnano);
 		
-		
-		JButton btnEnt = new JButton("(20)");
-		btnEnt.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/BotonEnt.png")));
-		btnEnt.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				creadorPersonajes=new CreadorEnt(juego);
-			}
-		});
-		
-		btnEnt.setToolTipText("ENT");
-		panel_personajes.add(btnEnt);
-		
-		JButton btnMago = new JButton("(50)");
+		JButton btnMago = new JButton("(20)");
 		btnMago.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				creadorPersonajes=new CreadorMago(juego);
@@ -217,10 +204,23 @@ public class GUI_ extends JFrame{
 		panelMapa.setVisible(true);
 		frmYouShallNot.getContentPane().setLayout(null);
 		frmYouShallNot.getContentPane().add(panel_personajes);
+		
+		
+		JButton btnEnt = new JButton("(25)");
+		btnEnt.setIcon(new ImageIcon(GUI_.class.getResource("/Imagenes/BotonEnt.png")));
+		btnEnt.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				creadorPersonajes=new CreadorEnt(juego);
+			}
+		});
+		
+		btnEnt.setToolTipText("ENT");
+		panel_personajes.add(btnEnt);
 		frmYouShallNot.getContentPane().add(panel_tienda);
 		
-		JLabel lblNewLabel_1 = new JLabel(" TIENDA RAPIDA");
-		lblNewLabel_1.setBounds(5, 22, 167, 33);
+		JLabel lblNewLabel_1 = new JLabel(" TIENDA");
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setBounds(37, 22, 104, 33);
 		panel_tienda.add(lblNewLabel_1);
 		lblNewLabel_1.setBackground(Color.BLACK);
 		lblNewLabel_1.setOpaque(true);

@@ -13,13 +13,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
-import java.awt.Font;
 
 public class GUI_Bienvenida {
 
 	private JFrame frmYouShallNot;
 	private String[] arreglomain;
-	//AudioClip clip = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/Medley.WAV"));
+	AudioClip clip = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/Medley.WAV"));
 
 	
 	//Inicia la aplicacion.
@@ -47,17 +46,17 @@ public class GUI_Bienvenida {
 		frmYouShallNot.setTitle("YOU SHALL NOT PASS!");
 		frmYouShallNot.setIconImage(Toolkit.getDefaultToolkit().getImage(GUI_Bienvenida.class.getResource("/Imagenes/icono.jpg")));
 		frmYouShallNot.setBounds(20, 20, 868, 683);
-		//clip.loop();
+		clip.loop();
 		frmYouShallNot.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmYouShallNot.getContentPane().setLayout(null);
 		
 		JButton btnJugar = new JButton("");
 		btnJugar.setIcon(new ImageIcon(GUI_Bienvenida.class.getResource("/Imagenes/jugar.png")));
-		//btnJugar.setFont(new Font("Aniron", Font.PLAIN, 16));
 		btnJugar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				frmYouShallNot.dispose();
-				//clip.stop();
+				clip.stop();
+				@SuppressWarnings("unused")
 				GUI_ juegoPrincipal=new GUI_();
 				
 			}
@@ -67,7 +66,6 @@ public class GUI_Bienvenida {
 		
 		JButton btnSobreElJuego = new JButton("");
 		btnSobreElJuego.setIcon(new ImageIcon(GUI_Bienvenida.class.getResource("/Imagenes/sobre.png")));
-		btnSobreElJuego.setFont(new Font("Aniron", Font.PLAIN, 12));
 		btnSobreElJuego.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				frmYouShallNot.dispose();
@@ -79,7 +77,6 @@ public class GUI_Bienvenida {
 		
 		JButton btnSalir = new JButton("");
 		btnSalir.setIcon(new ImageIcon(GUI_Bienvenida.class.getResource("/Imagenes/salir.png")));
-		btnSalir.setFont(new Font("Aniron", Font.PLAIN, 16));
 		btnSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);

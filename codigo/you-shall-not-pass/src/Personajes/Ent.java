@@ -9,8 +9,8 @@ public class Ent extends Aliado {
 	
 	
 	public Ent(Mapa m) {
-		super(m,30, 60);
-		precioAliado=20;
+		super(m,5,25 );
+		precioAliado=25;
 		rango=0;
 		sprite=new ImageIcon(this.getClass().getResource("/Imagenes/Ent.gif"));
 		grafico=new JLabel(sprite);
@@ -20,11 +20,11 @@ public class Ent extends Aliado {
 
 
 	public int getVidaOriginal() {
-		return 60;
+		return 25;
 	}
 	
 	public int getDamageOriginal() {
-		return 30;
+		return 5;
 	}
 	
 	public int getRangoOriginal() {

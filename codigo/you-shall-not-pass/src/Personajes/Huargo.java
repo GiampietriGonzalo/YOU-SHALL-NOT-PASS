@@ -8,7 +8,7 @@ import Logica.Mapa;
 public class Huargo extends Enemigo {
 	
 	public Huargo(Mapa m){
-		super(m,20,30);
+		super(m,3,12);
 		velocidad=10;
 		puntos=20;
 		monedas=7;
@@ -19,6 +19,6 @@ public class Huargo extends Enemigo {
 	}
 
 	public int getVidaOriginal() {
-		return 30;
+		return 12;
 	}
 }
