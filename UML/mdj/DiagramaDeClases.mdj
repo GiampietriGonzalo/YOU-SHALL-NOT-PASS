@@ -29464,6 +29464,35 @@
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAFfzQKgidvWK2Y=",
+											"_parent": {
+												"$ref": "AAAAAAFfscC8rDzJBjg="
+											},
+											"model": {
+												"$ref": "AAAAAAFfzQKfy9vKQ50="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 1949,
+											"top": 140,
+											"width": 158,
+											"height": 13,
+											"autoResize": false,
+											"underline": false,
+											"text": "-clip: AudioClip",
+											"horizontalAlignment": 0,
+											"verticalAlignment": 5,
+											"wordWrap": false
 										}
 									],
 									"visible": true,
@@ -29478,7 +29507,7 @@
 									"left": 1944,
 									"top": 105,
 									"width": 168,
-									"height": 38,
+									"height": 53,
 									"autoResize": false
 								},
 								{
@@ -29510,7 +29539,7 @@
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": 1949,
-											"top": 148,
+											"top": 163,
 											"width": 158,
 											"height": 13,
 											"autoResize": false,
@@ -29539,7 +29568,7 @@
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": 1949,
-											"top": 163,
+											"top": 178,
 											"width": 158,
 											"height": 13,
 											"autoResize": false,
@@ -29568,7 +29597,7 @@
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": 1949,
-											"top": 178,
+											"top": 193,
 											"width": 158,
 											"height": 13,
 											"autoResize": false,
@@ -29589,7 +29618,7 @@
 									"containerChangeable": false,
 									"containerExtending": false,
 									"left": 1944,
-									"top": 143,
+									"top": 158,
 									"width": 168,
 									"height": 53,
 									"autoResize": false
@@ -54377,6 +54406,24 @@
 							"isStatic": false,
 							"isLeaf": false,
 							"type": "String",
+							"isReadOnly": false,
+							"isOrdered": false,
+							"isUnique": false,
+							"isDerived": false,
+							"aggregation": "none",
+							"isID": false
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAFfzQKfy9vKQ50=",
+							"_parent": {
+								"$ref": "AAAAAAFfscC8qzzBmmg="
+							},
+							"name": "clip",
+							"visibility": "private",
+							"isStatic": false,
+							"isLeaf": false,
+							"type": "AudioClip",
 							"isReadOnly": false,
 							"isOrdered": false,
 							"isUnique": false,
