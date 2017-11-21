@@ -36,7 +36,7 @@ public class Juego {
 	private Stack <Enemigo> s;
 	protected Aritmetica ari;
 	protected Manipulador mani;
-	protected AudioClip clip = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/Anillo.WAV"));
+	//protected AudioClip clip = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/Anillo.WAV"));
 	
 	
 	public Juego(JPanel panelMapa,Manipulador mani,Aritmetica ari) {
@@ -54,7 +54,7 @@ public class Juego {
 		nivel1();
 		s = nivel.crearHorda();
 		oleada = 1;
-	    clip.loop();
+	   // clip.loop();
 	}
 	
 	/**
