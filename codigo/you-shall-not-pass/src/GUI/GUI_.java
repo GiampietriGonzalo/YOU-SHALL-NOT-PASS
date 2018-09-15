@@ -11,7 +11,7 @@ import ObjetosComprables.*;
 
 
 /**
- * Interfaz gráfica del juego. incluye el mapa, la tienda y la compra/venta de personajes. 
+ * Interfaz grï¿½fica del juego. incluye el mapa, la tienda y la compra/venta de personajes. 
  * */
 public class GUI_ extends JFrame{
 
@@ -310,7 +310,7 @@ public class GUI_ extends JFrame{
 	//Hilo que actualiza los puntos y monedas
 	public class Hilo extends Thread{
 		
-		private AudioClip musica_ganar = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/Medley.WAV"));
+		private AudioClip musica_ganar = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/Medley.wav"));
 		private AudioClip musica_perder = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/game_over.wav"));
 
 		private Juego elJuego;

@@ -12,7 +12,7 @@ import Personajes.Aliado;
  * */
 public class Torre extends Aliado {
 
-	private AudioClip caer = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/caida_torre.WAV")); 
+	//private AudioClip caer = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/caida_torre.WAV")); 
 
 	
 	public Torre(Mapa m,ImageIcon imagen,int x, int y) {
@@ -62,7 +62,7 @@ public class Torre extends Aliado {
 	 * **/
 	public void eliminar(){
 		setSprite("/Imagenes/explosion.gif");
-		caer.play();
+		//caer.play();
 		mapa.eliminarObjeto(this, 9, y);
 	}
 	

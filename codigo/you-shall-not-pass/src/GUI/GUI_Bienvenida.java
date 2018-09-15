@@ -15,14 +15,14 @@ import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 
 /**
- * Interfaz gráfica de la bienvenida al juego. 
+ * Interfaz grï¿½fica de la bienvenida al juego. 
  * */
 
 public class GUI_Bienvenida {
 
 	private JFrame frmYouShallNot;
 	private String[] arreglomain;
-	//private AudioClip clip = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/Medley.WAV"));
+	private AudioClip clip = Applet.newAudioClip(this.getClass().getResource("/Musica_Sonidos/Medley.wav"));
 
 	
 	//Inicia la aplicacion.
@@ -50,9 +50,10 @@ public class GUI_Bienvenida {
 		frmYouShallNot.setTitle("YOU SHALL NOT PASS!");
 		frmYouShallNot.setIconImage(Toolkit.getDefaultToolkit().getImage(GUI_Bienvenida.class.getResource("/Imagenes/icono.jpg")));
 		frmYouShallNot.setBounds(20, 20, 868, 683);
-		//clip.loop();
+		clip.loop();
 		frmYouShallNot.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmYouShallNot.getContentPane().setLayout(null);
+		
 		
 		JButton btnJugar = new JButton("");
 		btnJugar.setIcon(new ImageIcon(GUI_Bienvenida.class.getResource("/Imagenes/jugar.png")));
