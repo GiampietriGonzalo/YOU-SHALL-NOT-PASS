@@ -6,74 +6,21 @@
 
     <groupId>you-shall-not-pass</groupId>
     <artifactId>you-shall-not-pass</artifactId>
-    <version>1.0</version>
+    <version>1.0-SNAPSHOT</version>
 
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.3.2</version>
+                <artifactId>maven-jar-plugin</artifactId>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <archive>
+                        <manifestFile>src/main/resources/MANIFEST.MF</manifestFile>
+                    </archive>
                 </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-pmd-plugin</artifactId>
-                <version>3.0.1</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
 
-    <reporting>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>2.4</version>
-            </plugin>
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-pmd-plugin</artifactId>
-                <version>3.0.1</version>
-                <configuration>
-                    <targetJdk>1.6</targetJdk>
-
-                    <!--<rulesets>-->
-                    <rulesets>
-
-                        <!-- Rules -->
-
-                        <!-- Utilización de System.out.println -->
-                        <rule ref="category/java/bestpractices.xml/SystemPrintln" />
-
-                        <!-- Variables locales no utilizadas -->
-                        <rule ref="category/java/bestpractices.xml/UnusedLocalVariable" />
-
-                        <!-- Llamada a un método toString() sobre un objeto que ya es un String -->
-                        <rule ref="category/java/performance.xml/StringToString" />
-
-                        <!-- Se está realizando más de una declaración por línea -->
-                        <rule ref="category/java/bestpractices.xml/OneDeclarationPerLine" />
-
-
-                    </rulesets>
-                    <!--</rulesets>-->
-
-                </configuration>
-            </plugin>
-        </plugins>
-    </reporting>
-    
 </project>
