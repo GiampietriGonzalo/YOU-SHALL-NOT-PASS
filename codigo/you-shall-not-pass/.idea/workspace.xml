@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9fb2fa00-e97b-4993-9aaa-293a2cf95bb9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Creador/CreadorAliado.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Creador/CreadorElfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Creador/CreadorEnano.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Creador/CreadorEnanoPotenciado.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Creador/CreadorEnt.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Creador/CreadorHobbit.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Creador/CreadorHumano.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Creador/CreadorMago.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Creador/CreadorMagoPotenciado.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entidad/Anillo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entidad/Bomba.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entidad/Curacion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entidad/MagiaTemporal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entidad/ObjetoPrecioso.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entidad/Premio.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entidad/RelojArena.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entidad/SacoMonedas.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/GUI_.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/GUI_Bienvenida.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/GUI_Info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/PanelMapa.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/Anillo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/BotonElfo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/BotonEnano.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/BotonEnt.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/BotonHobbit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/BotonHumano.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/BotonMago.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/DisparoElfo.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/DisparoMago.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/DisparoMagoOscuro.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/Elfo.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/ElfoPotenciado.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/Enano.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/EnanoPotenciado.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/Ent.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/EntPotenciado.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/FondoPanel.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/FondoPrincipal.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/GandalfElGris.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/Gollum.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/Hobbit.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/HobbitProtegido.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/Huargo.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/Humano.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/HumanoPotenciado.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/Mago.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/MagoOscuro.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/MagoPotenciado.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/Moneda.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/Nazgul.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/Orco.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/OrcoProtegido.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/OrcoQuieto.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/OrcoUrukHai.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/Pasto.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/Saco.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/Torre0.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/Torre1.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/Torre2.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/Torre3.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/Torre4.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/Torre5.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/TorreRota1.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/TorreRota2.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/TorreRota3.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/Troll.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/TrollProtegido.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/arcoLegolas.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/baculoGandalf.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/bomba.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/botonGandalf.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/coronaAragorn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/ent2.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/explosion.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/fondomontaña.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/hachaGimli.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/icono.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/imagenprincipal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/info.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/jugar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/pelea.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/piedra.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/pocion.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/reloj.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/salir.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/sangre.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/sobre.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagenes/water.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interacciones/Disparo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interacciones/DisparoAliado.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interacciones/DisparoEnemigo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interacciones/Visitor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interacciones/VisitorAliado.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interacciones/VisitorDisparoAliado.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interacciones/VisitorDisparoEnemigo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interacciones/VisitorEnemigo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interacciones/VisitorPremio.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Logica/Aritmetica.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Logica/Celda.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Logica/GameObject.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Logica/Juego.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Logica/Manipulador.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Logica/Mapa.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Logica/Torre.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Musica_Sonidos/Anillo.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Musica_Sonidos/GollumGollum.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Musica_Sonidos/Medley.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Musica_Sonidos/NotPass.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Musica_Sonidos/agua.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Musica_Sonidos/bomba.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Musica_Sonidos/caida_torre.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Musica_Sonidos/game_over.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Musica_Sonidos/piedra.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Musica_Sonidos/pocion.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Musica_Sonidos/proteccion.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Musica_Sonidos/reloj.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Niveles/Nivel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Niveles/Nivel1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Niveles/Nivel2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ObjetosComprables/ArcoLegolas.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ObjetosComprables/ComprableTemporal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ObjetosComprables/CoronaReyAragorn.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ObjetosComprables/ObjetoComprable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ObjetosMapa/Agua.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ObjetosMapa/Ent2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ObjetosMapa/Gandalf.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ObjetosMapa/Gollum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ObjetosMapa/ObjetoConVida.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ObjetosMapa/ObjetoMapa.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ObjetosMapa/ObjetoTemporal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ObjetosMapa/Piedra.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Personajes/Aliado.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Personajes/AliadoNormal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Personajes/AliadoProtegido.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Personajes/Elfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Personajes/Enano.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Personajes/Enemigo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Personajes/EnemigoNormal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Personajes/EnemigoProtegido.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Personajes/Ent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Personajes/EstadoAliado.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Personajes/EstadoEnemigo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Personajes/Hobbit.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Personajes/Huargo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Personajes/Humano.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Personajes/Mago.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Personajes/MagoOscuro.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Personajes/Nazgul.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Personajes/Orco.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Personajes/OrcoUrukHai.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Personajes/Personaje.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Personajes/Potenciado.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Personajes/Ralentizado.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Personajes/Troll.java" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Logica/Juego.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="676">
+              <caret line="76" column="4" lean-forward="true" selection-start-line="76" selection-start-column="4" selection-end-line="76" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/GUI/GUI_.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5049">
+              <caret line="322" column="23" selection-start-line="322" selection-start-column="23" selection-end-line="322" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Logica/Manipulador.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="266">
+              <caret line="306" column="46" selection-start-line="306" selection-start-column="46" selection-end-line="306" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="536">
+              <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/Logica/Juego.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/Logica/Juego.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
+        <option value="$PROJECT_DIR$/.idea/compiler.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="width" value="1680" />
+    <option name="height" value="1050" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="you-shall-not-pass" type="b2602c69:ProjectViewProjectNode" />
+              <item name="you-shall-not-pass" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="you-shall-not-pass" type="b2602c69:ProjectViewProjectNode" />
+              <item name="you-shall-not-pass" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="you-shall-not-pass" type="b2602c69:ProjectViewProjectNode" />
+              <item name="you-shall-not-pass" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="you-shall-not-pass" type="b2602c69:ProjectViewProjectNode" />
+              <item name="you-shall-not-pass" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="you-shall-not-pass" type="b2602c69:ProjectViewProjectNode" />
+              <item name="you-shall-not-pass" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="GUI" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="you-shall-not-pass" type="b2602c69:ProjectViewProjectNode" />
+              <item name="you-shall-not-pass" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Logica" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="settings.editor.selected.configurable" value="PMD" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="GUI_Bienvenida" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GUI.GUI_Bienvenida" />
+      <module name="you-shall-not-pass" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="GUI.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.GUI_Bienvenida" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9fb2fa00-e97b-4993-9aaa-293a2cf95bb9" name="Default Changelist" comment="" />
+      <created>1567122950039</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1567122950039</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.4029304" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.09795918" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="CheckStyle" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.3298731" />
+      <window_info active="true" anchor="bottom" id="PMD" order="12" visible="true" weight="0.32959184" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Maven" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+    </layout>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/GUI/GUI_Info.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/GUI/GUI_Bienvenida.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/GUI/GUI_.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5049">
+          <caret line="322" column="23" selection-start-line="322" selection-start-column="23" selection-end-line="322" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Logica/Manipulador.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="306" column="46" selection-start-line="306" selection-start-column="46" selection-end-line="306" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="536">
+          <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Logica/Juego.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="676">
+          <caret line="76" column="4" lean-forward="true" selection-start-line="76" selection-start-column="4" selection-end-line="76" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>12</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="codigo/you-shall-not-pass/src"/>
+	<classpathentry kind="output" path="codigo/you-shall-not-pass/out/production/you-shall-not-pass"/>
+</classpath>

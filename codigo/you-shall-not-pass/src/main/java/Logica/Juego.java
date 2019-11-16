@@ -54,7 +54,7 @@ public class Juego {
 		nivel1();
 		s = nivel.crearHorda();
 		oleada = 1;
-	   // clip.loop();
+	    System.out.println("Unnecessary print");
 	}
 	
 	/**
@@ -87,52 +87,69 @@ public class Juego {
 	 * Actualiza el estado del juego y los movimientos de los objetos del mapa.
 	 * */
 	public void actualizar(){
-		
-		if(sumador++%3==0) 
-			ari.sumarMonedas(1);
-		
+		actualizarOleada();
+		eliminarMuertos();
+
+		mani.eliminarPremios();
+		mani.moverEnemigos();
+		mani.actualizarAliados();
+
+		sumarMonedas();
+		insertarObjetosEnMapa();
+		actualizarNivel();
+		determinarVictoria();
+	}
+
+	private void actualizarOleada() {
 		if(s.isEmpty() && enemigos.isEmpty()){
 			s = nivel.crearHorda();
-			nuevaOleada();	
-		}
-		else{ 
-			if(!s.isEmpty()) 
+			nuevaOleada();
+		} else {
+			if(!s.isEmpty())
 				mani.colocarEnemigoMapa(s);
 		}
-		
+	}
+
+	private void sumarMonedas() {
+		if(sumador++%3==0)
+			ari.sumarMonedas(1);
+	}
+
+	private void eliminarMuertos() {
 		LinkedList<GameObject> toDelete = new LinkedList<GameObject>();
-		
+
 		for(GameObject e:todos){
 			e.actualizar();
 			if(!e.estaVivo()){
 				toDelete.add(e);
 			}
-			
 		}
-		
+
 		for(GameObject e:toDelete){
-			todos.remove(e);	
+			todos.remove(e);
 			mapa.eliminarObjeto(e,e.x,e.y);
 			panelMapa.remove(e.getGrafico());
 		}
-		
-		mani.eliminarPremios();
-		mani.moverEnemigos();
-		mani.actualizarAliados();
-		
+	}
+
+	private void insertarObjetosEnMapa() {
 		Random i;
-		i=new Random(System.currentTimeMillis());
-		int prob=i.nextInt(50);
+		i = new Random(System.currentTimeMillis());
+		int prob = i.nextInt(50);
 
 		if(prob==20)
 			mani.colocarObjetoMapa();
 
 		panelMapa.repaint();
-		
+	}
+
+	private void actualizarNivel() {
 		if (oleada == 3)
 			nivel2();
-		
-		if(s.isEmpty() && enemigos.isEmpty() && oleada==6) 
+	}
+
+	private void determinarVictoria() {
+		if(s.isEmpty() && enemigos.isEmpty() && oleada==6)
 			gano = true;
 	}
 	
