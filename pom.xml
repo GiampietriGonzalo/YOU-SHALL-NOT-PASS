@@ -65,7 +65,7 @@
                 <configuration>
                     <targetJdk>1.6</targetJdk>
                     <!--<rulesets>-->
-                    <!--<ruleset>pmd_rules.xml</ruleset>-->
+                    <ruleset>/rulesets/basic.xml</ruleset>
                     <!--</rulesets>-->
                 </configuration>
             </plugin>
