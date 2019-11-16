@@ -1,27 +1,12 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.toolstest</groupId>
-    <artifactId>ToolsTest</artifactId>
-    <packaging>jar</packaging>
-    <version>1.0-SNAPSHOT</version>
-    <name>ToolsTest</name>
-    <url>http://maven.apache.org</url>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.11</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
+    <groupId>you-shall-not-pass</groupId>
+    <artifactId>you-shall-not-pass</artifactId>
+    <version>1.0</version>
 
     <build>
         <plugins>
@@ -54,8 +39,8 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jxr-plugin</artifactId>
-                <version>2.3</version>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.4</version>
             </plugin>
 
             <plugin>
@@ -64,36 +49,38 @@
                 <version>3.0.1</version>
                 <configuration>
                     <targetJdk>1.6</targetJdk>
+
                     <!--<rulesets>-->
-                    <ruleset name="TP2_Ruleset"
-                           xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
-                           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                           xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
-                           <!-- Rules -->
+                    <rulesets>
 
-                           <!-- Utilización de System.out.println -->
-                           <rule ref="category/java/bestpractices.xml/SystemPrintln" />
+                        <!-- Rules -->
 
-                           <!-- Complejidad ciclomática mayor a 6 -->
-                           <rule ref="category/java/design.xml/CyclomaticComplexity">
-                           <properties>
-                                    <property name="methodReportLevel" value="6" />
-                           </properties>
-                           </rule>
+                        <!-- Utilización de System.out.println -->
+                        <rule ref="category/java/bestpractices.xml/SystemPrintln" />
 
-                           <!-- Variables locales no utilizadas -->
-                           <rule ref="category/java/bestpractices.xml/UnusedLocalVariable" />
+                        <!-- Complejidad ciclomática mayor a 6 -->
+                        <rule ref="category/java/design.xml/CyclomaticComplexity">
+                            <properties>
+                                <property name="methodReportLevel" value="6" />
+                            </properties>
+                        </rule>
 
-                           <!-- Llamada a un método toString() sobre un objeto que ya es un String -->
-                           <rule ref="category/java/performance.xml/StringToString" />
+                        <!-- Variables locales no utilizadas -->
+                        <rule ref="category/java/bestpractices.xml/UnusedLocalVariable" />
 
-                            <!-- Se está realizando más de una declaración por línea -->
-                           <rule ref="category/java/bestpractices.xml/OneDeclarationPerLine" />
-                    </ruleset>
+                        <!-- Llamada a un método toString() sobre un objeto que ya es un String -->
+                        <rule ref="category/java/performance.xml/StringToString" />
+
+                        <!-- Se está realizando más de una declaración por línea -->
+                        <rule ref="category/java/bestpractices.xml/OneDeclarationPerLine" />
+
+
+                    </rulesets>
                     <!--</rulesets>-->
+
                 </configuration>
             </plugin>
         </plugins>
     </reporting>
-
+    
 </project>
